@@ -6,13 +6,14 @@ def process(filename):
    with open(filename, "r") as infile:
       for line in infile:
          line = line.strip()
-         if line[0] == '#':
+         if len(line) == 0 or line[0] == '#':
             continue
          try:
             (dvcs, name, repo) = line.split(",")
          except:
             print("Bad input line; not in format: dvcs,name,repo");
             continue
+         print("Processing %s" % repo)
    
          if dvcs == 'hg':
             os.system("./hg.update.sh %s %s" % (name, repo))
