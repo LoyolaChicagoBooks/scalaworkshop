@@ -1,0 +1,8 @@
+git,hello,git@github.com:oop-cs-luc-edu/hello-scala-eclipse.git
+git,miniool,git@github.com:oop-cs-luc-edu/miniool-scala.git
+git,misc,git@github.com:oop-cs-luc-edu/misc-scala.git
+git,shapes-algebraic,git@github.com:oop-cs-luc-edu/shapes-algebraic-scala.git
+git,shapes,git@github.com:oop-cs-luc-edu/shapes-scala.git
+git,expressions,git@github.com:oop-cs-luc-edu/expressions-scala.git
+hg,lcs-systolicarray-scala,https://gkthiruvathukal@bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
+hg,integration,https://bitbucket.org/loyolachicagocs_plsystems/integration-scala
