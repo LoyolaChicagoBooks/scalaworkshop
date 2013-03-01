@@ -1,8 +1,8 @@
-git,hello,git@github.com:oop-cs-luc-edu/hello-scala-eclipse.git
-git,miniool,git@github.com:oop-cs-luc-edu/miniool-scala.git
-git,misc,git@github.com:oop-cs-luc-edu/misc-scala.git
-git,shapes-algebraic,git@github.com:oop-cs-luc-edu/shapes-algebraic-scala.git
-git,shapes,git@github.com:oop-cs-luc-edu/shapes-scala.git
-git,expressions,git@github.com:oop-cs-luc-edu/expressions-scala.git
-hg,lcs-systolicarray-scala,https://gkthiruvathukal@bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
 hg,integration,https://bitbucket.org/loyolachicagocs_plsystems/integration-scala
+hg,clickcounter,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/clickcounter-android-scala
+hg,hello,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/hello-android-scala
+hg,lcs-systolicarray,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
+hg,hpspc-babysteps,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/hpspc-babysteps
+#hg,predatorprey,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/predatorprey-scala-eclipse
+hg,osdi-processtree,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/osdi-processtree-scala
+git,primenumbers-spray,git@github.com:webservices-cs-luc-edu/primenumbers-spray-scala.git

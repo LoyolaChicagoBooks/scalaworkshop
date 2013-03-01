@@ -2,14 +2,14 @@
 
 SHORT_NAME=$1
 REPO_URI=$2
+EXAMPLE_DIR=examples
+THIS_EXAMPLE_DIR=$EXAMPLE_DIR/$SHORT_NAME
 
-mkdir -p examples
-pushd examples
-if [ -e "$SHORT_NAME" ]; then
-   cd $SHORT_NAME
+mkdir -p $EXAMPLE_DIR
+if [ -e "$THIS_EXAMPLE_DIR" ]; then
+   cd $THIS_EXAMPLE_DIR
    git pull
 else
-   rm -rf $SHORT_NAME
-   git clone $REPO_URI $SHORT_NAME
+   rm -rf $THIS_EXAMPLE_DIR
+   git clone $REPO_URI $THIS_EXAMPLE_DIR
 fi
-popd
