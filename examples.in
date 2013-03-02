@@ -37,3 +37,4 @@ git,shapes-algebraic,git@github.com:oop-cs-luc-edu/shapes-algebraic-scala.git
 git,expressions,git@github.com:oop-cs-luc-edu/expressions-scala.git
 git,factorial-fixpoint,git@github.com:oop-cs-luc-edu/factorial-fixpoint-scala.git
 git,expressions-algebraic,git@github.com:oop-cs-luc-edu/expressions-algebraic-scala.git
+hg,hpjpc,ssh://hg@bitbucket.org/loyolachicagocs_books/hpjpc-source-java
