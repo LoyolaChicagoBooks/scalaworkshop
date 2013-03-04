@@ -42,8 +42,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Introduction to Computer Science in C#'
-copyright = u'2012, Andrew N. Harrington and George Thiruvathukal'
+project = u'SIGCSE 2013 Scala Workshop'
+copyright = u'2012, Konstantin Läufer, Mark Lewis and George Thiruvathukal'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -233,8 +233,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'introcscsharp', u'Introduction to Computer Science in C#',
-     [u'Andrew N. Harrington and George K. Thiruvathukal'], 1)
+    ('index', 'introcscsharp', u'SIGCSE 2013 Workshop',
+     [u'Mark Lewis, Konstantin Läufer, and George K. Thiruvathukal'], 1)
 ]
 
 # If true, show URL addresses after external links.
