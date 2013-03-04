@@ -88,7 +88,6 @@ The following figure (figures from [HPJPC]_ shows how a systolic array can be us
 the LCS computation.
 
 .. image:: figures/lcs-systolic.png
-   :width: 640px
    :alt: Systolic Array/Wavefront Illustration
    :align: center
 
@@ -96,7 +95,6 @@ the LCS computation.
 The following figure shows how a wavefront computation progresses.
 
 .. image:: figures/lcs-wavefront.png
-   :width: 640px
    :alt: Systolic Array/Wavefront Illustration
    :align: center
 
@@ -121,7 +119,6 @@ producer-consumer releationship.
 The following figure shows how our Java solution organizes the work in bands:
 
 .. image:: figures/lcs-bands.png
-   :width: 640px
    :alt: Systolic Array/Wavefront Illustration
    :align: center
 
