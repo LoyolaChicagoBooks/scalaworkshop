@@ -177,6 +177,88 @@ Main
 Scala Actors Implementation
 ------------------------------------
 
+.. highlight:: scala
+
+
+Trait
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+   :start-after: begin-trait-SystolicArray
+   :end-before: end-trait-SystolicArray
+   :linenos:
+
+The entire SystolicArray implementation is here:
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+   :start-after: begin-trait-SystolicArray
+   :end-before: end-trait-SystolicArray
+   :linenos:
+
+
+Logging
+
+  // begin-object-logger
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+   :start-after: begin-object-logger
+   :end-before: end-object-logger
+   :linenos:
+
+Apply
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+   :start-after: begin-object-apply
+   :end-before: end-object-apply
+   :linenos:
+
+The internal Cell class, used to represent the cells of the Systolic Array (generally).
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+   :start-after: begin-class-Cell
+   :end-before: end-class-Cell
+   :linenos:
+
+This is used for autowiring the quadrant from where messages are being fired (from). It is an example
+of how Scala can help us avoid making mistakes. In scientific computations, subscript problems are common.
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+   :start-after: begin-mapToHelper
+   :end-before: end-mapToHelper
+   :linenos:
+
+This is used to autowire the left and top edges of the array. Although easy enough to check, it can be
+difficult to remember which subscript is row or column. Scala again makes this very easy for us. As we'll
+see, it also helps to make the user function self-documenting (literate).
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+   :start-after: begin-posToHelper
+   :end-before: end-posToHelper
+   :linenos:
+
+Wrapping it up with object lcs...
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/lcs.scala
+   :start-after: begin-object-lcs
+   :end-before: end-object-lcs
+   :linenos:
+
+Setting up the text fixtures...
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/test/scala/edu/luc/etl/sigcse13/scala/lcs/Fixtures.scala
+   :start-after: begin-lcs-Fixtures
+   :end-before: end-lcs-Fixtures
+   :linenos:
+
+Testing...
+
+.. literalinclude:: ../examples/lcs-systolicarray/src/test/scala/edu/luc/etl/sigcse13/scala/lcs/Tests.scala
+   :start-after: begin-lcs-Tests
+   :end-before: end-lcs-Tests
+   :linenos:
+
+
+
+
 Future Topics
 ----------------------
 
