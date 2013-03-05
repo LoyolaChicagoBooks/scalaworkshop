@@ -1,10 +1,10 @@
 .. index::
-   single:  concurrency
+   double: parallelism; actors
 
-.. _concurrency:
+.. _actors:
 
-Concurrency
-==================
+Parallelism using Actors
+=============================
 
 In this section, we're going to take a look at the Java vs. Scala  way of
 doing things. We'll look at a guiding example that is focused on

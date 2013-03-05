@@ -17,6 +17,8 @@ Contents:
    cs1
    cs2
    pl
+   parallel
+   actors
    net
 
 

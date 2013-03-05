@@ -6,5 +6,4 @@ Programming Language Topics
 
    abstraction
    representation
-   concurrency
    

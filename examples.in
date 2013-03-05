@@ -4,7 +4,7 @@
 #
 # HPC-style examples (George and Konstantin)
 #
-hg,integration,https://bitbucket.org/loyolachicagocs_plsystems/integration-scala
+hg,integration,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/integration-scala
 hg,lcs-systolicarray,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
 
 # Student-contributed
