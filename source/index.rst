@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
    :numbered:
 
+   download
    scalaoverview
    cs1
    cs2
@@ -24,6 +25,5 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 

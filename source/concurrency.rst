@@ -1,3 +1,8 @@
+.. index::
+   single:  concurrency
+
+.. _concurrency:
+
 Concurrency
 ==================
 
@@ -9,6 +14,11 @@ We'll show how to organize a previously worked out solution that uses more
 explicit concurrency mechanisms from Java and how it can be reworked into a
 side-effect free Scala version by taking advantage of Scala's innate support
 for basic actor-style parallelism.
+
+.. index::
+   double: algorithm; Longest Common Subsequence
+
+.. _lcs:
 
 Guiding Example: Longest Common Subsequence
 ----------------------------------------------
@@ -100,6 +110,10 @@ The following figure shows how a wavefront computation progresses.
 
 .. [HPJPC] Thomas W. Christopher and George K. Thiruvathukal, *High Performance Java Platform Computing*, Prentice Hall PTR and Sun Microsystems Press, 2000.
 
+.. index::
+   double: concurrency; explicit
+   double: parallelism; explicit
+
 Java Threads Implementation
 ----------------------------------
 
@@ -172,7 +186,13 @@ Main
    :linenos:
 
 
+.. index::
+   single: systolic arrays
+   single: Actors
+   single: dataflow
+   double: parallelism; implicit
 
+.. _actors:
 
 Scala Actors Implementation
 ------------------------------------
@@ -194,6 +214,11 @@ The entire SystolicArray implementation is here:
    :end-before: end-trait-SystolicArray
    :linenos:
 
+
+.. index::
+   double: technique; logging
+   
+.. _logging:
 
 Logging
 
