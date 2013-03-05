@@ -1,6 +1,8 @@
 Basic Parallelism using Par
 ==============================
 
+*This is still being edited to be a bit more Scala-specific.*
+
 Using parallelism solves problems more quickly than using a
 single-processor machine, as is the case where groups of people solve
 problems larger than one person can solve. But just as with groups of
