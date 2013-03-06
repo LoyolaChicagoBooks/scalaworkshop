@@ -108,3 +108,17 @@ us the following:
 We've now reduced the problem to computing the parallel sum term, which is represented nicely
 in Scala.
 
+Scala Code
+-------------
+
+.. literalinclude:: ../examples/integration/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
+   :linenos:
+
+.. literalinclude:: ../examples/integration/src/test/scala/edu/luc/etl/sigcse13/scala/integration/Fixtures.scala
+   :linenos:
+
+.. literalinclude:: ../examples/integration/src/test/scala/edu/luc/etl/sigcse13/scala/integration/Main.scala
+   :linenos:
+
+
+
