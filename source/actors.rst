@@ -116,6 +116,16 @@ The following figure shows how a wavefront computation progresses.
 Java Threads Implementation
 ----------------------------------
 
+
+|bitbucket| ZIP File
+  https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java/get/default.zip
+
+|bitbucket| via Mercurial
+  hg clone https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java
+
+|instructions| Build and Run Instructions
+  https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java
+
 Our Java implementation (see `LCS.java  <http://bit.ly/HPJPC-LCS>`_)  of the
 LCS algorithm divides the array into vertical bands and is pictured in Each
 band is filled in row by row from top to bottom. Each band (except the
@@ -131,6 +141,8 @@ The following figure shows how our Java solution organizes the work in bands:
    :align: center
 
 LCS class
+
+.. highlight:: java
 
 .. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-LCS-vars
@@ -196,6 +208,14 @@ Scala Actors Implementation
 
 .. highlight:: scala
 
+|bitbucket| ZIP File
+  https://bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala/get/default.zip
+
+|bitbucket| via Mercurial
+  hg clone https://bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
+
+|instructions| Build and Run Instructions
+  https://bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
 
 Trait
 
@@ -276,11 +296,3 @@ Testing...
    :start-after: begin-lcs-Tests
    :end-before: end-lcs-Tests
    :linenos:
-
-
-
-
-Future Topics
-----------------------
-
-- software-transactional memory (not sure it makes sense for this problem)
