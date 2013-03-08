@@ -45,7 +45,7 @@ professionals serving as adjuncts.
 - `COMP 373/473: Advanced Object-Oriented Development <http://laufer.cs.luc.edu/teaching/473>`_, 
   using Scala since spring 2010, planning to add Android in spring 2014
 - `COMP 372/471: Theory (and Practice) of Programming Languages <http://laufer.cs.luc.edu/teaching/372>`_, 
-  using Haskell and F# since fall 2010
+  using Haskell (and some F#) since fall 2010
 - `COMP 338/442: Server-Side Software Development <http://laufer.cs.luc.edu/teaching/442>`_ 
   (focusing on web applications), using Scala with the 
   `Play! framework <http://www.playframework.com/>`_ since fall 2010
