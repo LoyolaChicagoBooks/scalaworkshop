@@ -98,11 +98,11 @@ rst_prolog = """
              :alt: Instructions
              :align: middle
 
-.. |instructions| image:: figures/pdf.png
+.. |pdf| image:: figures/pdf.png
              :alt: PDF
              :align: middle
 
-.. |instructions| image:: figures/epub.png
+.. |epub| image:: figures/epub.png
              :alt: ePub
              :align: middle
 
