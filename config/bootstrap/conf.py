@@ -106,6 +106,11 @@ rst_prolog = """
              :alt: ePub
              :align: middle
 
+.. |html| image:: figures/html.png
+             :alt: HTML
+             :align: middle
+
+
 .. highlight:: scala
    
 """
