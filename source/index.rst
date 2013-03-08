@@ -15,6 +15,7 @@ Contents:
    download
    parallel
    actors
+   buildtools
    webservices
    android
 
