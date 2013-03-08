@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -f ~/.env/sphinx/bin/activate ]; then
+        . ~/.env/sphinx/bin/activate
+fi
+
 make html
 make latexpdf
 make epub

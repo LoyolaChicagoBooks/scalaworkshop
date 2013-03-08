@@ -89,7 +89,11 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 rst_prolog = """
-.. highlight:: csharp
+
+.. |bitbucket| image:: figures/bitbucket.png
+             :alt: Warning!
+
+.. highlight:: Scala
    
 """
 
