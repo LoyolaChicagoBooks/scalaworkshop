@@ -42,22 +42,18 @@ Starting in 2010, we have been incorporating Scala into several of
 these courses, taught mostly by Konstantin and experienced
 professionals serving as adjuncts.
 
-- `COMP 373/473: Advanced Object-Oriented Development
-  <http://laufer.cs.luc.edu/teaching/473>`_, using Scala since spring
-  2010, planning to add Android in spring 2014
-- `COMP 372/471: Theory (and Practice) of Programming Languages
-  <http://laufer.cs.luc.edu/teaching/372>`_, using Haskell and F#
-  since fall 2010
-- `COMP 338/442: Server-Side Software Development
-<http://laufer.cs.luc.edu/teaching/442>`_ (focusing on web
-applications), using Scala with the `Play! framework
-<http://www.playframework.com/>`_ since fall 2010
-- `COMP 388/433: Web Services Development
-  <http://laufer.cs.luc.edu/teaching/433`_, using Scala with the
-  `spray toolkit <http://spray.io>`_ since spring 2011
-- `COMP 313/413: Intermediate Object-Oriented Development
-  <http://laufer.cs.luc.edu/teaching/313`_ (focusing on software
-  design and architecture), using Java with Android since fall 2012,
+- `COMP 373/473: Advanced Object-Oriented Development <http://laufer.cs.luc.edu/teaching/473>`_, 
+  using Scala since spring 2010, planning to add Android in spring 2014
+- `COMP 372/471: Theory (and Practice) of Programming Languages <http://laufer.cs.luc.edu/teaching/372>`_, 
+  using Haskell and F# since fall 2010
+- `COMP 338/442: Server-Side Software Development <http://laufer.cs.luc.edu/teaching/442>`_ 
+  (focusing on web applications), using Scala with the 
+  `Play! framework <http://www.playframework.com/>`_ since fall 2010
+- `COMP 388/433: Web Services Development <http://laufer.cs.luc.edu/teaching/433>`_, 
+  using Scala with the `spray toolkit <http://spray.io>`_ 
+  since spring 2011
+- `COMP 313/413: Intermediate Object-Oriented Development <http://laufer.cs.luc.edu/teaching/313>`_ 
+  (focusing on software design and architecture), using Java with Android since fall 2012,
   considering the addition of Scala down the road
 
 
@@ -130,28 +126,37 @@ Examples
   <http://laufer-todolist-play-scala.herokuapp.com>`_
 
 
-web services
+Web Services
+------------
 
+As opposed to the Simple Object Access Protocol (SOAP), we will focus
+on representational state transfer (REST), which has emerged as the
+preferred approach of the broader agile community.
 
-IPMLEMENTING REST
+The implementing-rest community has put together a helpful 
+`language matrix <https://code.google.com/p/implementing-rest/wiki/ByLanguage>`_
+of REST libraries, toolkits, and frameworks. Typesafe's stack does not
+yet include strong support for RESTful web services in the sense of
+a high-level DSL for request routing, which is where some of the
+choices in the language matrix come into the picture. 
 
-https://devcenter.heroku.com/articles/scala
+We have picked `spray <http://spray.io>`_ not only because the author is from
+Konstantin's home town but also because it is:
 
-continuous delivery -> newer APaaS: Heroku, CloudFoundry, etc.
-easy to deploy a service or app in the cloud
-
-Heroku supports Scala very nicely
-
-show parts of this in Scala
-
-https://github.com/webservices-cs-luc-edu/restlet-book-examples/tree/master/src/main/java/org/restlet/example/book/rest/ch7
-
-prime numbers
-
-http://alvinalexander.com/scala/scala-rest-client-apache-httpclient-restful-clients
-
-I picked spray because it rocks
 - concise
 - flexible
 - type-safe
-- lets students focus on HTTP
+- focus on HTTP and request routing
+- more and more widely used and supported
+
+Scala and Spray are supported by `Heroku <https://devcenter.heroku.com/articles/scala>`_ 
+and several other newer APaaS cloud providers. Deploying a service to the cloud requires
+a simple Git commit; this makes it possible to achieve continuous delivery.
+
+Examples
+++++++++
+
+- `Social bookmarking example based on Java with the Restlet framework <https://github.com/webservices-cs-luc-edu/restlet-book-examples/tree/master/src/main/java/org/restlet/example/book/rest/ch7>`_
+- `Prime number checker based on Scala with spray <https://github.com/webservices-cs-luc-edu/primenumbers-spray-scala>`_
+
+
