@@ -1,8 +1,6 @@
 .. index::
    single: download
 
-.. _lcs:
-
 Downloading
 ======================
 
