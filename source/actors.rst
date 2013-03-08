@@ -82,7 +82,7 @@ the maximum length of the LCS for all but the last character of
 The chore graph from [HPJPC]_ for calculation of the LCS is shown in the following figure.
 
 .. image:: figures/lcs-systolic.png
-   :alt: Systolic Array/Wavefront Illustration
+   :alt: Systolic Array
    :width: 500 px
    :align: center
 
@@ -100,9 +100,8 @@ been researched under the names systolic arrays and wavefront arrays
 The following figure shows how a wavefront computation progresses.
 
 .. image:: figures/lcs-wavefront.png
-   :alt: Systolic Array/Wavefront Illustration
+   :alt: Wavefront Illustration
    :width: 500 px
-
    :align: center
 
 
@@ -192,8 +191,6 @@ Main
    single: dataflow
    double: parallelism; implicit
 
-.. _actors:
-
 Scala Actors Implementation
 ------------------------------------
 
@@ -213,7 +210,6 @@ The entire SystolicArray implementation is here:
    :start-after: begin-trait-SystolicArray
    :end-before: end-trait-SystolicArray
    :linenos:
-
 
 .. index::
    double: technique; logging
