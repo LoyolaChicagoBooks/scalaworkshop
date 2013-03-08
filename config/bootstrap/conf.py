@@ -91,9 +91,22 @@ pygments_style = 'sphinx'
 rst_prolog = """
 
 .. |bitbucket| image:: figures/bitbucket.png
-             :alt: Warning!
+             :alt: Bitbucket
+             :align: middle
+             
+.. |instructions| image:: figures/instructions.png
+             :alt: Instructions
+             :align: middle
 
-.. highlight:: Scala
+.. |instructions| image:: figures/pdf.png
+             :alt: PDF
+             :align: middle
+
+.. |instructions| image:: figures/epub.png
+             :alt: ePub
+             :align: middle
+
+.. highlight:: scala
    
 """
 

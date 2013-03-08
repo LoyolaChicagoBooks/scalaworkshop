@@ -120,18 +120,15 @@ specify the grain size (number of rectangles to do sequentially at a time), it i
 Download the Code
 -------------------
 
-ZIP Archive
 
-|bitbucket| https://bitbucket.org/loyolachicagocs_plsystems/integration-scala/get/default.zip 
+|bitbucket| ZIP File
+  https://bitbucket.org/loyolachicagocs_plsystems/integration-scala/get/default.zip 
 
-Clone via Mercurial (more advanced)
+|bitbucket| via Mercurial
+  hg clone https://bitbucket.org/loyolachicagocs_plsystems/integration-scala
 
-|bitbucket| hg clone https://bitbucket.org/loyolachicagocs_plsystems/integration-scala
-
-Build/Run Instructions
----------------------------
-
-- See https://bitbucket.org/loyolachicagocs_plsystems/integration-scala/overview.
+|instructions| Build and Run Instructions
+  https://bitbucket.org/loyolachicagocs_plsystems/integration-scala/overview
 
 Going Scala!
 ---------------------------
