@@ -1,8 +1,6 @@
 .. index::
    single: download
 
-.. _lcs:
-
 Downloading
 ======================
 
@@ -32,11 +30,14 @@ Viewing Offline
 
 We also provide the following formats for offline reading:
 
-- `PDF <http://scalaworkshop.cs.luc.edu/latex/sigcse-scala.pdf>`_ (for printing or desktop reading)
+|pdf| 
+  http://scalaworkshop.cs.luc.edu/latex/sigcse-scala.pdf (for offline desktop/tablet viewing)
 
-- `ePub <http://scalaworkshop.cs.luc.edu/epub/sigcse-scala.epub>`_ (for e-reading devices, e.g. e-readers, tablets, or Adobe Digital Editions on desktop)
+|epub|
+  http://scalaworkshop.cs.luc.edu/epub/sigcse-scala.epub
 
-- `HTML <http://scalaworkshop.cs.luc.edu/html/>`_ (what you are reading now)
+|html|
+  http://scalaworkshop.cs.luc.edu/
 
 .. index::
    single: contact the authors
