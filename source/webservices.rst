@@ -156,7 +156,7 @@ a simple Git commit; this makes it possible to achieve continuous delivery.
 Examples
 ++++++++
 
-- `Social bookmarking example based on Java with the Restlet framework <https://github.com/webservices-cs-luc-edu/restlet-book-examples/tree/master/src/main/java/org/restlet/example/book/rest/ch7>`_
+- `Social bookmarking example based on Java with the Restlet framework <https://github.com/webservices-cs-luc-edu/bookmarks-restlet-spring-java>`_
 - `Prime number checker based on Scala with spray <https://github.com/webservices-cs-luc-edu/primenumbers-spray-scala>`_
 
 
