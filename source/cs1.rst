@@ -1,7 +1,4 @@
-CS1
-######################
+Scala in CS1 and CS2
+=====================
 
-.. toctree::
-   :maxdepth: 3
-
- 
+This part of our presentation is on Google Documents: http://goo.gl/Q68fA.
