@@ -85,7 +85,7 @@ Prize
   The first pair to add both new requirements wins a pair of
   T-shirts. If there is no such pair, the first pair to complete one
   of the requirements wins the T-shirts. Otherwise we will raffle off
-  the T-shirts by throwing them into the crows.
+  the T-shirts by throwing them into the crowd.
 
 Memorabilia
   Every participant receives stickers and pins. Yay!
