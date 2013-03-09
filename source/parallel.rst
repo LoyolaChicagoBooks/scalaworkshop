@@ -1,8 +1,6 @@
 Basic Parallelism using Par
 ==============================
 
-*This is still being edited to be a bit more Scala-specific.*
-
 Using parallelism solves problems more quickly than using a
 single-processor machine, as is the case where groups of people solve
 problems larger than one person can solve. But just as with groups of
@@ -15,7 +13,8 @@ parallel processors:
    program at the same time. Kernel threads allow this in Java. An
    alternative approach is to have several networked computers work on
    parts of the problem; this is discussed in Chapters 11 and 12,
-   “Networking” and “Coordination.”
+   “Networking” and “Coordination.” of the HPJPC book by Christopher and
+   Thiruvathukal.
 
 -  We need to assign parts of the problem to threads. This at least
    requires rewriting a sequential program. It usually requires
@@ -120,7 +119,6 @@ specify the grain size (number of rectangles to do sequentially at a time), it i
 Download the Code
 -------------------
 
-
 |bitbucket| ZIP File
   https://bitbucket.org/loyolachicagocs_plsystems/integration-scala/get/default.zip 
 
@@ -220,9 +218,21 @@ This is still being written up but will be demonstrated live.
    :start-after: begin-integrateParallelGranular
    :end-before: end-integrateParallelGranular
 
+Previous Work
+-------------------
 
+This example was developed as part of High-Performance Java Platform Computing by Thomas W. Christopher and George K. Thiruvathukal.
 
-Previous Java Work
------------------------
+|pdf| PDF of Book
+  https://hpjpc.googlecode.com/files/HPJPC%20Christopher%20and%20Thiruvathukal.pdf
+
+|bitbucket| ZIP File
+  https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java/get/default.zip
+ 
+|bitbucket| via Mercurial
+  hg clone https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java  
+
+|instructions| Build and Run Instructions
+  https://bitbucket.org/loyolachicagocs_plsystems/integration-scala/overview
 
 
