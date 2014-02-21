@@ -335,10 +335,245 @@ Here we are creating a version that has a default value of zero, if the caller d
 is not necessarily intended to be pedagogically interesting but is effective, considering we spent most of 
 our time in this section looking at the ``square()`` function!)
 
+.. todo::
+
+   George will continue working on this.
+
+How Scala Allows us to focus on CS1 Ideas
+---------------------------------------------
+
+An example that often resonates well with students is the Monte Carlo method,
+which uses randomness to perform the :math:`\pi` computation. In the interests
+of showing how Scala's approach to functional programming follows the textual
+description, we will write the steps and show the code (in Scala) to perform
+each step in an integrated fashion.
+
+In the Monte Carlo method for calculating :math:`\pi`, we will randomly
+generate a given number of darts using a Scala stream. We *fire* the darts
+into a unit circle, which is bounded by a square, whose dimensions are
+:math:`2 x 2` units.  The darts that fall within the unit circle satisfy the
+constraint :math:`x^2 + y^2 <= 1`.
+
+Let's start by establishing the needed functions. First, here is the now-
+familiar ``square(x:Double)`` function, again for reference.
+
+.. code-block:: scala
+
+   def sqr(x: Double) = x * x
+
+We use this function to create another function, which tests whether a given
+dart, specified as an (x, y) coordinate pair (a Scala tuple), falls within the
+unit circle:
+
+.. code-block:: scala
+
+   val inCircle: ((Double, Double)) => Boolean = { case (x, y) => sqr(x) + sqr(y) <= 1.0 }
+
+Let's to a quick sanity check here:
+
+.. code-block:: scala
+
+   scala> inCircle((0, 0))
+   res1: Boolean = true
+
+   scala> inCircle((1, 1))
+   res2: Boolean = false
+
+   scala> inCircle((0.7, 0.7))
+   res3: Boolean = true
+
+   scala> inCircle((0.7, -0.7))
+   res4: Boolean = true
+
+   scala> inCircle((1, -1))
+   res5: Boolean = false
+
+So how do we generate a set of darts and test whether they fall within the
+circle? We start by using a Scala Stream (more on this in collections).
+
+.. code-block:: scala
+
+   scala> val randomPairs = Stream continually (math.random, math.random)
+   randomPairs: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+
+What you see here is the first item of the stream being displayed. The "?"
+indicates that there are more values (an infinite number, in theory) which
+will be obtained on demand. This principle is an advanced one but one that is
+teachable and can be understood in greater detail later.
+
+So how do we get a finite number of darts? This is where a number of famous
+methods from functional programming come to play. One is known as ``take(n)``,
+which can take however many we want. Let's use this to show how to print the
+first 5 random coordinate pairs.
+
+.. code-block:: scala
+
+   scala> randomPairs.take(5)
+   res7: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+
+   scala> randomPairs.take(5).foreach(println)
+   (0.45422625790687077,0.1916739269602844)
+   (0.9252028282996272,0.5638265909110913)
+   (0.5588908846857542,0.21516929857230815)
+   (0.5842149396390998,0.7226255374753748)
+   (0.8454163994561401,0.6805038035803781)
+
+So what is going on here? We're taking the first 5 coordinate pairs in the
+stream and applyingg the ``println()`` function to each item in the stream
+(that is, each coordinate pair). While there are some aspects of this that are
+advanced, there are some aspects that are *vastly simpler* than their
+equivalent in tradition imperative object-oriented languages (e.g. C++, Java,
+C#). For example, we rely on the notion of a tuple (a pair of Double values),
+which usually requires the premature exploration of a Pair class in other
+languages. Before long, you need to learn a lot of arcane type theory to
+understand Pair, whereas in Scala, the type information is *inferred*.
+
+Looking more closely:
+
+.. code-block:: scala
+
+   scala> (math.random, math.random)
+   res10: (Double, Double) = (0.20679803333001656,0.91233235776938)
+
+This generates a random pair, and it even *looks* like a random pair from mathematics. Of course, it's also typesafe!
+
+So we're now near the point where we can put all of the pieces together. We have a function to determine whethe a randomly generated coordinate pair falls within the unit circle. Let's compute :math:`\pi`.
+
+.. code-block:: scala
+
+   scala> val n = 1000000
+   n: Int = 1000000
+
+   scala> val darts = randomPairs take n
+   darts: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+
+   scala> val dartsInCircle = darts.count(inCircle)
+   dartsInCircle: Int = 784894
+
+   scala> val totalDarts = darts.length
+   totalDarts: Int = 1000000
+
+   scala> val area = 4.0 * dartsInCircle / totalDarts
+   area: Double = 3.139576
+
+This is a good time to introduce the *dotless* syntax, which is often associated with object-oriented programming but actually precedes these languages (C *struct* et al).
+
+You can also write the above code (where you see dots) as follows:
+
+.. code-block:: scala
+
+   scala> val dartsInCircle = darts count inCircle
+   dartsInCircle: Int = 784894
+
+   scala> val totalDarts = darts length
+   totalDarts: Int = 1000000
+
+   scala> val area = 4.0 * dartsInCircle / totalDarts
+   area: Double = 3.139576
+
+.. todo::
+
+   More to come!
+
 Recursion
 ---------------
 
+Recursion for Iteration
+--------------------------
+
+- This is my style, even in C.
+- Works well with functional
+- Cements previous topics
+- Further with Scala
+- Passing function argument → early abstraction
+- Matching idiom
+- Introduce patterns
+- Scala optimizes tail recursion (JVM constraints)
 
 
+Collections
+---------------------
+- Just for Scala
+- Doesn't make sense before loops in most languages.
+- One mutable, one immutable
+- Many standard methods
+- Many higher-order methods
+- Syntax
+- Use () for indexing
+- List also have ML style operations
+- Creation, pass-by-name
+
+Loops
+-------
+- While loop
+- Not an expression
+- For loop/comprehension
+- Really for-each
+- yield
+- Ranges
+- Many options
+- Multiple generators
+- If guards
+- Variables
+- Patterns
 
 
+Files
+----------
+- Can use Scanner
+- scala.io.Source
+- Scala Iterator[Char]
+- getLines : Iterator[String]
+- Use with higher-order methods
+- Write with PrintWriter
+- Introduce APIs?
+
+Case Classes
+---------------
+
+- Immutable struct in simplest usage
+- Simple syntax for grouping data
+- Works as a pattern
+- Copy method
+
+GUIs
+------
+
+- scala.swing wraps javax.swing
+- Cleaner beginner syntax
+- No explicit inheritance
+- Reactions use partial functions
+- Drawbacks: Currently no JTree, Tables complex, Button syntax uses companion object
+- Full Java2D
+- Really using Java
+- Override paint method
+- Events for animations
+- Keyboard, Mouse, Timer
+
+Objects
+-----------
+
+- OO syntax is very natural
+- Class declaration with body
+- Can have arguments
+- Constructor not required
+- Functions declarations in class are methods
+- val or var declarations are member data
+- Visibility controls
+- More control than present in Java
+
+CS2
+-------
+
+- Pure OO
+- Fewer quirks than Java
+- Powerful type system
+- Traits
+- Rich collections
+- Libraries again
+- Can make things interesting/relevant
+- Multithreading and networking
+- Eclipse
+- Scalable language
+- Libraries as language
+- Special methods

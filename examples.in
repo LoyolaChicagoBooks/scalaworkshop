@@ -38,3 +38,9 @@ git,expressions,git@github.com:oop-cs-luc-edu/expressions-scala.git
 git,factorial-fixpoint,git@github.com:oop-cs-luc-edu/factorial-fixpoint-scala.git
 git,expressions-algebraic,git@github.com:oop-cs-luc-edu/expressions-algebraic-scala.git
 hg,hpjpc,ssh://hg@bitbucket.org/loyolachicagocs_books/hpjpc-source-java
+
+#
+# Emerging Numerical and Intro CS examples collections
+
+hg,introcs-scala-examples,https://gkthiruvathukal@bitbucket.org/loyolachicagocs_books/introcs-scala-examples
+hg,numerical-explorations-scala,https://gkthiruvathukal@bitbucket.org/loyolachicagocs_plsystems/numerical-explorations-scala
