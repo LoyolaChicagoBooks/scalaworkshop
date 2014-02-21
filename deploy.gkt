@@ -7,4 +7,4 @@ fi
 make html
 make latexpdf
 make epub
-rsync -av -e "ssh -oPort=22222" $(pwd)/build/ scalaworkshop.cs.luc.edu:/var/www/vhosts/scalaworkshop.cs.luc.edu/htdocs/
+rsync -av ./build/ scalaworkshop.cs.luc.edu:/var/www/vhosts/scalaworkshop.cs.luc.edu/htdocs/
