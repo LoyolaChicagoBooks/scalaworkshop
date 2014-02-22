@@ -339,7 +339,37 @@ our time in this section looking at the ``square()`` function!)
 
    George will continue working on this.
 
-How Scala Allows us to focus on CS1 Ideas
+
+Recursion
+---------------
+
+Recursion for Iteration
+--------------------------
+
+- This is my style, even in C.
+- Works well with functional
+- Cements previous topics
+- Further with Scala
+- Passing function argument → early abstraction
+- Matching idiom
+- Introduce patterns
+- Scala optimizes tail recursion (JVM constraints)
+
+
+Collections
+---------------------
+- Just for Scala
+- Doesn't make sense before loops in most languages.
+- One mutable, one immutable
+- Many standard methods
+- Many higher-order methods
+- Syntax
+- Use () for indexing
+- List also have ML style operations
+- Creation, pass-by-name
+
+
+A CS1 Friendly Example
 ---------------------------------------------
 
 An example that often resonates well with students is the Monte Carlo method,
@@ -351,8 +381,8 @@ each step in an integrated fashion.
 In the Monte Carlo method for calculating :math:`\pi`, we will randomly
 generate a given number of darts using a Scala stream. We *fire* the darts
 into a unit circle, which is bounded by a square, whose dimensions are
-:math:`2 x 2` units.  The darts that fall within the unit circle satisfy the
-constraint :math:`x^2 + y^2 <= 1`.
+:math:`2 \times 2` units.  The darts that fall within the unit circle satisfy the
+constraint :math:`x^2 + y^2 \leq 1`.
 
 Let's start by establishing the needed functions. First, here is the now-
 familiar ``square(x:Double)`` function, again for reference.
@@ -395,6 +425,23 @@ circle? We start by using a Scala Stream (more on this in collections).
 
    scala> val randomPairs = Stream continually (math.random, math.random)
    randomPairs: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+
+
+.. note::
+
+   The examples we are showing here, much like typical introductory examples, trade good 
+   pedagogy (not bogging down students with too many details) for performance and scalability.
+   If you need to operate on a larger number of darts, you'll want to take advantage of ``StreamIterator``, not ``Stream``. A StreamIterator can be obtained from a Stream by reworking the code above as 
+   follows:
+
+   .. code-block:: scala
+
+      scala> val randomPairs = Stream continually (math.random, math.random) iterator
+      randomPairs: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+
+   Notice that the ``iterator()`` method is being invoked. This can be taught after students have learned
+   more about Scala collections.
+
 
 What you see here is the first item of the stream being displayed. The "?"
 indicates that there are more values (an infinite number, in theory) which
@@ -444,7 +491,7 @@ So we're now near the point where we can put all of the pieces together. We have
    scala> val n = 1000000
    n: Int = 1000000
 
-   scala> val darts = randomPairs take n
+   scala> val darts = randomPairs.take(n)
    darts: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
 
    scala> val dartsInCircle = darts.count(inCircle)
@@ -462,6 +509,9 @@ You can also write the above code (where you see dots) as follows:
 
 .. code-block:: scala
 
+   scala> val darts = randomPairs take n
+   darts: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+
    scala> val dartsInCircle = darts count inCircle
    dartsInCircle: Int = 784894
 
@@ -471,42 +521,226 @@ You can also write the above code (where you see dots) as follows:
    scala> val area = 4.0 * dartsInCircle / totalDarts
    area: Double = 3.139576
 
-.. todo::
+At some point, you realize that you want to enter the code into a text editor that can be loaded into
+the Scala interpreter (as opposed to being entered interactively).
 
-   More to come!
+The actual code for this can be found at 
+https://gkthiruvathukal@bitbucket.org/loyolachicagocs_plsystems/numerical-explorations-scala. You can 
+pull up the Scala worksheet from ``MonteCarloPiStreamIteratorChunkFree.sc`` (by drilling into Source).
 
-Recursion
----------------
+Here's the final version of our function to calculate :math:`\pi`.
 
-Recursion for Iteration
---------------------------
+.. literalinclude:: ../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+   :language: scala
+   :linenos:
+   :start-after: begin-monteCarloCircleArea
+   :end-before: end-monteCarloCircleArea
 
-- This is my style, even in C.
-- Works well with functional
-- Cements previous topics
-- Further with Scala
-- Passing function argument → early abstraction
-- Matching idiom
-- Introduce patterns
-- Scala optimizes tail recursion (JVM constraints)
+We also provide a simple *timing* function, that allows us to time a *block*
+of Scala statements. We'll not present it in detail now, but this function
+could be given to your students with the hope of  sensitizing them to the
+notion of *performance*. It also shows the tremendous power available in Scala
+to work with a block of Scala code as an object (which can produce a value).
+
+.. literalinclude:: ../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+   :language: scala
+   :linenos:
+   :start-after: begin-time
+   :end-before: end-time
+
+We're going to use this to show how to measure the execution time of our
+:math:`\pi` calculation by  varying the problem size. Here is the fragment of
+code that tries different problem sizes up to  :math:`n = 10^k`, where
+:math:`k = \lfloor log_{10}(Int.MaxValue) \rfloor` (:math:`k = \lfloor
+log_{10}(2147483647) \rfloor = 9`)
+
+.. note::
+
+   You might wonder why we are limited to ``Int`` in this version as opposed
+   to a 64-bit ``Int``. It is a perfectly valid idea to ponder, especially in
+   the modern era. Scala collections do not support operations like ``take()``
+   and ``drop()`` with 64-bit Int values. The  explanation for this is a bit
+   beyond the scope here, but we have worked out 64-bit versions where we
+   perform the Monte Carlo :math:`\pi` calculation in chunks. You can vist our
+   repostory for these versions, which are a bit complex compared to the Int
+   version. We hope future versions of Scala will evolve beyond 32-bit
+   thinking but don't see this as a showstopper for  introductory teaching.
+   (We also hope the friendly competition between F# and Scala, where F#
+   supports Int64, will eventually make its way to Scala.
 
 
-Collections
----------------------
-- Just for Scala
-- Doesn't make sense before loops in most languages.
-- One mutable, one immutable
-- Many standard methods
-- Many higher-order methods
-- Syntax
-- Use () for indexing
-- List also have ML style operations
-- Creation, pass-by-name
+.. literalinclude:: ../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+   :language: scala
+   :linenos:
+   :start-after: begin-performance-study
+   :end-before: end-performance-study
 
-Loops
--------
+
+Here is the output (some output has been deleted for conciseness).
+
+.. code-block:: scala
+
+   scala> :load MonteCarloPiStreamIteratorChunkFree.sc
+   Loading MonteCarloPiStreamIteratorChunkFree.sc...
+   sqr: (x: Double)Double
+   inCircle: ((Double, Double)) => Boolean = <function1>
+   warning: there were 1 feature warning(s); re-run with -feature for details
+   randomPairs: Iterator[(Double, Double)] = non-empty iterator
+   n: Int = 1000000
+   darts: Iterator[(Double, Double)] = non-empty iterator
+   dartsInCircle: Int = 785719
+   warning: there were 1 feature warning(s); re-run with -feature for details
+   totalDarts: Int = 0
+   area: Double = Infinity
+   longDartsInCircle: (numDarts: Int)Long
+   monteCarloCircleArea: (numDarts: Int)Double
+   time: [R](block: => R)R
+   powers: scala.collection.immutable.Range.Inclusive = Range(1, 2, 3, 4, 5, 6, 7, 8, 9)
+   sizes: scala.collection.immutable.IndexedSeq[Int] = Vector(10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000)
+   problemSizes: scala.collection.immutable.IndexedSeq[Int] = Vector(1000000, 10000000, 100000000, 1000000000)
+   Trying these probem sizes
+   1000000
+   10000000
+   100000000
+   1000000000
+   numDarts: 1000000
+   Elapsed time: 0.149393s
+   The area is 3.141644
+   numDarts: 10000000
+   Elapsed time: 1.110151s
+   The area is 3.1406688
+   numDarts: 100000000
+   Elapsed time: 10.744608s
+   The area is 3.141555
+   numDarts: 1000000000
+
+
+We will discuss performance and timing issues again when speaking to parallel computing in
+:doc:`parallel`.
+
+While Loop
+-----------
 - While loop
 - Not an expression
+
+In Scala, you can do imperative style loops and interactive loops:
+
+Consider this interactive session to compute well-known example for sum
+
+.. code-block:: scala
+
+   scala> var i = 0
+   i: Int = 0
+
+   scala> var n = 10
+   n: Int = 10
+
+   scala> var sum = 0
+   sum: Int = 0
+
+   scala> while (i <= n) {
+        |    sum = sum + i
+        |    i = i + 1
+        | }
+
+   scala> i
+   res2: Int = 11
+
+   scala> sum
+   res3: Int = 0
+
+   scala> n
+   res4: Int = 10
+
+Of course, you can replace many computational loops by a side-effect free version.
+
+.. code-block: scala
+
+   scala> 1 to n sum
+   warning: there were 1 feature warning(s); re-run with -feature for details
+   res6: Int = 55
+
+.. code-block: scala
+
+   What about interactive loops?
+
+   scala> val reader = new ConsoleReader
+   reader: scala.tools.jline.console.ConsoleReader = scala.tools.jline.console.ConsoleReader@26075b18
+
+   scala> var response = 0
+   response: Int = 0
+
+   scala> while (response < 0 || response > 100) {
+        |    response = reader.readLine("Enter a number >= 0  and <= 100? ").toInt
+        | }
+
+   scala> var response = -1
+   response: Int = -1
+
+   scala> while (response < 0 || response > 100) {
+        |    response = reader.readLine("Enter a number >= 0  and <= 100? ").toInt
+        | }
+   Enter a number >= 0  and <= 100? -5
+   Enter a number >= 0  and <= 100? 105
+   Enter a number >= 0  and <= 100? 100
+
+It is interesting to think about whether we can turn an interactive while loop into one without 
+side effects. There are so many bad things that happent to us as CS1 educators when we work with
+interactive loops:
+
+- Improper initialization of the ``response`` variable.
+- Improper setting of ``response`` upon termination.
+- etc.
+
+This is my early attempt to figure out how to have a side-effect free interactive while loop. 
+Basic idea:
+
+- Use Stream.continually() to get a continuous stream of lines read in.
+- Because Stream is lazy only in the tail, assume a blank line as the first value of the Stream
+  (which is safely ignored). I'd like to figure out the right way to eliminate this without introducing
+  complexity.
+- use the takeWhile() method to accept input until an appropriate terminating condition (the word "no" 
+  is entered)
+- convert each line to integer, if possible. We take advantage of the simplified exception management and 
+  provide a wrapper that is applied to each element to produce an option. Option is an important Scala
+  idiom to address a success/failure paradigm.
+- use flatMap to get only the input that were integral. All other values (None) are discarded.
+
+
+
+.. code-block:: scala
+
+   scala> val s1 = "" #:: Stream.continually( reader.readLine("Enter number or no to end input: "))
+   s1: scala.collection.immutable.Stream[String] = Stream(, ?)
+
+   scala> val s = s1.takeWhile(_ != "no")
+   s: scala.collection.immutable.Stream[String] = Stream(, ?)
+
+   scala> val l = s.toList
+   Prompt: 25
+   Prompt: 35
+   Prompt: 55
+   Prompt:
+   Prompt: s
+   Prompt: no
+   l: List[String] = List("", 25, 35, 55, "", s)
+
+   scala> def toInteger(n : String) : Option[Int] = {
+        |  catching(classOf[NumberFormatException]) opt n.toInt
+        | }
+   toInteger: (n: String)Option[Int]
+
+   scala> l.map(toInteger)
+   res3: List[Option[Int]] = List(None, Some(25), Some(35), Some(55), None, None)
+
+   scala> l.flatMap(toInteger)
+   res7: List[Int] = List(25, 35, 55)
+
+   scala> l.flatMap(toInteger).sum
+   res8: Int = 115
+
+
+
 - For loop/comprehension
 - Really for-each
 - yield
@@ -573,7 +807,7 @@ CS2
 - Libraries again
 - Can make things interesting/relevant
 - Multithreading and networking
-- Eclipse
+- Eclipse (maybe) and IntelliJ (our favorite)
 - Scalable language
 - Libraries as language
 - Special methods
