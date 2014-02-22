@@ -654,15 +654,16 @@ Consider this interactive session to compute well-known example for sum
 
 Of course, you can replace many computational loops by a side-effect free version.
 
-.. code-block: scala
+.. code-block:: scala
 
    scala> 1 to n sum
    warning: there were 1 feature warning(s); re-run with -feature for details
    res6: Int = 55
 
-.. code-block: scala
 
-   What about interactive loops?
+What about interactive loops?
+
+.. code-block:: scala
 
    scala> val reader = new ConsoleReader
    reader: scala.tools.jline.console.ConsoleReader = scala.tools.jline.console.ConsoleReader@26075b18
@@ -705,8 +706,6 @@ Basic idea:
   provide a wrapper that is applied to each element to produce an option. Option is an important Scala
   idiom to address a success/failure paradigm.
 - use flatMap to get only the input that were integral. All other values (None) are discarded.
-
-
 
 .. code-block:: scala
 
