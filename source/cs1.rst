@@ -352,6 +352,66 @@ Recursion for Iteration
 - Scala optimizes tail recursion (JVM constraints)
 
 
+GCD
+~~~~~
+
+This is based on a classic algorithm by Euclid and one that is covered in many introductory computer science
+courses. (See [GCD]_ for a more detailed discussion of this method and the ways it has been coded over the
+years, especially in imperative programming languages.)
+
+.. code-block:: scala
+
+   def gcd(a : Int, b : Int) = if (b == 0) a else gcd(b, a % b)
+
+The Scala version looks a lot like Euclid's definition!
+
+
+Factorial
+~~~~~~~~~~~~
+
+This is the basic example that comes from [MiscExplorationsScala]_,
+which also show show to use Scala and functional programming to rework explicitly recursive computations into
+non-recursive versions using higher-order functional thinking.
+
+
+This shows how to explicitly define the ``fac(n : Int) : Int`` function.
+
+.. code-block:: scala
+
+   def fac(n : Int) : Int = if (n <= 0) 1 else n * fac(n - 1)
+
+This shows how to define a function *object*. It makes use of the literal syntax we introduced earlier,
+You read this as "fac is a function that maps Int into Int and binds the name ``n`` to the ``Int`` parameter.
+
+.. code-block:: scala
+
+   val fac: Int => Int = n => if (n <= 0) 1 else n * fac(n - 1)
+
+
+In many cases, you can write these functions without explcit recursion, simply by taking advantage of Scala's
+innate collections:
+
+.. code-block:: scala
+
+   def fac(n : Int) : Int = (1 to n).foldLeft(1)((l,r) => l * r)
+
+Or even more concisely (and cryptically?)
+
+.. code-block:: scala
+
+   def fac(n : Int) : Int = (1 to n).foldLeft(1)(_ * _)
+
+We'll look more at higher-order thinking shortly. Many who think of functional programming (especially the 1960's
+and 1970's style) tend to think Lisp, which very much required you to think *recursively* most of the time in
+practice. Today, the recursive element is still there, but you'll find that the need to use it explicitly is
+not required and can be replaced with higher-order abstractions. In the end, students still need to know about
+this technique, if only to understand that certain methods (e.g. folds) often have a recursive nature to them.
+
+In addition to rather outdated notions many tend to have about functional programming when it comes to recursion,
+the optimization of recursive calls is achieved through a version of tail-recursion elimination (a.k.a. tail call
+optimization). See [TailCalls]_ for more information.
+
+
 Collections
 ---------------------
 - Just for Scala
@@ -980,6 +1040,9 @@ CS2
 Useful REPL functionality
 -------------------------------
 
+The Scala REPL supports a number of commmands that can be greatly helpful for working interactively. We've
+relied on many of these in the preparation of this tutorial but will focus on the highlights, especially
+for use in CS1 teaching.
 
 .. code-block ::
 
@@ -1007,7 +1070,7 @@ Useful REPL functionality
 
 
 paste 
----------------
+~~~~~~~~
 
 When writing longer definitions in the REPL, it can be tricky. Having paste mode allows you to take some
 code you have (perhaps from an editor where you are typing a Scala program) and copy/paste into the Scala
@@ -1032,7 +1095,7 @@ function (presented earlier in this section):
 Notice that you don't see the continuation characters when entering multiple lines of text.
 
 load 
----------------
+~~~~~~
 
 Many programmers coming to Scala find it a bit frustrating at first that some things (like interactive
 scripts, found in languages like Python) don't work quite the same way. More often than not, the real issue
@@ -1045,7 +1108,7 @@ the filename, which may be an absolute or relative path.
    scala> :load myscript.scala
 
 history
-----------------
+~~~~~~~~~~
 
 History should be familiar to anyone who has used modern Unix shells. Even if you haven't, you've probably
 used the history buffer, which allows you to use the up/down arrows or emacs/vi commands (^p, ^n, j, k) to 
@@ -1068,3 +1131,11 @@ probably remember (at least partially). More often than not, I am looking for pr
 (functions).
 
 
+Additional Resources
+------------------------
+
+.. [TailCalls] Tail Call, http://en.wikipedia.org/wiki/Tail_call
+
+.. [GCD] Greatest Common Divisor, http://introcs.cs.luc.edu/html/gcdexamples.html
+
+.. [MiscExplorationsScala] Miscellaneous Scala Explorations, https://bitbucket.org/lucproglangcourse/misc-explorations-scala
