@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
    :numbered:
 
+   intro
    download
    cs1
    buildtools
