@@ -1008,17 +1008,103 @@ GUIs
 - Events for animations
 - Keyboard, Mouse, Timer
 
-Objects
------------
+Classes and Objects
+---------------------------
 
-- OO syntax is very natural
-- Class declaration with body
-- Can have arguments
-- Constructor not required
-- Functions declarations in class are methods
-- val or var declarations are member data
-- Visibility controls
-- More control than present in Java
+Classes
+~~~~~~~~~~~
+
+Here is the familiar Point class. It's often shown where the (x, y) coordinate pair are Int (even in
+the Scala documentation) but is even more interesting with Double. This is an elaborated version that
+includes elements appropriate mostly to CS1 and some that are best covered in CS2 and beyond.
+
+.. literalinclude:: ../examples/introcs-scala-examples/point.sc
+   :language: scala
+   :linenos:
+   :start-after: begin-class-Point
+   :end-before: end-class-Point
+
+What does this class Point show?
+
+- how to create a simple Scala class. Notice the complete lack of keyboards and public/private/static that
+  tend to confuse students!
+
+- Scala brings back *disciplined* operator overloading. We'd probably not use this in CS1, but it is entirely
+  appropriate for CS2.
+
+- Shows how to refer to the object (familiarly) with ``this``. Again, the methods relying on this might be
+  more appropriate for CS2 or even later courses that dive into OOP's complexity.
+
+- Constructors? The Scala class definition itself makes it clear how one constructs an instance. Just like
+  a function definition in general, there can be default values. It is liberating not to have constructors
+  (especially too many of them), especially when trying to introduce a topic. (This will become readily
+  apparent when we look at *case classes*, which provide a mechanism for more data-centric OO abstraction.)
+
+- Convert an instance of class Point to a String representation using ``ToString()``. ``ToString()`` can be
+  a valuable pedaogical tool, done right (as observed in languages like Python). Scala 2.10 gives us the
+  ability to do type-safe string interpolation by substituting the value of variables (their String
+  representation) into a String template. In Scala, prefixing a string literal with ``s`` will give you
+  a string where any variables (beginning with ``$``) are substituted. Here, it allowsus to get a beautiful
+  representation of a point as an (x, y) pair with virtually no effort or complexity!
+
+Let's take a look at how the ``Point`` class is used:
+
+.. literalinclude:: ../examples/introcs-scala-examples/point.sc
+   :language: scala
+   :linenos:
+   :start-after: begin-use-Point
+   :end-before: end-use-Point
+
+This results in the following output.
+
+.. code-block:: text
+
+   scala> :load point.sc
+   :load point.sc
+   Loading point.sc...
+   defined class Point
+   p: Point = (2.0, 3.0)
+   q: Point = (-2.0, 3.0)
+   Two points (2.0, 3.0) and (-2.0, 3.0)
+   distanceToOrigin: Double = 3.605551275463989
+   distance from p to origin = 3.605551275463989
+   dpq: Double = 4.0
+   dqp: Double = 4.0
+   d(p,q) = 4.0
+   d(q,p) = 4.0
+   pointSum: Point = (0.0, 6.0)
+   pointSumOp: Point = (-2.0, 9.0)
+   p.add(q) = (-2.0, 9.0); p + q = (-2.0, 9.0)
+
+
+A Look at Singleton Objects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+At some point, relying on the interpreter for trying out the Point class (as we have been doing until
+now) grows a bit tedious. Furthermore, sometimes you want to have a complete, functioning program that
+includes not just the class Point but also a driver program--often found in a ``main()`` method--that
+allows you to run it from the command line.
+
+Scala's answer to ``main()`` (largely a vestige of C-based languages) is to support *singleton objects*,
+which we rely upon in some more advanced examples. While we consider the singleton pattern to be a bit 
+overrated and overused (e.g. ``Runtime.getRuntime()`` and many others like it in Java's API), the 
+singleton object as found here is complelely decoupled from any class and allows you to create an 
+*environment* so to speak with its own namespace but without the burden of a full class definition. 
+
+In this example, we create a singleton object to act as our ``main()`` driver. 
+
+.. literalinclude:: ../examples/introcs-scala-examples/point.sc
+   :language: scala
+   :linenos:
+   :start-after: begin-object-PointDemo
+   :end-before: end-object-PointDemo
+
+Similar to a class definition, you *can* have methods. Notably absent, however, are any parameters to
+the object name. To create an entry point that allows the object to be used like any other Scala function,
+we define an ``apply()`` method, which may or may not have parameters. In our case, we just want to be able
+to run the same demo code we produced previously and then invoke the PointDemo as a function, e.g.
+``PointDemo()``. This could be further wrapped with some logic to handle command-line arguments, etc.
+More on that towards the end.
 
 CS2
 -------
