@@ -1,20 +1,33 @@
-Scala in CS1 and CS2
+Scala in CS1
 =====================
 
 This is an elaboration of our Google presentation slides: http://goo.gl/Q68fA.
 
-Scala Adoption/Usage Charts
------------------------------
-
-Coming soon.
-
-
-Scala in CS1
+Why Scala?
 ---------------
+
+Scala Adoption/Usage Charts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+See presentation for now., http://goo.gl/Q68fA.
+
+
+Technology Radar
+~~~~~~~~~~~~~~~~~~~
+
+See Thoughtworks.com
+
+Language Complexity
+~~~~~~~~~~~~~~~~~~~~~~~
+
+See presentation for now, http://goo.gl/Q68fA.
+
+Motivating Scala in CS1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Programming in the small
 
-  - REPL
+  - REPL - Read-Evaluate-Print-Loop 
   - Scripting Environment
 
 - Libraries allow for interesting code (JVM)
@@ -23,10 +36,13 @@ Scala in CS1
 - Everything is a method call
 - Powerful collections
 
-Language Complexity
-----------------------
+Our motivation is to have the best of both worlds:
 
-See presentation for now.
+- Concise scriptability of languages like Python and Ruby
+- Static type checking in the small makes it (generally) easy to fix compilation errors
+
+Emerging *worksheet* model makes it possible to give students many examples that just
+work and can be adapted to solve new problems.
 
 Getting Started
 -------------------
@@ -51,7 +67,7 @@ plugin. This will allow you to get an interactive session as well.)
    scala>
 
 Hello, World
-----------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: scala
 
@@ -60,8 +76,7 @@ Hello, World
 
 
 Types - "Lack" of Primitives
---------------------------------
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: scala
 
@@ -81,16 +96,21 @@ tab completion--to show the available operations and methods available for an ``
    toString       unary_+        unary_-        unary_~        |
 
 Statements
----------------
+~~~~~~~~~~~~~
 
+.. todo::
 
+   George working on this.
 
 Expressions
-----------------
+~~~~~~~~~~~~~~~~~~
+.. todo::
+
+   George working on this.
 
 
 Semicolon Inferencing
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Python programmers already know and love not having to deal with semicolons. Scala follows
 this excellent practice as well.
@@ -110,8 +130,8 @@ But this works just as well and is preferred:
    scala> val y = 30
    y: Int = 30
 
-Simple Input
--------------------
+Simple Input (and Output)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Much like Python and Java, import can be used to experiment with library objects and functions, even
 before you know how to create classes:
@@ -155,17 +175,19 @@ see above, ``readLine(String)`` gives us what we want: the ability to read
 input with a prompt of sorts.
 
 val vs. var
-----------------
+~~~~~~~~~~~~~
 
 - Values (keyboard ``val``) are used for immutable storage.
 - Variables (keyword ``var``) are used for mutable storage.
 
 - You can think of this as the reemergence of ``const`` but it takes on a more powerful and predictable form in Scala than other languages that preceded it.
 
-- Scala thinking prefers val to var.
+- Scala thinking prefers val to var. So do we. 
+
+- Interesting 
 
 Scripts and Worksheets
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Similar to modern scripting languages (e.g. Python and Ruby) and the original shell, you can create a 
 Scala script in a file, e.g. ``myscript.scala`` and run the script using the ``scala`` command.
@@ -184,7 +206,7 @@ You can also *load* the script within the Scala REPL:
 We'll be taking advantage of this a bit more in our discussion about ``sbt``, the Scala Build Tool.
 
 Conditional and Functions
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Functional → expressions
 
@@ -250,7 +272,7 @@ As expected, the second invocation of ``square()`` results in an error. Scala pe
 in real time. That is, this is *not* a run-time check.
 
 Function literals
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 Let's build on the ``square()`` example to see how easy it is to generate the first ``n`` squares. We'll use
 this to show how you can use functions as parameters and to sensitize the use of Scala *function literals*,
@@ -336,9 +358,6 @@ is not necessarily intended to be pedagogically interesting but is effective, co
 our time in this section looking at the ``square()`` function!)
 
 
-Recursion
----------------
-
 Recursion for Iteration
 --------------------------
 
@@ -351,6 +370,13 @@ Recursion for Iteration
 - Introduce patterns
 - Scala optimizes tail recursion (JVM constraints)
 
+
+Some CS1 Friendly Examples
+------------------------------
+
+.. todo::
+
+   These are just a few examples. More are coming.
 
 GCD
 ~~~~~
@@ -411,22 +437,8 @@ In addition to rather outdated notions many tend to have about functional progra
 the optimization of recursive calls is achieved through a version of tail-recursion elimination (a.k.a. tail call
 optimization). See [TailCalls]_ for more information.
 
-
-Collections
----------------------
-- Just for Scala
-- Doesn't make sense before loops in most languages.
-- One mutable, one immutable
-- Many standard methods
-- Many higher-order methods
-- Syntax
-- Use () for indexing
-- List also have ML style operations
-- Creation, pass-by-name
-
-
-A CS1 Friendly Example
----------------------------------------------
+Monte Carlo :math:``\pi`` Calculation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An example that often resonates well with students is the Monte Carlo method,
 which uses randomness to perform the :math:`\pi` computation. In the interests
@@ -674,8 +686,14 @@ Here is the output (some output has been deleted for conciseness).
 We will discuss performance and timing issues again when speaking to parallel computing in
 :doc:`parallel`.
 
+More Scala
+-----------------
+
+
 While Loop
------------
+~~~~~~~~~~~~~~
+
+
 - While loop
 - Not an expression
 
@@ -795,7 +813,7 @@ Basic idea:
    res8: Int = 115
 
 for loop
-----------
+~~~~~~~~~~~~~
 
 Similar to the while loop, a for loop exists for *imperative* style programming, often when there is
 a need to do something where a side-effect is needed.
@@ -818,7 +836,7 @@ a need to do something where a side-effect is needed.
 
 
 for comprehension
---------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 A for comprehension is designed for where you want a more functional style. That is, there is no intention 
 of having side effects, and it is likely that you want to use the result of the comprehension in another
@@ -846,8 +864,8 @@ You could wrap this up nicely in a Scala function as follows:
    res7: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 
-Option
-----------
+options amd failure sans exceptions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Per the Scala documentation: An option represents optional values. Instances
 of Option are either an instance of scala.Some or the object None.
@@ -963,21 +981,32 @@ days of C), which is preferable to throwing exceptions for no good reason (not t
 mention our general dislike of prematurely covering exceptions as a programming
 technique in CS1 in particular.)
 
-for comprehension and options
----------------------------------
+yield
+~~~~~~~~~
 
-- Really for-each
-- yield
-- Ranges
-- Many options
-- Multiple generators
-- If guards
-- Variables
-- Patterns
+Ranges
+~~~~~~~~~~
+
+
+Multiple generators
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If guards
+~~~~~~~~~~~~~~~~
+
+Variables
+~~~~~~~~~~~~~~~~
+
+
+Patterns
+~~~~~~~~~~~~~~~
+
 
 
 Files
 ----------
+
 - Can use Scanner
 - scala.io.Source
 - Scala Iterator[Char]
@@ -986,30 +1015,10 @@ Files
 - Write with PrintWriter
 - Introduce APIs?
 
-Case Classes
----------------
-
-- Immutable struct in simplest usage
-- Simple syntax for grouping data
-- Works as a pattern
-- Copy method
-
-GUIs
-------
-
-- scala.swing wraps javax.swing
-- Cleaner beginner syntax
-- No explicit inheritance
-- Reactions use partial functions
-- Drawbacks: Currently no JTree, Tables complex, Button syntax uses companion object
-- Full Java2D
-- Really using Java
-- Override paint method
-- Events for animations
-- Keyboard, Mouse, Timer
 
 Classes and Objects
 ---------------------------
+
 
 Classes
 ~~~~~~~~~~~
@@ -1105,22 +1114,6 @@ we define an ``apply()`` method, which may or may not have parameters. In our ca
 to run the same demo code we produced previously and then invoke the PointDemo as a function, e.g.
 ``PointDemo()``. This could be further wrapped with some logic to handle command-line arguments, etc.
 More on that towards the end.
-
-CS2
--------
-
-- Pure OO
-- Fewer quirks than Java
-- Powerful type system
-- Traits
-- Rich collections
-- Libraries again
-- Can make things interesting/relevant
-- Multithreading and networking
-- Eclipse (maybe) and IntelliJ (our favorite)
-- Scalable language
-- Libraries as language
-- Special methods
 
 
 Useful REPL functionality
