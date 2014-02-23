@@ -975,3 +975,96 @@ CS2
 - Scalable language
 - Libraries as language
 - Special methods
+
+
+Useful REPL functionality
+-------------------------------
+
+
+.. code-block ::
+
+   scala> :help
+   All commands can be abbreviated, e.g. :he instead of :help.
+   Those marked with a * have more detailed help, e.g. :help imports.
+
+   :cp <path>                 add a jar or directory to the classpath
+   :help [command]            print this summary or command-specific help
+   :history [num]             show the history (optional num is commands to show)
+   :h? <string>               search the history
+   :imports [name name ...]   show import history, identifying sources of names
+   :implicits [-v]            show the implicits in scope
+   :javap <path|class>        disassemble a file or class name
+   :load <path>               load and interpret a Scala file
+   :paste                     enter paste mode: all input up to ctrl-D compiled together
+   :power                     enable power user mode
+   :quit                      exit the interpreter
+   :replay                    reset execution and replay all previous commands
+   :reset                     reset the repl to its initial state, forgetting all session entries
+   :sh <command line>         run a shell command (result is implicitly => List[String])
+   :silent                    disable/enable automatic printing of results
+   :type [-v] <expr>          display the type of an expression without evaluating it
+   :warnings                  show the suppressed warnings from the most recent line which had any
+
+
+paste 
+---------------
+
+When writing longer definitions in the REPL, it can be tricky. Having paste mode allows you to take some
+code you have (perhaps from an editor where you are typing a Scala program) and copy/paste into the Scala
+session. 
+
+This shows an example of entering a slightly more verbose than needed definition of the ``square()`` 
+function (presented earlier in this section):
+
+.. code-block:: scala
+
+   scala> :paste
+   // Entering paste mode (ctrl-D to finish)
+
+   def square(x : Int) : Int = {
+      x * x
+   }
+
+   // Exiting paste mode, now interpreting.
+
+   square: (x: Int)Int
+
+Notice that you don't see the continuation characters when entering multiple lines of text.
+
+load 
+---------------
+
+Many programmers coming to Scala find it a bit frustrating at first that some things (like interactive
+scripts, found in languages like Python) don't work quite the same way. More often than not, the real issue
+is whether there is an easy way to load a script into the REPL--as opposed to having to run it on the 
+command line (which is also possible but not the focus of this section). It is a matter of loading 
+the filename, which may be an absolute or relative path.
+
+.. code-block:: scala
+
+   scala> :load myscript.scala
+
+history
+----------------
+
+History should be familiar to anyone who has used modern Unix shells. Even if you haven't, you've probably
+used the history buffer, which allows you to use the up/down arrows or emacs/vi commands (^p, ^n, j, k) to 
+access previous and next commands in the history buffer.
+
+Scala also allows you to do ^r to perform a regex search for text within a previous command. We rely on
+this heavily in our work, especially in this section, where it was necessary to look up previous attempts
+within the REPL so they could be pasted into the notes!
+
+In this example, I used ^r to search for the substring "val" so I could find a previous value definition in
+my REPL session:
+
+.. code-block:: scala
+
+   (reverse-i-search)`val': val entry = map.get("F#").getOrElse(-1)
+
+When you type ^r, you'll be given the "(reverse-i-search)" prompt to perform a search. While the full 
+functionality of regex is provided, the nominal use is to type a few characters of something you
+probably remember (at least partially). More often than not, I am looking for previous "val" or "def" 
+(functions).
+
+
