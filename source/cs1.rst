@@ -1044,7 +1044,7 @@ The Scala REPL supports a number of commmands that can be greatly helpful for wo
 relied on many of these in the preparation of this tutorial but will focus on the highlights, especially
 for use in CS1 teaching.
 
-.. code-block ::
+.. code-block :: text
 
    scala> :help
    All commands can be abbreviated, e.g. :he instead of :help.
