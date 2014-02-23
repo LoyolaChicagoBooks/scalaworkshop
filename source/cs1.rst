@@ -335,10 +335,6 @@ Here we are creating a version that has a default value of zero, if the caller d
 is not necessarily intended to be pedagogically interesting but is effective, considering we spent most of 
 our time in this section looking at the ``square()`` function!)
 
-.. todo::
-
-   George will continue working on this.
-
 
 Recursion
 ---------------
@@ -738,9 +734,178 @@ Basic idea:
    scala> l.flatMap(toInteger).sum
    res8: Int = 115
 
+for loop
+----------
+
+Similar to the while loop, a for loop exists for *imperative* style programming, often when there is
+a need to do something where a side-effect is needed.
+
+.. code-block:: scala
+
+   scala> var sum = 0
+   sum: Int = 0
+
+   scala> var n = 100
+   n: Int = 100
+
+   scala> for (i <- 1 to n)
+        | {
+        |    sum = sum + i
+        | }
+
+   scala> println(s"The sum is $sum")
+   The sum is 5050
 
 
-- For loop/comprehension
+for comprehension
+--------------------
+
+A for comprehension is designed for where you want a more functional style. That is, there is no intention 
+of having side effects, and it is likely that you want to use the result of the comprehension in another
+computation.
+
+Let's look at something a bit more interesting: Getting the first ``n`` squares:
+
+.. code-block:: scala
+
+   scala> val n = 10
+   n: Int = 10
+
+   scala> val first_n_squares = for (i <- 1 to n) yield { i * i }
+   first_n_squares: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+
+
+You could wrap this up nicely in a Scala function as follows:
+
+.. code-block:: scala
+
+   scala> def squares(n : Int) = for (i <- 1 to n) yield { i * i }
+   squares: (n: Int)scala.collection.immutable.IndexedSeq[Int]
+
+   scala> squares(10)
+   res7: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+
+
+Option
+----------
+
+Per the Scala documentation: An option represents optional values. Instances
+of Option are either an instance of scala.Some or the object None.
+
+The Scala Option type is useful for dealing with the notion of success and
+failure (but is not limited to supporting this concept). In the interests of
+keeping this discussion focused on being CS1-friendly, an Option is always
+connected to an underlying type. For example Option[Int] means that you either
+get the Int, or nothing (None).
+
+.. code-block:: scala
+
+   scala> val i = Some(3)
+   i: Some[Int] = Some(3)
+
+   scala> val j = None
+   j: None.type = None
+
+
+``Some`` and ``None`` are both *case classes* that extend ``Option[A]`` (a generic class that allows you
+to use any time). While knowing all of the details requires a mastery of object-oriented programming (and 
+perhaps more), the introduction of this idea is remarkably straightforward and one that can help students
+to write better code from the beginning. In CS1 courses, we tend to spend a lot of time handling special
+cases, and options give us a framework for dealing with missing information, etc.
+
+As you can see from the above, ``i`` is defined as some value, in this case 3. It's a wrapped value, of course,
+that must be unbundled later. For example, here is an attempt to use the value ``i`` (incorrectly):
+
+.. code-block:: scala
+
+   scala> i + 5
+   <console>:9: error: type mismatch;
+    found   : Int(5)
+    required: String
+                 i + 5
+                     ^
+
+
+So how do we make use of ``i`` and ``j``? A method associated with options, ``getOrElse()`` allows us to get the
+*option*, if set to *some* value. Rather delightfully, we can set a value to be used, if the option was not set
+previously.
+
+.. code-block:: scala
+
+   scala> i getOrElse(-1)
+   res13: Int = 3
+
+   scala> j getOrElse(-1)
+   res14: Int = -1
+
+So now if we want to use this value in a computation, we can just do this:
+
+.. code-block:: scala
+
+   scala> i.getOrElse(-1) + j.getOrElse(-1)
+   res17: Int = 2
+
+Options have their uses throughout Scala, notably its libraries. For example, maps (a.k.a. associative 
+structures/arrays) use option to return the result of getting a key from the map:
+
+.. code-block:: scala
+
+   scala> val map = scala.collection.mutable.HashMap.empty[String, Int]
+   map: scala.collection.mutable.HashMap[String,Int] = Map()
+
+   scala> map += ("scala" -> 10)
+   res4: map.type = Map(scala -> 10)
+
+   scala> map += ("java" -> 20)
+   res5: map.type = Map(scala -> 10, java -> 20)
+
+   scala> map += ("C#" -> 15)
+   res6: map.type = Map(scala -> 10, java -> 20, C# -> 15)
+
+   scala> map += ("F#" -> 25)
+   res7: map.type = Map(scala -> 10, F# -> 25, java -> 20, C# -> 15)
+
+   scala> map += ("scala" -> 22)
+   res8: map.type = Map(scala -> 22, F# -> 25, java -> 20, C# -> 15)
+
+Here's an attempt to get the case-sensitive and case-insensitive versions of key, F#, from the map:
+
+.. code-block:: scala
+
+   scala> map.get("F#")
+   res9: Option[Int] = Some(25)
+
+   scala> map.get("f#")
+   res10: Option[Int] = None
+
+Seasoned Java programmers know that an entry not found in the map will result in the *null* value being
+returned. This differs from Scala, because the value gotten from the map must be *tested* before attempting
+to use it in any way.
+
+In Scala, because ``None`` and ``Some(25)`` are both options, you can use ``getOrElse()`` to obtain the
+options value (irrespective of whether the value is null, or not set) without writing an (unwanted) if-then-else
+statement, which results in bloat (in most programming languages).
+
+.. code-block:: scala
+
+   scala> val entry = map.get("F#").getOrElse(-1)
+   entry: Int = 25
+
+   scala> println(s"The entry for F# is $entry")
+   The entry for F# is 25
+
+It's often the case that we have *default* values associated with failure to
+accomplish a certain task. The Option idiom is an attempt to standardize this
+for core data structures and (as we'll see) other situations (e.g. working
+with complex for comprehensions). In the case of maps, an entry not found
+would usually default to 0 or -1 (a convention that dates back to the earliest
+days of C), which is preferable to throwing exceptions for no good reason (not to 
+mention our general dislike of prematurely covering exceptions as a programming
+technique in CS1 in particular.)
+
+for comprehension and options
+---------------------------------
+
 - Really for-each
 - yield
 - Ranges
