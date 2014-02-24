@@ -25,7 +25,7 @@ Motivating Scala in CS1
 
 Our motivation is to have the best of both worlds:
 
-- Concise scriptability of languages like Python and Ruby
+- Concise script-ability of languages like Python and Ruby
 - Static type checking in the small makes it (generally) easy to fix compilation errors
 
 Emerging *worksheet* model makes it possible to give students many examples that just
@@ -42,7 +42,7 @@ We're assuming the reader can set up Scala and Java (needed to run Scala, a lang
 targets the JVM primarily). Once you have Scala and Java installed, you can open up an 
 interactive session using the *command line*. (For those who don't prefer the command line,
 especially on Windows, we recommend installing IntelliJ Community Edition and the Scala
-plugin. This will allow you to get an interactive session as well.)
+plug-in. This will allow you to get an interactive session as well.)
 
 .. code-block:: scala
 
@@ -521,7 +521,7 @@ first 5 random coordinate pairs.
    (0.8454163994561401,0.6805038035803781)
 
 So what is going on here? We're taking the first 5 coordinate pairs in the
-stream and applyingg the ``println()`` function to each item in the stream
+stream and applying the ``println()`` function to each item in the stream
 (that is, each coordinate pair). While there are some aspects of this that are
 advanced, there are some aspects that are *vastly simpler* than their
 equivalent in tradition imperative object-oriented languages (e.g. C++, Java,
@@ -537,9 +537,9 @@ Looking more closely:
    scala> (math.random, math.random)
    res10: (Double, Double) = (0.20679803333001656,0.91233235776938)
 
-This generates a random pair, and it even *looks* like a random pair from mathematics. Of course, it's also typesafe!
+This generates a random pair, and it even *looks* like a random pair from mathematics. Of course, it's also type-safe!
 
-So we're now near the point where we can put all of the pieces together. We have a function to determine whethe a randomly generated coordinate pair falls within the unit circle. Let's compute :math:`\pi`.
+So we're now near the point where we can put all of the pieces together. We have a function to determine whether a randomly generated coordinate pair falls within the unit circle. Let's compute :math:`\pi`.
 
 .. code-block:: scala
 
@@ -558,7 +558,7 @@ So we're now near the point where we can put all of the pieces together. We have
    scala> val area = 4.0 * dartsInCircle / totalDarts
    area: Double = 3.139576
 
-This is a good time to introduce the *dotless* syntax, which is often associated with object-oriented programming but actually precedes these languages (C *struct* et al).
+This is a good time to introduce the *dot-less* syntax, which is often associated with object-oriented programming but actually precedes these languages (C *struct* et al).
 
 You can also write the above code (where you see dots) as follows:
 
@@ -616,10 +616,10 @@ log_{10}(2147483647) \rfloor = 9`)
    the modern era. Scala collections do not support operations like ``take()``
    and ``drop()`` with 64-bit Int values. The  explanation for this is a bit
    beyond the scope here, but we have worked out 64-bit versions where we
-   perform the Monte Carlo :math:`\pi` calculation in chunks. You can vist our
-   repostory for these versions, which are a bit complex compared to the Int
+   perform the Monte Carlo :math:`\pi` calculation in chunks. You can visit our
+   repository for these versions, which are a bit complex compared to the Int
    version. We hope future versions of Scala will evolve beyond 32-bit
-   thinking but don't see this as a showstopper for  introductory teaching.
+   thinking but don't see this as a show stopper for  introductory teaching.
    (We also hope the friendly competition between F# and Scala, where F#
    supports Int64, will eventually make its way to Scala.
 
@@ -744,7 +744,7 @@ What about interactive loops?
    Enter a number >= 0  and <= 100? 100
 
 It is interesting to think about whether we can turn an interactive while loop into one without 
-side effects. There are so many bad things that happent to us as CS1 educators when we work with
+side effects. There are so many bad things that happen to us as CS1 educators when we work with
 interactive loops:
 
 - Improper initialization of the ``response`` variable.
@@ -1034,10 +1034,10 @@ What does this class Point show?
   apparent when we look at *case classes*, which provide a mechanism for more data-centric OO abstraction.)
 
 - Convert an instance of class Point to a String representation using ``ToString()``. ``ToString()`` can be
-  a valuable pedaogical tool, done right (as observed in languages like Python). Scala 2.10 gives us the
+  a valuable pedagogical tool, done right (as observed in languages like Python). Scala 2.10 gives us the
   ability to do type-safe string interpolation by substituting the value of variables (their String
   representation) into a String template. In Scala, prefixing a string literal with ``s`` will give you
-  a string where any variables (beginning with ``$``) are substituted. Here, it allowsus to get a beautiful
+  a string where any variables (beginning with ``$``) are substituted. Here, it allows us to get a beautiful
   representation of a point as an (x, y) pair with virtually no effort or complexity!
 
 Let's take a look at how the ``Point`` class is used:
@@ -1081,7 +1081,7 @@ allows you to run it from the command line.
 Scala's answer to ``main()`` (largely a vestige of C-based languages) is to support *singleton objects*,
 which we rely upon in some more advanced examples. While we consider the singleton pattern to be a bit 
 overrated and overused (e.g. ``Runtime.getRuntime()`` and many others like it in Java's API), the 
-singleton object as found here is complelely decoupled from any class and allows you to create an 
+singleton object as found here is completely decoupled from any class and allows you to create an 
 *environment* so to speak with its own namespace but without the burden of a full class definition. 
 
 In this example, we create a singleton object to act as our ``main()`` driver. 
@@ -1103,7 +1103,7 @@ More on that towards the end.
 Useful REPL functionality
 -------------------------------
 
-The Scala REPL supports a number of commmands that can be greatly helpful for working interactively. We've
+The Scala REPL supports a number of commands that can be greatly helpful for working interactively. We've
 relied on many of these in the preparation of this tutorial but will focus on the highlights, especially
 for use in CS1 teaching.
 
