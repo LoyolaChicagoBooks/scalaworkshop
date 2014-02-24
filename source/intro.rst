@@ -1,5 +1,8 @@
+.. image:: figures/scalalogo.png
+
 About Scala
 ===============
+
 
 "Scala is an object-functional programming and scripting language for general
 software applications, statically typed, designed to concisely express
