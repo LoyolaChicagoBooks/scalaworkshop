@@ -3,10 +3,19 @@
 Scala Workshop at SIGCSE
 ===========================================
 
-by Mark Lewis, Konstantin Läufer, and George K. Thiruvathukal
+.. image:: figures/scalalogo.png
 
-Table of Contents:
+| **Mark Lewis**
+| Trinity University
+| Department of Computer Science
 
+| **Konstantin Läufer and George K. Thiruvathukal**
+| Loyola University Chicago
+| Department of Computer Science
+
+
+Table of Contents
+---------------------
 .. toctree::
    :maxdepth: 2
    :numbered:
@@ -25,7 +34,7 @@ Table of Contents:
 
 
 Indices and tables
-==================
+------------------------
 
 * :ref:`genindex`
 * :ref:`search`
