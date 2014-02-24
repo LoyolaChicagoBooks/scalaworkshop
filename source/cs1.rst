@@ -652,12 +652,10 @@ Here is the output (some output has been deleted for conciseness).
    Loading MonteCarloPiStreamIteratorChunkFree.sc...
    sqr: (x: Double)Double
    inCircle: ((Double, Double)) => Boolean = <function1>
-   warning: there were 1 feature warning(s); re-run with -feature for details
    randomPairs: Iterator[(Double, Double)] = non-empty iterator
    n: Int = 1000000
    darts: Iterator[(Double, Double)] = non-empty iterator
    dartsInCircle: Int = 785719
-   warning: there were 1 feature warning(s); re-run with -feature for details
    totalDarts: Int = 0
    area: Double = Infinity
    longDartsInCircle: (numDarts: Int)Long
@@ -730,8 +728,7 @@ Of course, you can replace many computational loops by a side-effect free versio
 
 .. code-block:: scala
 
-   scala> 1 to n sum
-   warning: there were 1 feature warning(s); re-run with -feature for details
+   scala> (1 to n).sum
    res6: Int = 55
 
 
