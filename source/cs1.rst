@@ -1,7 +1,7 @@
 Scala in CS1
 =====================
 
-.. warning:::
+.. warning::
 
    This section is still in draft form but is nearly complete in terms of examples, subject to editing.
    There might still be a few rough spots. Comments welcome to gkt@cs.luc.edu.
