@@ -437,7 +437,7 @@ In addition to rather outdated notions many tend to have about functional progra
 the optimization of recursive calls is achieved through a version of tail-recursion elimination (a.k.a. tail call
 optimization). See [TailCalls]_ for more information.
 
-Monte Carlo :math:``\pi`` Calculation
+Monte Carlo :math:`\pi` Calculation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An example that often resonates well with students is the Monte Carlo method,
