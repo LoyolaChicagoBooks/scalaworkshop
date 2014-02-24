@@ -1,9 +1,10 @@
 .. Sphinx project for SIGCSE Wowrkshop (Lewis, Läufer, and Thiruvathukal) 2013-2014
 
+.. image:: figures/scalalogo.png
+
 Scala Workshop at SIGCSE
 ===========================================
 
-.. image:: figures/scalalogo.png
 
 | **Mark Lewis**
 | Trinity University
