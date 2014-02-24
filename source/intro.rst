@@ -31,4 +31,4 @@ Source is Wikimedia Commons [LaScala]_
 
 .. [LaScala] La Scala, Wikimedia Commons, http://en.wikipedia.org/wiki/File:Milano-scalanotte_e.jpg
 
-.. [LaScalaCOncert] Keith Jarrett, http://en.wikipedia.org/wiki/La_Scala_(album)`
+.. [LaScalaConcert] Keith Jarrett, http://en.wikipedia.org/wiki/La_Scala_(album)`
