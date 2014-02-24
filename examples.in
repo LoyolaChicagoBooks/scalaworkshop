@@ -15,7 +15,6 @@ hg,lcs-systolicarray,https://bitbucket.org/loyolachicagocs_plsystems/lcs-systoli
 #
 hg,hello-android,https://bitbucket.org/loyolachicagocs_plsystems/hello-android-scala
 hg,hpspc-babysteps,https://bitbucket.org/loyolachicagocs_plsystems/hpspc-babysteps
-git,primenumbers-spray,git@github.com:webservices-cs-luc-edu/primenumbers-spray-scala.git
 
 hg,hpjpc,https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java
 
