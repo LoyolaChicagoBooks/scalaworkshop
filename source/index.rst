@@ -14,6 +14,7 @@ Table of Contents:
    intro
    download
    cs1
+   cs2
    buildtools
    webservices
    android
