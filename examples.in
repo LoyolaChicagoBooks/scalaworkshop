@@ -4,43 +4,23 @@
 #
 # HPC-style examples (George and Konstantin)
 #
-hg,integration,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/integration-scala
-hg,lcs-systolicarray,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
+hg,integration,https://bitbucket.org/loyolachicagocs_plsystems/integration-scala
+hg,lcs-systolicarray,https://bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
 
 # Student-contributed
-#hg,predatorprey,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/predatorprey-scala-eclipse
+#hg,predatorprey,https://bitbucket.org/loyolachicagocs_plsystems/predatorprey-scala-eclipse
 
 #
 # Introductory, CS1 style things
 #
-hg,hello-android,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/hello-android-scala
-hg,hpspc-babysteps,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/hpspc-babysteps
+hg,hello-android,https://bitbucket.org/loyolachicagocs_plsystems/hello-android-scala
+hg,hpspc-babysteps,https://bitbucket.org/loyolachicagocs_plsystems/hpspc-babysteps
 git,primenumbers-spray,git@github.com:webservices-cs-luc-edu/primenumbers-spray-scala.git
 
-# Systems
-git,osdi-processtree-c,git@github.com:systems-cs-luc-edu/osdi-processtree-ansi-c.git
-git,osdi-processtree-cpp,git@github.com:systems-cs-luc-edu/osdi-processtree-cpp.git
-git,osdi-processtree-fsharp,git@github.com:systems-cs-luc-edu/osdi-processtree-fsharp.git
-git,osdi-processtree-scala,git@github.com:systems-cs-luc-edu/osdi-processtree-scala.git
-
-# Android
-hg,clickcounter,ssh://hg@bitbucket.org/loyolachicagocs_plsystems/clickcounter-android-scala
-
-#
-# Examples from Konstantin's OOP class (not migrated to Bitbucket...yet)
-#
-git,hello,git@github.com:oop-cs-luc-edu/hello-scala-eclipse.git
-git,miniool,git@github.com:oop-cs-luc-edu/miniool-scala.git
-git,misc,git@github.com:oop-cs-luc-edu/misc-scala.git
-git,shapes,git@github.com:oop-cs-luc-edu/shapes-scala.git
-git,shapes-algebraic,git@github.com:oop-cs-luc-edu/shapes-algebraic-scala.git
-git,expressions,git@github.com:oop-cs-luc-edu/expressions-scala.git
-git,factorial-fixpoint,git@github.com:oop-cs-luc-edu/factorial-fixpoint-scala.git
-git,expressions-algebraic,git@github.com:oop-cs-luc-edu/expressions-algebraic-scala.git
-hg,hpjpc,ssh://hg@bitbucket.org/loyolachicagocs_books/hpjpc-source-java
+hg,hpjpc,https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java
 
 #
 # Emerging Numerical and Intro CS examples collections
 
-hg,introcs-scala-examples,https://gkthiruvathukal@bitbucket.org/loyolachicagocs_books/introcs-scala-examples
-hg,numerical-explorations-scala,https://gkthiruvathukal@bitbucket.org/loyolachicagocs_plsystems/numerical-explorations-scala
+hg,introcs-scala-examples,https://bitbucket.org/loyolachicagocs_books/introcs-scala-examples
+hg,numerical-explorations-scala,https://bitbucket.org/loyolachicagocs_plsystems/numerical-explorations-scala
