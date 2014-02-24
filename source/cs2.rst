@@ -1,9 +1,10 @@
 CS2
 ######################
 
-.. toctree::
-   :maxdepth: 3
+.. warning::
 
+   This section is not ready yet. Working on it!
+   
 Collections
 ---------------------
 - Just for Scala
