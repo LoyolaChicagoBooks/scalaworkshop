@@ -43,8 +43,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'SIGCSE 2013 Scala Workshop'
-copyright = u'2012, Konstantin Läufer, Mark Lewis and George Thiruvathukal'
+project = u'SIGCSE Scala Workshop'
+copyright = u'2012-2014, Konstantin Läufer, Mark Lewis and George Thiruvathukal'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -268,7 +268,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'sigcse-scala.tex', u'SIGCSE 2013 Workshop on Scala',
+  ('index', 'sigcse-scala.tex', u'SIGCSE Workshop on Scala',
    u'Lewis, Läufer, and Thiruvathukal', 'manual'),
 ]
 
@@ -298,7 +298,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'introcscsharp', u'SIGCSE 2013 Workshop',
+    ('index', 'introcscsharp', u'SIGCSE Workshop',
      [u'Mark Lewis, Konstantin Läufer, and George K. Thiruvathukal'], 1)
 ]
 
@@ -312,7 +312,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'sigcse-scala', u'SIGCSE 2013 Workshop on Scala',
+  ('index', 'sigcse-scala', u'SIGCSE Workshop on Scala',
    u'Lewis, Läufer, and Thiruvathukal', 'sigcse-scala', 
    'SIGCSE Scala',
    'Miscellaneous'),
