@@ -8,24 +8,6 @@ Scala in CS1
 
 This is an elaboration of our Google presentation slides: http://goo.gl/Q68fA.
 
-Why Scala?
----------------
-
-Scala Adoption/Usage Charts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-See presentation for now., http://goo.gl/Q68fA.
-
-
-Technology Radar
-~~~~~~~~~~~~~~~~~~~
-
-See Thoughtworks.com
-
-Language Complexity
-~~~~~~~~~~~~~~~~~~~~~~~
-
-See presentation for now, http://goo.gl/Q68fA.
 
 Motivating Scala in CS1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -3,7 +3,6 @@
 About Scala
 ===============
 
-
 "Scala is an object-functional programming and scripting language for general
 software applications, statically typed, designed to concisely express
 solutions in an elegant, type-safe and lightweight (low ceremonial) manner.
@@ -29,6 +28,34 @@ solving. We hope you agree!
 
 Source is Wikimedia Commons [LaScala]_
 
+Why Scala?
+---------------
+
+Redmonk Language Rankings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: figures/lang-rank-114-wm.png
+
+Scala is ranked 13 on this year's listing. This comes courtesy of [RedmonkPL]_
+
+Technology Radar
+~~~~~~~~~~~~~~~~~~~
+
+Thoughtworks maintains a resource known as the Technology Radar [TWTechRadar]_. Four classifications:
+
+- Adopt
+- Trial
+- Assess
+- Hold
+
+Scala is listed under *Adopt*.
+
+Language Complexity
+~~~~~~~~~~~~~~~~~~~~~~~
+
+See presentation for now, http://goo.gl/Q68fA.
+
+.. [RedmonkPL] Redmonk Programming Language Rankings, http://redmonk.com/sogrady/2014/01/22/language-rankings-1-14/
 
 .. [ScalaWikipedia] Scala Programming Language, Wikipedia, http://en.wikipedia.org/wiki/Scala_(programming_language)
 
