@@ -6,6 +6,8 @@ Scala in CS1
    This section is still in draft form but is nearly complete in terms of examples, subject to editing.
    There might still be a few rough spots. Comments welcome to gkt@cs.luc.edu.
 
+.. highlight:: scala
+
 This is an elaboration of our Google presentation slides: http://goo.gl/Q68fA.
 
 
@@ -44,19 +46,15 @@ interactive session using the *command line*. (For those who don't prefer the co
 especially on Windows, we recommend installing IntelliJ Community Edition and the Scala
 plug-in. This will allow you to get an interactive session as well.)
 
+Hello, World
+~~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: scala
 
    $ scala-2.10
    Welcome to Scala version 2.10.3 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_45).
    Type in expressions to have them evaluated.
    Type :help for more information.
-
-   scala>
-
-Hello, World
-~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: scala
 
    scala> println("Hello, World")
    Hello, World	
@@ -282,21 +280,24 @@ This shows how to map the ``square()`` function to the range of values.
 .. code-block:: scala
 
    scala> first_n.map(square)
-   res16: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+   res16: scala.collection.immutable.IndexedSeq[Int] = 
+      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 This shows how to map a *function literal* to the range of values. 
 
 .. code-block:: scala
 
    scala> first_n map (n => n * n)
-   res17: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+   res17: scala.collection.immutable.IndexedSeq[Int] = 
+      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 This shows how you can combine a function literal with a previously defined function:
 
 .. code-block:: scala
 
    scala> first_n map (n => square(n))
-   res18: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+   res18: scala.collection.immutable.IndexedSeq[Int] = 
+      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 
 You can avoid having to name arguments in function literals using the ``_`` parameter. This syntax is a 
@@ -308,7 +309,8 @@ Consider this code that creates the first n even numbers:
 .. code-block:: scala
 
    scala> 1 to 10 map (_ * 2)
-   res26: scala.collection.immutable.IndexedSeq[Int] = Vector(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
+   res26: scala.collection.immutable.IndexedSeq[Int] = 
+      Vector(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
 
 You might be tempted to try this by doing the following:
 
@@ -479,7 +481,8 @@ circle? We start by using a Scala Stream (more on this in collections).
 .. code-block:: scala
 
    scala> val randomPairs = Stream continually (math.random, math.random)
-   randomPairs: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+   randomPairs: scala.collection.immutable.Stream[(Double, Double)] = 
+      Stream((0.45422625790687077,0.1916739269602844), ?)
 
 
 .. note::
@@ -492,7 +495,8 @@ circle? We start by using a Scala Stream (more on this in collections).
    .. code-block:: scala
 
       scala> val randomPairs = Stream continually (math.random, math.random) iterator
-      randomPairs: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+      randomPairs: scala.collection.immutable.Stream[(Double, Double)] = 
+         Stream((0.45422625790687077,0.1916739269602844), ?)
 
    Notice that the ``iterator()`` method is being invoked. This can be taught after students have learned
    more about Scala collections.
@@ -511,7 +515,8 @@ first 5 random coordinate pairs.
 .. code-block:: scala
 
    scala> randomPairs.take(5)
-   res7: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+   res7: scala.collection.immutable.Stream[(Double, Double)] = 
+      Stream((0.45422625790687077,0.1916739269602844), ?)
 
    scala> randomPairs.take(5).foreach(println)
    (0.45422625790687077,0.1916739269602844)
@@ -547,7 +552,8 @@ So we're now near the point where we can put all of the pieces together. We have
    n: Int = 1000000
 
    scala> val darts = randomPairs.take(n)
-   darts: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+   darts: scala.collection.immutable.Stream[(Double, Double)] = 
+      Stream((0.45422625790687077,0.1916739269602844), ?)
 
    scala> val dartsInCircle = darts.count(inCircle)
    dartsInCircle: Int = 784894
@@ -565,7 +571,8 @@ You can also write the above code (where you see dots) as follows:
 .. code-block:: scala
 
    scala> val darts = randomPairs take n
-   darts: scala.collection.immutable.Stream[(Double, Double)] = Stream((0.45422625790687077,0.1916739269602844), ?)
+   darts: scala.collection.immutable.Stream[(Double, Double)] = 
+      Stream((0.45422625790687077,0.1916739269602844), ?)
 
    scala> val dartsInCircle = darts count inCircle
    dartsInCircle: Int = 784894
@@ -648,9 +655,12 @@ Here is the output (some output has been deleted for conciseness).
    longDartsInCircle: (numDarts: Int)Long
    monteCarloCircleArea: (numDarts: Int)Double
    time: [R](block: => R)R
-   powers: scala.collection.immutable.Range.Inclusive = Range(1, 2, 3, 4, 5, 6, 7, 8, 9)
-   sizes: scala.collection.immutable.IndexedSeq[Int] = Vector(10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000)
-   problemSizes: scala.collection.immutable.IndexedSeq[Int] = Vector(1000000, 10000000, 100000000, 1000000000)
+   powers: scala.collection.immutable.Range.Inclusive = 
+      Range(1, 2, 3, 4, 5, 6, 7, 8, 9)
+   sizes: scala.collection.immutable.IndexedSeq[Int] = 
+      Vector(10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000)
+   problemSizes: scala.collection.immutable.IndexedSeq[Int] = 
+      Vector(1000000, 10000000, 100000000, 1000000000)
    Trying these probem sizes
    1000000
    10000000
@@ -724,7 +734,8 @@ What about interactive loops?
 .. code-block:: scala
 
    scala> val reader = new ConsoleReader
-   reader: scala.tools.jline.console.ConsoleReader = scala.tools.jline.console.ConsoleReader@26075b18
+   reader: scala.tools.jline.console.ConsoleReader = 
+      scala.tools.jline.console.ConsoleReader@26075b18
 
    scala> var response = 0
    response: Int = 0
@@ -742,6 +753,7 @@ What about interactive loops?
    Enter a number >= 0  and <= 100? -5
    Enter a number >= 0  and <= 100? 105
    Enter a number >= 0  and <= 100? 100
+   scala> ...
 
 It is interesting to think about whether we can turn an interactive while loop into one without 
 side effects. There are so many bad things that happen to us as CS1 educators when we work with
@@ -767,7 +779,7 @@ Basic idea:
 
 .. code-block:: scala
 
-   scala> val s1 = "" #:: Stream.continually( reader.readLine("Enter number or no to end input: "))
+   scala> val s1 = "" #:: Stream.continually( reader.readLine("Prompt: "))
    s1: scala.collection.immutable.Stream[String] = Stream(, ?)
 
    scala> val s = s1.takeWhile(_ != "no")
@@ -834,7 +846,8 @@ Let's look at something a bit more interesting: Getting the first ``n`` squares:
    n: Int = 10
 
    scala> val first_n_squares = for (i <- 1 to n) yield { i * i }
-   first_n_squares: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+   first_n_squares: scala.collection.immutable.IndexedSeq[Int] = 
+      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 
 You could wrap this up nicely in a Scala function as follows:
@@ -845,7 +858,8 @@ You could wrap this up nicely in a Scala function as follows:
    squares: (n: Int)scala.collection.immutable.IndexedSeq[Int]
 
    scala> squares(10)
-   res7: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+   res7: scala.collection.immutable.IndexedSeq[Int] = 
+      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 
 options amd failure sans exceptions

@@ -148,6 +148,8 @@ html_theme_options = {
     # be in the form [(name, page), ..]
     'navbar_links': [('Index', 'genindex')],
 
+    'navbar_sidebarrel': False,
+
     # Include hidden TOCs in Site navbar?
     #
     # Note: If this is "false", you cannot have mixed ``:hidden:`` and
