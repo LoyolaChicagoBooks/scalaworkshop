@@ -178,7 +178,7 @@ html_theme_options = {
     # such as "amelia" or "cosmo".
     #
     # Note that this is served off CDN, so won't be available offline.
-    'bootswatch_theme': "cosmo",
+    'bootswatch_theme': "lumen",
 
     'bootstrap_version' : "3"
 }
