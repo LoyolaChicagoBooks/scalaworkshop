@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 CONFIG        = bootstrap
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build -c config/$(CONFIG)/
+SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = build
 
