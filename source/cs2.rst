@@ -220,7 +220,7 @@ basic documentation for Java to learn the details.
 
 Here's a screenshot of the game:
 
-.. image:: figures/SimplePaint.png
+.. image:: figures/SimpleGame.png
 
 
 CS2
