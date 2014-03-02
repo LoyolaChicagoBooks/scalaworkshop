@@ -80,18 +80,181 @@ tab completion--to show the available operations and methods available for an ``
    toDouble       toFloat        toInt          toLong         toShort
    toString       unary_+        unary_-        unary_~        |
 
-Statements
-~~~~~~~~~~~~~
 
-.. todo::
+Literals are mostly what you expect
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   George working on this.
+Integers
 
-Expressions
-~~~~~~~~~~~~~~~~~~
-.. todo::
+.. code-block:: scala
 
-   George working on this.
+   scala> val a = 95
+   a: Int = 95
+
+   scala> val b = -95
+   b: Int = -95
+
+Octal and Hexadecimal
+
+.. code-block:: scala
+
+   scala> val c = 039
+   <console>:1: error: malformed integer number
+          val c = 039
+                  ^
+
+   scala> val c = 037
+   warning: there were 1 deprecation warning(s); re-run with -deprecation for details
+   c: Int = 31
+
+   scala> val d = 0xff
+   d: Int = 255
+
+   scala> val d = 0xffac
+   d: Int = 65452
+
+Double and Float
+
+.. code-block:: scala
+
+   scala> val e = 1.34e-7
+   e: Double = 1.34E-7
+
+   scala> val f = 1.34e-7f
+   f: Float = 1.34E-7
+
+
+Statements vs. Expressions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Scala eschews statements as a general rule in favor of expressions (which produce values), owing to its functional heritage, which emphasizes the composition of functions to effect computation.
+
+In practice, however, many expressions, however, behave like statements as they produce ``Unit`` as
+a result.
+
+A notable consequence of this language decision is that some constructs are not provided in
+Scala, including the familiar break and continue (found in loops).
+
+Everything is an Object
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Scala is not designed in a vacuum. Its heritage is one shared with Java, even if its ideas have value
+above and beyond Java. Everything is achieved in Scala with *objects*, although you can do a tremendous amount of programming before ever writing a *class* per se.
+
+There are two consequences to this decision:
+
+- There are no primitive types per se. Every one of the literals discussed previously is an object.
+  This eliminates the need to distinguish ``int`` from ``Integer`` (a major pain point for Java prior
+  to boxing/unboxing support).
+
+- There are very few keywords in Scala. Even when you encounter something that you think is a keyword,
+  it is often just a method call. A really good example is the concept of mapping (map) from functional
+  programming, which is a method common to just about every Scala collection.
+
+Let's look at a couple of examples of methods. Here is an example of how to see the methods available
+to an ``Int`` instance:
+
+.. code-block:: scala
+
+scala> a.<tab>
+%              &              *              +              -
+/              >              >=             >>             >>>
+^              asInstanceOf   isInstanceOf   toByte         toChar
+toDouble       toFloat        toInt          toLong         toShort
+toString       unary_+        unary_-        unary_~        |
+
+Where you see ``<tab>``, you can use a feature known as *tab completion* in the REPL to see the options
+available to value ``a``. You'll notice one thing immediately, especially if you are familiar with Java: 
+operator overloading! That's right, every operator is a method.
+
+Let's use the ``+`` method:
+
+.. code-block:: scala
+
+   scala> a.+(3)
+   res5: Int = 98
+
+   scala> a + 3
+   res6: Int = 98
+
+
+Let's convert an Int to a Float:
+
+.. code-block:: scala
+
+   scala> val b = a.toFloat
+   b: Float = 95.0
+
+You can also invoke methods like ``toFloat`` (which take no parameters) without using dots. We will
+take advantage of this syntax as part of good Scala style (in many of our examples).
+
+.. code-block:: scala
+
+   scala> val b = a.toFloat
+   b: Float = 95.0
+
+We're going to look at more *advanced* objects later (Scala collections) but this should give you
+a taste of what is possible.
+
+Tuples
+~~~~~~~~
+
+A language feature that was popularized (but not invented) by the Python language are tuples. Tuples
+eliminate the need for unwanted uses of a class for grouping multiple values. Let's take a quick 
+look.
+
+.. code-block:: scala
+
+   scala> val t = (3, 4)
+   t: (Int, Int) = (3,4)
+
+   scala> val u = (3.0, 4.0)
+   u: (Double, Double) = (3.0,4.0)
+
+   scala> val v = (3.0, 4)
+   v: (Double, Int) = (3.0,4)
+
+Notice that Scala infers the type of each one of these value definitions. 
+
+When working with a tuple, you're really working with an object. You can inspect the methods that 
+are available using the tab completion method shown previously.
+
+.. code-block:: scala
+
+   scala> t.
+   _1                _2                asInstanceOf      canEqual
+   copy              isInstanceOf      productArity      productElement
+   productIterator   productPrefix     swap              toString
+
+   scala> u.
+   _1                _2                asInstanceOf      canEqual
+   copy              isInstanceOf      productArity      productElement
+   productIterator   productPrefix     swap              toString
+
+   scala> v.
+   _1                _2                asInstanceOf      canEqual
+   copy              isInstanceOf      productArity      productElement
+   productIterator   productPrefix     swap              toString
+
+You can inspect the components of a tuple by using the ``_1``, ``_2``, ... methods.
+
+.. code-block:: scala
+
+   scala> t._1
+   res9: Int = 3
+
+   scala> t._2
+   res10: Int = 4
+
+You'll obviously not want to use these names to refer to the components of a tuple. Using
+pattern matching, you can extract the components of a tuple and *bind* them to proper names.
+For example, if your tuple represents an (x, y) pair, you are likely to use a match expression
+like this:
+
+.. code-block:: scala
+
+   scala> t match { case (x, y) => println(s"($x, $y)") }
+   (3, 4)
 
 
 Semicolon Inferencing
