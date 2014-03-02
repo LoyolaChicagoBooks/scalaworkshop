@@ -4,43 +4,50 @@
 Downloading
 ======================
 
-This tutorial is in *alpha* status. We hope it will be *beta* by the time we give our 
-workshop!
+Primary Site
+-----------------
 
-.. index::
-   double: download; source code
+Primary Book Site (scalaworkshop.com)
+--------------------------------------
 
-Code Examples
---------------------
+.. csv-table:: Available Book Formats (Primary Site)
+    :header: "Format", "URL"
+    :widths: 15, 30
 
-- Our Mercurial repository (hosted at https://bitbucket.org/sigcse2013scala/notes) contains the source used to build this tutorial.
+    "Web Pages", "http://scalaworkshop.com/"
+    "Web Pages (offline ZIP)", "http://scalaworkshop.com/dist/html.zip"
+    "PDF", "http://scalaworkshop.com/latex/sigcse-scala.pdf"
+    "ePub (Experimental)", "http://scalaworkshop.com/epub/sigcse-scala.epub"
 
-- Instructions for how to build this tutorial and get *all* of the code examples can be found via this page.
+Mirror Site at Loyola (scalaworkshop.cs.luc.edu)
+----------------------------------------------------
 
-- Our build scripts automatically pull down all needed code from various repositories maintained by the authors. We are a *distributed* group, so our code examples are everywhere. This project is actually an attempt to aggregate the various examples in a pedagogically suitable package.
+.. csv-table:: Available Book Formats (Primary Site)
+    :header: "Format", "URL"
+    :widths: 15, 30
 
-.. index::
-   double: download; PDF
-   double: download; ePub
-   double: download; HTML
+    "Web Pages", "http://scalaworkshop.cs.luc.edu/"
+    "Web Pages (offline ZIP)", "http://scalaworkshop.cs.luc.edu/dist/html.zip"
+    "PDF", "http://scalaworkshop.cs.luc.edu/latex/sigcse-scala.pdf"
+    "ePub (Experimental)", "http://scalaworkshop.cs.luc.edu/epub/sigcse-scala.epub"
 
+Source Code Repositories
+----------------------------
 
-Viewing Offline
---------------------
+You can download all of the longer code examples (short inline examples can be copied and pasted from the HTML version) 
+individually. You will either need to use Mercurial (hg client) or downlaod the Zip from the URLs below.
 
-We also provide the following formats for offline reading:
+.. csv-table:: Repositories
+    :header: "Provider", "Description", "URL"
 
-|pdf| 
-  http://scalaworkshop.cs.luc.edu/latex/sigcse-scala.pdf (for offline desktop/tablet viewing)
+    "hg","integration-scala","https://bitbucket.org/loyolachicagocs_plsystems/integration-scala"
+    "hg","lcs-systolicarray","https://bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala"
+    "hg","hpjpc","https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java"
+    "hg","introcs-scala-examples","https://bitbucket.org/loyolachicagocs_books/introcs-scala-examples"
+    "hg","numerical-explorations-scala","https://bitbucket.org/loyolachicagocs_plsystems/numerical-explorations-scala"
 
-|epub|
-  http://scalaworkshop.cs.luc.edu/epub/sigcse-scala.epub
-
-|html|
-  http://scalaworkshop.cs.luc.edu/
-
-.. index::
-   single: contact the authors
+Alternately, you can clone https://bitbucket.org/sigcse2013scala/notes and run the ``fullmake.sh`` script, which will 
+pull all examples (assuming ``hg`` is installed on your computer) into the ``examples`` subdirectory.
 
 .. _contact:
 
@@ -48,3 +55,10 @@ Comments?
 --------------------
 
 Please don't hesitate to contact the authors.
+
+.. csv-table:: Repositories
+    :header: "Name","E-mail"
+
+    "Mark Lewis","mlewis@trinity.edu"
+    "Konstantin Läufer","laufer@cs.luc.edu"
+    "George K. Thiruvathukal", "gkt@cs.luc.edu"
