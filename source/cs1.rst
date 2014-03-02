@@ -15,10 +15,8 @@ Motivating Scala in CS1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Programming in the small
-
-  - REPL - Read-Evaluate-Print-Loop 
-  - Scripting Environment
-
+- REPL - Read-Evaluate-Print-Loop 
+- Scripting Environment
 - Libraries allow for interesting code (JVM)
 - Static type checking
 - Uniform syntax
@@ -156,12 +154,12 @@ to an ``Int`` instance:
 
 .. code-block:: scala
 
-scala> a.<tab>
-%              &              *              +              -
-/              >              >=             >>             >>>
-^              asInstanceOf   isInstanceOf   toByte         toChar
-toDouble       toFloat        toInt          toLong         toShort
-toString       unary_+        unary_-        unary_~        |
+   scala> a.<tab>
+   %              &              *              +              -
+   /              >              >=             >>             >>>
+   ^              asInstanceOf   isInstanceOf   toByte         toChar
+   toDouble       toFloat        toInt          toLong         toShort
+   toString       unary_+        unary_-        unary_~        |
 
 Where you see ``<tab>``, you can use a feature known as *tab completion* in the REPL to see the options
 available to value ``a``. You'll notice one thing immediately, especially if you are familiar with Java: 
@@ -263,7 +261,7 @@ Semicolon Inferencing
 Python programmers already know and love not having to deal with semicolons. Scala follows
 this excellent practice as well.
 
-You can do
+You can do this:
 
 .. code-block:: scala
 
@@ -271,7 +269,7 @@ You can do
    x: Int = 30
 
 
-But this works just as well and is preferred:
+But this works just as well and is the preferred way to write Scala code:
 
 .. code-block:: scala
 
@@ -513,22 +511,33 @@ our time in this section looking at the ``square()`` function!)
 Recursion for Iteration
 --------------------------
 
-- This is my style, even in C.
-- Works well with functional
-- Cements previous topics
-- Further with Scala
-- Passing function argument → early abstraction
-- Matching idiom
-- Introduce patterns
-- Scala optimizes tail recursion (JVM constraints)
+.. code-block:: scala
+
+   scala> def sum(n : Int) : Int = if (n <= 0) 0 else n + sum(n-1)
+   sum: (n: Int)Int
+
+   scala> sum(0)
+   res0: Int = 0
+
+   scala> sum(1)
+   res1: Int = 1
+
+   scala> sum(2)
+   res2: Int = 3
+
+   scala> sum(3)
+   res3: Int = 6
+
+   scala> sum(100)
+   res4: Int = 5050
+
+Recursion does take awhile to master, but much of the trouble students have with it in practice
+is a consequence of side-effect-full thinking. Nevertheless, you can replace this with a more
+imperative (von Neumann) style. See our loops section.
 
 
 Some CS1 Friendly Examples
 ------------------------------
-
-.. todo::
-
-   These are just a few examples. More are coming.
 
 GCD
 ~~~~~
@@ -851,7 +860,6 @@ More Scala
 While Loop
 ~~~~~~~~~~~~~~
 
-
 - While loop
 - Not an expression
 
@@ -861,36 +869,34 @@ Consider this interactive session to compute well-known example for sum
 
 .. code-block:: scala
 
-   scala> var i = 0
-   i: Int = 0
-
-   scala> var n = 10
-   n: Int = 10
-
-   scala> var sum = 0
-   sum: Int = 0
-
-   scala> while (i <= n) {
-        |    sum = sum + i
-        |    i = i + 1
+   scala> def sum(n : Int) : Int = {
+        |   var i = 0
+        |   var sum = 0
+        |   while (i <= n) {
+        |     sum = sum + n
+        |     i = i + 1
+        |   }
+        |   sum
         | }
+   sum: (n: Int)Int
 
-   scala> i
-   res2: Int = 11
+   scala> sum(100)
+   res5: Int = 10100
 
-   scala> sum
-   res3: Int = 0
+   scala> sum(0)
+   res6: Int = 0
 
-   scala> n
-   res4: Int = 10
+Much is possible without iteration with the added advantage of being recursive and side-effect
+free underneath the hood.
 
-Of course, you can replace many computational loops by a side-effect free version.
+   scala> def sum(n : Int) = (1 to n).sum
+   sum: (n: Int)Int
 
-.. code-block:: scala
+   scala> sum(0)
+   res8: Int = 0
 
-   scala> (1 to n).sum
-   res6: Int = 55
-
+   scala> sum(100)
+   res9: Int = 5050
 
 What about interactive loops?
 
@@ -1145,8 +1151,70 @@ technique in CS1 in particular.)
 yield
 ~~~~~~~~~
 
+Yield is used to take a collection and produce a new one with mapped values.
+
+Let's produce a List[Int] of squares from a List[Int] of the first three 
+integers:
+
+.. code-block:: scala
+
+   scala> val l = List(1, 2, 3)
+   l: List[Int] = List(1, 2, 3)
+
+   scala> l
+   res10: List[Int] = List(1, 2, 3)
+
+   scala> for (i <- l) yield { i * i }
+   res11: List[Int] = List(1, 4, 9)
+
+Let's try this with an Array[Int]:
+
+.. code-block:: scala
+
+   scala> val a = Array(1, 2, 3)
+   a: Array[Int] = Array(1, 2, 3)
+
+   scala> for (i <- a) yield i * i
+   res16: Array[Int] = Array(1, 4, 9)
+
+For the most part, when iterating over values and using yield, you will always get
+back the same type, or another type that makes sense.
+
+In these basic examples, the above can also be written as follows (without the for):
+
+.. code-block:: scala
+
+   scala> l map (i => i * i)
+   res17: List[Int] = List(1, 4, 9)
+
+   scala> a map (i => i * i)
+   res18: Array[Int] = Array(1, 4, 9)
+
+
 Ranges
 ~~~~~~~~~~
+
+Ranges should be familiar to you if you've worked with other agile scripting languages, e.g. Python.
+
+.. code-block:: scala
+
+   scala> Range(1, 5)
+   res20: scala.collection.immutable.Range = Range(1, 2, 3, 4)
+
+This gives a range of values from 1 to 5 but stopping at the last value before 5. The increment
+is +1.
+
+.. code-block:: scala
+
+   scala> Range(1, 9, 2)
+   res22: scala.collection.immutable.Range = Range(1, 3, 5, 7)
+
+You can also work backwards:
+
+.. code-block:: scala
+
+   scala> Range(9, 0, -2)
+   res24: scala.collection.immutable.Range = Range(9, 7, 5, 3, 1)
 
 
 Multiple generators
