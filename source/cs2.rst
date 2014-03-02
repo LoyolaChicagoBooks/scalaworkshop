@@ -58,6 +58,70 @@ changed to match the Scala style.
    :start-after: begin-SimpleGUI
    :end-before: end-SimpleGUI
 
+
+Simple GUI Example using Option
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Scala makes it possible to simplify exception handling using options and
+provides integrated support for dealing with exceptions and returning 
+options in its ``scala.util.control.Exception`` library.
+
+For example, say you want to validateInteger input for a text field in your UI.
+You could write this simple validation function to do so:
+
+.. code-block:: scala
+
+   scala> def toInteger(n : String) = catching(classOf[NumberFormatException]) opt n.toInt
+
+   scala> toInteger("blah")
+   res0: Option[Int] = None
+
+   scala> toInteger("35")
+   res1: Option[Int] = Some(35)
+
+Then you can use ``getOrElse()`` to process the option and, if desired, supply a 
+default value if the option is not set (i.e. it is ``None`` as you see above when
+we tried to validate the string "blah".
+
+.. code-block:: scala
+
+   scala> toInteger("35").getOrElse(0)
+   res2: Int = 35
+
+   scala> toInteger("blah").getOrElse(0)
+   res3: Int = 0
+
+It's clear that being able to validate input efficiently is something that excites us. It 
+certainly makes UI development more reliable and resilient to failures. (We've had more than our
+share of fun chasing down validation bugs in web and mobile app development. Most of the time
+it is caused by unnecessarily complex validation logic.)
+
+You can see how this plays out in a slightly reworked version of the code:
+
+.. literalinclude:: ../examples/introcs-scala-examples/SimpleGUI2.sc
+   :language: scala
+   :linenos:
+   :start-after: begin-SimpleGUI2
+   :end-before: end-SimpleGUI2
+
+Simple Paint Example
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example shows how you can override the paint method to make a
+custom drawing. It also shows interactions with the mouse.
+
+
+.. literalinclude:: ../examples/introcs-scala-examples/SimplePaint.sc
+   :language: scala
+   :linenos:
+   :start-after: begin-SimplePaint
+   :end-before: end-SimplePaint
+
+Here's what the output looks like when you drag the mouse quasi-randomly on
+the blank canvas that first comes appears. (Your output may vary!)
+
+.. image:: figures/SimplePaint.png
+
 A More Complex GUI Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -153,6 +217,11 @@ basic documentation for Java to learn the details.
    :linenos:
    :start-after: begin-SimpleGame-main
    :end-before: end-SimpleGame-main
+
+Here's a screenshot of the game:
+
+.. image:: figures/SimplePaint.png
+
 
 CS2
 -------
