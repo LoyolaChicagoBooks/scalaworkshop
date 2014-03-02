@@ -13,7 +13,6 @@ hg,lcs-systolicarray,https://bitbucket.org/loyolachicagocs_plsystems/lcs-systoli
 #
 # Introductory, CS1 style things
 #
-hg,hello-android,https://bitbucket.org/loyolachicagocs_plsystems/hello-android-scala
 hg,hpspc-babysteps,https://bitbucket.org/loyolachicagocs_plsystems/hpspc-babysteps
 
 hg,hpjpc,https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java
