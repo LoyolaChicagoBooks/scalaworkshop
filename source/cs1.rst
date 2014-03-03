@@ -12,7 +12,7 @@ This is an elaboration of our Google presentation slides: http://goo.gl/Q68fA.
 
 
 Motivating Scala in CS1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 - Programming in the small
 - REPL - Read-Evaluate-Print-Loop 
@@ -45,7 +45,7 @@ especially on Windows, we recommend installing IntelliJ Community Edition and th
 plug-in. This will allow you to get an interactive session as well.)
 
 Hello, World
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: scala
 
@@ -59,7 +59,7 @@ Hello, World
 
 
 Types - "Lack" of Primitives
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: scala
 
@@ -76,11 +76,11 @@ tab completion--to show the available operations and methods available for an ``
    /              >              >=             >>             >>>
    ^              asInstanceOf   isInstanceOf   toByte         toChar
    toDouble       toFloat        toInt          toLong         toShort
-   toString       unary_+        unary_-        unary_~        |
+   toString       unary_+        unary_-        unary_^        |
 
 
 Literals are mostly what you expect
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Integers
 
@@ -123,7 +123,7 @@ Double and Float
 
 
 Statements vs. Expressions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Scala eschews statements as a general rule in favor of expressions (which produce values), owing to its functional heritage, which emphasizes the composition of functions to effect computation.
 
@@ -134,7 +134,7 @@ A notable consequence of this language decision is that some constructs are not 
 Scala, including the familiar break and continue (found in loops).
 
 Everything is an Object
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Scala is not designed in a vacuum. Its heritage is one shared with Java, even if its ideas have value
 above and beyond Java. Everything is achieved in Scala with *objects*, although you can do a tremendous amount of programming before ever writing a *class* per se.
@@ -159,7 +159,7 @@ to an ``Int`` instance:
    /              >              >=             >>             >>>
    ^              asInstanceOf   isInstanceOf   toByte         toChar
    toDouble       toFloat        toInt          toLong         toShort
-   toString       unary_+        unary_-        unary_~        |
+   toString       unary_+        unary_-        unary_^        |
 
 Where you see ``<tab>``, you can use a feature known as *tab completion* in the REPL to see the options
 available to value ``a``. You'll notice one thing immediately, especially if you are familiar with Java: 
@@ -195,7 +195,7 @@ We're going to look at more *advanced* objects later (Scala collections) but thi
 a taste of what is possible.
 
 Tuples
-~~~~~~~~
+^^^^^^^^
 
 A language feature that was popularized (but not invented) by the Python language are tuples. Tuples
 eliminate the need for unwanted uses of a class for grouping multiple values. Let's take a quick 
@@ -256,7 +256,7 @@ like this:
 
 
 Semicolon Inferencing
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Python programmers already know and love not having to deal with semicolons. Scala follows
 this excellent practice as well.
@@ -277,7 +277,7 @@ But this works just as well and is the preferred way to write Scala code:
    y: Int = 30
 
 Simple Input (and Output)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Much like Python and Java, import can be used to experiment with library objects and functions, even
 before you know how to create classes:
@@ -321,7 +321,7 @@ see above, ``readLine(String)`` gives us what we want: the ability to read
 input with a prompt of sorts.
 
 val vs. var
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 - Values (keyboard ``val``) are used for immutable storage.
 - Variables (keyword ``var``) are used for mutable storage.
@@ -333,7 +333,7 @@ val vs. var
 - Interesting 
 
 Scripts and Worksheets
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Similar to modern scripting languages (e.g. Python and Ruby) and the original shell, you can create a 
 Scala script in a file, e.g. ``myscript.scala`` and run the script using the ``scala`` command.
@@ -352,7 +352,7 @@ You can also *load* the script within the Scala REPL:
 We'll be taking advantage of this a bit more in our discussion about ``sbt``, the Scala Build Tool.
 
 Conditional and Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Functional → expressions
 
@@ -418,7 +418,7 @@ As expected, the second invocation of ``square()`` results in an error. Scala pe
 in real time. That is, this is *not* a run-time check.
 
 Function literals
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 Let's build on the ``square()`` example to see how easy it is to generate the first ``n`` squares. We'll use
 this to show how you can use functions as parameters and to sensitize the use of Scala *function literals*,
@@ -507,6 +507,399 @@ Here we are creating a version that has a default value of zero, if the caller d
 is not necessarily intended to be pedagogically interesting but is effective, considering we spent most of 
 our time in this section looking at the ``square()`` function!)
 
+Early Collection, Arrays and Lists
+--------------------------------------
+
+Scala has some very advanced and comprehensive collections libraries. For CS1
+you can focus only on the simplest of these, beginning with Arrays and Lists.
+In actually makes sense to introduce these before loops (and iteration in
+general) in Scala for two reasons. First, the collections have many methods
+that allow you to do standard tasks that would often go in loops. As such,
+Scala code often doesn’t include all that many loops. Second, the for loop in
+Scala is really a foreach type loop that works with collections so it makes
+more sense to introduce it after the basic collections.
+
+Making Arrays and Lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The simplest way to make an Array or a List is with the following syntax.
+
+.. code-block:: scala
+
+   scala> Array(1,2,3,4)
+   res0: Array[Int] = Array(1, 2, 3, 4)
+
+   scala> List(1.3,4.2,3.14)
+   res1: List[Double] = List(1.3, 4.2, 3.14)
+
+
+Note that the Array and List types take type parameters. These appear in
+square brackets. It is standard across the Scala language that value arguments
+appear in parentheses, type arguments appear in square brackets, and curly
+braces are used to denote code blocks for complex expressions or statements.
+Also note that as before, Scala’s type inference figures out the types for
+these expressions.
+
+.. note::
+
+   Technically these are making calls to the apply methods of the Array and
+   List companion objects. The details of how that works don’t really matter
+   in CS1, but you can find them in the section on object-orientation under
+   CS2. We cover this topic later in our discussion of classes and 
+   objects.
+
+You can also made longer arrays using the new syntax that one uses in Java.
+
+.. code-block:: scala
+
+   scala> new Array[Int](100)
+   res2: Array[Int] = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+
+Here we need to specify the type and say how big the Array is. Array objects in
+Scala are implemented as Java arrays and they have the same general
+properties. Like Java Arrays, they are mutable and they can’t dynamically
+change their size. Note that this approach to making Arrays is not the one
+typically used in Scala because if the type is something like String you get
+the same behavior you have in Java and all the values are initialized to null.
+Later in this section we will see the fill and tabulate methods, which are
+much less likely to produce a NullPointerException and are generally favored
+over this style of creating a large Array.
+
+Lists can be built using the ``::`` operator. We read ``::`` as ``cons``, following the
+tradition of Scheme (Lisp and ML. ``::`` is a right associative operator so it takes a
+value on the left and a List on the right. For example:
+
+
+.. code-block:: scala
+
+   scala> 1::2::3::4::Nil
+   res4: List[Int] = List(1, 2, 3, 4)
+
+
+The ``Nil`` object is a short name for an empty List. You can also use
+``List()`` (the empty list) in place of ``Nil``. Note that the List type is a
+singly-linked, *immutable* list. So prepending as shown above is an efficient
+operation. Also note that you can’t change values without making a new List
+because it is immutable.
+
+This form of building a List with ``::`` is probably most beneficial with
+recursive functions and works very well in situations where you don’t know how
+many values you will be working with.
+
+.. code-block:: scala
+
+   scala> def readNumbers(n:Int):List[Int] = if(n<1) Nil else 
+        | readInt :: readNumbers(n-1)
+   readNumbers: (n: Int)List[Int]
+
+   scala> readNumbers(5)
+   1
+   2
+   3
+   4
+   5
+   res6: List[Int] = List(1, 2, 3, 4, 5)
+
+   scala> def readUntilQuit():List[Int] = {
+        | val data = readLine
+        | if(data!="quit") data.toInt :: readUntilQuit() else Nil
+        | }
+   readUntilQuit: ()List[Int]
+
+   scala> readUntilQuit()
+   1
+   2
+   3
+   4
+   5
+   quit
+   res7: List[Int] = List(1, 2, 3, 4, 5)
+
+
+Indexing/Traversing Arrays and Lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can get to values in an Array or a List by indexing with parentheses.
+
+.. code-block:: scala
+
+   scala> val arr = Array(6,8,2,4,1)
+   arr: Array[Int] = Array(6, 8, 2, 4, 1)
+
+   scala> val lst = List('g','e','o','r','g','e')
+   lst: List[Char] = List(g, e, o, r, g, e)
+
+   scala> arr(2)
+   res1: Int = 2
+
+   scala> lst(2)
+   res2: Char = o
+
+The use of parentheses instead of square brackets keeps the syntax consistent.
+(Having parentheses is the next best thing to square brackets as well. It is certainly 
+preferable to having an explicit method call as found in Java to access elements in
+the array. We also note that the well-known math/science focused programming language,
+FORTRAN, uses parentheses for subscripting!)
+
+Neither the Array type, nor the List type have any special place in the Scala
+syntax. They are both handled in the programming language just like any other
+library code. The compiler does optimize Arrays to Java bytecode arrays, but
+that is an implementation detail beyond the scope of our workshop.
+
+You can also use the syntax you would expect to set the values of elements in
+an Array. You can’t do this for Lists because they are immutable.
+
+.. code-block:: scala
+
+   scala> arr(2) = 99
+
+   scala> arr
+   res4: Array[Int] = Array(6, 8, 99, 4, 1)
+
+The common way to run through a List is using the head and tail methods. The
+head method returns the first element of the List while tail returns the last
+remaining after the first element. (Note that these can be called on an Array
+as well, but tail will be very inefficient as it builds a new, shorter Array.)
+The use of head and tail is particularly well suited for recursion.
+
+.. code-block:: scala
+
+   scala> def sumList(lst:List[Int]):Int = if(lst.isEmpty) 0 else
+        | lst.head+sumList(lst.tail)
+   sumList: (lst: List[Int])Int
+
+   scala> sumList(List(1,2,3,4,5))
+   res5: Int = 15
+
+This same function can be defined using a match and patterns in the following
+way.
+
+.. code-block:: scala
+
+   scala> def sumList(lst:List[Int]):Int = lst match {
+        | case Nil => 0
+        | case h::t => h + sumList(t)
+        | }
+   sumList: (lst: List[Int])Int
+
+Standard Methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The collection types in Scala have a large number of methods defined on them.
+We won’t list them here. Instead, you can look in the [ScalaAPI]_ for the
+names and details. This is what you get when you use tab completion in the
+REPL on a List.
+
+.. code-block:: scala
+
+   scala> lst.<tab>
+   ++                   ++:                  +:                   
+   /:                   /:\                  :+                   
+   ::                   :::                  :\                   
+   addString            aggregate            andThen              
+   apply                applyOrElse          asInstanceOf         
+   canEqual             collect              collectFirst         
+   combinations         companion            compose              
+   contains             containsSlice        copyToArray          
+   copyToBuffer         corresponds          count                
+   diff                 distinct             drop                 
+   dropRight            dropWhile            endsWith             
+   exists               filter               filterNot            
+   find                 flatMap              flatten              
+   fold                 foldLeft             foldRight            
+   forall               foreach              genericBuilder       
+   groupBy              grouped              hasDefiniteSize      
+   head                 headOption           indexOf              
+   indexOfSlice         indexWhere           indices              
+   init                 inits                intersect            
+   isDefinedAt          isEmpty              isInstanceOf         
+   isTraversableAgain   iterator             last                 
+   lastIndexOf          lastIndexOfSlice     lastIndexWhere       
+   lastOption           length               lengthCompare        
+   lift                 map                  mapConserve          
+   max                  maxBy                min                  
+   minBy                mkString             nonEmpty             
+   orElse               padTo                par                  
+   partition            patch                permutations         
+   prefixLength         product              productArity         
+   productElement       productIterator      productPrefix        
+   reduce               reduceLeft           reduceLeftOption     
+   reduceOption         reduceRight          reduceRightOption    
+   removeDuplicates     repr                 reverse              
+   reverseIterator      reverseMap           reverse_:::          
+   runWith              sameElements         scan                 
+   scanLeft             scanRight            segmentLength        
+   seq                  size                 slice                
+   sliding              sortBy               sortWith             
+   sorted               span                 splitAt              
+   startsWith           stringPrefix         sum                  
+   tail                 tails                take                 
+   takeRight            takeWhile            to                   
+   toArray              toBuffer             toIndexedSeq         
+   toIterable           toIterator           toList               
+   toMap                toSeq                toSet                
+   toStream             toString             toTraversable        
+   toVector             transpose            union                
+   unzip                unzip3               updated              
+   view                 withFilter           zip                  
+   zipAll               zipWithIndex 
+
+
+You might notice that there is a sum method, so the listSum written above is
+something you never need to write. There are also methods for converting
+between types such at toList and toArray.
+
+
+Higher Order Methods
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some of the methods in that list are worth describing instead of leaving it to
+the reader to explore the API. In particular, the most commonly used higher-
+order methods, like ``map`` and ``filter``, are used to a significant extent in Scala
+programming. The ``foreach`` method is also helpful in a number of situations.
+
+Higher-order methods are methods that take or return functions. In this
+situation, we are considering methods that take a function as an argument. The
+``filter`` method, for example, takes a function that takes one argument of the
+type of the collection and returns a Boolean. That function is called on every
+element of the collection. A new collection is produced that contains only the
+elements for which the function returned true. To see how this is used,
+consider the following code where we filter a List of Ints in two different
+ways.
+
+.. code-block:: scala
+
+   scala> val lst = List(6,4,9,1,2,8,3,7)
+   lst: List[Int] = List(6, 4, 9, 1, 2, 8, 3, 7)
+
+   scala> lst.filter(_ < 6)
+   res8: List[Int] = List(4, 1, 2, 3)
+
+   scala> lst.filter(_ % 2 == 0)
+   res9: List[Int] = List(6, 4, 2, 8)
+
+Both examples use the shorthand underscore syntax for writing the lambda
+expressions/function literals. They could have been written using the longer
+syntax as ``n => n<6`` and ``n => n%2 == 0`` respectively.
+
+Another higher-order method that is used extensively is the ``map`` method
+(one of our favorites). The argument passed into ``map`` is a function that takes
+the type of the collection and returns something. The return type could be the
+same as the input type, but it could be different. The map method returns a
+new collection of the return type of the function. A first example will use
+the list of integers from above and make a collection that contains values
+that are twice the original values.
+
+.. code-block:: scala
+
+   scala> lst.map(_*2)
+   res10: List[Int] = List(12, 8, 18, 2, 4, 16, 6, 14)
+
+
+To show that the types can be different, this second example shows mapping
+Strings to their length.
+
+.. code-block:: scala
+
+   scala> val words = "This is a sentence with words".split(" ")
+   words: Array[String] = Array(This, is, a, sentence, with, words)
+
+   scala> words.map(_.length)
+   res0: Array[Int] = Array(4, 2, 1, 8, 4, 5)
+
+The ``foreach`` method takes a function and simply executes the function on all
+the elements of the collection. While map and filter return new collections,
+``foreach`` is used for its side effects and returns ``Unit``.
+
+.. code-block:: scala
+
+   scala> words.foreach(println)
+   This
+   is
+   a
+   sentence
+   with
+   words
+
+There are other higher-order methods that are very accessible for CS1 students
+such as ``count``, ``exists``, and ``forall``, all of which take predicate functions on a
+single argument. There are more complex methods like the ``reduce`` methods and
+``fold`` methods that can be very helpful, but which are more challenging for CS1
+students to understand. We use these occasionally in this workshop but recommmend
+that they be used sparingly and with an emphasis on clarity (as opposed to conciseness).
+
+Currying and By-Name Arguments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The best ways to create large Arrays and Lists in Scala are with the ``fill`` and
+``tabulate`` methods. These use some syntax that needs to be introduced. The first
+element of new syntax is that these methods are *curried*. This means that the
+arguments are broken across multiple argument lists. So instead of having
+``f(x,y)`` you would have ``f(x)(y)``. This is a common feature of functional
+programming languages and it is done to allow functions to be partially
+applied. (A partial application means that you apply the function to a subset
+of the arguments, which results in a new function of the remaining arguments.)
+The syntax for defining a curried function in Scala is fairly
+straightforward.
+
+.. code-block:: scala
+
+   scala> def currySum(x:Int)(y:Int) = x+y
+   currySum: (x: Int)(y: Int)Int
+
+   scala> currySum(3)(5)
+   res2: Int = 8
+
+   scala> val plus3 = currySum(3)_
+   plus3: Int => Int = <function1>
+
+   scala> plus3(5)
+   res3: Int = 8
+
+
+The need for the underscore in the partially applied call removes ambiguity in
+the Scala syntax. Often functions are curried in Scala to help with type
+inference or to simplify the syntax for calling them.
+
+The second new element of the syntax is pass-by-name arguments. By default,
+variables in Scala are passed in a manner similar to Java. The variables are
+references and the references are passed by-value. With pass-by-name
+semantics, the code is passed more like a function instead of by-value.
+Instead of being evaluated at the call point, the code is wrapped in a “thunk”
+(a term that originated with Algol 60). Every time the variable is used,  the
+code is executed. We specify that a parameter is pass-by-name using a rocket
+with no arguments.
+
+.. code-block:: scala
+
+   scala> def multiplyThrice(x: => Double) = x*x*x
+   multiplyThrice: (x: => Double)Double
+
+   scala> var i = 5
+   i: Int = 5
+
+   scala> multiplyThrice(i)
+   res5: Double = 125.0
+
+   scala> multiplyThrice({i += 1; i})
+   res6: Double = 336.0
+
+
+The first invocation of ``multiplyThrice`` does what one would expect, even though
+the argument is passed by-name.
+
+We use call-by-name for timing blocks of code in the Monte Carlo Pi example later
+in this section. See :ref:`montecarlopi`.
+
+Fill and Tabulate
+^^^^^^^^^^^^^^^^^^^^^
+
+The fill method, which is defined on the Array object, is...
 
 Recursion for Iteration
 --------------------------
@@ -540,7 +933,7 @@ Some CS1 Friendly Examples
 ------------------------------
 
 GCD
-~~~~~
+^^^^^
 
 This is based on a classic algorithm by Euclid and one that is covered in many introductory computer science
 courses. (See [GCD]_ for a more detailed discussion of this method and the ways it has been coded over the
@@ -554,7 +947,7 @@ The Scala version looks a lot like Euclid's definition!
 
 
 Factorial
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 This is the basic example that comes from [MiscExplorationsScala]_,
 which also show show to use Scala and functional programming to rework explicitly recursive computations into
@@ -598,8 +991,10 @@ In addition to rather outdated notions many tend to have about functional progra
 the optimization of recursive calls is achieved through a version of tail-recursion elimination (a.k.a. tail call
 optimization). See [TailCalls]_ for more information.
 
+.. _montecarlopi:
+
 Monte Carlo :math:`\pi` Calculation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 An example that often resonates well with students is the Monte Carlo method,
 which uses randomness to perform the :math:`\pi` computation. In the interests
@@ -776,6 +1171,7 @@ could be given to your students with the hope of  sensitizing them to the
 notion of *performance*. It also shows the tremendous power available in Scala
 to work with a block of Scala code as an object (which can produce a value).
 
+
 .. literalinclude:: ../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
    :language: scala
    :linenos:
@@ -858,7 +1254,7 @@ More Scala
 
 
 While Loop
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 - While loop
 - Not an expression
@@ -978,7 +1374,7 @@ Basic idea:
    res8: Int = 115
 
 for loop
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 Similar to the while loop, a for loop exists for *imperative* style programming, often when there is
 a need to do something where a side-effect is needed.
@@ -1001,7 +1397,7 @@ a need to do something where a side-effect is needed.
 
 
 for comprehension
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 A for comprehension is designed for where you want a more functional style. That is, there is no intention 
 of having side effects, and it is likely that you want to use the result of the comprehension in another
@@ -1032,7 +1428,7 @@ You could wrap this up nicely in a Scala function as follows:
 
 
 options amd failure sans exceptions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Per the Scala documentation: An option represents optional values. Instances
 of Option are either an instance of scala.Some or the object None.
@@ -1149,7 +1545,7 @@ mention our general dislike of prematurely covering exceptions as a programming
 technique in CS1 in particular.)
 
 yield
-~~~~~~~~~
+^^^^^^^^^
 
 Yield is used to take a collection and produce a new one with mapped values.
 
@@ -1192,7 +1588,7 @@ In these basic examples, the above can also be written as follows (without the f
 
 
 Ranges
-~~~~~~~~~~
+^^^^^^^^^^
 
 Ranges should be familiar to you if you've worked with other agile scripting languages, e.g. Python.
 
@@ -1218,18 +1614,18 @@ You can also work backwards:
 
 
 Multiple generators
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 If guards
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 Variables
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 
 Patterns
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 
 
@@ -1250,7 +1646,7 @@ Classes and Objects
 
 
 Classes
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 Here is the familiar Point class. It's often shown where the (x, y) coordinate pair are Int (even in
 the Scala documentation) but is even more interesting with Double. This is an elaborated version that
@@ -1316,7 +1712,7 @@ This results in the following output.
 
 
 A Look at Singleton Objects
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 At some point, relying on the interpreter for trying out the Point class (as we have been doing until
 now) grows a bit tedious. Furthermore, sometimes you want to have a complete, functioning program that
@@ -1378,7 +1774,7 @@ for use in CS1 teaching.
 
 
 paste 
-~~~~~~~~
+^^^^^^^^
 
 When writing longer definitions in the REPL, it can be tricky. Having paste mode allows you to take some
 code you have (perhaps from an editor where you are typing a Scala program) and copy/paste into the Scala
@@ -1403,7 +1799,7 @@ function (presented earlier in this section):
 Notice that you don't see the continuation characters when entering multiple lines of text.
 
 load 
-~~~~~~
+^^^^^^
 
 Many programmers coming to Scala find it a bit frustrating at first that some things (like interactive
 scripts, found in languages like Python) don't work quite the same way. More often than not, the real issue
@@ -1416,7 +1812,7 @@ the filename, which may be an absolute or relative path.
    scala> :load myscript.scala
 
 history
-~~~~~~~~~~
+^^^^^^^^^^
 
 History should be familiar to anyone who has used modern Unix shells. Even if you haven't, you've probably
 used the history buffer, which allows you to use the up/down arrows or emacs/vi commands (^p, ^n, j, k) to 
@@ -1447,3 +1843,5 @@ Additional Resources
 .. [GCD] Greatest Common Divisor, http://introcs.cs.luc.edu/html/gcdexamples.html
 
 .. [MiscExplorationsScala] Miscellaneous Scala Explorations, https://bitbucket.org/lucproglangcourse/misc-explorations-scala
+
+.. [ScalaAPI] Scala API Documentation, http://www.scala-lang.org/api/current/#package
