@@ -22,6 +22,7 @@ Table of Contents
    :numbered:
 
    intro
+   install
    download
    cs1
    cs2
