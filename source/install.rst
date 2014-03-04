@@ -1,33 +1,49 @@
 Installing Scala
 =====================
 
+Scala Tools
+-----------------
+
 We do most of my CS1 instruction using command line tools. We know that many faculty teaching introductory CS courses prefer an Integrated Development Environment (IDE). For an IDE, we officially recommend Eclipse because it is provided as a bundle that has Scala already installed and it will work on all platforms with very minor differences. The following link will take you to that.
 
-http://scala-ide.org/download/sdk.html
+- http://scala-ide.org/download/sdk.html
 
 If you want to go the command-line route, you can also download the standard Scala install. 
 
 - http://www.scala-lang.org/download/
 
+Text Editors
+-----------------
+
 Of course, to make this easy to work with you will need to configure the paths on your machine and you probably want a text editor that you like to work with. 
 
 - On Linux, we recommend `Vim <http://www.vim.org/>`_ or `Emacs <https://www.gnu.org/software/emacs/>`_. 
+  OS X Terminal also supports both via the command line or via the 
+  `MacVim <https://code.google.com/p/macvim/>`_ and `AquaMacs <http://aquamacs.org/>`_ 
+  projects.
 
 - The `Sublime Text Editor <http://www.vim.org>`_ is also wildly popular among agile developers and
   works on all major platforms. While not free/open source, it can be used for an indefinite period 
-  for free (with only occasional nagging suggesting you upgrade to the paid version).
+  for free (with only occasional nagging suggesting you upgrade to the paid version). George uses this
+  editor not only for writing Scala but also for editing reStructuredText (the source code for
+  these notes).
 
-Lastly, IntelliJ is growing in popularity over Eclipse and is preferred by some of us. You can get
-the Community edition for free and then install the plugin.
+JDK
+------------
 
-- http://www.jetbrains.com/idea/download/
-- http://confluence.jetbrains.com/display/SCA/Scala+Plugin+for+IntelliJ+IDEA
+We recommend that you install the Oracle Java Development Kit (Java 7 SE 7u51
+or later). While you can work with OpenJDK and other VM implementations to run
+Scala, our initial testing is that the best experience and performance comes
+from the latest stable release of the Java 7 Platform.
 
-If you have any questions of problems, please just respond to me and hopefully we can get you set up. We look forward to seeing you in two days at SIGCSE.
+- `Oracle Java Platform Downloads <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 
+IntelliJ Option
+-------------------
 
-IntelliJ Community Edition Notes
--------------------------------------
+Lastly, IntelliJ is growing in popularity over Eclipse and is preferred by
+some of us. You can get the Community edition for free and then install the
+plugin.
 
 The IntelliJ IDEA Scala plugin undergoing active development, and there is a
 tradeoff between stability and features/bug fixes. For advanced Scala development, you may find
