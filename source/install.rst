@@ -1,16 +1,36 @@
 Installing Scala
 =====================
 
-Scala Tools
+Prerequisite: JDK
 -----------------
 
-We do most of my CS1 instruction using command line tools. We know that many faculty teaching introductory CS courses prefer an Integrated Development Environment (IDE). For an IDE, we officially recommend Eclipse because it is provided as a bundle that has Scala already installed and it will work on all platforms with very minor differences. The following link will take you to that.
+As a prerequisite to Scala development, we recommend that you install
+the Oracle Java Development Kit (Java 7 SE 7u51 or later). While you
+can work with OpenJDK and other VM implementations to run Scala, our
+initial testing is that the best experience and performance comes from
+the latest stable release of the Java 7 Platform.
 
-- http://scala-ide.org/download/sdk.html
+- `Oracle Java Platform Downloads <http://www.oracle.com/technetwork/java/javase/downloads/>`_
+ 
+Command-Line Tools
+------------------
 
-If you want to go the command-line route, you can also download the standard Scala install. 
+We do most of our CS1 instruction using command line tools. If you
+want to go this route, you can perform a standard Scala 2.10.x
+standalone install using your system's package manager or manually
+from
 
 - http://www.scala-lang.org/download/
+
+This is generally a good choice for projects without external
+dependencies.
+
+For projects with external dependencies (such as unit testing), we
+also recommend using sbt (Simple Build Tool for Scala). You can
+install version 0.13.x or newer of sbt using your system's package
+manager or manually.
+
+- http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html
 
 Text Editors
 -----------------
@@ -28,46 +48,41 @@ Of course, to make this easy to work with you will need to configure the paths o
   editor not only for writing Scala but also for editing reStructuredText (the source code for
   these notes).
 
-JDK
-------------
+IDE Option: JetBrains IntelliJ IDEA
+-----------------------------------
 
-We recommend that you install the Oracle Java Development Kit (Java 7 SE 7u51
-or later). While you can work with OpenJDK and other VM implementations to run
-Scala, our initial testing is that the best experience and performance comes
-from the latest stable release of the Java 7 Platform.
+We know that many faculty teaching introductory CS courses prefer an
+Integrated Development Environment (IDE). We recommend IntelliJ IDEA,
+which is growing in popularity over Eclipse and preferred by some of
+us. You can get the Community edition for free from the following URL
+and then install the Scala plugin through the plugin manager.
 
-- `Oracle Java Platform Downloads <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
+- http://www.jetbrains.com/idea/download/  
 
-IntelliJ Option
--------------------
+The IntelliJ IDEA Scala plugin undergoing active development, and
+there is a tradeoff between stability and features/bug fixes. For
+advanced Scala development, you may find yourself wanting to be more
+bleeding edge. To this end, we recommend the current early access
+version:
 
-Lastly, IntelliJ is growing in popularity over Eclipse and is preferred by
-some of us. You can get the Community edition for free and then install the
-plugin.
-
-The IntelliJ IDEA Scala plugin undergoing active development, and there is a
-tradeoff between stability and features/bug fixes. For advanced Scala development, you may find
-yourself wanting to be more bleeding edge.
-
-To thi send, we recommend the current early access version:
-
-  http://confluence.jetbrains.com/display/IDEADEV/IDEA+13.1+EAP
+-  http://confluence.jetbrains.com/display/IDEADEV/IDEA+13.1+EAP
 
 When you install the Scala plugin through the plugin manager, you will
-automatically get the version that matches that of IDEA. There are still a few
-glitches, but it has gotten a lot better since January 2014. In
-particular, compilation (and execution of Scala worksheets) has become much
-faster.
+automatically get the version that matches that of IDEA. There are
+still a few glitches, but it has gotten a lot better since
+January 2014. In particular, compilation (and execution of Scala
+worksheets) has become much faster.
 
-(Konstantin has downloaded this version for all three platforms and will carry
-(a USB stick for on-site distribution as needed.)
+To work around false compilation errors in Scala worksheets, we also
+recommend a standalone installation of Scala (sufficient for projects
+without external dependencies) or SBT.
 
-To work around false compilation errors in worksheets, we also recommend a
-standalone installation of SBT (using your system's package manager or
-manually):
 
-- http://www.scala-sbt.org
+IDE Option: Eclipse Scala IDE
+------------------------------
 
-The slowness of the first compilation Michael has reported might also have
-been due to the initial code indexing, and responsiveness should improve
-thereafter.
+The official Scala IDE is provided as an Eclipse bundle that has Scala
+already installed. It will work on all platforms with very minor
+differences. The following link will take you there.
+
+- http://scala-ide.org/download/sdk.html
