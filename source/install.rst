@@ -28,14 +28,18 @@ dependencies.
 For projects with external dependencies (such as unit testing), we
 also recommend using sbt (Simple Build Tool for Scala). You can
 install version 0.13.x or newer of sbt using your system's package
-manager or manually.
+manager or manually from
 
 - http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html
+
+You may also need to configure the paths on your machine to make these
+tools easy to work with.
 
 Text Editors
 -----------------
 
-Of course, to make this easy to work with you will need to configure the paths on your machine and you probably want a text editor that you like to work with. 
+To go along with the command-line tools, you will need a text editor
+that you like to work with.
 
 - On Linux, we recommend `Vim <http://www.vim.org/>`_ or `Emacs <https://www.gnu.org/software/emacs/>`_. 
   OS X Terminal also supports both via the command line or via the 
@@ -51,11 +55,11 @@ Of course, to make this easy to work with you will need to configure the paths o
 IDE Option: JetBrains IntelliJ IDEA
 -----------------------------------
 
-We know that many faculty teaching introductory CS courses prefer an
-Integrated Development Environment (IDE). We recommend IntelliJ IDEA,
-which is growing in popularity over Eclipse and preferred by some of
-us. You can get the Community edition for free from the following URL
-and then install the Scala plugin through the plugin manager.
+Many faculty teaching introductory CS courses prefer an Integrated
+Development Environment (IDE). We recommend IntelliJ IDEA, which is
+growing in popularity over Eclipse and preferred by many of us. You
+can get the Community edition for free from the following URL and then
+install the Scala plugin through the plugin manager.
 
 - http://www.jetbrains.com/idea/download/  
 
@@ -75,7 +79,7 @@ worksheets) has become much faster.
 
 To work around false compilation errors in Scala worksheets, we also
 recommend a standalone installation of Scala (sufficient for projects
-without external dependencies) or SBT.
+without external dependencies) or sbt.
 
 
 IDE Option: Eclipse Scala IDE

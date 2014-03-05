@@ -50,20 +50,24 @@ Apache ivy, Gradle, Scala's `Simple Build Tool (sbt) <http://www.scala-sbt.org>`
 
 	<dependency org="junit" name="junit" rev="4.11"/>
 
-Sbt
+sbt
 ---
 
-in the simplest case, sbt does not require any configuration and will
-use reasonable defaults.
+In the simplest case, sbt does not require any configuration and will
+use reasonable defaults. The project layout is similar to that used by
+Maven:
 
-SBT supports two configuration styles, one based on a simple subset of
-Scala, and one based on the full Scala language for configuring all
-aspects of a project.
+- Production code goes in ``src/main/scala``.
+- Test code goes in ``src/test/scala``.
+
+sbt supports two configuration styles, one based on a simple
+Scala-based domain-specific language, and one based on the full Scala
+language for configuring all aspects of a project.
 
 build.sbt format
 ++++++++++++++++
 
-A minimal SBT ``build.sbt`` file would look like this. The empty lines
+A minimal sbt ``build.sbt`` file would look like this. The empty lines
 are required, and the file must be placed in the project root folder.
 
 .. code-block:: scala
@@ -73,14 +77,14 @@ are required, and the file must be placed in the project root folder.
     
     version := "0.0.2"
     
-    scalaVersion := "2.10.1-RC1"
+    scalaVersion := "2.10.3"
 
 Additional dependencies can be specified either one at a time
 
 .. code-block:: scala
   :linenos:
 
-    libraryDependencies += "junit" % "junit" % "4.11"
+    libraryDependencies += "com.novocode" % "junit-interface" % "0.10" % "test"
  
 or as a group
 
@@ -88,8 +92,8 @@ or as a group
   :linenos:
 
     libraryDependencies ++= Seq(
-      "junit" % "junit" % "4.11",
-      "com.novocode" % "junit-interface" % "0.10-M2" % "test"
+      "org.scalaz" %% "scalaz-core" % "7.0.5",
+      "com.novocode" % "junit-interface" % "0.10" % "test"
     )
 
 Build.scala format
@@ -110,7 +114,10 @@ sbt includes a growing plugin ecosystem. Key examples include
   automatically generates an Eclipse project configuration from an sbt one.
 
 `sbt-start-script <https://github.com/sbt/sbt-start-script>`_
-  generates a start script for running a Scala application outside of sbt.
+  generates a start script for running a Scala application outside of
+  sbt.
+
+The IntelliJ IDEA Scala plugin also integrates directly with sbt.
 
 Starting from Scratch
 ---------------------
