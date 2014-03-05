@@ -10,13 +10,13 @@ architecture in the curriculum, but we also see this architecture as a
 very effective context for teaching various important computer science topics:
 
 - (real-world) software architecture
-    + dependency injection principle (DIP)
+    + dependency inversion principle (DIP)
     + model-view-adapter architectural pattern (MVA)
     + testability
     + etc.
 - concurrent, parallel, and distributed computing topics (PDC/TCPP/EduPar)
     + events
-    + timers
+    + timers (one-shot and recurring)
     + background threads
     + offloading tasks to the cloud
 - embedded/resource-conscious computing
