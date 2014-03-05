@@ -80,7 +80,3 @@ Nonfunctional requirements
        for details. The system passes this method a Bundle in which
        you can save state information about the activity as name-value
        pairs, using methods such as ``putString()`` and ``putInt()``.
-
-Acknowledgments
-  We thank Kathleen Hayes and Gary Brown from Typesafe for
-  having provided T-shirts to the presenters.
