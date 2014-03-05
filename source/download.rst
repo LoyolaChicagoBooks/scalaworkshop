@@ -1,8 +1,8 @@
 .. index::
    single: download
 
-Downloading
-======================
+Downloading these Materials
+=========================
 
 scalaworkshop.com (Primary)
 --------------------------------------
