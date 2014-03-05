@@ -76,8 +76,6 @@ are required, and the file must be placed in the project root folder.
     name := "integration-scala"
     
     version := "0.0.2"
-    
-    scalaVersion := "2.10.3"
 
 Additional dependencies can be specified either one at a time
 
@@ -92,7 +90,7 @@ or as a group
   :linenos:
 
     libraryDependencies ++= Seq(
-      "org.scalaz" %% "scalaz-core" % "7.0.5",
+      "org.scala-lang" % "scala-actors" % "2.10.1",
       "com.novocode" % "junit-interface" % "0.10" % "test"
     )
 
@@ -102,8 +100,8 @@ Build.scala format
 Examples of more complex Scala-based project configurations can be
 found in these examples:
 
-- `Android click counter app <https://bitbucket.org/loyolachicagocs_plsystems/clickcounter-android-scala/src/tip/project?at=default>`_
-- `Prime checker web service <https://github.com/webservices-cs-luc-edu/primenumbers-spray-scala/tree/master/project>`_
+- `Android click counter app <https://bitbucket.org/loyolachicagocs_plsystems/clickcounter-android-scala/src/tip/project/>`_
+- `Prime checker web service <https://bitbucket.org/loyolachicagocs_distributed/primenumbers-spray-scala/src/master/project/>`_
 
 Plugin Ecosystem
 ----------------
