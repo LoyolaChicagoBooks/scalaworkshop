@@ -28,8 +28,8 @@ Our motivation is to have the best of both worlds:
 - Concise script-ability of languages like Python and Ruby
 - Static type checking in the small makes it (generally) easy to fix compilation errors
 
-Emerging *worksheet* model makes it possible to give students many examples that just
-work and can be adapted to solve new problems.
+The emerging *worksheet* model makes it possible to give students many
+examples that just work and can be adapted to solve new problems.
 
 Getting Started
 -------------------
@@ -1154,7 +1154,7 @@ At some point, you realize that you want to enter the code into a text editor th
 the Scala interpreter (as opposed to being entered interactively).
 
 The actual code for this can be found at 
-https://gkthiruvathukal@bitbucket.org/loyolachicagocs_plsystems/numerical-explorations-scala. You can 
+https://bitbucket.org/loyolachicagocs_plsystems/numerical-explorations-scala. You can 
 pull up the Scala worksheet from ``MonteCarloPiStreamIteratorChunkFree.sc`` (by drilling into Source).
 
 Here's the final version of our function to calculate :math:`\pi`.
