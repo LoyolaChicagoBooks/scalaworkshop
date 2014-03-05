@@ -52,7 +52,7 @@ readme.
 
 - `Clickcounter app <https://bitbucket.org/loyolachicagocs_plsystems/clickcounter-android-scala>`_
 - `Prime checker app <https://bitbucket.org/loyolachicagocs_plsystems/primenumbers-android-scala>`_
-- `Prime checker web service <https://github.com/webservices-cs-luc-edu/primenumbers-spray-scala>`_
+- `Prime checker web service <https://bitbucket.org/loyolachicagocs_distributed/primenumbers-spray-scala>`_
 
 Lab Assignment
 --------------
@@ -81,15 +81,6 @@ Nonfunctional requirements
        you can save state information about the activity as name-value
        pairs, using methods such as ``putString()`` and ``putInt()``.
 
-Prize
-  The first pair to add both new requirements wins a pair of
-  T-shirts. If there is no such pair, the first pair to complete one
-  of the requirements wins the T-shirts. Otherwise we will raffle off
-  the T-shirts by throwing them into the crowd.
-
-Memorabilia
-  Every participant receives stickers and pins. Yay!
-
 Acknowledgments
-  We thank Gary Brown, sales director at Typesafe, for having provided T-shirts, stickers, and pins
-  on such short notice!
+  We thank Kathleen Hayes and Gary Brown from Typesafe for
+  having provided T-shirts to the presenters.
