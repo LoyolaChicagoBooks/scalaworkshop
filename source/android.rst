@@ -44,6 +44,28 @@ As mentioned above, current and future focus has been on these courses:
   considering the addition of Scala down the road
 - `COMP 373/473: Advanced Object-Oriented Development <http://laufer.cs.luc.edu/teaching/473>`_,   using Scala since spring 2010, planning to add Android in spring 2014
 
+Tools
+-----
+
+The recommended way to develop Android apps using Scala is the
+SBT-Android plugin:
+
+- http://fxthomas.github.io/android-plugin
+
+It is generally well-maintained, well-documented, and integrates with
+various build tools and IDEs.
+
+We have forked this plugin, minimal example, and the related sbt-idea
+plugin so we could update them to work properly with each other
+(sbt-android version 0.7.1-SNAPSHOT) and recent versions of Scala
+(2.10.3) and sbt (0.12.4). When going through the tutorial, if you are
+having difficulties getting things to work out of the box, you may
+want to try these forked repositories instead:
+
+- https://github.com/klaeufer/android-plugin
+- https://github.com/klaeufer/android-scratch 
+- https://github.com/klaeufer/sbt-idea
+
 Examples
 --------
 
