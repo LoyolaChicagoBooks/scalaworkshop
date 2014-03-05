@@ -117,41 +117,41 @@ sbt includes a growing plugin ecosystem. Key examples include
 
 The IntelliJ IDEA Scala plugin also integrates directly with sbt.
 
-Starting from Scratch
----------------------
+.. Starting from Scratch
+   ---------------------
 
-A remaining question is how to start new projects from scratch. One
-can start with a skeleton and modify it, or one can use maven
-archetypes, which are somewhat configuration-heavy and a bit hard to
-use.
+   A remaining question is how to start new projects from scratch. One
+   can start with a skeleton and modify it, or one can use maven
+   archetypes, which are somewhat configuration-heavy and a bit hard to
+   use.
 
-Alternatively, `Giter8 <https://github.com/n8han/giter8>`_ is a
-command-line tool that instantiates templates stored in Git
-repositories. Giter8 itself is based on Scala but handles templates in
-any language(s). For example:
+   Alternatively, `Giter8 <https://github.com/n8han/giter8>`_ is a
+   command-line tool that instantiates templates stored in Git
+   repositories. Giter8 itself is based on Scala but handles templates in
+   any language(s). For example:
 
-.. code-block:: none
-  :linenos:
+   .. code-block:: none
+     :linenos:
 
-    $ g8 fxthomas/android-app
+       $ g8 fxthomas/android-app
 
-    Template for Android apps in Scala 
+       Template for Android apps in Scala 
 
-    package [my.android.project]: 
-    name [My Android Project]: my-android-project
-    main_activity [MainActivity]: 
-    min_api_level [8]: 
-    scala_version [2.10.0]: 
-    api_level [16]: 17
-    useProguard [true]: 
-    scalatest_version [1.9.1]: 
+       package [my.android.project]: 
+       name [My Android Project]: my-android-project
+       main_activity [MainActivity]: 
+       min_api_level [8]: 
+       scala_version [2.10.0]: 2.10.3
+       api_level [16]: 17
+       useProguard [true]: 
+       scalatest_version [1.9.1]: 
 
-    Applied fxthomas/android-app.g8 in my-android-project
+       Applied fxthomas/android-app.g8 in my-android-project
 
-Now we have a hello world app that is ready to run.
+   Now we have a hello world app that is ready to run.
 
-.. code-block:: none
-  :linenos:
+   .. code-block:: none
+     :linenos:
 
-    $ sbt android:package-debug
-    $ sbt android:start-emulator
+       $ sbt android:package-debug
+       $ sbt android:start-emulator
