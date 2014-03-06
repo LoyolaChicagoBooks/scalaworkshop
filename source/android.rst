@@ -52,13 +52,14 @@ There are two sbt plugins for developing Android:
 - https://github.com/pfn/android-sdk-plugin
 - http://fxthomas.github.io/android-plugin
 
-We are currently in the process of evaluating both and will 
-update this section as soon as we have more insights.
-
 The rapidly evolving topic of developing Android apps in Scala is the
 subject of this discussion forum:
 
 - https://groups.google.com/forum/#!topic/scala-on-android
+
+After some experimentation, we have found `pfn's plugin
+<https://github.com/pfn/android-sdk-plugin>`_ to be easier to use and
+have adopted it for our Scala-based Android development.
 
 Examples
 --------
