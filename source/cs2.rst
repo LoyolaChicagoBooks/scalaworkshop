@@ -59,42 +59,45 @@ changed to match the Scala style.
    :end-before: end-SimpleGUI
 
 
-Simple GUI Example using Option
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Simple GUI Example using scala.util.Try
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Scala makes it possible to simplify exception handling using options and
-provides integrated support for dealing with exceptions and returning 
-options in its ``scala.util.control.Exception`` library.
+Scala supports simplified exception handling through its
+``scala.util.Try`` wrapper type. This is an important Scala idiom for
+representing a computation that either succeeds with a result value or
+fails with an exception.
 
-For example, say you want to validateInteger input for a text field in your UI.
-You could write this simple validation function to do so:
+For example, say you want to convert a text field in your UI from
+string to integer. You could write this simple conversion function to
+do so:
 
 .. code-block:: scala
 
-   scala> def toInteger(n : String) = catching(classOf[NumberFormatException]) opt n.toInt
+   scala> def toInteger(s: String) = scala.util.Try(s.toInt)
+   toInteger: (s: String)scala.util.Try[Int]
 
-   scala> toInteger("blah")
-   res0: Option[Int] = None
+   res0: scala.util.Try[Int] = Failure(java.lang.NumberFormatException: For input string: "blah")
 
    scala> toInteger("35")
-   res1: Option[Int] = Some(35)
+   res1: scala.util.Try[Int] = Success(35)
 
-Then you can use ``getOrElse()`` to process the option and, if desired, supply a 
-default value if the option is not set (i.e. it is ``None`` as you see above when
-we tried to validate the string "blah".
+Then you can use ``getOrElse`` to process the wrapped ``Try`` value
+and, if the wrapped value represents failure, return the given default
+value (as you see above when we tried to validate the string "blah").
 
 .. code-block:: scala
 
-   scala> toInteger("35").getOrElse(0)
+   scala> toInteger("35").getOrElse(-1)
    res2: Int = 35
 
-   scala> toInteger("blah").getOrElse(0)
-   res3: Int = 0
+   scala> toInteger("blah").getOrElse(-1)
+   res3: Int = -1
 
-It's clear that being able to validate input efficiently is something that excites us. It 
-certainly makes UI development more reliable and resilient to failures. (We've had more than our
-share of fun chasing down validation bugs in web and mobile app development. Most of the time
-it is caused by unnecessarily complex validation logic.)
+It's clear that being able to validate input efficiently is something
+that excites us. It certainly makes UI development more reliable and
+resilient to failures. (We've had more than our share of fun chasing
+down validation bugs in web and mobile app development. Most of the
+time it is caused by unnecessarily complex validation logic.)
 
 You can see how this plays out in a slightly reworked version of the code:
 
