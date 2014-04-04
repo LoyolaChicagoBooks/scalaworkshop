@@ -1328,19 +1328,25 @@ interactive loops:
 - Improper setting of ``response`` upon termination.
 - etc.
 
-This is my early attempt to figure out how to have a side-effect free interactive while loop. 
-Basic idea:
+This is my early attempt to figure out how to have a side-effect free
+interactive while loop. Basic idea: 
 
-- Use Stream.continually() to get a continuous stream of lines read in.
-- Because Stream is lazy only in the tail, assume a blank line as the first value of the Stream
-  (which is safely ignored). I'd like to figure out the right way to eliminate this without introducing
-  complexity.
-- use the takeWhile() method to accept input until an appropriate terminating condition (the word "no" 
-  is entered)
-- convert each line to integer, if possible. We take advantage of the simplified exception management and 
-  provide a wrapper that is applied to each element to produce an option. Option is an important Scala
-  idiom to address a success/failure paradigm.
-- use flatMap to get only the input that were integral. All other values (None) are discarded.
+- Use ``Stream.continually`` to get a continuous stream of input lines
+  read. 
+- Because ``Stream`` is lazy only in the tail, assume a blank line as
+  the first value of the stream (which is safely ignored). I'd like to
+  figure out the right way to eliminate this without introducing complexity.
+- Use ``takeWhile`` to accept input until an appropriate terminating condition (the word "no" is entered)
+- Convert each line to integer, if possible. We simplify exception
+  management by applying a ``Try`` wrapper to each attempted
+  conversion. ``Try`` is an important Scala idiom for representing a 
+  computation that either succeeds with a result value or fails with
+  an exception.  
+- Use ``flatMap`` to get only the input values where the conversion
+  succeeded. In the process of applying ``flatMap``, however, we need
+  to convert each ``Try`` value to an ``Option`` value. ``Option`` is
+  very similar to ``Try`` but simpler in that it represents all failures as
+  ``None``, which ``flatMap`` discards from the resulting list.
 
 .. code-block:: scala
 
@@ -1359,25 +1365,30 @@ Basic idea:
    Prompt: no
    l: List[String] = List("", 25, 35, 55, "", s)
 
-   scala> def toInteger(n : String) : Option[Int] = {
-        |  catching(classOf[NumberFormatException]) opt n.toInt
-        | }
-   toInteger: (n: String)Option[Int]
+   scala> import scala.util.Try
+   import scala.util.Try
+
+   scala> def toInteger(s: String) =Try(s.toInt)
+   toInteger: (s: String)scala.util.Try[Int]
 
    scala> l.map(toInteger)
-   res3: List[Option[Int]] = List(None, Some(25), Some(35), Some(55), None, None)
+   res3: List[scala.util.Try[Int]] = List(Failure(java.lang.NumberFormatException: For input string: ""), Success(25), Success(35), Success(55), Failure(java.lang.NumberFormatException: For input string: ""), Failure(java.lang.NumberFormatException: For input string: "s"))
 
-   scala> l.flatMap(toInteger)
-   res7: List[Int] = List(25, 35, 55)
+   scala> l.map(t => toInteger(t).toOption)
+   res6: List[Option[Int]] = List(None, Some(25), Some(35), Some(55), None, None)
 
-   scala> l.flatMap(toInteger).sum
+   scala> l.flatMap(t => toInteger(t).toOption)
+   res7: List[Int] = List(25, 35, 55) 
+
+   scala> l.flatMap(t => toInteger(t).toOption).sum
    res8: Int = 115
 
 for loop
 ^^^^^^^^^^^^^
 
-Similar to the while loop, a for loop exists for *imperative* style programming, often when there is
-a need to do something where a side-effect is needed.
+Similar to the while loop, a for loop exists for *imperative* style
+programming, often when there is a need to do something where a
+side-effect is needed.
 
 .. code-block:: scala
 
