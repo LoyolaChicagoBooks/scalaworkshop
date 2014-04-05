@@ -67,9 +67,9 @@ Scala supports simplified exception handling through its
 representing a computation that either succeeds with a result value or
 fails with an exception.
 
-For example, say you want to convert a text field in your UI from
-string to integer. You could write this simple conversion function to
-do so:
+For example, say you want to validate and convert a text field in your
+UI from string to integer. You could write this simple conversion
+function to do so:
 
 .. code-block:: scala
 
@@ -81,9 +81,9 @@ do so:
    scala> toInteger("35")
    res1: scala.util.Try[Int] = Success(35)
 
-Then you can use ``getOrElse`` to process the wrapped ``Try`` value
-and, if the wrapped value represents failure, return the given default
-value (as you see above when we tried to validate the string "blah").
+Then you can use ``getOrElse`` to process the enclosed value and, if
+the ``Try`` value represents failure, return the given default value
+(as you see above when we tried to validate the string "blah").
 
 .. code-block:: scala
 

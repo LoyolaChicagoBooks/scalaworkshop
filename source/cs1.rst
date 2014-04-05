@@ -1350,7 +1350,7 @@ interactive while loop. Basic idea:
 
 .. code-block:: scala
 
-   scala> val s1 = "" #:: Stream.continually( reader.readLine("Prompt: "))
+   scala> val s1 = "" #:: Stream.continually(reader.readLine("Prompt: "))
    s1: scala.collection.immutable.Stream[String] = Stream(, ?)
 
    scala> val s = s1.takeWhile(_ != "no")
@@ -1368,7 +1368,7 @@ interactive while loop. Basic idea:
    scala> import scala.util.Try
    import scala.util.Try
 
-   scala> def toInteger(s: String) =Try(s.toInt)
+   scala> def toInteger(s: String) = Try(s.toInt)
    toInteger: (s: String)scala.util.Try[Int]
 
    scala> l.map(toInteger)
@@ -1438,7 +1438,7 @@ You could wrap this up nicely in a Scala function as follows:
       Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 
-options amd failure sans exceptions
+options and failure sans exceptions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Per the Scala documentation: An option represents optional values. Instances
@@ -1478,7 +1478,7 @@ that must be unbundled later. For example, here is an attempt to use the value `
                      ^
 
 
-So how do we make use of ``i`` and ``j``? A method associated with options, ``getOrElse()`` allows us to get the
+So how do we make use of ``i`` and ``j``? A method associated with options, ``getOrElse`` allows us to get the
 *option*, if set to *some* value. Rather delightfully, we can set a value to be used, if the option was not set
 previously.
 
@@ -1534,7 +1534,7 @@ Seasoned Java programmers know that an entry not found in the map will result in
 returned. This differs from Scala, because the value gotten from the map must be *tested* before attempting
 to use it in any way.
 
-In Scala, because ``None`` and ``Some(25)`` are both options, you can use ``getOrElse()`` to obtain the
+In Scala, because ``None`` and ``Some(25)`` are both options, you can use ``getOrElse`` to obtain the
 options value (irrespective of whether the value is null, or not set) without writing an (unwanted) if-then-else
 statement, which results in bloat (in most programming languages).
 
