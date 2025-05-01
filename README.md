@@ -1,6 +1,8 @@
 sigcse.scala
 ============
 
+TODO update - see https://unoapi.org readme
+
 These instructions assume you are on Linux or OS X.
 
 To ensure a good experience with Sphinx, do the following.
