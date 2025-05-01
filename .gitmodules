@@ -1,0 +1,18 @@
+[submodule "examples/integration-scala"]
+	path = examples/integration-scala
+	url = git@github.com:LoyolaChicagoCode/integration-scala.git
+[submodule "examples/lcs-systolicarray-scala"]
+	path = examples/lcs-systolicarray-scala
+	url = git@github.com:LoyolaChicagoCode/lcs-systolicarray-scala.git
+[submodule "examples/hpjpc-source-java"]
+	path = examples/hpjpc-source-java
+	url = git@github.com:LoyolaChicagoCode/hpjpc-source-java
+[submodule "examples/introcs-scala-examples"]
+	path = examples/introcs-scala-examples
+	url = git@github.com:LoyolaChicagoBooks/introcs-scala-examples
+[submodule "examples/numerical-explorations-scala"]
+	path = examples/numerical-explorations-scala
+	url = git@github.com:LoyolaChicagoCode/numerical-explorations-scala
+[submodule "examples/hpspc-babysteps"]
+	path = examples/hpspc-babysteps
+	url = git@github.com:LoyolaChicagoCode/hpspc-babysteps
