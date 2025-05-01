@@ -1,4 +1,4 @@
-.. image:: figures/scalalogo.png
+.. image:: ../figures/scalalogo.png
 
 About Scala
 ===============
