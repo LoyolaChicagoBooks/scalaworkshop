@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Web Application and Services | Scala for Computer and Data Science v0.1.2</title>
+<meta content="Web Application and Services | Scala for Computer and Data Science v0.1.2" property="og:title"/>
+<meta content="Web Application and Services | Scala for Computer and Data Science v0.1.2" name="twitter:title"/>
+<link href="../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../60-android/android.html" rel="next" title="Mobile Application Development with Android"/>
+<link href="../40-buildtools/buildtools.html" rel="prev" title="Build Tools for Scala"/>
+<script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
+</head>
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
+      Skip to content
+    </a>
+<header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+<div class="hidden mr-4 md:flex">
+<a class="flex items-center mr-6" href="../index.html"><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Scala for Computer and Data Science v0.1.2</span>
+</a></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
+<svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
+</svg>
+<span class="sr-only">Toggle navigation menu</span>
+</button>
+<div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../search.html" class="relative flex items-center group" id="searchbox" method="get">
+<input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
+<kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+<span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+</div>
+<nav class="flex items-center space-x-1">
+<button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Color theme switcher" class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button">
+<svg class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z"></path>
+</svg>
+<svg class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
+<a class="!justify-start text-sm md:!hidden bg-background" href="../index.html"><span class="font-bold text-clip whitespace-nowrap">Scala for Computer and Data Science v0.1.2</span>
+</a>
+<div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00-preliminaries/preliminaries.html">About the Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-intro/intro.html">About Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-install/install.html">Installing Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20-cs1/cs1.html">Scala in CS1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../30-cs2/cs2.html">Scala in CS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../40-buildtools/buildtools.html">Build Tools for Scala</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web Application and Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../60-android/android.html">Mobile Application Development with Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../70-parallel/parallel.html">Basic Parallelism using Par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../80-actors/actors.html">Parallelism using Actors</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../90-pl/pl.html">Programming Language Topics<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../90-pl/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../90-pl/representation.html">Representation</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<button @click="showSidebar = false" class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100" type="button">
+<svg class="h-4 w-4" fill="currentColor" height="24" stroke="none" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z"></path>
+</svg>
+</button>
+</aside>
+<main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../index.html">
+<span class="hidden md:inline">Scala for Computer and Data Science v0.1.2</span>
+<svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
+</svg>
+</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Web Application and Services</span>
+</nav>
+<div id="content" role="main">
+<section id="web-application-and-services">
+<h1>Web Application and Services<a class="headerlink" href="#web-application-and-services" title="Link to this heading">¶</a></h1>
+<section id="professional-context">
+<h2>Professional Context<a class="headerlink" href="#professional-context" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#professional-context'">¶</a></h2>
+<p><em>Disclaimer: I am not affiliated in any form with Typesafe.</em></p>
+<p>In this section, we discuss how Scala can enhance the pedagogy in
+certain foundational and applied advanced courses. Given that the
+majority of students coming out of our undergraduate and graduate
+programs find jobs in local and global industry, we place considerable
+emphasis on professional practice.</p>
+<p>To this end, we draw on several (local and global) resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod">Uncle Bob</a></p></li>
+<li><p><a class="reference external" href="http://www.thoughtworks.com/radar">ThoughtWorks Technology Radar</a></p></li>
+<li><p><a class="reference external" href="http://www.se-radio.net">IEEE Software’s Software Engineering Radio</a></p></li>
+</ul>
+<p>We attempt to strike a balance among solid foundational knowledge,
+state-of-the-art technology, and job market demands. In particular, we
+have adopted the following rule for our advanced courses and research
+projects: <em>new code in Java (the language, as opposed to the
+platform)</em>.</p>
+<p>We also strive to choose technologies that scale properly. Here, the
+typical startup story goes like this: Implement in RoR, oops, it
+doesn’t scale, then redo in guess what language? There are an
+increasing number of good language and platform choices here, and in
+our experience, Scala is one of them.</p>
+<p>The job market is also increasingly interested in Scala. <a class="reference external" href="http://jobs.cs.luc.edu/post/41214148685/telecommuting-internships-and-full-time-positions-at">Here</a>
+is an interesting local internship ad.</p>
+</section>
+<section id="curricular-context">
+<h2>Curricular Context<a class="headerlink" href="#curricular-context" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#curricular-context'">¶</a></h2>
+<p>Starting in 2010, we have been incorporating Scala into several of
+these courses, taught mostly by Konstantin and experienced
+professionals serving as adjuncts.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/473">COMP 373/473: Advanced Object-Oriented Development</a>,
+using Scala since spring 2010, planning to add Android in spring 2014</p></li>
+<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/372">COMP 372/471: Theory (and Practice) of Programming Languages</a>,
+using Haskell (and some F#) since fall 2010</p></li>
+<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/442">COMP 338/442: Server-Side Software Development</a>
+(focusing on web applications), using Scala with the
+<a class="reference external" href="http://www.playframework.com/">Play! framework</a> since fall 2010</p></li>
+<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/433">COMP 388/433: Web Services Development</a>,
+using Scala with the <a class="reference external" href="http://spray.io">spray toolkit</a>
+since spring 2011</p></li>
+<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/313">COMP 313/413: Intermediate Object-Oriented Development</a>
+(focusing on software design and architecture), using Java with Android since fall 2012,
+considering the addition of Scala down the road</p></li>
+</ul>
+</section>
+<section id="why-scala">
+<h2>Why Scala?<a class="headerlink" href="#why-scala" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#why-scala'">¶</a></h2>
+<p>In our experience, Scala can help with the pedagogy of advanced
+applied courses in multiple ways:</p>
+<ul class="simple">
+<li><p>less boilerplate</p></li>
+<li><p>focus on deep concepts</p></li>
+<li><p>focus on good practices</p></li>
+</ul>
+<p>In the remainder of this section, we will give an overview of web
+application and web service development in Scala and contrast the
+experience with the corresponding Java-based techniques.</p>
+</section>
+<section id="web-applications">
+<h2>Web Applications<a class="headerlink" href="#web-applications" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#web-applications'">¶</a></h2>
+<p>The predominant web application frameworks targeting Scala are <a class="reference external" href="http://liftweb.net">Lift</a> and <a class="reference external" href="http://playframework.com">Play!</a>.
+Typesafe has adopted the latter as part of its <a class="reference external" href="http://typesafe.com/stack">official stack</a>, and we had actually started to use
+Play! in our course before Typesafe’s decision was known.</p>
+<p>The primary concerns in the development of web application for human
+users—as opposed to a web service for programmatic consumption—are</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>views</dt><dd><ul>
+<li><p>presentation</p></li>
+<li><p>visual styles</p></li>
+<li><p>layout</p></li>
+<li><p>navigation</p></li>
+<li><p>i18n</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>controllers</dt><dd><ul>
+<li><p>validation</p></li>
+<li><p>authentication</p></li>
+<li><p>dynamic behavior/interaction/state</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>models</dt><dd><ul>
+<li><p>services</p></li>
+<li><p>domain model</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>persistence</dt><dd><ul>
+<li><p>database technologies</p></li>
+<li><p>mapping domain object to persistent storage</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>testing</dt><dd><ul>
+<li><p>unit testing</p></li>
+<li><p>integration testing</p></li>
+<li><p>functional testing</p></li>
+<li><p>acceptance testing</p></li>
+<li><p>performance/load testing</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>When using a Java-based stack, we typically address these concerns
+with a stack tied together by a dependency-injection framework such as
+Spring and an object-relational mapper (ORM) such as Hibernate, along
+with a MVC framework for the upper layers.</p>
+<p>When using a Scala-based stack, we an express an equivalent
+architecture much more concisely and using language mechanisms instead
+of requiring a DI framework.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#examples'">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/webapps-cs-luc-edu/linreg-stripes-spring-maven">Linear regression in Java with Spring, Stripes, and maven</a></p></li>
+<li><p><a class="reference external" href="https://github.com/webapps-cs-luc-edu/todolist-play-scala">To-do list in Scala with Play!</a></p></li>
+<li><p><a class="reference external" href="http://laufer-todolist-play-scala.herokuapp.com">Live version of the to-do list deployed to the cloud</a></p></li>
+</ul>
+</section>
+</section>
+<section id="web-services">
+<h2>Web Services<a class="headerlink" href="#web-services" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#web-services'">¶</a></h2>
+<p>As opposed to the Simple Object Access Protocol (SOAP), we will focus
+on representational state transfer (REST), which has emerged as the
+preferred approach of the broader agile community.</p>
+<p>The implementing-rest community has put together a helpful
+<a class="reference external" href="https://code.google.com/p/implementing-rest/wiki/ByLanguage">language matrix</a>
+of REST libraries, toolkits, and frameworks. Typesafe’s stack does not
+yet include strong support for RESTful web services in the sense of
+a high-level DSL for request routing, which is where some of the
+choices in the language matrix come into the picture.</p>
+<p>We have picked <a class="reference external" href="http://spray.io">spray</a> not only because the author is from
+Konstantin’s home town but also because it is:</p>
+<ul class="simple">
+<li><p>concise</p></li>
+<li><p>flexible</p></li>
+<li><p>type-safe</p></li>
+<li><p>focus on HTTP and request routing</p></li>
+<li><p>more and more widely used and supported</p></li>
+</ul>
+<p>Scala and Spray are supported by <a class="reference external" href="https://devcenter.heroku.com/articles/scala">Heroku</a>
+and several other newer APaaS cloud providers. Deploying a service to the cloud requires
+a simple Git commit; this makes it possible to achieve continuous delivery.</p>
+<section id="id1">
+<h3>Examples<a class="headerlink" href="#id1" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id1'">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/webservices-cs-luc-edu/bookmarks-restlet-spring-java">Social bookmarking example based on Java with the Restlet framework</a></p></li>
+<li><p><a class="reference external" href="https://github.com/webservices-cs-luc-edu/primenumbers-spray-scala">Prime number checker based on Scala with spray</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#professional-context'" class="reference internal" href="#professional-context">Professional Context</a></li>
+<li><a :data-current="activeSection === '#curricular-context'" class="reference internal" href="#curricular-context">Curricular Context</a></li>
+<li><a :data-current="activeSection === '#why-scala'" class="reference internal" href="#why-scala">Why Scala?</a></li>
+<li><a :data-current="activeSection === '#web-applications'" class="reference internal" href="#web-applications">Web Applications</a><ul>
+<li><a :data-current="activeSection === '#examples'" class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#web-services'" class="reference internal" href="#web-services">Web Services</a><ul>
+<li><a :data-current="activeSection === '#id1'" class="reference internal" href="#id1">Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</aside>
+</main>
+</div>
+</div><footer class="py-6 border-t border-border md:py-0">
+<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2012-Present, Konstantin Läufer, Mark C. Lewis, and George K. Thiruvathukal Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 8.2.3</a></p>
+</div>
+</div>
+</footer>
+</div>
+<script src="../_static/documentation_options.js?v=69c7a37b"></script>
+<script src="../_static/doctools.js?v=9bcbadda"></script>
+<script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script defer="defer" src="../_static/theme.js?v=073f68d9"></script>
+</body>
+</html>
