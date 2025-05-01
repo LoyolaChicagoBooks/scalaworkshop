@@ -1056,7 +1056,7 @@ circle? We start by using a Scala Stream (more on this in collections).
 
    The examples we are showing here, much like typical introductory examples, trade good 
    pedagogy (not bogging down students with too many details) for performance and scalability.
-   If you need to operate on a larger number of darts, you'll want to take advantage of ``StreamIterator``, not ``Stream``. A StreamIterator can be obtained from a Stream by reworking the code above as 
+   If you need to operate on a larger number of darts, you'll want to take advantage of ``Iterator``, not ``Stream``. An Iterator can be obtained from a Stream by reworking the code above as 
    follows:
 
    .. code-block:: scala
@@ -1155,11 +1155,11 @@ the Scala interpreter (as opposed to being entered interactively).
 
 The actual code for this can be found at 
 https://github.com/LoyolaChicagoCode/numerical-explorations-scala. You can 
-pull up the Scala worksheet from ``MonteCarloPiStreamIteratorChunkFree.sc`` (by drilling into Source).
+pull up the Scala worksheet from ``MonteCarloPiIteratorChunkFree.sc`` (by drilling into Source).
 
 Here's the final version of our function to calculate :math:`\pi`.
 
-.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiIteratorChunkFree.sc
    :language: scala
    :linenos:
    :start-after: begin-monteCarloCircleArea
@@ -1172,7 +1172,7 @@ notion of *performance*. It also shows the tremendous power available in Scala
 to work with a block of Scala code as an object (which can produce a value).
 
 
-.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiIteratorChunkFree.sc
    :language: scala
    :linenos:
    :start-after: begin-time
@@ -1199,7 +1199,7 @@ log_{10}(2147483647) \rfloor = 9`)
    supports Int64, will eventually make its way to Scala.
 
 
-.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiIteratorChunkFree.sc
    :language: scala
    :linenos:
    :start-after: begin-performance-study
@@ -1210,8 +1210,8 @@ Here is the output (some output has been deleted for conciseness).
 
 .. code-block:: scala
 
-   scala> :load MonteCarloPiStreamIteratorChunkFree.sc
-   Loading MonteCarloPiStreamIteratorChunkFree.sc...
+   scala> :load MonteCarloPiIteratorChunkFree.sc
+   Loading MonteCarloPiIteratorChunkFree.sc...
    sqr: (x: Double)Double
    inCircle: ((Double, Double)) => Boolean = <function1>
    randomPairs: Iterator[(Double, Double)] = non-empty iterator
@@ -1663,7 +1663,7 @@ Here is the familiar Point class. It's often shown where the (x, y) coordinate p
 the Scala documentation) but is even more interesting with Double. This is an elaborated version that
 includes elements appropriate mostly to CS1 and some that are best covered in CS2 and beyond.
 
-.. literalinclude:: ../../examples/introcs-scala-examples/point.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/worksheets/point.sc
    :language: scala
    :linenos:
    :start-after: begin-class-Point
@@ -1694,7 +1694,7 @@ What does this class Point show?
 
 Let's take a look at how the ``Point`` class is used:
 
-.. literalinclude:: ../../examples/introcs-scala-examples/point.sc
+.. literalinclude:: ../../examples/introcs-scala-examples//worksheets/point.sc
    :language: scala
    :linenos:
    :start-after: begin-use-Point
@@ -1738,7 +1738,7 @@ singleton object as found here is completely decoupled from any class and allows
 
 In this example, we create a singleton object to act as our ``main()`` driver. 
 
-.. literalinclude:: ../../examples/introcs-scala-examples/point.sc
+.. literalinclude:: ../../examples/introcs-scala-examples//worksheets/point.sc
    :language: scala
    :linenos:
    :start-after: begin-object-PointDemo

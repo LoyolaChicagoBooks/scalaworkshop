@@ -4,3 +4,5 @@ build/
 Pipfile*
 .vscode/
 .venv/
+.metals/
+.scala-build/
