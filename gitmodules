@@ -1,0 +1,33 @@
+[submodule "examples/systems-code-examples"]
+	path = examples/systems-code-examples
+	url = https://github.com/SoftwareSystemsLaboratory/systems-code-examples.git
+[submodule "examples/hpjpc"]
+	path = examples/hpjpc
+	url = https://github.com/LoyolaChicagoCode/hpjpc-source-java.git
+[submodule "examples/multicast-java"]
+	path = examples/multicast-java
+	url = https://github.com/gkthiruvathukal/multicast-java.git
+[submodule "examples/googletest-mva"]
+	path = examples/googletest-mva
+	url = https://github.com/gkthiruvathukal/googletest-mva.git
+[submodule "examples/processtree-cpp"]
+	path = examples/processtree-cpp
+	url = https://github.com/LoyolaChicagoCode/processtree-cpp.git
+[submodule "examples/unoapi-dpcpp-examples"]
+	path = examples/unoapi-dpcpp-examples
+	url = https://github.com/LoyolaChicagoCode/unoapi-dpcpp-examples
+[submodule "examples/modern-cpp-examples"]
+	path = examples/modern-cpp-examples
+	url = https://github.com/LoyolaChicagoCode/modern-cpp-examples
+[submodule "examples/unoapi-fortran-examples"]
+	path = examples/unoapi-fortran-examples
+	url = https://github.com/LoyolaChicagoCode/unoapi-fortran-examples
+[submodule "examples/quant-finance-stocks-python"]
+	path = examples/quant-finance-stocks-python
+	url = git@github.com:LoyolaChicagoCode/quant-finance-stocks-python.git
+[submodule "examples/marching-cubes-unoapi"]
+	path = examples/marching-cubes-unoapi
+	url = https://github.com/epautsch/marching-cubes-unoapi
+[submodule "examples/electron-density-unoapi"]
+	path = examples/electron-density-unoapi
+	url = https://github.com/rayhe88/handleWF

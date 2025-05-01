@@ -2,7 +2,6 @@
 #
 
 # You can set these variables from the command line.
-CONFIG        = bootstrap
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
@@ -78,17 +77,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/ScalaWorkshopatSIGCSE2013.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/DistributedSystems.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/ScalaWorkshopatSIGCSE2013.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/DistributedSystems.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/ScalaWorkshopatSIGCSE2013"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/ScalaWorkshopatSIGCSE2013"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/DistributedSystems"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/DistributedSystems"
 	@echo "# devhelp"
 
 epub:

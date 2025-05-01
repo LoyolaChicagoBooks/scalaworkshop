@@ -3,8 +3,7 @@
 .. image:: figures/scalalogo.png
 
 Scala Workshop at SIGCSE
-===========================================
-
+========================
 
 | **Mark Lewis**
 | Trinity University
@@ -14,30 +13,38 @@ Scala Workshop at SIGCSE
 | Loyola University Chicago
 | Department of Computer Science
 
-
-Table of Contents
----------------------
 .. toctree::
-   :maxdepth: 2
-   :numbered:
+   :maxdepth: 4
+   :caption: Table of Contents
+   :hidden:
 
-   intro
-   install
-   download
-   cs1
-   cs2
-   buildtools
-   webservices
-   android
-   parallel
-   actors
-   pl
+   00-preliminaries/preliminaries.rst
+   05-intro/intro.rst
+   10-install/install.rst
+   20-cs1/cs1.rst
+   30-cs2/cs2.rst
+   40-buildtools/buildtools.rst
+   50-webservices/webservices.rst
+   60-android/android.rst
+   70-parallel/parallel.rst
+   80-actors/actors.rst
+   90-pl/pl.rst
 
+Latest Version
+   |version|
 
+Repository
+   `github.com/LoyolaChicagoBooks/scalaworkshop <https://github.com/LoyolaChicagoBooks/scalaworkshop>`_
+
+Releases
+   The current book (|version|) in PDF is available at
+   `GitHub Releases <https://github.com/LoyolaChicagoBooks/scalaworkshop/releases/latest>`__
+
+Topics
 
 Indices and tables
-------------------------
+----------------------
 
 * :ref:`genindex`
-* :ref:`search`
-
+* :ref:`modindex`
+* :ref:`search`.. warning::
