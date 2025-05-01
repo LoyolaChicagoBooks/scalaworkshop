@@ -130,7 +130,7 @@ Going Scala!
 
 Let's start by looking at ``integrateSequential()``.
 
-.. literalinclude:: ../../examples/integration/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
+.. literalinclude:: ../../examples/integration-scala/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
    :linenos:
    :start-after: begin-integrate
    :end-before: end-integrate
@@ -144,7 +144,7 @@ As would be expected, we should be write this the way we think of the problem ma
 In the last case, this is where Scala makes our work particularly easy by allowing us to 
 define a proper function type as shown below:
 
-.. literalinclude:: ../../examples/integration/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
+.. literalinclude:: ../../examples/integration-scala/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
    :linenos:
    :start-after: begin-Fx
    :end-before: end-Fx
@@ -209,7 +209,7 @@ HPJPC. We'll say more about this later.
 
 Let's look at the parallel version.
 
-.. literalinclude:: ../../examples/integration/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
+.. literalinclude:: ../../examples/integration-scala/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
    :linenos:
    :start-after: begin-integrateParallel
    :end-before: end-integrateParallel
@@ -227,7 +227,7 @@ Testing
 
 The following code shows the unit tests for our various *integration* examples.
 
-.. literalinclude:: ../../examples/integration/src/test/scala/edu/luc/etl/sigcse13/scala/integration/Tests.scala
+.. literalinclude:: ../../examples/integration-scala/src/test/scala/edu/luc/etl/sigcse13/scala/integration/Tests.scala
    :linenos:
 
 For the purpose of testing, we set up :math:`f(x) = x^2` and integrated it
@@ -244,7 +244,7 @@ Using the notion of a test fixture, it is possible to specify what function we
 wish to test without contaminating the general-purpose code we wrote with a
 specific function to be integrated. See below.
 
-.. literalinclude:: ../../examples/integration/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Fixtures.scala
+.. literalinclude:: ../../examples/integration-scala/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Fixtures.scala
    :linenos:
 
 Running
@@ -259,7 +259,7 @@ number of times to run each of the experiments, and a grain size for testing
 the combined parallel/sequential version, ``integrateParallelGranular()``.
 We'll say more about this function in our performance discussion.
 
-.. literalinclude:: ../../examples/integration/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Main.scala
+.. literalinclude:: ../../examples/integration-scala/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Main.scala
    :linenos:
 
 
@@ -268,7 +268,7 @@ Initial Experiments with Performance
 
 This is still being written up but will be demonstrated live.
 
-.. literalinclude:: ../../examples/integration/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
+.. literalinclude:: ../../examples/integration-scala/src/main/scala/edu/luc/etl/sigcse13/scala/integration/Integration.scala
    :linenos:
    :start-after: begin-integrateParallelGranular
    :end-before: end-integrateParallelGranular
