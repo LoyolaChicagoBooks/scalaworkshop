@@ -100,8 +100,8 @@ Build.scala format
 Examples of more complex Scala-based project configurations can be
 found in these examples:
 
-- `Android click counter app <https://bitbucket.org/loyolachicagocs_plsystems/clickcounter-android-scala/src/tip/project/>`_
-- `Prime checker web service <https://bitbucket.org/loyolachicagocs_distributed/primenumbers-spray-scala/src/master/project/>`_
+- `Android click counter app <https://github.com/LoyolaChicagoCode/clickcounter-android-scala>`_
+- `Prime checker web service <https://github.com/LoyolaChicagoCode/primenumbers-http4s-scala>`_
 
 Plugin Ecosystem
 ----------------

@@ -67,9 +67,9 @@ Examples
 The learning objectives of each example are stated in the example's
 readme.
 
-- `Clickcounter app <https://bitbucket.org/loyolachicagocs_plsystems/clickcounter-android-scala>`_
-- `Prime checker app <https://bitbucket.org/loyolachicagocs_plsystems/primenumbers-android-scala>`_
-- `Prime checker web service <https://bitbucket.org/loyolachicagocs_distributed/primenumbers-spray-scala>`_
+- `Clickcounter app <https://github.com/LoyolaChicagoCode/clickcounter-android-scala>`_
+- `Prime checker app <https://github.com/LoyolaChicagoCode/primenumbers-android-scala>`_
+- `Prime checker web service <https://github.com/LoyolaChicagoCode/primenumbers-http4s-scala>`_
 
 Lab Assignment
 --------------
@@ -81,7 +81,7 @@ Time
   10 minutes
 
 Deliverable
-  An enhancement of `this clickcounter app <https://bitbucket.org/loyolachicagocs_plsystems/clickcounter-android-scala>`_
+  An enhancement of `this clickcounter app <https://github.com/LoyolaChicagoCode/clickcounter-android-scala>`_
   that addresses at least one following additional functional requirements:
 
     - New user story: a max (^) button as the analogous dual to the

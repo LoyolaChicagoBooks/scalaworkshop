@@ -1154,12 +1154,12 @@ At some point, you realize that you want to enter the code into a text editor th
 the Scala interpreter (as opposed to being entered interactively).
 
 The actual code for this can be found at 
-https://bitbucket.org/loyolachicagocs_plsystems/numerical-explorations-scala. You can 
+https://github.com/LoyolaChicagoCode/numerical-explorations-scala. You can 
 pull up the Scala worksheet from ``MonteCarloPiStreamIteratorChunkFree.sc`` (by drilling into Source).
 
 Here's the final version of our function to calculate :math:`\pi`.
 
-.. literalinclude:: ../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
    :language: scala
    :linenos:
    :start-after: begin-monteCarloCircleArea
@@ -1172,7 +1172,7 @@ notion of *performance*. It also shows the tremendous power available in Scala
 to work with a block of Scala code as an object (which can produce a value).
 
 
-.. literalinclude:: ../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
    :language: scala
    :linenos:
    :start-after: begin-time
@@ -1199,7 +1199,7 @@ log_{10}(2147483647) \rfloor = 9`)
    supports Int64, will eventually make its way to Scala.
 
 
-.. literalinclude:: ../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
+.. literalinclude:: ../../examples/numerical-explorations-scala/MonteCarloPiStreamIteratorChunkFree.sc
    :language: scala
    :linenos:
    :start-after: begin-performance-study
@@ -1247,7 +1247,7 @@ Here is the output (some output has been deleted for conciseness).
 
 
 We will discuss performance and timing issues again when speaking to parallel computing in
-:doc:`parallel`.
+:doc:`../70-parallel/parallel`.
 
 More Scala
 -----------------
@@ -1663,7 +1663,7 @@ Here is the familiar Point class. It's often shown where the (x, y) coordinate p
 the Scala documentation) but is even more interesting with Double. This is an elaborated version that
 includes elements appropriate mostly to CS1 and some that are best covered in CS2 and beyond.
 
-.. literalinclude:: ../examples/introcs-scala-examples/point.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/point.sc
    :language: scala
    :linenos:
    :start-after: begin-class-Point
@@ -1694,7 +1694,7 @@ What does this class Point show?
 
 Let's take a look at how the ``Point`` class is used:
 
-.. literalinclude:: ../examples/introcs-scala-examples/point.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/point.sc
    :language: scala
    :linenos:
    :start-after: begin-use-Point
@@ -1738,7 +1738,7 @@ singleton object as found here is completely decoupled from any class and allows
 
 In this example, we create a singleton object to act as our ``main()`` driver. 
 
-.. literalinclude:: ../examples/introcs-scala-examples/point.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/point.sc
    :language: scala
    :linenos:
    :start-after: begin-object-PointDemo
@@ -1838,7 +1838,8 @@ my REPL session:
 
 .. code-block:: scala
 
-   (reverse-i-search)`val': val entry = map.get("F#").getOrElse(-1)
+   val entry = map.get("F#").getOrElse(-1)
+   (back-i-search) `val_` 
 
 When you type ^r, you'll be given the "(reverse-i-search)" prompt to perform a search. While the full 
 functionality of regex is provided, the nominal use is to type a few characters of something you
@@ -1853,6 +1854,6 @@ Additional Resources
 
 .. [GCD] Greatest Common Divisor, http://introcs.cs.luc.edu/html/gcdexamples.html
 
-.. [MiscExplorationsScala] Miscellaneous Scala Explorations, https://bitbucket.org/lucproglangcourse/misc-explorations-scala
+.. [MiscExplorationsScala] Miscellaneous Scala Explorations, https://github.com/lucproglangcourse/misc-explorations-scala
 
 .. [ScalaAPI] Scala API Documentation, http://www.scala-lang.org/api/current/#package
