@@ -1,4 +1,0 @@
-- put each chapter in an ordered folder (e.g. NN-shortname)
-- submodule thinking
-- sphinxawesome theme
-- ensure pdf build process similar to UnoAPI
