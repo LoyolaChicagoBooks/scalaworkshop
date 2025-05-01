@@ -52,7 +52,7 @@ the scala.swing library is a wrapper around Java's Swing library. The
 ideas are similar, but the way in which you interact with them has been
 changed to match the Scala style.
 
-.. literalinclude:: ../examples/introcs-scala-examples/SimpleGUI.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/SimpleGUI.sc
    :language: scala
    :linenos:
    :start-after: begin-SimpleGUI
@@ -101,7 +101,7 @@ time it is caused by unnecessarily complex validation logic.)
 
 You can see how this plays out in a slightly reworked version of the code:
 
-.. literalinclude:: ../examples/introcs-scala-examples/SimpleGUI2.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/SimpleGUI2.sc
    :language: scala
    :linenos:
    :start-after: begin-SimpleGUI2
@@ -114,7 +114,7 @@ This example shows how you can override the paint method to make a
 custom drawing. It also shows interactions with the mouse.
 
 
-.. literalinclude:: ../examples/introcs-scala-examples/SimplePaint.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/SimplePaint.sc
    :language: scala
    :linenos:
    :start-after: begin-SimplePaint
@@ -137,7 +137,7 @@ The populating from the text field demonstrates how you listen to GUI
 elements and react to them. The behavior of the lists shows how collection
 methods can play a role in GUIs.
 
-.. literalinclude:: ../examples/introcs-scala-examples/BiggerGUI.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/BiggerGUI.sc
    :language: scala
    :linenos:
    :start-after: begin-BiggerGUI
@@ -159,7 +159,7 @@ class to aggregate the data (think about C *struct* but even nicer). These are u
 maintain two typesafe lists of asteroids and bullets, respectively, with type ``List[Asteroid]``
 and ``List[Bullet]``.
 
-.. literalinclude:: ../examples/introcs-scala-examples/SimpleGame.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/SimpleGame.sc
    :language: scala
    :linenos:
    :start-after: begin-SimpleGame-setup
@@ -173,7 +173,7 @@ value is immutable, there is no risk of a side effect. (This could be called
 the revival of the ``const`` from C/C++ and Pascal but in a more modern
 formulation.)
 
-.. literalinclude:: ../examples/introcs-scala-examples/SimpleGame.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/SimpleGame.sc
    :language: scala
    :linenos:
    :start-after: begin-SimpleGame-wrap
@@ -189,7 +189,7 @@ are still present, being able to match the event's *type* allows us to avoid
 premature complexity from a student perspective.)
 
 
-.. literalinclude:: ../examples/introcs-scala-examples/SimpleGame.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/SimpleGame.sc
    :language: scala
    :linenos:
    :start-after: begin-SimpleGame-panel
@@ -200,7 +200,7 @@ user interaction. In the case of this game, whether or not the user is doing any
 continue moving, subject to their velocities. Same for bullets. There is also logic to determine 
 collisions and whether the ship is destroyed (which ends the game).
 
-.. literalinclude:: ../examples/introcs-scala-examples/SimpleGame.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/SimpleGame.sc
    :language: scala
    :linenos:
    :start-after: begin-SimpleGame-timer
@@ -215,7 +215,7 @@ While there are a few details about Swing to know here, much of this code is com
 application development, so it is eminently teachable--and you can always point students to the 
 basic documentation for Java to learn the details.
 
-.. literalinclude:: ../examples/introcs-scala-examples/SimpleGame.sc
+.. literalinclude:: ../../examples/introcs-scala-examples/SimpleGame.sc
    :language: scala
    :linenos:
    :start-after: begin-SimpleGame-main

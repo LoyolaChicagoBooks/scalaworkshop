@@ -116,15 +116,7 @@ The following figure shows how a wavefront computation progresses.
 Java Threads Implementation
 ----------------------------------
 
-
-|bitbucket| ZIP File
-  https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java/get/default.zip
-
-|bitbucket| via Mercurial
-  hg clone https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java
-
-|instructions| Build and Run Instructions
-  https://bitbucket.org/loyolachicagocs_books/hpjpc-source-java
+``git clone https://github.com/LoyolaChicagoCode/hpjpc-source-java``
 
 Our Java implementation (see `LCS.java  <http://bit.ly/HPJPC-LCS>`_)  of the
 LCS algorithm divides the array into vertical bands and is pictured in Each
@@ -144,27 +136,27 @@ LCS class
 
 .. highlight:: java
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-LCS-vars
    :end-before: end-LCS-vars
    :linenos:
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-LCS-constructor1
    :end-before: end-LCS-constructor1
    :linenos:
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-LCS-constructor2
    :end-before: end-LCS-constructor2
    :linenos:
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-LCS-startOfBand
    :end-before: end-LCS-startOfBand
    :linenos:
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-LCS-getLength
    :end-before: end-LCS-getLength
    :linenos:
@@ -172,26 +164,26 @@ LCS class
 
 Band internal class (does the work)
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-Band-vars
    :end-before: end-Band-vars
    :linenos:
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-Band-constructor
    :end-before: end-Band-constructor
    :linenos:
 
 Actual Runnable body
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-Band-run
    :end-before: end-Band-run
    :linenos:
 
 Main
 
-.. literalinclude:: ../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
+.. literalinclude:: ../../examples/hpjpc/src/info/jhpc/textbook/chapter06/LCS.java
    :start-after: begin-LCS-main
    :end-before: end-LCS-main
    :linenos:
@@ -206,27 +198,18 @@ Main
 Scala Actors Implementation
 ------------------------------------
 
-.. highlight:: scala
-
-|bitbucket| ZIP File
-  https://bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala/get/default.zip
-
-|bitbucket| via Mercurial
-  hg clone https://bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
-
-|instructions| Build and Run Instructions
-  https://bitbucket.org/loyolachicagocs_plsystems/lcs-systolicarray-scala
+``git clone https://github.com/LoyolaChicagoCode/lcs-systolicarray-scala``
 
 Trait
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
    :start-after: begin-trait-SystolicArray
    :end-before: end-trait-SystolicArray
    :linenos:
 
 The entire SystolicArray implementation is here:
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
    :start-after: begin-trait-SystolicArray
    :end-before: end-trait-SystolicArray
    :linenos:
@@ -240,21 +223,21 @@ Logging
 
   // begin-object-logger
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
    :start-after: begin-object-logger
    :end-before: end-object-logger
    :linenos:
 
 Apply
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
    :start-after: begin-object-apply
    :end-before: end-object-apply
    :linenos:
 
 The internal Cell class, used to represent the cells of the Systolic Array (generally).
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
    :start-after: begin-class-Cell
    :end-before: end-class-Cell
    :linenos:
@@ -262,7 +245,7 @@ The internal Cell class, used to represent the cells of the Systolic Array (gene
 This is used for autowiring the quadrant from where messages are being fired (from). It is an example
 of how Scala can help us avoid making mistakes. In scientific computations, subscript problems are common.
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
    :start-after: begin-mapToHelper
    :end-before: end-mapToHelper
    :linenos:
@@ -271,28 +254,28 @@ This is used to autowire the left and top edges of the array. Although easy enou
 difficult to remember which subscript is row or column. Scala again makes this very easy for us. As we'll
 see, it also helps to make the user function self-documenting (literate).
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/SystolicArray.scala
    :start-after: begin-posToHelper
    :end-before: end-posToHelper
    :linenos:
 
 Wrapping it up with object lcs...
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/lcs.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/main/scala/edu/luc/etl/sigcse13/scala/lcs/lcs.scala
    :start-after: begin-object-lcs
    :end-before: end-object-lcs
    :linenos:
 
 Setting up the text fixtures...
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/test/scala/edu/luc/etl/sigcse13/scala/lcs/Fixtures.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/test/scala/edu/luc/etl/sigcse13/scala/lcs/Fixtures.scala
    :start-after: begin-lcs-Fixtures
    :end-before: end-lcs-Fixtures
    :linenos:
 
 Testing...
 
-.. literalinclude:: ../examples/lcs-systolicarray/src/test/scala/edu/luc/etl/sigcse13/scala/lcs/Tests.scala
+.. literalinclude:: ../../examples/lcs-systolicarray/src/test/scala/edu/luc/etl/sigcse13/scala/lcs/Tests.scala
    :start-after: begin-lcs-Tests
    :end-before: end-lcs-Tests
    :linenos:
