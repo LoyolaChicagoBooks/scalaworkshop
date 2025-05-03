@@ -6,12 +6,19 @@ Scala for Computer Science and Data Science Education
 =====================================================
 
 
-| **Konstantin Läufer and George K. Thiruvathukal**, co-Maintainers and co-Contributors
+| **Konstantin Läufer**, co-Maintainer and co-Contributor
+| Professor of Computer Science
 | Loyola University Chicago
-| Department of Computer Science
 |
-| **Mark Lewis**, past co-Maintainer and Contributor
-| Amazon (formerly, Trinity University in Texas)
+| **George K. Thiruvathukal**, co-Maintainer and co-Contributor
+| Professor of Computer Science and Chairperson
+| Loyola University Chicago
+| Visiting Computer Scientist
+| Argonne National Laboratory
+| 
+| **Mark Lewis**, past co-Contributor
+| Senior Software Engineer
+| Amazon
 
 .. toctree::
    :maxdepth: 4
