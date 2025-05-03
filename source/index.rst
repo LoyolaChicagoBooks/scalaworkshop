@@ -2,16 +2,16 @@
 
 .. image:: figures/scalalogo.png
 
-Scala Workshop at SIGCSE
-========================
+Scala for Computer Science and Data Science Education
+=====================================================
 
-| **Mark Lewis**
-| Trinity University
-| Department of Computer Science
 
-| **Konstantin Läufer and George K. Thiruvathukal**
+| **Konstantin Läufer and George K. Thiruvathukal**, co-Maintainers and co-Contributors
 | Loyola University Chicago
 | Department of Computer Science
+|
+| **Mark Lewis**, past co-Maintainer and Contributor
+| Amazon (formerly, Trinity University in Texas)
 
 .. toctree::
    :maxdepth: 4
