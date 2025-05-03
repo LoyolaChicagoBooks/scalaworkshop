@@ -44,7 +44,7 @@ jobs:
       - name: Generate HTML using Sphinx
         run: |
           make html
-          echo scala-cs-ds.org > build/html/CNAME
+          echo scalaworkshop.cs.luc.edu > build/html/CNAME
 
       - name: Generate LaTeX using Sphinx
         run: |
