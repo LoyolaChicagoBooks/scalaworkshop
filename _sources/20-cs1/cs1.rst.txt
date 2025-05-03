@@ -1,18 +1,13 @@
-Scala in CS1
-=====================
-
-.. warning::
-
-   This section is still in draft form but is nearly complete in terms of examples, subject to editing.
-   There might still be a few rough spots. Comments welcome to gkt@cs.luc.edu.
+Scala Essentials for Introductory CS and DS
+===========================================
 
 .. highlight:: scala
 
 This is an elaboration of our Google presentation slides: http://goo.gl/Q68fA.
 
 
-Motivating Scala in CS1
----------------------------
+Motivating Scala for Introductory CS and DS
+-------------------------------------------
 
 - Programming in the small
 - REPL - Read-Evaluate-Print-Loop 
@@ -462,7 +457,7 @@ This shows how you can combine a function literal with a previously defined func
 
 
 You can avoid having to name arguments in function literals using the ``_`` parameter. This syntax is a 
-bit awkward to new programmers (and therefore should be introduced gently in CS1 courses) but allows
+bit awkward to new programmers (and therefore should be introduced gently in CS and DS courses) but allows
 for concise (and sometimes clearer) expression, especially when used in a disciplined way.
 
 Consider this code that creates the first n even numbers:
@@ -510,10 +505,7 @@ our time in this section looking at the ``square()`` function!)
 Early Collection, Arrays and Lists
 --------------------------------------
 
-Scala has some very advanced and comprehensive collections libraries. For CS1
-you can focus only on the simplest of these, beginning with Arrays and Lists.
-In actually makes sense to introduce these before loops (and iteration in
-general) in Scala for two reasons. First, the collections have many methods
+Scala has some very advanced and comprehensive collections libraries. For introductory CS and DS, you can focus only on the simplest of these, beginning with Arrays and Lists.  In actually makes sense to introduce these before loops (and iteration in general) in Scala for two reasons. First, the collections have many methods
 that allow you to do standard tasks that would often go in loops. As such,
 Scala code often doesn’t include all that many loops. Second, the for loop in
 Scala is really a foreach type loop that works with collections so it makes
@@ -544,7 +536,7 @@ these expressions.
 
    Technically these are making calls to the apply methods of the Array and
    List companion objects. The details of how that works don’t really matter
-   in CS1, but you can find them in the section on object-orientation under
+   in introductory CS and DS, but you can find them in the section on object-orientation under
    CS2. We cover this topic later in our discussion of classes and 
    objects.
 
@@ -826,10 +818,10 @@ the elements of the collection. While map and filter return new collections,
    with
    words
 
-There are other higher-order methods that are very accessible for CS1 students
+There are other higher-order methods that are very accessible for introductory CS and DS students
 such as ``count``, ``exists``, and ``forall``, all of which take predicate functions on a
 single argument. There are more complex methods like the ``reduce`` methods and
-``fold`` methods that can be very helpful, but which are more challenging for CS1
+``fold`` methods that can be very helpful, but which are more challenging for introductory CS and DS
 students to understand. We use these occasionally in this workshop but recommmend
 that they be used sparingly and with an emphasis on clarity (as opposed to conciseness).
 
@@ -929,7 +921,7 @@ is a consequence of side-effect-full thinking. Nevertheless, you can replace thi
 imperative (von Neumann) style. See our loops section.
 
 
-Some CS1 Friendly Examples
+Some introductory CS and DS Friendly Examples
 ------------------------------
 
 GCD
@@ -1321,7 +1313,7 @@ What about interactive loops?
    scala> ...
 
 It is interesting to think about whether we can turn an interactive while loop into one without 
-side effects. There are so many bad things that happen to us as CS1 educators when we work with
+side effects. There are so many bad things that happen to us as introductory CS and DS educators when we work with
 interactive loops:
 
 - Improper initialization of the ``response`` variable.
@@ -1446,7 +1438,7 @@ of Option are either an instance of scala.Some or the object None.
 
 The Scala Option type is useful for dealing with the notion of success and
 failure (but is not limited to supporting this concept). In the interests of
-keeping this discussion focused on being CS1-friendly, an Option is always
+keeping this discussion focused on being introductory CS and DS-friendly, an Option is always
 connected to an underlying type. For example Option[Int] means that you either
 get the Int, or nothing (None).
 
@@ -1462,7 +1454,7 @@ get the Int, or nothing (None).
 ``Some`` and ``None`` are both *case classes* that extend ``Option[A]`` (a generic class that allows you
 to use any time). While knowing all of the details requires a mastery of object-oriented programming (and 
 perhaps more), the introduction of this idea is remarkably straightforward and one that can help students
-to write better code from the beginning. In CS1 courses, we tend to spend a lot of time handling special
+to write better code from the beginning. In introductory CS and DS courses, we tend to spend a lot of time handling special
 cases, and options give us a framework for dealing with missing information, etc.
 
 As you can see from the above, ``i`` is defined as some value, in this case 3. It's a wrapped value, of course,
@@ -1553,7 +1545,7 @@ with complex for comprehensions). In the case of maps, an entry not found
 would usually default to 0 or -1 (a convention that dates back to the earliest
 days of C), which is preferable to throwing exceptions for no good reason (not to 
 mention our general dislike of prematurely covering exceptions as a programming
-technique in CS1 in particular.)
+technique in introductory CS and DS in particular.)
 
 yield
 ^^^^^^^^^
@@ -1661,7 +1653,7 @@ Classes
 
 Here is the familiar Point class. It's often shown where the (x, y) coordinate pair are Int (even in
 the Scala documentation) but is even more interesting with Double. This is an elaborated version that
-includes elements appropriate mostly to CS1 and some that are best covered in CS2 and beyond.
+includes elements appropriate mostly to introductory CS and DS and some that are best covered in CS2 and beyond.
 
 .. literalinclude:: ../../examples/introcs-scala-examples/worksheets/point.sc
    :language: scala
@@ -1674,7 +1666,7 @@ What does this class Point show?
 - how to create a simple Scala class. Notice the complete lack of keyboards and public/private/static that
   tend to confuse students!
 
-- Scala brings back *disciplined* operator overloading. We'd probably not use this in CS1, but it is entirely
+- Scala brings back *disciplined* operator overloading. We'd probably not use this in introductory CS and DS, but it is entirely
   appropriate for CS2.
 
 - Shows how to refer to the object (familiarly) with ``this``. Again, the methods relying on this might be
@@ -1757,7 +1749,7 @@ Useful REPL functionality
 
 The Scala REPL supports a number of commands that can be greatly helpful for working interactively. We've
 relied on many of these in the preparation of this tutorial but will focus on the highlights, especially
-for use in CS1 teaching.
+for use in introductory CS and DS teaching.
 
 .. code-block :: text
 

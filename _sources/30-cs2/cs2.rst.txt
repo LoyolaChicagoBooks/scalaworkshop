@@ -1,5 +1,5 @@
-Scala in CS2
-######################
+Scala and Data Structures
+#########################
 
 .. warning::
 
@@ -226,8 +226,8 @@ Here's a screenshot of the game:
 .. image:: figures/SimpleGame.png
 
 
-CS2
--------
+CS2 - Basic Data Structures for CS and DS
+--------------------------------------------------
 
 - Pure OO
 - Fewer quirks than Java

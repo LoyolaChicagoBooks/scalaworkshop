@@ -7,14 +7,14 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Scala in CS1 | Scala for Computer and Data Science v0.2</title>
-<meta content="Scala in CS1 | Scala for Computer and Data Science v0.2" property="og:title"/>
-<meta content="Scala in CS1 | Scala for Computer and Data Science v0.2" name="twitter:title"/>
+<title>Scala Essentials for Introductory CS and DS | Scala for Computer and Data Science v0.2</title>
+<meta content="Scala Essentials for Introductory CS and DS | Scala for Computer and Data Science v0.2" property="og:title"/>
+<meta content="Scala Essentials for Introductory CS and DS | Scala for Computer and Data Science v0.2" name="twitter:title"/>
 <link href="../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
 <link href="../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../search.html" rel="search" title="Search"/>
 <link href="../genindex.html" rel="index" title="Index"/>
-<link href="../30-cs2/cs2.html" rel="next" title="Scala in CS2"/>
+<link href="../30-cs2/cs2.html" rel="next" title="Scala and Data Structures"/>
 <link href="../10-install/install.html" rel="prev" title="Installing Scala"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
@@ -75,8 +75,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../00-preliminaries/preliminaries.html#about-the-book">About the Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-intro/intro.html">About Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-install/install.html">Installing Scala</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Scala in CS1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../30-cs2/cs2.html">Scala in CS2</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scala Essentials for Introductory CS and DS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../30-cs2/cs2.html">Scala and Data Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../40-buildtools/buildtools.html">Build Tools for Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../50-webservices/webservices.html">Web Application and Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../60-android/android.html">Mobile Application Development with Android</a></li>
@@ -106,19 +106,14 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Scala in CS1</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Scala Essentials for Introductory CS and DS</span>
 </nav>
 <div id="content" role="main">
-<section id="scala-in-cs1">
-<h1>Scala in CS1<a class="headerlink" href="#scala-in-cs1" title="Link to this heading">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This section is still in draft form but is nearly complete in terms of examples, subject to editing.
-There might still be a few rough spots. Comments welcome to <a class="reference external" href="mailto:gkt%40cs.luc.edu">gkt<span>@</span>cs<span>.</span>luc<span>.</span>edu</a>.</p>
-</div>
+<section id="scala-essentials-for-introductory-cs-and-ds">
+<h1>Scala Essentials for Introductory CS and DS<a class="headerlink" href="#scala-essentials-for-introductory-cs-and-ds" title="Link to this heading">¶</a></h1>
 <p>This is an elaboration of our Google presentation slides: <a class="reference external" href="http://goo.gl/Q68fA">http://goo.gl/Q68fA</a>.</p>
-<section id="motivating-scala-in-cs1">
-<h2>Motivating Scala in CS1<a class="headerlink" href="#motivating-scala-in-cs1" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#motivating-scala-in-cs1'">¶</a></h2>
+<section id="motivating-scala-for-introductory-cs-and-ds">
+<h2>Motivating Scala for Introductory CS and DS<a class="headerlink" href="#motivating-scala-for-introductory-cs-and-ds" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#motivating-scala-for-introductory-cs-and-ds'">¶</a></h2>
 <ul class="simple">
 <li><p>Programming in the small</p></li>
 <li><p>REPL - Read-Evaluate-Print-Loop</p></li>
@@ -483,7 +478,7 @@ which are used rather idiomatically in Scala programming.</p>
 </span></code></pre></div>
 </div>
 <p>You can avoid having to name arguments in function literals using the <code class="docutils literal notranslate"><span class="pre">_</span></code> parameter. This syntax is a
-bit awkward to new programmers (and therefore should be introduced gently in CS1 courses) but allows
+bit awkward to new programmers (and therefore should be introduced gently in CS and DS courses) but allows
 for concise (and sometimes clearer) expression, especially when used in a disciplined way.</p>
 <p>Consider this code that creates the first n even numbers:</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
@@ -520,10 +515,7 @@ our time in this section looking at the <code class="docutils literal notranslat
 </section>
 <section id="early-collection-arrays-and-lists">
 <h2>Early Collection, Arrays and Lists<a class="headerlink" href="#early-collection-arrays-and-lists" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#early-collection-arrays-and-lists'">¶</a></h2>
-<p>Scala has some very advanced and comprehensive collections libraries. For CS1
-you can focus only on the simplest of these, beginning with Arrays and Lists.
-In actually makes sense to introduce these before loops (and iteration in
-general) in Scala for two reasons. First, the collections have many methods
+<p>Scala has some very advanced and comprehensive collections libraries. For introductory CS and DS, you can focus only on the simplest of these, beginning with Arrays and Lists.  In actually makes sense to introduce these before loops (and iteration in general) in Scala for two reasons. First, the collections have many methods
 that allow you to do standard tasks that would often go in loops. As such,
 Scala code often doesn’t include all that many loops. Second, the for loop in
 Scala is really a foreach type loop that works with collections so it makes
@@ -548,7 +540,7 @@ these expressions.</p>
 <p class="admonition-title">Note</p>
 <p>Technically these are making calls to the apply methods of the Array and
 List companion objects. The details of how that works don’t really matter
-in CS1, but you can find them in the section on object-orientation under
+in introductory CS and DS, but you can find them in the section on object-orientation under
 CS2. We cover this topic later in our discussion of classes and
 objects.</p>
 </div>
@@ -792,10 +784,10 @@ the elements of the collection. While map and filter return new collections,
 </span><span id="line-7"><span class="n">words</span>
 </span></code></pre></div>
 </div>
-<p>There are other higher-order methods that are very accessible for CS1 students
+<p>There are other higher-order methods that are very accessible for introductory CS and DS students
 such as <code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">exists</span></code>, and <code class="docutils literal notranslate"><span class="pre">forall</span></code>, all of which take predicate functions on a
 single argument. There are more complex methods like the <code class="docutils literal notranslate"><span class="pre">reduce</span></code> methods and
-<code class="docutils literal notranslate"><span class="pre">fold</span></code> methods that can be very helpful, but which are more challenging for CS1
+<code class="docutils literal notranslate"><span class="pre">fold</span></code> methods that can be very helpful, but which are more challenging for introductory CS and DS
 students to understand. We use these occasionally in this workshop but recommmend
 that they be used sparingly and with an emphasis on clarity (as opposed to conciseness).</p>
 </section>
@@ -883,8 +875,8 @@ in this section. See <a class="reference internal" href="#montecarlopi"><span cl
 is a consequence of side-effect-full thinking. Nevertheless, you can replace this with a more
 imperative (von Neumann) style. See our loops section.</p>
 </section>
-<section id="some-cs1-friendly-examples">
-<h2>Some CS1 Friendly Examples<a class="headerlink" href="#some-cs1-friendly-examples" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#some-cs1-friendly-examples'">¶</a></h2>
+<section id="some-introductory-cs-and-ds-friendly-examples">
+<h2>Some introductory CS and DS Friendly Examples<a class="headerlink" href="#some-introductory-cs-and-ds-friendly-examples" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#some-introductory-cs-and-ds-friendly-examples'">¶</a></h2>
 <section id="gcd">
 <h3>GCD<a class="headerlink" href="#gcd" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#gcd'">¶</a></h3>
 <p>This is based on a classic algorithm by Euclid and one that is covered in many introductory computer science
@@ -1220,7 +1212,7 @@ res9: Int = 5050</p>
 </span></code></pre></div>
 </div>
 <p>It is interesting to think about whether we can turn an interactive while loop into one without
-side effects. There are so many bad things that happen to us as CS1 educators when we work with
+side effects. There are so many bad things that happen to us as introductory CS and DS educators when we work with
 interactive loops:</p>
 <ul class="simple">
 <li><p>Improper initialization of the <code class="docutils literal notranslate"><span class="pre">response</span></code> variable.</p></li>
@@ -1333,7 +1325,7 @@ computation.</p>
 of Option are either an instance of scala.Some or the object None.</p>
 <p>The Scala Option type is useful for dealing with the notion of success and
 failure (but is not limited to supporting this concept). In the interests of
-keeping this discussion focused on being CS1-friendly, an Option is always
+keeping this discussion focused on being introductory CS and DS-friendly, an Option is always
 connected to an underlying type. For example Option[Int] means that you either
 get the Int, or nothing (None).</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -1346,7 +1338,7 @@ get the Int, or nothing (None).</p>
 <p><code class="docutils literal notranslate"><span class="pre">Some</span></code> and <code class="docutils literal notranslate"><span class="pre">None</span></code> are both <em>case classes</em> that extend <code class="docutils literal notranslate"><span class="pre">Option[A]</span></code> (a generic class that allows you
 to use any time). While knowing all of the details requires a mastery of object-oriented programming (and
 perhaps more), the introduction of this idea is remarkably straightforward and one that can help students
-to write better code from the beginning. In CS1 courses, we tend to spend a lot of time handling special
+to write better code from the beginning. In introductory CS and DS courses, we tend to spend a lot of time handling special
 cases, and options give us a framework for dealing with missing information, etc.</p>
 <p>As you can see from the above, <code class="docutils literal notranslate"><span class="pre">i</span></code> is defined as some value, in this case 3. It’s a wrapped value, of course,
 that must be unbundled later. For example, here is an attempt to use the value <code class="docutils literal notranslate"><span class="pre">i</span></code> (incorrectly):</p>
@@ -1422,7 +1414,7 @@ with complex for comprehensions). In the case of maps, an entry not found
 would usually default to 0 or -1 (a convention that dates back to the earliest
 days of C), which is preferable to throwing exceptions for no good reason (not to
 mention our general dislike of prematurely covering exceptions as a programming
-technique in CS1 in particular.)</p>
+technique in introductory CS and DS in particular.)</p>
 </section>
 <section id="yield">
 <h3>yield<a class="headerlink" href="#yield" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#yield'">¶</a></h3>
@@ -1508,7 +1500,7 @@ is +1.</p>
 <h3>Classes<a class="headerlink" href="#classes" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#classes'">¶</a></h3>
 <p>Here is the familiar Point class. It’s often shown where the (x, y) coordinate pair are Int (even in
 the Scala documentation) but is even more interesting with Double. This is an elaborated version that
-includes elements appropriate mostly to CS1 and some that are best covered in CS2 and beyond.</p>
+includes elements appropriate mostly to introductory CS and DS and some that are best covered in CS2 and beyond.</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">(</span><span class="n">initial_x</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span><span class="p">,</span><span class="w"> </span><span class="n">initial_y</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="line-2"><span class="linenos"> 2</span><span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initial_x</span>
 </span><span id="line-3"><span class="linenos"> 3</span><span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initial_y</span>
@@ -1544,7 +1536,7 @@ includes elements appropriate mostly to CS1 and some that are best covered in CS
 <ul class="simple">
 <li><p>how to create a simple Scala class. Notice the complete lack of keyboards and public/private/static that
 tend to confuse students!</p></li>
-<li><p>Scala brings back <em>disciplined</em> operator overloading. We’d probably not use this in CS1, but it is entirely
+<li><p>Scala brings back <em>disciplined</em> operator overloading. We’d probably not use this in introductory CS and DS, but it is entirely
 appropriate for CS2.</p></li>
 <li><p>Shows how to refer to the object (familiarly) with <code class="docutils literal notranslate"><span class="pre">this</span></code>. Again, the methods relying on this might be
 more appropriate for CS2 or even later courses that dive into OOP’s complexity.</p></li>
@@ -1652,7 +1644,7 @@ More on that towards the end.</p>
 <h2>Useful REPL functionality<a class="headerlink" href="#useful-repl-functionality" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#useful-repl-functionality'">¶</a></h2>
 <p>The Scala REPL supports a number of commands that can be greatly helpful for working interactively. We’ve
 relied on many of these in the preparation of this tutorial but will focus on the highlights, especially
-for use in CS1 teaching.</p>
+for use in introductory CS and DS teaching.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">scala&gt; :help
 </span><span id="line-2">All commands can be abbreviated, e.g. :he instead of :help.
 </span><span id="line-3">Those marked with a * have more detailed help, e.g. :help imports.
@@ -1753,7 +1745,7 @@ probably remember (at least partially). More often than not, I am looking for pr
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
-<li><a :data-current="activeSection === '#motivating-scala-in-cs1'" class="reference internal" href="#motivating-scala-in-cs1">Motivating Scala in CS1</a></li>
+<li><a :data-current="activeSection === '#motivating-scala-for-introductory-cs-and-ds'" class="reference internal" href="#motivating-scala-for-introductory-cs-and-ds">Motivating Scala for Introductory CS and DS</a></li>
 <li><a :data-current="activeSection === '#getting-started'" class="reference internal" href="#getting-started">Getting Started</a><ul>
 <li><a :data-current="activeSection === '#hello-world'" class="reference internal" href="#hello-world">Hello, World</a></li>
 <li><a :data-current="activeSection === '#types-lack-of-primitives'" class="reference internal" href="#types-lack-of-primitives">Types - “Lack” of Primitives</a></li>
@@ -1779,7 +1771,7 @@ probably remember (at least partially). More often than not, I am looking for pr
 </ul>
 </li>
 <li><a :data-current="activeSection === '#recursion-for-iteration'" class="reference internal" href="#recursion-for-iteration">Recursion for Iteration</a></li>
-<li><a :data-current="activeSection === '#some-cs1-friendly-examples'" class="reference internal" href="#some-cs1-friendly-examples">Some CS1 Friendly Examples</a><ul>
+<li><a :data-current="activeSection === '#some-introductory-cs-and-ds-friendly-examples'" class="reference internal" href="#some-introductory-cs-and-ds-friendly-examples">Some introductory CS and DS Friendly Examples</a><ul>
 <li><a :data-current="activeSection === '#gcd'" class="reference internal" href="#gcd">GCD</a></li>
 <li><a :data-current="activeSection === '#factorial'" class="reference internal" href="#factorial">Factorial</a></li>
 <li><a :data-current="activeSection === '#monte-carlo-pi-calculation'" class="reference internal" href="#monte-carlo-pi-calculation">Monte Carlo <span class="math notranslate nohighlight">\(\pi\)</span> Calculation</a></li>
