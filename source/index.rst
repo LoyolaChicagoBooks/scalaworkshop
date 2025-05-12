@@ -30,6 +30,7 @@ Scala for Computer Science and Data Science Education
    10-install/install.rst
    20-cs1/cs1.rst
    30-cs2/cs2.rst
+   35-datascience/datascience.rst
    40-buildtools/buildtools.rst
    50-webservices/webservices.rst
    60-android/android.rst
