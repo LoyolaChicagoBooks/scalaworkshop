@@ -1,8 +1,12 @@
+# Python/Sphinx
 build/
 .DS_Store
 *.tmp
 Pipfile*
-.vscode/
 .venv/
+
+# VSCode/Scala
+.bsp/
 .metals/
 .scala-build/
+.vscode/
