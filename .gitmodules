@@ -17,5 +17,5 @@
 	path = examples/hpspc-babysteps
 	url = git@github.com:LoyolaChicagoCode/hpspc-babysteps
 [submodule "introds-scala-examples"]
-	path = introds-scala-examples
+	path = examples/introds-scala-examples
 	url = git@github.com:LoyolaChicagoBooks/introds-scala-examples
