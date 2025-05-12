@@ -7,15 +7,15 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Build Tools for Scala | Scala for Computer and Data Science v0.3</title>
-<meta content="Build Tools for Scala | Scala for Computer and Data Science v0.3" property="og:title"/>
-<meta content="Build Tools for Scala | Scala for Computer and Data Science v0.3" name="twitter:title"/>
+<title>Data Science with Scala and Smile | Scala for Computer and Data Science v0.3</title>
+<meta content="Data Science with Scala and Smile | Scala for Computer and Data Science v0.3" property="og:title"/>
+<meta content="Data Science with Scala and Smile | Scala for Computer and Data Science v0.3" name="twitter:title"/>
 <link href="../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
 <link href="../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
 <link href="../search.html" rel="search" title="Search"/>
 <link href="../genindex.html" rel="index" title="Index"/>
-<link href="../50-webservices/webservices.html" rel="next" title="Web Application and Services"/>
-<link href="../35-datascience/datascience.html" rel="prev" title="Data Science with Scala and Smile"/>
+<link href="../40-buildtools/buildtools.html" rel="next" title="Build Tools for Scala"/>
+<link href="../30-cs2/cs2.html" rel="prev" title="Scala and Data Structures"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -77,8 +77,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../10-install/install.html">Installing Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20-cs1/cs1.html">Scala Essentials for Introductory CS and DS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../30-cs2/cs2.html">Scala and Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../35-datascience/datascience.html">Data Science with Scala and Smile</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Build Tools for Scala</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Science with Scala and Smile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../40-buildtools/buildtools.html">Build Tools for Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../50-webservices/webservices.html">Web Application and Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../60-android/android.html">Mobile Application Development with Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../70-parallel/parallel.html">Basic Parallelism using Par</a></li>
@@ -107,123 +107,17 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Build Tools for Scala</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Data Science with Scala and Smile</span>
 </nav>
 <div id="content" role="main">
-<section id="build-tools-for-scala">
-<h1>Build Tools for Scala<a class="headerlink" href="#build-tools-for-scala" title="Link to this heading">¶</a></h1>
-<p>In this section, we provide a brief overview of build tools for
-Scala. In general, build tools support the build process in several
-ways:</p>
-<ul class="simple">
-<li><p>structured representation of the project dependency graph</p></li>
-<li><p>management of the build lifecycle (compile, test, run)</p></li>
-<li><p>management of external dependencies</p></li>
-</ul>
-<section id="why-use-a-build-tool">
-<h2>Why Use a Build Tool?<a class="headerlink" href="#why-use-a-build-tool" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#why-use-a-build-tool'">¶</a></h2>
-<p>When using the Java or Scala command-line tools, the developer is
-responsible for setting the dreaded classpath. This can quickly become
-unwieldy when dependencies even as simple as JUnit are involved, so
-this is not something you would usually want to do manually.</p>
-</section>
-<section id="brief-history-of-build-tools">
-<h2>Brief History of Build Tools<a class="headerlink" href="#brief-history-of-build-tools" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#brief-history-of-build-tools'">¶</a></h2>
-<dl class="simple">
-<dt>Unix make, Apache ant</dt><dd><p>These tools manage the build lifecycle but not external dependencies.</p>
-</dd>
-<dt>Apache maven</dt><dd><p>This tool also manages external dependencies but requires a lot of
-XML-based configuraration.</p>
-</dd>
-</dl>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos">1</span><span class="w">      </span><span class="nt">&lt;dependency&gt;</span>
-</span><span id="line-2"><span class="linenos">2</span><span class="w">              </span><span class="nt">&lt;groupId&gt;</span>org.restlet<span class="nt">&lt;/groupId&gt;</span>
-</span><span id="line-3"><span class="linenos">3</span><span class="w">              </span><span class="nt">&lt;artifactId&gt;</span>org.restlet.ext.spring<span class="nt">&lt;/artifactId&gt;</span>
-</span><span id="line-4"><span class="linenos">4</span><span class="w">              </span><span class="nt">&lt;version&gt;</span>${restlet.version}<span class="nt">&lt;/version&gt;</span>
-</span><span id="line-5"><span class="linenos">5</span><span class="w">      </span><span class="nt">&lt;/dependency&gt;</span>
-</span></code></pre></div>
-</div>
-<dl class="simple">
-<dt>Apache ivy, Gradle, Scala’s <a class="reference external" href="http://www.scala-sbt.org">Simple Build Tool (sbt)</a>, etc.</dt><dd><p>These tools emphasize convention over configuration in support of
-agile development processes. sbt is compatible with ivy and designed
-primarily for Scala development. For example, ivy uses a structured
-but lighter-weight format:</p>
-</dd>
-</dl>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos">1</span><span class="w">      </span><span class="nt">&lt;dependency</span><span class="w"> </span><span class="na">org=</span><span class="s">"junit"</span><span class="w"> </span><span class="na">name=</span><span class="s">"junit"</span><span class="w"> </span><span class="na">rev=</span><span class="s">"4.11"</span><span class="nt">/&gt;</span>
-</span></code></pre></div>
+<section id="data-science-with-scala-and-smile">
+<h1>Data Science with Scala and Smile<a class="headerlink" href="#data-science-with-scala-and-smile" title="Link to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This section is not ready yet. Working on it!</p>
 </div>
 </section>
-<section id="sbt">
-<h2>sbt<a class="headerlink" href="#sbt" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#sbt'">¶</a></h2>
-<p>In the simplest case, sbt does not require any configuration and will
-use reasonable defaults. The project layout is similar to that used by
-Maven:</p>
-<ul class="simple">
-<li><p>Production code goes in <code class="docutils literal notranslate"><span class="pre">src/main/scala</span></code>.</p></li>
-<li><p>Test code goes in <code class="docutils literal notranslate"><span class="pre">src/test/scala</span></code>.</p></li>
-</ul>
-<p>sbt supports two configuration styles, one based on a simple
-Scala-based domain-specific language, and one based on the full Scala
-language for configuring all aspects of a project.</p>
-<section id="build-sbt-format">
-<h3>build.sbt format<a class="headerlink" href="#build-sbt-format" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#build-sbt-format'">¶</a></h3>
-<p>A minimal sbt <code class="docutils literal notranslate"><span class="pre">build.sbt</span></code> file would look like this. The empty lines
-are required, and the file must be placed in the project root folder.</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos">1</span><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"integration-scala"</span>
-</span><span id="line-2"><span class="linenos">2</span>
-</span><span id="line-3"><span class="linenos">3</span><span class="w">  </span><span class="n">version</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"0.0.2"</span>
-</span></code></pre></div>
-</div>
-<p>Additional dependencies can be specified either one at a time</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos">1</span><span class="w">  </span><span class="n">libraryDependencies</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">"com.novocode"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"junit-interface"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"0.10"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"test"</span>
-</span></code></pre></div>
-</div>
-<p>or as a group</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos">1</span><span class="w">  </span><span class="n">libraryDependencies</span><span class="w"> </span><span class="o">++=</span><span class="w"> </span><span class="nc">Seq</span><span class="p">(</span>
-</span><span id="line-2"><span class="linenos">2</span><span class="w">    </span><span class="s">"org.scala-lang"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"scala-actors"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"2.10.1"</span><span class="p">,</span>
-</span><span id="line-3"><span class="linenos">3</span><span class="w">    </span><span class="s">"com.novocode"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"junit-interface"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"0.10"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"test"</span>
-</span><span id="line-4"><span class="linenos">4</span><span class="w">  </span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-</section>
-<section id="build-scala-format">
-<h3>Build.scala format<a class="headerlink" href="#build-scala-format" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#build-scala-format'">¶</a></h3>
-<p>Examples of more complex Scala-based project configurations can be
-found in these examples:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/LoyolaChicagoCode/clickcounter-android-scala">Android click counter app</a></p></li>
-<li><p><a class="reference external" href="https://github.com/LoyolaChicagoCode/primenumbers-http4s-scala">Prime checker web service</a></p></li>
-</ul>
-</section>
-</section>
-<section id="plugin-ecosystem">
-<h2>Plugin Ecosystem<a class="headerlink" href="#plugin-ecosystem" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#plugin-ecosystem'">¶</a></h2>
-<p>sbt includes a growing plugin ecosystem. Key examples include</p>
-<dl class="simple">
-<dt><a class="reference external" href="https://github.com/typesafehub/sbteclipse">sbteclipse</a></dt><dd><p>automatically generates an Eclipse project configuration from an sbt one.</p>
-</dd>
-<dt><a class="reference external" href="https://github.com/sbt/sbt-start-script">sbt-start-script</a></dt><dd><p>generates a start script for running a Scala application outside of
-sbt.</p>
-</dd>
-</dl>
-<p>The IntelliJ IDEA Scala plugin also integrates directly with sbt.</p>
-</section>
-</section>
-</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
-<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
-<ul>
-<li><a :data-current="activeSection === '#why-use-a-build-tool'" class="reference internal" href="#why-use-a-build-tool">Why Use a Build Tool?</a></li>
-<li><a :data-current="activeSection === '#brief-history-of-build-tools'" class="reference internal" href="#brief-history-of-build-tools">Brief History of Build Tools</a></li>
-<li><a :data-current="activeSection === '#sbt'" class="reference internal" href="#sbt">sbt</a><ul>
-<li><a :data-current="activeSection === '#build-sbt-format'" class="reference internal" href="#build-sbt-format">build.sbt format</a></li>
-<li><a :data-current="activeSection === '#build-scala-format'" class="reference internal" href="#build-scala-format">Build.scala format</a></li>
-</ul>
-</li>
-<li><a :data-current="activeSection === '#plugin-ecosystem'" class="reference internal" href="#plugin-ecosystem">Plugin Ecosystem</a></li>
-</ul>
-</div>
-</aside>
+</div></div>
 </main>
 </div>
 </div><footer class="py-6 border-t border-border md:py-0">
