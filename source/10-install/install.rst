@@ -1,92 +1,128 @@
 Installing Scala
-=====================
+================
 
-Prerequisite: JDK
------------------
+Installing Scala is a straightforward process, but it can vary depending on your operating system and preferences.
+We will provide instructions for installing Scala on macOS, Linux, and Windows using the SDKMAN! tool.
+We will also discuss recommended IDEs and text editors for Scala development.
 
-As a prerequisite to Scala development, we recommend that you install
-the Oracle Java Development Kit (Java 7 SE 7u51 or later). While you
-can work with OpenJDK and other VM implementations to run Scala, our
-initial testing is that the best experience and performance comes from
-the latest stable release of the Java 7 Platform.
+..
+  - Our notes assume access to a Linux/Mac command line environment. Everything should work with Windows and PowerShell but we recommend WSL.
+  - We follow Java and Scala latest releases. 
+  - We highly recommend sdkman.io instead of downloadable installers.
+  - Leave IDE discussion as is but consider refreshing to use Visual Studio Code with its integrated terminal support and Scala plugin. 
+  - In this vein, confirm that we can edit scala scripts within Visual Studio Code 
+  - for example, does VS code pick up dependencies in a Scala script when you do editing/code completion?
+  - Eclipse can probably be nuked.
+  - Ok with retaining IntelliJ
 
-- `Oracle Java Platform Downloads <http://www.oracle.com/technetwork/java/javase/downloads/>`_
- 
-Command-Line Tools
+
+System Requirements
+-------------------
+
+The most basic requirement for learning Scala is a computer with access to a command-line environment.
+We recommend using a macOS or Linux system; this will enable you to install the necessary tools directly, even during the session. 
+If you are using Windows, must use Windows 11 and are strongly encouraged to set up the Windows Subsystem for Linux (WSL) to get a Linux-like environment. 
+(You can also use a virtual machine with Linux installed, though this is not recommended for beginners.)
+
+
+Installing SDKMAN!
 ------------------
 
-We do most of our CS1 instruction using command line tools. If you
-want to go this route, you can perform a standard Scala 2.10.x
-standalone install using your system's package manager or manually
-from
+SDKMAN! is a tool for managing parallel versions of multiple Software Development Kits (SDKs) on most Unix-based systems. 
+It is the recommended way to install Scala and other tools.
 
-- http://www.scala-lang.org/download/
 
-This is generally a good choice for projects without external
-dependencies.
+macOS and Linux
+^^^^^^^^^^^^^^^
 
-For projects with external dependencies (such as unit testing), we
-also recommend using sbt (Simple Build Tool for Scala). You can
-install version 0.13.x or newer of sbt using your system's package
-manager or manually from
+1. Open a terminal.
+2. Run the following command to install SDKMAN!:
 
-- http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html
+  .. code-block:: bash
 
-You may also need to configure the paths on your machine to make these
-tools easy to work with.
+    curl -s "https://get.sdkman.io" | bash
 
-Text Editors
------------------
+3. Follow the on-screen instructions to complete the installation.
+4. Restart your terminal or run:
 
-To go along with the command-line tools, you will need a text editor
-that you like to work with.
+  .. code-block:: bash
 
-- On Linux, we recommend `Vim <http://www.vim.org/>`_ or `Emacs <https://www.gnu.org/software/emacs/>`_. 
-  OS X Terminal also supports both via the command line or via the 
-  `MacVim <https://code.google.com/p/macvim/>`_ and `AquaMacs <http://aquamacs.org/>`_ 
-  projects.
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-- The `Sublime Text Editor <http://www.vim.org>`_ is also wildly popular among agile developers and
-  works on all major platforms. While not free/open source, it can be used for an indefinite period 
-  for free (with only occasional nagging suggesting you upgrade to the paid version). George uses this
-  editor not only for writing Scala but also for editing reStructuredText (the source code for
-  these notes).
+5. Verify the installation by running:
 
-IDE Option: JetBrains IntelliJ IDEA
+  .. code-block:: bash
+
+    sdk version
+
+
+Windows
+^^^^^^^
+
+1. Install the Windows Subsystem for Linux (WSL) if not already installed. Follow the instructions here: `Install WSL <https://learn.microsoft.com/en-us/windows/wsl/install>`_.
+2. Open a WSL terminal (e.g., Ubuntu).
+3. Follow the same steps as for Linux above to install SDKMAN! within the WSL environment.
+
+
+Installing Java and Scala
+-------------------------
+
+Once SDKMAN! is installed, you can use it to install Java and Scala.
+We recommend using the latest stable long-term support (LTS) versions of Java (version 21) and the latest version of Scala (version 3.7.0).
+
+1. Open a terminal.
+2. Run the following commands to install Java and Scala:
+
+  .. code-block:: bash
+
+    sdk install java
+    sdk install scala
+
+3. Verify the installation by running:
+
+  .. code-block:: bash
+
+    java -version
+    scala -version
+
+
+Recommended IDE: Visual Studio Code
 -----------------------------------
 
+(If you are using a text editor, you can skip this section.)
+
+Visual Studio Code is a lightweight, open-source code editor that supports many programming languages, including Scala.
+It is available for Windows, macOS, and Linux.
+You can install it using your system's package manager (such as ``apt`` or ``brew``) or download it from the following URL:
+
+- https://code.visualstudio.com/
+
+When you open a Scala project folder for the first time, VS Code usually offers to install the Scala extension pack.
+It provides features like code completion, error checking, and debugging support.
+
+
+IDE Alternative: JetBrains IntelliJ IDEA
+----------------------------------------
+
 Many faculty teaching introductory CS courses prefer an Integrated
-Development Environment (IDE). We recommend IntelliJ IDEA, which is
+Development Environment (IDE). We recommend the free IntelliJ IDEA, which is
 growing in popularity over Eclipse and preferred by many of us. You
-can get the Community edition for free from the following URL and then
-install the Scala plugin through the plugin manager.
+can get the IDEA Community Edition for free from the following URL; 
+it already includes the required Scala plugin.
 
-- http://www.jetbrains.com/idea/download/  
-
-The IntelliJ IDEA Scala plugin undergoing active development, and
-there is a tradeoff between stability and features/bug fixes. For
-advanced Scala development, you may find yourself wanting to be more
-bleeding edge. To this end, we recommend the current early access
-version:
-
--  http://confluence.jetbrains.com/display/IDEADEV/IDEA+13.1+EAP
-
-When you install the Scala plugin through the plugin manager, you will
-automatically get the version that matches that of IDEA. There are
-still a few glitches, but it has gotten a lot better since
-January 2014. In particular, compilation (and execution of Scala
-worksheets) has become much faster.
-
-To work around false compilation errors in Scala worksheets, we also
-recommend a standalone installation of Scala (sufficient for projects
-without external dependencies) or sbt.
+- https://www.jetbrains.com/idea/download/  
 
 
-IDE Option: Eclipse Scala IDE
-------------------------------
+Text Editors
+------------
 
-The official Scala IDE is provided as an Eclipse bundle that has Scala
-already installed. It will work on all platforms with very minor
-differences. The following link will take you there.
+Alternatively, in the spirit of the other command-line tools, you can use any text editor that you like to work with.
 
-- http://scala-ide.org/download/sdk.html
+- On Linux, we recommend `Vim <https://www.vim.org/>`_ or `Emacs <https://www.gnu.org/software/emacs/>`_. 
+  OS X Terminal also supports both via the command line or via the 
+  `MacVim <https://code.google.com/p/macvim/>`_ and `Aquamacs <https://aquamacs.org/>`_ 
+  projects.
+  You can use any of these editors to write Scala code, but you may need to run the Scala compiler from the command line.
+
+- There are various other graphical text editors available, including
+  `Notepad++ <https://notepad-plus-plus.org/>`_ for Windows and `Sublime <https://www.sublimetext.com/>`_ for all major platforms.

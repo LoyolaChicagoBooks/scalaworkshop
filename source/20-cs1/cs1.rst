@@ -922,7 +922,7 @@ imperative (von Neumann) style. See our loops section.
 
 
 Some introductory CS and DS Friendly Examples
-------------------------------
+---------------------------------------------
 
 GCD
 ^^^^^
