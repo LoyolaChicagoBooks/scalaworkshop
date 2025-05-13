@@ -21,3 +21,33 @@ For convenience, here is the code for generating the data file:
 .. literalinclude:: ../../examples/introds-scala-examples/montecarlo-scala/GenerateDarts.scala
    :language: scala
    :linenos:
+
+
+Graffiti/311 Chicago Data Portal
+-----------------------------------
+
+.. note:: This is just the start. Adding placeholders for the code examples/snippets.
+
+.. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/LoadGraffitiData.scala
+   :language: scala
+   :linenos:
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
