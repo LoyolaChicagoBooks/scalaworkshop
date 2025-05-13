@@ -120,6 +120,10 @@
 <p>This example shows how to use the Monte Carlo method to estimate the area of a circle.
 It uses the Smile library for statistical computing and machine learning in Scala.
 In particular, it loads dataframes representing the points where the darts landed and figures the area of the circle from the ratio of darts that landed inside the circle to the total number of darts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are not necessarily advocating for the approach here. However, it’s a nice minimal example of how to generate a dataset (with one script) and how to analyze another dataset (with another) using Smile’s data frame support. In this particular case, be mindful that we are bounded by the maximum integer number of darts and must take care not to blow up memory on more limited devices. We therefore employ lazy processing when producing and consuming the dataset.</p>
+</div>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala 3.3.6</span>
 </span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
 </span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "com.github.haifengl::smile-scala:4.3.0"</span>
