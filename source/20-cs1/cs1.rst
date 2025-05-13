@@ -44,10 +44,9 @@ Hello, World
 
 .. code-block:: scala
 
-   $ scala-2.10
-   Welcome to Scala version 2.10.3 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_45).
-   Type in expressions to have them evaluated.
-   Type :help for more information.
+   $ scala
+   Welcome to Scala 3.7.0 (21.0.7, Java OpenJDK 64-Bit Server VM).
+   Type in expressions for evaluation. Or try :help.
 
    scala> println("Hello, World")
    Hello, World	
@@ -59,7 +58,7 @@ Types - "Lack" of Primitives
 .. code-block:: scala
 
    scala> 1
-   res1: Int = 1
+   val res1: Int = 1
 
 In the following, the user types ``1.`` and then hits the ``<tab>`` key--known as
 tab completion--to show the available operations and methods available for an ``Int``.
@@ -67,12 +66,27 @@ tab completion--to show the available operations and methods available for an ``
 .. code-block:: scala
 
    scala> 1.<tab>
-   %              &              *              +              -
-   /              >              >=             >>             >>>
-   ^              asInstanceOf   isInstanceOf   toByte         toChar
-   toDouble       toFloat        toInt          toLong         toShort
-   toString       unary_+        unary_-        unary_^        |
-
+   !=                    ceil                  isValidByte           to
+   ##                    compare               isValidChar           toBinaryString
+   %                     compareTo             isValidInt            toByte
+   &                     describeConstable     isValidLong           toChar
+   *                     doubleValue           isValidShort          toDegrees
+   +                     ensuring              isWhole               toDouble
+   -                     eq                    longValue             toFloat
+   ->                    equals                max                   toHexString
+   /                     floatValue             min                   toInt
+   <                     floor                  ne                    toLong
+   <<                    formatted             nn                    toOctalString
+   <=                    getClass              notify                toRadians
+   ==                    hashCode              notifyAll             toShort
+   >                     intValue              resolveConstantDesc   toString
+   >=                    isFinite              round                 unary_+
+   >>                    isInfinite             runtimeChecked        unary_-
+   >>>                   isInfinity             self                  unary_~
+   ^                     isInstanceOf          shortValue            until
+   abs                   isNaN                 sign                  wait
+   asInstanceOf          isNegInfinity          signum                |
+   byteValue             isPosInfinity          synchronized          →
 
 Literals are mostly what you expect
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,39 +96,30 @@ Integers
 .. code-block:: scala
 
    scala> val a = 95
-   a: Int = 95
+   val a: Int = 95
 
    scala> val b = -95
-   b: Int = -95
+   val b: Int = -95
 
-Octal and Hexadecimal
+Hexadecimals
 
 .. code-block:: scala
 
-   scala> val c = 039
-   <console>:1: error: malformed integer number
-          val c = 039
-                  ^
-
-   scala> val c = 037
-   warning: there were 1 deprecation warning(s); re-run with -deprecation for details
-   c: Int = 31
-
    scala> val d = 0xff
-   d: Int = 255
+   val d: Int = 255
 
    scala> val d = 0xffac
-   d: Int = 65452
+   val d: Int = 65452
 
 Double and Float
 
 .. code-block:: scala
 
    scala> val e = 1.34e-7
-   e: Double = 1.34E-7
+   val e: Double = 1.34E-7
 
    scala> val f = 1.34e-7f
-   f: Float = 1.34E-7
+   val f: Float = 1.34E-7
 
 
 Statements vs. Expressions
@@ -150,11 +155,28 @@ to an ``Int`` instance:
 .. code-block:: scala
 
    scala> a.<tab>
-   %              &              *              +              -
-   /              >              >=             >>             >>>
-   ^              asInstanceOf   isInstanceOf   toByte         toChar
-   toDouble       toFloat        toInt          toLong         toShort
-   toString       unary_+        unary_-        unary_^        |
+   !=                    ceil                  isValidByte           to
+   ##                    compare               isValidChar           toBinaryString
+   %                     compareTo             isValidInt            toByte
+   &                     describeConstable     isValidLong           toChar
+   *                     doubleValue           isValidShort          toDegrees
+   +                     ensuring              isWhole               toDouble
+   -                     eq                    longValue             toFloat
+   ->                    equals                max                   toHexString
+   /                     floatValue             min                   toInt
+   <                     floor                  ne                    toLong
+   <<                    formatted             nn                    toOctalString
+   <=                    getClass              notify                toRadians
+   ==                    hashCode              notifyAll             toShort
+   >                     intValue              resolveConstantDesc   toString
+   >=                    isFinite              round                 unary_+
+   >>                    isInfinite             runtimeChecked        unary_-
+   >>>                   isInfinity             self                  unary_~
+   ^                     isInstanceOf          shortValue            until
+   abs                   isNaN                 sign                  wait
+   asInstanceOf          isNegInfinity          signum                |
+   byteValue             isPosInfinity          synchronized          →
+
 
 Where you see ``<tab>``, you can use a feature known as *tab completion* in the REPL to see the options
 available to value ``a``. You'll notice one thing immediately, especially if you are familiar with Java: 
@@ -165,10 +187,10 @@ Let's use the ``+`` method:
 .. code-block:: scala
 
    scala> a.+(3)
-   res5: Int = 98
+   val res5: Int = 98
 
    scala> a + 3
-   res6: Int = 98
+   val res6: Int = 98
 
 
 Let's convert an Int to a Float:
@@ -176,15 +198,8 @@ Let's convert an Int to a Float:
 .. code-block:: scala
 
    scala> val b = a.toFloat
-   b: Float = 95.0
+   val b: Float = 95.0
 
-You can also invoke methods like ``toFloat`` (which take no parameters) without using dots. We will
-take advantage of this syntax as part of good Scala style (in many of our examples).
-
-.. code-block:: scala
-
-   scala> val b = a.toFloat
-   b: Float = 95.0
 
 We're going to look at more *advanced* objects later (Scala collections) but this should give you
 a taste of what is possible.
@@ -199,13 +214,13 @@ look.
 .. code-block:: scala
 
    scala> val t = (3, 4)
-   t: (Int, Int) = (3,4)
+   val t: (Int, Int) = (3,4)
 
    scala> val u = (3.0, 4.0)
-   u: (Double, Double) = (3.0,4.0)
+   val u: (Double, Double) = (3.0,4.0)
 
    scala> val v = (3.0, 4)
-   v: (Double, Int) = (3.0,4)
+   val v: (Double, Int) = (3.0,4)
 
 Notice that Scala infers the type of each one of these value definitions. 
 
@@ -214,32 +229,41 @@ are available using the tab completion method shown previously.
 
 .. code-block:: scala
 
-   scala> t.
-   _1                _2                asInstanceOf      canEqual
-   copy              isInstanceOf      productArity      productElement
-   productIterator   productPrefix     swap              toString
+   scala> t.<tab>
+   !=                    _2$mcI$sp             invert                size
+   ##                    _2$mcJ$sp             isInstanceOf          splitAt
+   *:                    _2$mcZ$sp             last                  swap
+   ++                    apply                 map                   synchronized
+   ->                    asInstanceOf          ne                    tail
+   :*                    canEqual              nn                    take
+   ==                    copy                  notify                toArray
+   _1                    drop                  notifyAll             toIArray
+   _1$mcC$sp             ensuring              productArity          toList
+   _1$mcD$sp             eq                    productElement        toString
+   _1$mcI$sp             equals                productElementName    wait
+   _1$mcJ$sp             formatted             productElementNames   zip
+   _1$mcZ$sp             getClass              productIterator       zipped
+   _2                    hashCode              productPrefix          →
+   _2$mcC$sp             head                  reverse
+   _2$mcD$sp             init                  runtimeChecked
 
-   scala> u.
-   _1                _2                asInstanceOf      canEqual
-   copy              isInstanceOf      productArity      productElement
-   productIterator   productPrefix     swap              toString
+   scala> u.<tab>
+   // identical output
 
-   scala> v.
-   _1                _2                asInstanceOf      canEqual
-   copy              isInstanceOf      productArity      productElement
-   productIterator   productPrefix     swap              toString
+   scala> v.<tab>
+   // identical output
 
 You can inspect the components of a tuple by using the ``_1``, ``_2``, ... methods.
 
 .. code-block:: scala
 
    scala> t._1
-   res9: Int = 3
+   val res9: Int = 3
 
    scala> t._2
-   res10: Int = 4
+   val res10: Int = 4
 
-You'll obviously not want to use these names to refer to the components of a tuple. Using
+You don't usually not want to use these names to refer to the components of a tuple. Using
 pattern matching, you can extract the components of a tuple and *bind* them to proper names.
 For example, if your tuple represents an (x, y) pair, you are likely to use a match expression
 like this:
@@ -261,7 +285,7 @@ You can do this:
 .. code-block:: scala
 
    scala> val x = 30;
-   x: Int = 30
+   val x: Int = 30
 
 
 But this works just as well and is the preferred way to write Scala code:
@@ -269,7 +293,8 @@ But this works just as well and is the preferred way to write Scala code:
 .. code-block:: scala
 
    scala> val y = 30
-   y: Int = 30
+   val y: Int = 30
+
 
 Simple Input (and Output)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -279,39 +304,36 @@ before you know how to create classes:
 
 .. code-block:: scala
 
-   scala> import scala.tools.jline.console.ConsoleReader
+   scala> import scala.io.StdIn
 
-   scala> val input = new ConsoleReader
-   input: scala.tools.jline.console.ConsoleReader = scala.tools.jline.console.ConsoleReader@3ec642e5
-
-Then you can inspect the capabilities of the ConsoleReader by using tab completion (as shown before)
+Then you can inspect the capabilities of the StdIn by using tab completion (as shown before)
 
 .. code-block:: scala
 
-   scala> input.r<tab>
-   readCharacter     readLine          readVirtualKey    redrawLine
-   removeCompleter   replace           resetPromptLine   restoreLine
+   scala> StdIn.r<tab>
+   readBoolean      readDouble       readLine         readf            readf3
+   readByte         readFloat        readLong         readf1           runtimeChecked
+   readChar         readInt          readShort        readf2
+
 
 Now we look up more details on the ``readLine()`` methods, which is what we
-want to do basic, line-oriented input (a common need in introductory
+want to for basic, line-oriented input (a common need in introductory
 teaching).
 
 .. code-block:: scala
 
    scala> input.readLine<tab>
 
+   def readLine(text: String, args: Any*): String
    def readLine(): String
-   def readLine(Character): String
-   def readLine(String): String
-   def readLine(String, Character): String
 
-   scala> val data = input.readLine("Please enter some text: ")
+   scala> val data = StdIn.readLine("Please enter some text: ")
    Please enter some text: Hello, World
-   data: String = Hello, World
+   val data: String = Hello, World
 
 You'll probably find it necessary to read through the Scala documentation, but
 in a number of cases, the behavior is similar to what you've seen in other
-language APIs. ``readLine()`` is pretty well known in Java circles. As you can
+language APIs. ``readLine()`` without arguments is pretty well known in Java circles. As you can
 see above, ``readLine(String)`` gives us what we want: the ability to read
 input with a prompt of sorts.
 
@@ -344,7 +366,11 @@ You can also *load* the script within the Scala REPL:
    $ scala
    scala> :load myscript.scala
 
-We'll be taking advantage of this a bit more in our discussion about ``sbt``, the Scala Build Tool.
+Nevertheless, this works only for very simple scripts without external library dependencies. 
+For more complex scripts, you should normally invoke them the ``scala myscript.scala`` syntax.
+
+We'll be discussing the Scala REPL and library dependencies in more detail later.
+
 
 Conditional and Functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -357,37 +383,41 @@ if expression
 .. code-block:: scala
 
    scala> val a = 25
-   a: Int = 25
+   val a: Int = 25
 
    scala> val b = 30
-   b: Int = 30
+   val b: Int = 30
 
-   scala> val max = if (a > b) a else b
-   max: Int = 30
+   scala> val max = if a > b then a else b
+   val max: Int = 30
 
 Contrast with:
 
 .. code-block:: scala
 
    scala> var max = 0
-   max: Int = 0
+   var max: Int = 0
 
-   scala> if (a > b)
+   scala> if a > b then
         |   max = a
 
-   scala> if (a > b) {
+   scala> if a > b then
         |    max = a
-        | } else {
+        | else
         |    max = b
-        | }
+        |
 
    scala> max
-   res4: Int = 30
+   val res4: Int = 30
 
-Note: Similar to other agile languages, you can enter compound statements and blocks of code in the REPL.
-The ``|`` is a continuation character to indicate that more input is expected. It's often best to use a 
-text editor once you start entering more complex fragments of code (especially more complicated than what
-you see here).
+
+.. note:: 
+
+   Similar to other agile languages, you can enter compound statements and blocks of code in the REPL.
+   
+   The ``|`` is a continuation character to indicate that more input is expected. It's often best to use a 
+   text editor once you start entering more complex fragments of code (especially more complicated than what
+   you see here).
 
 Functions are front and center when it comes to Scala programming. Although object-functional, a pure function
 can be written without the boilerplate associated with OOP. We're proponents of OOP but prefer to introduce
@@ -396,21 +426,26 @@ functional thinking and *use* of objects prior to creating classes.
 .. code-block:: scala
 
    scala> def square(x : Int) = x * x
-   square: (x: Int)Int
+   def square(x: Int): Int
 
 
    scala> square(25)
-   res6: Int = 625
+   val res6: Int = 625
 
    scala> square(25.0)
-   <console>:12: error: type mismatch;
-    found   : Double(25.0)
-    required: Int
-                 square(25.0)
+   -- [E007] Type Mismatch Error: -------------------------------------------------
+   1 |square (25.0)
+   |        ^^^^
+   |        Found:    (25.0d : Double)
+   |        Required: Int
+   |
+   | longer explanation available when compiling with `-explain`
+   1 error found
                         ^
 
 As expected, the second invocation of ``square()`` results in an error. Scala performs static type checking 
 in real time. That is, this is *not* a run-time check.
+
 
 Function literals
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -424,28 +459,36 @@ We'll start by generating the first 25 values using a Scala range.
 .. code-block:: scala
 
    scala> val n = 10
-   n: Int = 10
+   val n: Int = 10
 
    scala> val first_n = 1 to n
-   first_n: scala.collection.immutable.Range.Inclusive = Range(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+   val first_n: scala.collection.immutable.Range.Inclusive = Range 1 to 10
 
 
-
-This shows how to map the ``square()`` function to the range of values.
+This shows how to map the ``square()`` function to each value in the range of values.
 
 .. code-block:: scala
 
    scala> first_n.map(square)
-   res16: scala.collection.immutable.IndexedSeq[Int] = 
-      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+   val res15: IndexedSeq[Int] = 
+     Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
-This shows how to map a *function literal* to the range of values. 
+This shows how to map a *function literal* (anonymous function, a.k.a., lambda) to the range of values. 
+As you can see, the dot notation is not needed for methods such as ``map()``, which are applied to one object and one argument.
+Even the parentheses are optional in this case, but they are needed when the method takes more than one argument.
+
+.. code-block:: scala
+
+   scala> first_n.map square
+   val res16: IndexedSeq[Int] = 
+     Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+
 
 .. code-block:: scala
 
    scala> first_n map (n => n * n)
-   res17: scala.collection.immutable.IndexedSeq[Int] = 
-      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+   val res17: scala.collection.immutable.IndexedSeq[Int] = 
+     Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 This shows how you can combine a function literal with a previously defined function:
 
@@ -465,7 +508,7 @@ Consider this code that creates the first n even numbers:
 .. code-block:: scala
 
    scala> 1 to 10 map (_ * 2)
-   res26: scala.collection.immutable.IndexedSeq[Int] = 
+   val res26: IndexedSeq[Int] = 
       Vector(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
 
 You might be tempted to try this by doing the following:
@@ -473,43 +516,50 @@ You might be tempted to try this by doing the following:
 .. code-block:: scala
 
    scala> 1 to 10 map (_ + _)
-   <console>:11: error: wrong number of parameters; expected = 1
-                 1 to 10 map (_ + _)
+   -- [E086] Syntax Error: --------------------------------------------------------
+   1 |1 to 10 map (_ + _)
+   |             ^^^^^
+   |             Wrong number of parameters, expected: 1
+
 
 Alas, it doesn't work. Why? Because each occurrence of ``_`` corresponds to an expected parameter. In
 this case, there would have to be pairs of values. Unfortunately, in the range 1 to 10, each value is an Int.
 
 Default parameters and named parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Similar to other agile languages, Scala allows you to specify default parameter values. This is particularly
 useful, especially when diving into object-oriented programming, but has uses even before then.
 
-Consider this version of ``square()``:
+Consider this version of ``square()`` :
 
 
 .. code-block:: scala
 
    scala> def square( x : Int = 0) = x * x
-   square: (x: Int)Int
+   def square(x: Int): Int
 
    scala> square()
-   res28: Int = 0
+   val res28: Int = 0
 
    scala> square(5)
-   res29: Int = 25
+   val res29: Int = 25
 
 Here we are creating a version that has a default value of zero, if the caller doesn't specify ``x``. (This 
 is not necessarily intended to be pedagogically interesting but is effective, considering we spent most of 
 our time in this section looking at the ``square()`` function!)
 
-Early Collection, Arrays and Lists
---------------------------------------
+
+Early Introduction to Collections, Arrays, and Lists
+----------------------------------------------------
+
 
 Scala has some very advanced and comprehensive collections libraries. For introductory CS and DS, you can focus only on the simplest of these, beginning with Arrays and Lists.  In actually makes sense to introduce these before loops (and iteration in general) in Scala for two reasons. First, the collections have many methods
 that allow you to do standard tasks that would often go in loops. As such,
 Scala code often doesn’t include all that many loops. Second, the for loop in
 Scala is really a foreach type loop that works with collections so it makes
 more sense to introduce it after the basic collections.
+
 
 Making Arrays and Lists
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -519,10 +569,10 @@ The simplest way to make an Array or a List is with the following syntax.
 .. code-block:: scala
 
    scala> Array(1,2,3,4)
-   res0: Array[Int] = Array(1, 2, 3, 4)
+   val res0: Array[Int] = Array(1, 2, 3, 4)
 
    scala> List(1.3,4.2,3.14)
-   res1: List[Double] = List(1.3, 4.2, 3.14)
+   val res1: List[Double] = List(1.3, 4.2, 3.14)
 
 
 Note that the Array and List types take type parameters. These appear in
@@ -545,7 +595,7 @@ You can also made longer arrays using the new syntax that one uses in Java.
 .. code-block:: scala
 
    scala> new Array[Int](100)
-   res2: Array[Int] = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+   val res2: Array[Int] = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
@@ -570,7 +620,7 @@ value on the left and a List on the right. For example:
 .. code-block:: scala
 
    scala> 1::2::3::4::Nil
-   res4: List[Int] = List(1, 2, 3, 4)
+   val res4: List[Int] = List(1, 2, 3, 4)
 
 
 The ``Nil`` object is a short name for an empty List. You can also use
@@ -585,9 +635,11 @@ many values you will be working with.
 
 .. code-block:: scala
 
-   scala> def readNumbers(n:Int):List[Int] = if(n<1) Nil else 
-        | readInt :: readNumbers(n-1)
-   readNumbers: (n: Int)List[Int]
+   scala> import scala.io.StdIn.readInt
+
+   scala> def readNumbers(n: Int): List[Int] = if n < 1 then Nil else 
+        |   readInt :: readNumbers(n - 1)
+   def readNumbers(n: Int): List[Int]
 
    scala> readNumbers(5)
    1
@@ -595,13 +647,15 @@ many values you will be working with.
    3
    4
    5
-   res6: List[Int] = List(1, 2, 3, 4, 5)
+   val res6: List[Int] = List(1, 2, 3, 4, 5)
 
-   scala> def readUntilQuit():List[Int] = {
-        | val data = readLine
-        | if(data!="quit") data.toInt :: readUntilQuit() else Nil
-        | }
-   readUntilQuit: ()List[Int]
+   scala> import scala.io.StdIn.readLine
+
+   scala> def readUntilQuit(): List[Int] =
+        |   val data = readLine
+        |   if data != "quit" then data.toInt :: readUntilQuit() else Nil
+        | 
+   def readUntilQuit(): List[Int]
 
    scala> readUntilQuit()
    1
@@ -610,7 +664,7 @@ many values you will be working with.
    4
    5
    quit
-   res7: List[Int] = List(1, 2, 3, 4, 5)
+   val res7: List[Int] = List(1, 2, 3, 4, 5)
 
 
 Indexing/Traversing Arrays and Lists
@@ -620,17 +674,17 @@ You can get to values in an Array or a List by indexing with parentheses.
 
 .. code-block:: scala
 
-   scala> val arr = Array(6,8,2,4,1)
-   arr: Array[Int] = Array(6, 8, 2, 4, 1)
+   scala> val arr = Array(6, 8, 2, 4, 1)
+   val arr: Array[Int] = Array(6, 8, 2, 4, 1)
 
    scala> val lst = List('g','e','o','r','g','e')
    lst: List[Char] = List(g, e, o, r, g, e)
 
    scala> arr(2)
-   res1: Int = 2
+   val res1: Int = 2
 
    scala> lst(2)
-   res2: Char = o
+   val res2: Char = o
 
 The use of parentheses instead of square brackets keeps the syntax consistent.
 (Having parentheses is the next best thing to square brackets as well. It is certainly 
@@ -651,7 +705,7 @@ an Array. You can’t do this for Lists because they are immutable.
    scala> arr(2) = 99
 
    scala> arr
-   res4: Array[Int] = Array(6, 8, 99, 4, 1)
+   val res4: Array[Int] = Array(6, 8, 99, 4, 1)
 
 The common way to run through a List is using the head and tail methods. The
 head method returns the first element of the List while tail returns the last
@@ -661,23 +715,22 @@ The use of head and tail is particularly well suited for recursion.
 
 .. code-block:: scala
 
-   scala> def sumList(lst:List[Int]):Int = if(lst.isEmpty) 0 else
-        | lst.head+sumList(lst.tail)
-   sumList: (lst: List[Int])Int
+   scala> def sumList(lst: List[Int]): Int = if lst.isEmpty then 0 else
+        | lst.head + sumList(lst.tail)
+   def sumList(lst: List[Int]): Int
 
    scala> sumList(List(1,2,3,4,5))
-   res5: Int = 15
+   val res5: Int = 15
 
-This same function can be defined using a match and patterns in the following
-way.
+This same function can be defined using a ``match`` expression and patterns in the following way.
 
 .. code-block:: scala
 
-   scala> def sumList(lst:List[Int]):Int = lst match {
+   scala> def sumList(lst: List[Int]): Int = lst match
         | case Nil => 0
-        | case h::t => h + sumList(t)
-        | }
-   sumList: (lst: List[Int])Int
+        | case h :: t => h + sumList(t)
+        | 
+   def sumList(lst: List[Int]): Int
 
 Standard Methods
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -690,64 +743,16 @@ REPL on a List.
 .. code-block:: scala
 
    scala> lst.<tab>
-   ++                   ++:                  +:                   
-   /:                   /:\                  :+                   
-   ::                   :::                  :\                   
-   addString            aggregate            andThen              
-   apply                applyOrElse          asInstanceOf         
-   canEqual             collect              collectFirst         
-   combinations         companion            compose              
-   contains             containsSlice        copyToArray          
-   copyToBuffer         corresponds          count                
-   diff                 distinct             drop                 
-   dropRight            dropWhile            endsWith             
-   exists               filter               filterNot            
-   find                 flatMap              flatten              
-   fold                 foldLeft             foldRight            
-   forall               foreach              genericBuilder       
-   groupBy              grouped              hasDefiniteSize      
-   head                 headOption           indexOf              
-   indexOfSlice         indexWhere           indices              
-   init                 inits                intersect            
-   isDefinedAt          isEmpty              isInstanceOf         
-   isTraversableAgain   iterator             last                 
-   lastIndexOf          lastIndexOfSlice     lastIndexWhere       
-   lastOption           length               lengthCompare        
-   lift                 map                  mapConserve          
-   max                  maxBy                min                  
-   minBy                mkString             nonEmpty             
-   orElse               padTo                par                  
-   partition            patch                permutations         
-   prefixLength         product              productArity         
-   productElement       productIterator      productPrefix        
-   reduce               reduceLeft           reduceLeftOption     
-   reduceOption         reduceRight          reduceRightOption    
-   removeDuplicates     repr                 reverse              
-   reverseIterator      reverseMap           reverse_:::          
-   runWith              sameElements         scan                 
-   scanLeft             scanRight            segmentLength        
-   seq                  size                 slice                
-   sliding              sortBy               sortWith             
-   sorted               span                 splitAt              
-   startsWith           stringPrefix         sum                  
-   tail                 tails                take                 
-   takeRight            takeWhile            to                   
-   toArray              toBuffer             toIndexedSeq         
-   toIterable           toIterator           toList               
-   toMap                toSeq                toSet                
-   toStream             toString             toTraversable        
-   toVector             transpose            union                
-   unzip                unzip3               updated              
-   view                 withFilter           zip                  
-   zipAll               zipWithIndex 
+   !=                   eq                   lift                 size                     ##                   equals               map                  sizeCompare              ++                   exists               mapConserve          sizeIs                   ++:                  filter               max                  slice                    +:                   filterNot            maxBy                sliding                  ->                   find                 maxByOption          sortBy                   /:                   findLast             maxOption            sortWith                 :+                   flatMap              min                  sorted                   :++                  flatten              minBy                span                     ::                   fold                 minByOption          splitAt                  :::                  foldLeft             minOption            startsWith               :\                   foldRight            mkString             stepper                  ==                   forall               ne                   sum                      CombinationsItr      foreach              nn                   synchronized             Maximized            formatted            nonEmpty             tail                     PermutationsItr      getClass             notify               tails                    addString            groupBy              notifyAll            take                     aggregate            groupMap             orElse               takeRight                andThen              groupMapReduce       padTo                takeWhile                appended             grouped              partition            tapEach                  appendedAll          hasDefiniteSize      partitionMap         to                       apply                hashCode             patch                toArray                  applyOrElse          head                 permutations         toBuffer                 asInstanceOf         headOption           prefixLength         toIndexedSeq             canEqual             indexOf              prepended            toIterable               collect              indexOfSlice         prependedAll         toIterator               collectFirst         indexWhere           product              toList                   combinations         indices              reduce               toMap                    companion            init                 reduceLeft           toSeq                    compose              inits                reduceLeftOption     toSet                    concat               intersect            reduceOption         toStream                 contains             isDefinedAt          reduceRight          toString                 containsSlice        isEmpty              reduceRightOption    toTraversable            copyToArray          isInstanceOf         repr                 toVector                 copyToBuffer         isTraversableAgain   reverse              transpose                corresponds          iterableFactory      reverseIterator      unapply                  count                iterator             reverseMap           union                    diff                 knownSize            reverse_:::          unzip                    distinct             last                 runWith              unzip3                   distinctBy           lastIndexOf          runtimeChecked       updated                  drop                 lastIndexOfSlice     sameElements         view                     dropRight            lastIndexWhere       scan                 wait                     dropWhile            lastOption           scanLeft             withFilter               elementWise          lazyZip              scanRight            zip                      empty                length               search               zipAll                   endsWith             lengthCompare        segmentLength        zipWithIndex             ensuring             lengthIs             seq                  →
 
 
-You might notice that there is a sum method, so the listSum written above is
-something you never need to write. There are also methods for converting
-between types such at toList and toArray.
+
+You might notice that there is a ``sum`` method, so the listSum written above is
+something you never need to write yourself. There are also methods for converting
+between types such as ``toList`` and ``toArray``.
 
 
-Higher Order Methods
+Higher-Order Methods
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Some of the methods in that list are worth describing instead of leaving it to
@@ -767,17 +772,17 @@ ways.
 .. code-block:: scala
 
    scala> val lst = List(6,4,9,1,2,8,3,7)
-   lst: List[Int] = List(6, 4, 9, 1, 2, 8, 3, 7)
+   val lst: List[Int] = List(6, 4, 9, 1, 2, 8, 3, 7)
 
    scala> lst.filter(_ < 6)
-   res8: List[Int] = List(4, 1, 2, 3)
+   val res8: List[Int] = List(4, 1, 2, 3)
 
    scala> lst.filter(_ % 2 == 0)
-   res9: List[Int] = List(6, 4, 2, 8)
+   val res9: List[Int] = List(6, 4, 2, 8)
 
 Both examples use the shorthand underscore syntax for writing the lambda
 expressions/function literals. They could have been written using the longer
-syntax as ``n => n<6`` and ``n => n%2 == 0`` respectively.
+syntax as ``n => n < 6`` and ``n => n % 2 == 0`` respectively.
 
 Another higher-order method that is used extensively is the ``map`` method
 (one of our favorites). The argument passed into ``map`` is a function that takes
@@ -789,8 +794,8 @@ that are twice the original values.
 
 .. code-block:: scala
 
-   scala> lst.map(_*2)
-   res10: List[Int] = List(12, 8, 18, 2, 4, 16, 6, 14)
+   scala> lst.map(_ * 2)
+   val res10: List[Int] = List(12, 8, 18, 2, 4, 16, 6, 14)
 
 
 To show that the types can be different, this second example shows mapping
@@ -799,10 +804,10 @@ Strings to their length.
 .. code-block:: scala
 
    scala> val words = "This is a sentence with words".split(" ")
-   words: Array[String] = Array(This, is, a, sentence, with, words)
+   val words: Array[String] = Array(This, is, a, sentence, with, words)
 
    scala> words.map(_.length)
-   res0: Array[Int] = Array(4, 2, 1, 8, 4, 5)
+   val res0: Array[Int] = Array(4, 2, 1, 8, 4, 5)
 
 The ``foreach`` method takes a function and simply executes the function on all
 the elements of the collection. While map and filter return new collections,
@@ -832,7 +837,7 @@ The best ways to create large Arrays and Lists in Scala are with the ``fill`` an
 ``tabulate`` methods. These use some syntax that needs to be introduced. The first
 element of new syntax is that these methods are *curried*. This means that the
 arguments are broken across multiple argument lists. So instead of having
-``f(x,y)`` you would have ``f(x)(y)``. This is a common feature of functional
+``f(x, y)`` you would have ``f(x)(y)``. This is a common feature of functional
 programming languages and it is done to allow functions to be partially
 applied. (A partial application means that you apply the function to a subset
 of the arguments, which results in a new function of the remaining arguments.)
@@ -841,22 +846,18 @@ straightforward.
 
 .. code-block:: scala
 
-   scala> def currySum(x:Int)(y:Int) = x+y
-   currySum: (x: Int)(y: Int)Int
+   scala> def currySum(x: Int)(y: Int) = x + y
+   def currySum(x: Int)(y: Int): Int
 
    scala> currySum(3)(5)
    res2: Int = 8
 
-   scala> val plus3 = currySum(3)_
-   plus3: Int => Int = <function1>
+   scala> val plus3 = currySum(3)
+   val plus3: Int => Int = Lambda/0x000000d0016bece0@4f1d97d8
 
    scala> plus3(5)
-   res3: Int = 8
+   val res3: Int = 8
 
-
-The need for the underscore in the partially applied call removes ambiguity in
-the Scala syntax. Often functions are curried in Scala to help with type
-inference or to simplify the syntax for calling them.
 
 The second new element of the syntax is pass-by-name arguments. By default,
 variables in Scala are passed in a manner similar to Java. The variables are
@@ -869,16 +870,16 @@ with no arguments.
 
 .. code-block:: scala
 
-   scala> def multiplyThrice(x: => Double) = x*x*x
-   multiplyThrice: (x: => Double)Double
+   scala> def multiplyThrice(x: => Double) = x * x * x
+   def multiplyThrice(x: => Double): Double
 
    scala> var i = 5
-   i: Int = 5
+   var i: Int = 5
 
    scala> multiplyThrice(i)
-   res5: Double = 125.0
+   val res5: Double = 125.0
 
-   scala> multiplyThrice({i += 1; i})
+   scala> multiplyThrice({ i += 1; i })
    res6: Double = 336.0
 
 
@@ -888,10 +889,12 @@ the argument is passed by-name.
 We use call-by-name for timing blocks of code in the Monte Carlo Pi example later
 in this section. See :ref:`montecarlopi`.
 
+
 Fill and Tabulate
 ^^^^^^^^^^^^^^^^^^^^^
 
-The fill method, which is defined on the Array object, is...
+The ``fill`` method, which is defined on the Array object, is...
+
 
 Recursion for Iteration
 --------------------------
@@ -899,22 +902,22 @@ Recursion for Iteration
 .. code-block:: scala
 
    scala> def sum(n : Int) : Int = if (n <= 0) 0 else n + sum(n-1)
-   sum: (n: Int)Int
+   def sum(n: Int): Int
 
    scala> sum(0)
-   res0: Int = 0
+   val res0: Int = 0
 
    scala> sum(1)
-   res1: Int = 1
+   val res1: Int = 1
 
    scala> sum(2)
-   res2: Int = 3
+   val res2: Int = 3
 
    scala> sum(3)
-   res3: Int = 6
+   val res3: Int = 6
 
    scala> sum(100)
-   res4: Int = 5050
+   val res4: Int = 5050
 
 Recursion does take awhile to master, but much of the trouble students have with it in practice
 is a consequence of side-effect-full thinking. Nevertheless, you can replace this with a more
