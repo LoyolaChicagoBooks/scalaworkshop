@@ -4,6 +4,7 @@ build/
 *.tmp
 Pipfile*
 .venv/
+dataset/
 
 # VSCode/Scala
 .bsp/
