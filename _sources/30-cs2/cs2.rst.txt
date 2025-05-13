@@ -226,7 +226,7 @@ Here's a screenshot of the game:
 .. image:: figures/SimpleGame.png
 
 
-CS2 - Basic Data Structures for CS and DS
+Basic Data Structures for CS and DS
 --------------------------------------------------
 
 - Pure OO
@@ -237,7 +237,7 @@ CS2 - Basic Data Structures for CS and DS
 - Libraries again
 - Can make things interesting/relevant
 - Multithreading and networking
-- Eclipse (maybe) and IntelliJ (our favorite)
+- VS Code (our favorite) and IntelliJ (optional alternative)
 - Scalable language
 - Libraries as language
 - Special methods
