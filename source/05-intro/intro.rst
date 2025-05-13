@@ -13,7 +13,7 @@ etc.). It cleans up what are often considered poor design decisions in Java
 adds a number of other features designed to allow cleaner, more concise and
 more expressive code to be written." [ScalaWikipedia]_
 
-Scala has no connection to *La Scala* or *Teatro all Scala* (the world
+Scala has no connection to *La Scala* or *Teatro alla Scala* (the world
 renowned opera house in Milan), but we (especially Dr. Thiruvathukal) love the
 name because it addresses the traditions of programming languages and scalable
 computing, while *La Scala* is the title of one of his favorite jazz piano
@@ -31,29 +31,42 @@ Source is Wikimedia Commons [LaScala]_
 Why Scala?
 ---------------
 
-Redmonk Language Rankings
+Scala appeared on the programming language landscape in 2004 and has had a stable presence among the top 20 languages for over a decade.
+
+
+RedMonk Language Rankings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: figures/lang-rank-114-wm.png
+Based on the RedMonk programming language ranking, which combines data from GitHub and StackOverflow, Scala is `ranked 14th in 2024 <https://redmonk.com/sogrady/2024/09/12/language-rankings-6-24/>`_, along with shell scripting languages and Kotlin.
 
-Scala is ranked 13 on this year's listing. This comes courtesy of [RedmonkPL]_
+.. image:: figures/lang.rank_.0624.wm_-2048x1689.png
+
+It was ranked similarly (13th) `ten years earlier <https://redmonk.com/sogrady/2014/01/22/language-rankings-1-14/>`_.
+
+
 
 Technology Radar
 ~~~~~~~~~~~~~~~~~~~
 
-Thoughtworks maintains a resource known as the Technology Radar [TWTechRadar]_. Four classifications:
+Thoughtworks maintains a resource known as the Technology Radar [TWTechRadar]_, which uses four classifications for items in various categories, including languages and frameworks:
 
 - Adopt
-- Trial
+- Trial 
 - Assess
 - Hold
 
-Scala is listed under *Adopt*.
+
+Scala has been listed under *Adopt* since `October 2012. <https://www.thoughtworks.com/en-us/radar/languages-and-frameworks/scala-the-good-parts>`_
 
 Language Complexity
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-See presentation for now, http://goo.gl/Q68fA.
+See the 2013 ACM SIGCSE Scala Workshop presentation for now, http://goo.gl/Q68fA.
+
+
+References
+~~~~~~~~~~~~~~~~~~~~~
+
 
 .. [RedmonkPL] Redmonk Programming Language Rankings, http://redmonk.com/sogrady/2014/01/22/language-rankings-1-14/
 
@@ -61,4 +74,6 @@ See presentation for now, http://goo.gl/Q68fA.
 
 .. [LaScala] La Scala, Wikimedia Commons, http://en.wikipedia.org/wiki/File:Milano-scalanotte_e.jpg
 
-.. [LaScalaConcert] Keith Jarrett, http://en.wikipedia.org/wiki/La_Scala_(album)`
+.. [LaScalaConcert] Keith Jarrett, http://en.wikipedia.org/wiki/La_Scala_(album)
+
+.. [TWTechRadar] Thoughtworks Technology Radar, http://www.thoughtworks.com/radar/
