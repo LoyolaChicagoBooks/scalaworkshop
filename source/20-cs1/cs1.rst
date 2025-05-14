@@ -1049,7 +1049,7 @@ description, we will write the steps and show the code (in Scala) to perform
 each step in an integrated fashion.
 
 In the Monte Carlo method for calculating :math:`\pi`, we will randomly
-generate a given number of darts using a Scala stream. We *fire* the darts
+generate a given number of darts using a Scala iterator. We *fire* the darts
 into a unit circle, which is bounded by a square, whose dimensions are
 :math:`2 \times 2` units.  The darts that fall within the unit circle satisfy the
 constraint :math:`x^2 + y^2 \leq 1`.
@@ -1334,7 +1334,7 @@ interactive loops:
 This is my early attempt to figure out how to have a side-effect free
 interactive while loop. Basic idea: 
 
-- Use ``Iterator.continually`` to get a continuous stream of input lines
+- Use ``Iterator.continually`` to get a continuous iterator of input lines
   read. 
 - Use ``takeWhile`` to accept input until an appropriate terminating condition (the word "no" is entered)
 - Convert each line to integer, if possible. We simplify exception
