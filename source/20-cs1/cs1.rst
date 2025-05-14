@@ -74,19 +74,19 @@ tab completion--to show the available operations and methods available for an ``
    +                     ensuring              isWhole               toDouble
    -                     eq                    longValue             toFloat
    ->                    equals                max                   toHexString
-   /                     floatValue             min                   toInt
-   <                     floor                  ne                    toLong
+   /                     floatValue            min                   toInt
+   <                     floor                 ne                    toLong
    <<                    formatted             nn                    toOctalString
    <=                    getClass              notify                toRadians
    ==                    hashCode              notifyAll             toShort
    >                     intValue              resolveConstantDesc   toString
    >=                    isFinite              round                 unary_+
-   >>                    isInfinite             runtimeChecked        unary_-
-   >>>                   isInfinity             self                  unary_~
+   >>                    isInfinite            runtimeChecked        unary_-
+   >>>                   isInfinity            self                  unary_~
    ^                     isInstanceOf          shortValue            until
    abs                   isNaN                 sign                  wait
-   asInstanceOf          isNegInfinity          signum                |
-   byteValue             isPosInfinity          synchronized          →
+   asInstanceOf          isNegInfinity         signum                |
+   byteValue             isPosInfinity         synchronized          →
 
 Literals are mostly what you expect
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,19 +163,19 @@ to an ``Int`` instance:
    +                     ensuring              isWhole               toDouble
    -                     eq                    longValue             toFloat
    ->                    equals                max                   toHexString
-   /                     floatValue             min                   toInt
-   <                     floor                  ne                    toLong
+   /                     floatValue            min                   toInt
+   <                     floor                 ne                    toLong
    <<                    formatted             nn                    toOctalString
    <=                    getClass              notify                toRadians
    ==                    hashCode              notifyAll             toShort
    >                     intValue              resolveConstantDesc   toString
    >=                    isFinite              round                 unary_+
-   >>                    isInfinite             runtimeChecked        unary_-
-   >>>                   isInfinity             self                  unary_~
+   >>                    isInfinite            runtimeChecked        unary_-
+   >>>                   isInfinity            self                  unary_~
    ^                     isInstanceOf          shortValue            until
    abs                   isNaN                 sign                  wait
-   asInstanceOf          isNegInfinity          signum                |
-   byteValue             isPosInfinity          synchronized          →
+   asInstanceOf          isNegInfinity         signum                |
+   byteValue             isPosInfinity         synchronized          →
 
 
 Where you see ``<tab>``, you can use a feature known as *tab completion* in the REPL to see the options
@@ -243,7 +243,7 @@ are available using the tab completion method shown previously.
    _1$mcI$sp             equals                productElementName    wait
    _1$mcJ$sp             formatted             productElementNames   zip
    _1$mcZ$sp             getClass              productIterator       zipped
-   _2                    hashCode              productPrefix          →
+   _2                    hashCode              productPrefix         →
    _2$mcC$sp             head                  reverse
    _2$mcD$sp             init                  runtimeChecked
 
@@ -746,12 +746,12 @@ REPL on a List.
    !=                   eq                   lift                 size
    ##                   equals               map                  sizeCompare
    ++                   exists               mapConserve          sizeIs
-   ++:                  filter                max                  slice
-   +:                   filterNot             maxBy                sliding
-   ->                   find                  maxByOption          sortBy
-   /:                   findLast              maxOption            sortWith
-   :+                   flatMap               min                  sorted
-   :++                  flatten               minBy                span
+   ++:                  filter               max                  slice
+   +:                   filterNot            maxBy                sliding
+   ->                   find                 maxByOption          sortBy
+   /:                   findLast             maxOption            sortWith
+   :+                   flatMap              min                  sorted
+   :++                  flatten              minBy                span
    ::                   fold                 minByOption          splitAt
    :::                  foldLeft             minOption            startsWith
    :\                   foldRight            mkString             stepper
@@ -763,10 +763,10 @@ REPL on a List.
    aggregate            groupMap             orElse               takeRight
    andThen              groupMapReduce       padTo                takeWhile
    appended             grouped              partition            tapEach
-   appendedAll          hasDefiniteSize       partitionMap         to
+   appendedAll          hasDefiniteSize      partitionMap         to
    apply                hashCode             patch                toArray
    applyOrElse          head                 permutations         toBuffer
-   asInstanceOf         headOption           prefixLength          toIndexedSeq
+   asInstanceOf         headOption           prefixLength         toIndexedSeq
    canEqual             indexOf              prepended            toIterable
    collect              indexOfSlice         prependedAll         toIterator
    collectFirst         indexWhere           product              toList
@@ -774,7 +774,7 @@ REPL on a List.
    companion            init                 reduceLeft           toSeq
    compose              inits                reduceLeftOption     toSet
    concat               intersect            reduceOption         toStream
-   contains             isDefinedAt           reduceRight          toString
+   contains             isDefinedAt          reduceRight          toString
    containsSlice        isEmpty              reduceRightOption    toTraversable
    copyToArray          isInstanceOf         repr                 toVector
    copyToBuffer         isTraversableAgain   reverse              transpose
