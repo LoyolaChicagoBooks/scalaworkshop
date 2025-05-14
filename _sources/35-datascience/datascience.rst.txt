@@ -103,8 +103,15 @@ Implementation
 
 Downloader
 ````````````````
-
 .. note:: We offer a shell script and a Scala program that performs the download. Coming soon.
+
+.. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/FetchGraffitiData.scala
+   :language: scala
+   :linenos:
+
+.. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/get-graffiti-311-data.sh
+   :language: shell
+   :linenos:
 
 Loader
 ````````````````
@@ -128,16 +135,28 @@ In this case, we are filtering dates/status of a particular report.
 Aggregation
 ````````````````
 
-.. note:: Coming Soon
+.. note:: This is not ready yet (may have errors for Scala 3)
+
+.. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/AggregateGraffitiData.scala
+   :language: scala
+   :linenos:
+
 
 Visualization
 ````````````````
 
-.. note:: Coming Soon
+.. note:: This is not ready yet (may have errors for Scala 3)
 
+
+.. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/VisualizeGraffitiData.scala
+   :language: scala
+   :linenos:
 
 Reproducibility
 ````````````````
 
-.. note:: Coming Soon
+.. note:: This is not ready yet (may have errors for Scala 3)
 
+.. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/SaveFilteredGraffitiData.scala
+   :language: scala
+   :linenos:
