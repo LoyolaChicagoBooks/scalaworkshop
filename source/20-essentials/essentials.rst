@@ -274,6 +274,13 @@ like this:
    (3, 4)
 
 
+.. code-block:: scala
+
+   scala> t match 
+        |   case (x, y) => println(s"($x, $y)")
+   (3, 4)
+
+
 Semicolon Inferencing
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -405,7 +412,6 @@ Contrast with:
         |    max = a
         | else
         |    max = b
-        |
 
    scala> max
    val res4: Int = 30
@@ -425,7 +431,7 @@ functional thinking and *use* of objects prior to creating classes.
 
 .. code-block:: scala
 
-   scala> def square(x : Int) = x * x
+   scala> def square(x: Int) = x * x
    def square(x: Int): Int
 
 
@@ -531,12 +537,12 @@ Default parameters and named parameters
 Similar to other agile languages, Scala allows you to specify default parameter values. This is particularly
 useful, especially when diving into object-oriented programming, but has uses even before then.
 
-Consider this version of ``square()``:
+Consider this version of ``square()`` :
 
 
 .. code-block:: scala
 
-   scala> def square( x : Int = 0) = x * x
+   scala> def square(x: Int = 0) = x * x
    def square(x: Int): Int
 
    scala> square()
@@ -654,7 +660,6 @@ many values you will be working with.
    scala> def readUntilQuit(): List[Int] =
         |   val data = readLine
         |   if data != "quit" then data.toInt :: readUntilQuit() else Nil
-        | 
    def readUntilQuit(): List[Int]
 
    scala> readUntilQuit()
@@ -729,7 +734,6 @@ This same function can be defined using a ``match`` expression and patterns in t
    scala> def sumList(lst: List[Int]): Int = lst match
         | case Nil => 0
         | case h :: t => h + sumList(t)
-        | 
    def sumList(lst: List[Int]): Int
 
 Standard Methods
@@ -932,7 +936,7 @@ with no arguments.
 The first invocation of ``multiplyThrice`` does what one would expect, even though
 the argument is passed by-name.
 
-We use call-by-name for timing blocks of code in the Monte Carlo Pi example later
+We use call-by-name for timing blocks of code in the Monte Carlo :math:`\pi` example later
 in this section. See :ref:`montecarlopi`.
 
 
@@ -947,7 +951,7 @@ Recursion for Iteration
 
 .. code-block:: scala
 
-   scala> def sum(n : Int) : Int = if n <= 0 then 0 else n + sum(n - 1)
+   scala> def sum(n: Int): Int = if n <= 0 then 0 else n + sum(n - 1)
    def sum(n: Int): Int
 
    scala> sum(0)
@@ -982,7 +986,7 @@ years, especially in imperative programming languages.)
 
 .. code-block:: scala
 
-   scala> def gcd(a : Int, b :Int): Int = if b == 0 then a else gcd(b, a % b)
+   scala> def gcd(a: Int, b: Int): Int = if b == 0 then a else gcd(b, a % b)
    def gcd(a: Int, b: Int): Int
 
 The Scala version looks a lot like Euclid's definition!
@@ -996,11 +1000,11 @@ which also show show to use Scala and functional programming to rework explicitl
 non-recursive versions using higher-order functional thinking.
 
 
-This shows how to explicitly define the ``fac(n : Int) : Int`` function.
+This shows how to explicitly define the ``fac(n: Int): Int`` function.
 
 .. code-block:: scala
 
-   scala> def fac(n : Int) : Int = if n <= 0 then 1 else n * fac(n - 1)
+   scala> def fac(n: Int): Int = if n <= 0 then 1 else n * fac(n - 1)
    def fac(n: Int): Int
 
 The following example shows how to define a function *object*. It makes use of the literal syntax we introduced earlier,
@@ -1017,14 +1021,14 @@ innate collections:
 
 .. code-block:: scala
 
-   scala> def fac(n : Int) : Int = (1 to n).foldLeft(1)((l, r) => l * r)
+   scala> def fac(n: Int): Int = (1 to n).foldLeft(1)((l, r) => l * r)
    def fac(n: Int): Int
 
 Or even more concisely (and cryptically?)
 
 .. code-block:: scala
 
-   scala> def fac(n : Int) : Int = (1 to n).foldLeft(1)(_ * _)
+   scala> def fac(n: Int): Int = (1 to n).foldLeft(1)(_ * _)
    def fac(n: Int): Int
 
 We'll look more at higher-order thinking shortly. Many who think of functional programming (especially the 1960's
@@ -1039,7 +1043,7 @@ optimization). See [TailCalls]_ for more information.
 
 .. _montecarlopi:
 
-Monte Carlo :math:`\pi` Calculation
+Monte Carlo Pi Calculation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 An example that often resonates well with students is the Monte Carlo method,
@@ -1059,7 +1063,7 @@ familiar ``square(x:Double)`` function, again for reference.
 
 .. code-block:: scala
 
-   def sqr(x: Double) = x * x
+   def square(x: Double) = x * x
 
 We use this function to create another function, which tests whether a given
 dart, specified as an (x, y) coordinate pair (a Scala tuple), falls within the
@@ -1068,7 +1072,7 @@ unit circle:
 .. code-block:: scala
 
    val inCircle: ((Double, Double)) => Boolean = 
-     case (x, y) => sqr(x) + sqr(y) <= 1.0
+     case (x, y) => square(x) + square(y) <= 1.0
 
 Let's to a quick sanity check here:
 
@@ -1242,7 +1246,7 @@ Here is the output (some output has been deleted for conciseness).
    n = 10000000, t = 0.394970834, pi = 3.1414792
    n = 100000000, t = 3.788361375, pi = 3.14158032
    n = 1000000000, t = 38.134192792, pi = 3.141675596
-   def sqr(x: Double): Double
+   def square(x: Double): Double
    val inCircle: ((Double, Double)) => Boolean = Lambda/0x00000008015b4000@1018f702
    val randomPairs: Iterator[(Double, Double)] = <iterator>
    val totalDarts: Int = 10000000
@@ -1273,7 +1277,7 @@ Consider this interactive session to compute well-known example for sum
 
 .. code-block:: scala
 
-   scala> def sum(n : Int) : Int =
+   scala> def sum(n: Int): Int =
         |   var i = 0
         |   var sum = 0
         |   while i <= n do
@@ -1292,7 +1296,7 @@ Much is possible without iteration with the added advantage of being recursive a
 
 .. code-block:: scala
 
-   scala> def sum(n : Int) = (1 to n).sum
+   scala> def sum(n: Int) = (1 to n).sum
    def sum(n: Int): Int
 
    scala> sum(0)
@@ -1430,7 +1434,7 @@ You could wrap this up nicely in a Scala function as follows:
 
 .. code-block:: scala
 
-   scala> def squares(n : Int) = for i <- 1 to n yield { i * i }
+   scala> def squares(n: Int) = for i <- 1 to n yield { i * i }
    def squares(n: Int): IndexedSeq[Int]
 
    scala> squares(10)
@@ -1651,7 +1655,7 @@ Files
 - Can use Scanner
 - scala.io.Source
 - Scala Iterator[Char]
-- getLines : Iterator[String]
+- getLines: Iterator[String]
 - Use with higher-order methods
 - Write with PrintWriter
 - Introduce APIs?
@@ -1690,7 +1694,7 @@ What does this class Point show?
   (especially too many of them), especially when trying to introduce a topic. (This will become readily
   apparent when we look at *case classes*, which provide a mechanism for more data-centric OO abstraction.)
 
-- Convert an instance of class Point to a String representation using ``ToString()``. ``ToString()`` can be
+- Convert an instance of class Point to a String representation using ``toString()``. ``toString()`` can be
   a valuable pedagogical tool, done right (as observed in languages like Python). Scala 2.10 gives us the
   ability to do type-safe string interpolation by substituting the value of variables (their String
   representation) into a String template. In Scala, prefixing a string literal with ``s`` will give you
