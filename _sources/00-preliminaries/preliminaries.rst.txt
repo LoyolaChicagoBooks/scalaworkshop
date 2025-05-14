@@ -68,11 +68,8 @@ Editors/Contributors
 
 Please don't hesitate to contact the authors with questions, comments, or suggestions.
 
-- `Mark C. Lewis <https://www.cs.trinity.edu/~mlewis/>`__, Professor, Trinity University, Computer Science
-- `Konstantin Läufer (AEIC) <https://laufer.cs.luc.edu>`__, Professsor, Loyola University Chicago, Computer Science
-- `George K. Thiruvathukal (EIC) <https://gkt.sh>`__, Professor and Chairperson, Loyola University Chicago, Computer Science
-
-.. note:: There are others; however, we may be waiting for their initial pull requests (for chapters) and ORCIDs.
+- `Konstantin Läufer <https://laufer.cs.luc.edu>`__, Professsor, Loyola University Chicago, Computer Science
+- `George K. Thiruvathukal <https://gkt.sh>`__, Professor and Chairperson, Loyola University Chicago, Computer Science
 
 
 AI Disclosure
