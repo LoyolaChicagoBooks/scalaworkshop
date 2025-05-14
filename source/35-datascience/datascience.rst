@@ -101,6 +101,11 @@ The system must be able to:
 Implementation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Downloader
+````````````````
+
+.. note:: We offer a shell script and a Scala program that performs the download. Coming soon.
+
 Loader
 ````````````````
 
