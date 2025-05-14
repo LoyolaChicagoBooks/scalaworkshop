@@ -1,10 +1,6 @@
 Data Science with Scala and Smile 
 ##################################
 
-.. warning::
- 
-   This section is not ready yet. Working on it!
-
 Monte Carlo Simulation
 ------------------------------------------------
 
@@ -41,8 +37,6 @@ This demonstration application helps make that analysis transparent, reproducibl
 
 Requirements (Functional and Non-Functional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. note:: Still working on this.
 
 Data Acquisition
 ````````````````
@@ -107,8 +101,6 @@ Implementation
 
 Downloader
 ````````````````
-.. note:: We offer a shell script and a Scala program that performs the download. Coming soon.
-
 .. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/FetchGraffitiData.scala
    :language: scala
    :linenos:
@@ -138,8 +130,6 @@ In this case, we are filtering dates/status of a particular report.
 
 Aggregation
 ````````````````
-
-.. note:: This is not ready yet (may have errors for Scala 3)
 
 .. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/AggregateGraffitiData.scala
    :language: scala
