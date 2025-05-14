@@ -39,6 +39,32 @@ RedMonk Language Rankings
 
 Based on the RedMonk programming language ranking, which combines data from GitHub and StackOverflow, Scala is `ranked 14th in 2024 <https://redmonk.com/sogrady/2024/09/12/language-rankings-6-24/>`_, along with shell scripting languages and Kotlin.
 
+.. csv-table:: RedMonk Programming Languages Rankings - 2024-2025
+   :header: "Rank", "Language"
+   :widths: 5, 10
+
+   1, JavaScript
+   2, Python
+   3, Java
+   4, PHP
+   5, C#
+   6, TypeScript
+   7, CSS
+   7, C++
+   9, Ruby
+   10, C
+   11, Swift
+   12, Go
+   12, R
+   14, Shell
+   14, Kotlin
+   14, Scala
+   17, Objective-C
+   18, PowerShell
+   19, Rust
+   19, Dart
+
+
 .. image:: figures/lang.rank_.0624.wm_-2048x1689.png
 
 It was ranked similarly (13th) `ten years earlier <https://redmonk.com/sogrady/2014/01/22/language-rankings-1-14/>`_.
@@ -61,7 +87,7 @@ Scala has been listed under *Adopt* since `October 2012. <https://www.thoughtwor
 Language Complexity
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-See the 2013 ACM SIGCSE Scala Workshop presentation for now, http://goo.gl/Q68fA.
+See our 2013 ACM SIGCSE Scala Workshop presentation for now, http://goo.gl/Q68fA.
 
 
 References
