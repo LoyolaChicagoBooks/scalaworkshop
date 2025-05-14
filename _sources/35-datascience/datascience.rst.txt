@@ -37,8 +37,10 @@ While graffiti is often--and wrongly--perceived as a cosmetic or quality-of-life
 This demonstration application helps make that analysis transparent, reproducible, and accessible.
 
 
-(Mostly Functional) Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Requirements (Functional and Non-Functional)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note:: Still working on this.
 
 Data Acquisition
 ````````````````
