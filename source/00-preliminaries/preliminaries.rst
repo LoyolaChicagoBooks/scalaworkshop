@@ -51,9 +51,7 @@ You can also perform the following steps to pull the book with all examples cont
 
 .. code-block:: bash
 
-    git clone https://github.com/LoyolaChicagoBooks/scalaworkshop
-    cd scalaworkshop
-    git pull --recurse-submodules
+    git clone --recurse-submodules https://github.com/LoyolaChicagoBooks/scalaworkshop
 
 
 .. todo:: 
