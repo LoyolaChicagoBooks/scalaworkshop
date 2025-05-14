@@ -273,6 +273,7 @@ like this:
    scala> t match { case (x, y) => println(s"($x, $y)") }
    (3, 4)
 
+We can get rid of the curly braces by introducing a new line after the ``match`` keyword:
 
 .. code-block:: scala
 
@@ -932,6 +933,12 @@ with no arguments.
    scala> multiplyThrice({ i += 1; i })
    res6: Double = 336.0
 
+Similarly to the ``match-case`` example above, if we want to get rid of the curly braces, we have to split the function call across two lines:
+
+.. code-block:: scala
+
+   scala> multiplyThrice:
+        |   i += 1; i
 
 The first invocation of ``multiplyThrice`` does what one would expect, even though
 the argument is passed by-name.
@@ -1424,7 +1431,7 @@ Let's look at something a bit more interesting: Getting the first ``n`` squares:
    scala> val n = 10
    val n: Int = 10
 
-   scala> val first_n_squares = for i <- 1 to n yield { i * i }
+   scala> val first_n_squares = for i <- 1 to n yield i * i
    val first_n_squares: IndexedSeq[Int] = 
      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
@@ -1434,7 +1441,7 @@ You could wrap this up nicely in a Scala function as follows:
 
 .. code-block:: scala
 
-   scala> def squares(n: Int) = for i <- 1 to n yield { i * i }
+   scala> def squares(n: Int) = for i <- 1 to n yield i * i
    def squares(n: Int): IndexedSeq[Int]
 
    scala> squares(10)
@@ -1574,7 +1581,7 @@ integers:
    scala> l
    val res10: List[Int] = List(1, 2, 3)
 
-   scala> for i <- l yield { i * i }
+   scala> for i <- l yield i * i
    val res11: List[Int] = List(1, 4, 9)
 
 Let's try this with an Array[Int]:
