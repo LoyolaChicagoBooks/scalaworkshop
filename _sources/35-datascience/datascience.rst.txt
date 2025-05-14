@@ -21,6 +21,33 @@ In particular, our code loads dataframes representing the points where the darts
    :linenos:
 
 
+Going Between Java and Scala APIs
+---------------------------------
+
+When using Java-centric APIs, such as Smile, we often need to convert between Java and Scala collections.
+This example shows how to convert between the two using the ``asScala`` and ``asJava`` methods.
+These conversions are not strictly needed unless we want to interact with these collections in a Scala way, which we usually do when using Scala.
+
+.. code-block:: scala
+
+   scala> import scala.jdk.CollectionConverters.*
+
+   scala> java.util.List.of("hello", "world")
+   val res0: java.util.List[String] = [hello, world]
+
+   scala> res0.asScala
+   val res1: scala.collection.mutable.Buffer[String] = Buffer(hello, world)
+
+   scala> res1.asJava
+   val res3: java.util.List[String] = [hello, world]
+
+   scala> List("hola", "mundo")
+   val res4: List[String] = List(hola, mundo)
+
+   scala> res4.asJava
+   val res5: java.util.List[String] = [hola, mundo]
+
+
 Graffiti/311 Chicago Data Portal
 -----------------------------------
 

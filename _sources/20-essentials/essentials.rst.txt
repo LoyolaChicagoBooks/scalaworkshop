@@ -264,7 +264,7 @@ You can inspect the components of a tuple by using the ``_1``, ``_2``, ... metho
    val res10: Int = 4
 
 You don't usually not want to use these names to refer to the components of a tuple. Using
-pattern matching, you can extract the components of a tuple and *bind* them to proper names.
+*pattern matching*, you can extract the components of a tuple and *bind* them to proper names.
 For example, if your tuple represents an (x, y) pair, you are likely to use a match expression
 like this:
 
@@ -538,7 +538,7 @@ Default parameters and named parameters
 Similar to other agile languages, Scala allows you to specify default parameter values. This is particularly
 useful, especially when diving into object-oriented programming, but has uses even before then.
 
-Consider this version of ``square()`` :
+Consider this version of ``square()``:
 
 
 .. code-block:: scala
@@ -1066,7 +1066,7 @@ into a unit circle, which is bounded by a square, whose dimensions are
 constraint :math:`x^2 + y^2 \leq 1`.
 
 Let's start by establishing the needed functions. First, here is the now-
-familiar ``square(x:Double)`` function, again for reference.
+familiar ``square(x: Double)`` function, again for reference.
 
 .. code-block:: scala
 
@@ -1152,6 +1152,21 @@ Looking more closely:
 
 This generates a random pair, and it even *looks* like a random pair from mathematics. Of course, it's also type-safe!
 
+Nevertheless, to make the code more intentionally clear, we can create a domain-specific Scala case class to represent the darts as 2d points. 
+This requires minor changes to ``inCircle`` and the random coordinate pair generator, but everything else remains the same.
+Note how the name of the case class, ``Point2d``, serves as both the constructor of point values and the destructor for pattern matching.
+This is a very powerful feature of Scala, which allows you to use the case class as a *pattern* in the ``inCircle`` function.
+
+.. code-block:: scala
+
+   case class Point2d(x: Double, y: Double)
+
+   val inCircle: (p: Point2d) => Boolean =
+     case Point2d(x, y) => square(x) + square(y) <= 1.0
+
+   val randomPoints = Iterator continually Point2d(math.random, math.random)
+
+
 So we're now near the point where we can put all of the pieces together. We have a function to determine whether a randomly generated coordinate pair falls within the unit circle. Let's compute :math:`\pi`.
 
 .. code-block:: scala
@@ -1167,6 +1182,9 @@ So we're now near the point where we can put all of the pieces together. We have
 
    scala> val area = 4.0 * dartsInCircle / n
    val area: Double = 3.143628
+
+
+
 
 
 This is a good time to introduce the *dot-less* syntax, which is often associated with object-oriented programming but actually precedes these languages (C *struct* et al).
