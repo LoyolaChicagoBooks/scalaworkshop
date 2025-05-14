@@ -120,10 +120,6 @@
 <p>This example shows how to use the Monte Carlo method to estimate the area of a circle.
 It uses the Smile library for statistical computing and machine learning in Scala.
 In particular, it loads dataframes representing the points where the darts landed and figures the area of the circle from the ratio of darts that landed inside the circle to the total number of darts.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We are not necessarily advocating for the approach here. However, it’s a nice minimal example of how to generate a dataset (with one script) and how to analyze another dataset (with another) using Smile’s data frame support. In this particular case, be mindful that we are bounded by the maximum integer number of darts and must take care not to blow up memory on more limited devices. We therefore employ lazy processing when producing and consuming the dataset.</p>
-</div>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala 3.3.6</span>
 </span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
 </span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "com.github.haifengl::smile-scala:4.3.0"</span>
@@ -208,10 +204,76 @@ In particular, it loads dataframes representing the points where the darts lande
 </section>
 <section id="graffiti-311-chicago-data-portal">
 <h2>Graffiti/311 Chicago Data Portal<a class="headerlink" href="#graffiti-311-chicago-data-portal" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#graffiti-311-chicago-data-portal'">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is just the start. Adding placeholders for the code examples/snippets.</p>
-</div>
+<p>This example aims to introduce Scala + Smile with a compelling example from our hometown of Chicago. <em>Well, it could be any city!</em></p>
+<p>The Chicago Data Portal Graffiti/311 example  provides a lightweight, scriptable toolkit for analyzing graffiti-related 311 service requests in the City of Chicago. Using Scala and command-line tools, the system allows users to inspect, filter, aggregate, and visualize graffiti complaint data efficiently—even on large files.</p>
+<p>While graffiti is often–and wrongly–perceived as a cosmetic or quality-of-life issue, tracking and understanding patterns in graffiti reports can reveal deeper insights into urban infrastructure, neighborhood disinvestment, and resident engagement.</p>
+<p>311 calls are not limited to being complaints; they are a form of civic participation. By examining this data over time and across geographic regions, we gain valuable information about public responsiveness, spatial inequality, and where municipal services are (or aren’t) being delivered equitably to communities (a longstanding issue in many Chicago neighborhoods).</p>
+<p>This demonstration application helps make that analysis transparent, reproducible, and accessible.</p>
+<section id="mostly-functional-requirements">
+<h3>(Mostly Functional) Requirements<a class="headerlink" href="#mostly-functional-requirements" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#mostly-functional-requirements'">¶</a></h3>
+<section id="data-acquisition">
+<h4>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Link to this heading">¶</a></h4>
+<p>The system must be able to:</p>
+<ul class="simple">
+<li><p>Download the Chicago 311 graffiti removal dataset in CSV format
+from the City of Chicago’s open data portal.</p></li>
+</ul>
+</section>
+<section id="data-inspection">
+<h4>Data Inspection<a class="headerlink" href="#data-inspection" title="Link to this heading">¶</a></h4>
+<p>The system must be able to:</p>
+<ul class="simple">
+<li><p>Load and parse the downloaded CSV file, treating the first line as a header.</p></li>
+<li><p>Display the dataset schema (column names).</p></li>
+<li><p>Preview a limited number of rows from the dataset.</p></li>
+</ul>
+</section>
+<section id="data-filtering">
+<h4>Data Filtering<a class="headerlink" href="#data-filtering" title="Link to this heading">¶</a></h4>
+<p>The system must be able to:</p>
+<ul class="simple">
+<li><p>Filter requests based on:</p>
+<ul>
+<li><p>Service <strong>status</strong> (e.g., “Completed”, “Open”).</p></li>
+<li><p>A <strong>start date</strong> and/or <strong>end date</strong> range using the “Creation Date” column.</p></li>
+</ul>
+</li>
+<li><p>Limit the number of matching rows displayed.</p></li>
+<li><p>Save the filtered dataset to a new CSV file.</p></li>
+</ul>
+</section>
+<section id="data-aggregation">
+<h4>Data Aggregation<a class="headerlink" href="#data-aggregation" title="Link to this heading">¶</a></h4>
+<p>The system must be able to:</p>
+<ul class="simple">
+<li><p>Count the number of requests grouped by a specific column
+(e.g., “Zip Code” or “Surface Type”).</p></li>
+<li><p>Display the top N group values by count.</p></li>
+</ul>
+</section>
+<section id="data-visualization">
+<h4>Data Visualization<a class="headerlink" href="#data-visualization" title="Link to this heading">¶</a></h4>
+<p>The system must be able to:</p>
+<ul class="simple">
+<li><p>Aggregate requests by month using the “Creation Date” column.</p></li>
+<li><p>Generate a <strong>bar chart</strong> of graffiti removal trends over time.</p></li>
+<li><p>Save the chart to a file (e.g., PNG), with no GUI dependencies.</p></li>
+</ul>
+</section>
+<section id="reproducibility-automation">
+<h4>Reproducibility &amp; Automation<a class="headerlink" href="#reproducibility-automation" title="Link to this heading">¶</a></h4>
+<p>The system must be able to:</p>
+<ul class="simple">
+<li><p>Be scriptable and composable using CLI arguments (no hardcoded values).</p></li>
+<li><p>Use lazy evaluation where possible to minimize memory usage on large files.</p></li>
+<li><p>Avoid dependence on any GUI (especially for visualization or preview).</p></li>
+</ul>
+</section>
+</section>
+<section id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#implementation'">¶</a></h3>
+<section id="loader">
+<h4>Loader<a class="headerlink" href="#loader" title="Link to this heading">¶</a></h4>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
 </span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.github.haifengl::smile-scala:4.3.0"</span>
 </span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
@@ -232,7 +294,7 @@ In particular, it loads dataframes representing the points where the darts lande
 </span><span id="line-18"><span class="linenos">18</span><span class="w">  </span><span class="nd">@main</span>
 </span><span id="line-19"><span class="linenos">19</span><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span>
 </span><span id="line-20"><span class="linenos">20</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"input"</span><span class="p">,</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Path to the input CSV file"</span><span class="p">)</span>
-</span><span id="line-21"><span class="linenos">21</span><span class="w">    </span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span>
+</span><span id="line-21"><span class="linenos">21</span><span class="w">    </span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dataset/311_graffiti.csv"</span>
 </span><span id="line-22"><span class="linenos">22</span><span class="w">  </span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span>
 </span><span id="line-23"><span class="linenos">23</span><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">CSVFormat</span><span class="p">.</span><span class="nc">DEFAULT</span><span class="p">.</span><span class="n">withFirstRecordAsHeader</span><span class="p">()</span>
 </span><span id="line-24"><span class="linenos">24</span><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Read</span><span class="p">.</span><span class="n">csv</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">nio</span><span class="p">.</span><span class="n">file</span><span class="p">.</span><span class="nc">Paths</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">input</span><span class="p">),</span><span class="w"> </span><span class="n">format</span><span class="p">)</span>
@@ -247,12 +309,115 @@ In particular, it loads dataframes representing the points where the darts lande
 </span></code></pre></div>
 </div>
 </section>
+<section id="filtering">
+<h4>Filtering<a class="headerlink" href="#filtering" title="Link to this heading">¶</a></h4>
+<p>This shows how to filter based on some criteria.
+In this case, we are filtering dates/status of a particular report.</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.github.haifengl::smile-scala:4.3.0"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
+</span><span id="line-4"><span class="linenos"> 4</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
+</span><span id="line-5"><span class="linenos"> 5</span>
+</span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.</span><span class="nc">Paths</span>
+</span><span id="line-7"><span class="linenos"> 7</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">time</span><span class="p">.</span><span class="nc">LocalDate</span>
+</span><span id="line-8"><span class="linenos"> 8</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">time</span><span class="p">.</span><span class="nn">format</span><span class="p">.</span><span class="nc">DateTimeFormatter</span>
+</span><span id="line-9"><span class="linenos"> 9</span><span class="k">import</span><span class="w"> </span><span class="nn">scala</span><span class="p">.</span><span class="nn">jdk</span><span class="p">.</span><span class="nc">CollectionConverters</span><span class="p">.</span><span class="n">*</span>
+</span><span id="line-10"><span class="linenos">10</span>
+</span><span id="line-11"><span class="linenos">11</span><span class="k">import</span><span class="w"> </span><span class="nn">smile</span><span class="p">.</span><span class="nn">data</span><span class="p">.</span><span class="n">_</span>
+</span><span id="line-12"><span class="linenos">12</span><span class="k">import</span><span class="w"> </span><span class="nn">smile</span><span class="p">.</span><span class="nn">io</span><span class="p">.</span><span class="nc">Read</span>
+</span><span id="line-13"><span class="linenos">13</span>
+</span><span id="line-14"><span class="linenos">14</span><span class="k">import</span><span class="w"> </span><span class="nn">mainargs</span><span class="p">.</span><span class="n">_</span>
+</span><span id="line-15"><span class="linenos">15</span><span class="k">import</span><span class="w"> </span><span class="nn">org</span><span class="p">.</span><span class="nn">apache</span><span class="p">.</span><span class="nn">commons</span><span class="p">.</span><span class="nn">csv</span><span class="p">.</span><span class="nc">CSVFormat</span>
+</span><span id="line-16"><span class="linenos">16</span>
+</span><span id="line-17"><span class="linenos">17</span><span class="k">object</span><span class="w"> </span><span class="nc">FilterGraffitiData</span><span class="p">:</span>
+</span><span id="line-18"><span class="linenos">18</span>
+</span><span id="line-19"><span class="linenos">19</span><span class="w">  </span><span class="nd">@main</span>
+</span><span id="line-20"><span class="linenos">20</span><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span>
+</span><span id="line-21"><span class="linenos">21</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"input"</span><span class="p">,</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'i'</span><span class="p">,</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Path to the input CSV file"</span><span class="p">)</span>
+</span><span id="line-22"><span class="linenos">22</span><span class="w">    </span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span>
+</span><span id="line-23"><span class="linenos">23</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"status"</span><span class="p">,</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'s'</span><span class="p">,</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Filter by request status (e.g., Completed)"</span><span class="p">)</span>
+</span><span id="line-24"><span class="linenos">24</span><span class="w">    </span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">None</span><span class="p">,</span>
+</span><span id="line-25"><span class="linenos">25</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"start-date"</span><span class="p">,</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Filter requests created on or after this date (YYYY-MM-DD)"</span><span class="p">)</span>
+</span><span id="line-26"><span class="linenos">26</span><span class="w">    </span><span class="n">startDate</span><span class="p">:</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">None</span><span class="p">,</span>
+</span><span id="line-27"><span class="linenos">27</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"end-date"</span><span class="p">,</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Filter requests created on or before this date (YYYY-MM-DD)"</span><span class="p">)</span>
+</span><span id="line-28"><span class="linenos">28</span><span class="w">    </span><span class="n">endDate</span><span class="p">:</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">None</span><span class="p">,</span>
+</span><span id="line-29"><span class="linenos">29</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"limit"</span><span class="p">,</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Maximum number of rows to display"</span><span class="p">)</span>
+</span><span id="line-30"><span class="linenos">30</span><span class="w">    </span><span class="n">limit</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+</span><span id="line-31"><span class="linenos">31</span><span class="w">  </span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span>
+</span><span id="line-32"><span class="linenos">32</span><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">CSVFormat</span><span class="p">.</span><span class="nc">DEFAULT</span><span class="p">.</span><span class="n">withFirstRecordAsHeader</span><span class="p">()</span>
+</span><span id="line-33"><span class="linenos">33</span><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Read</span><span class="p">.</span><span class="n">csv</span><span class="p">(</span><span class="nc">Paths</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">input</span><span class="p">),</span><span class="w"> </span><span class="n">format</span><span class="p">)</span>
+</span><span id="line-34"><span class="linenos">34</span>
+</span><span id="line-35"><span class="linenos">35</span><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">formatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">DateTimeFormatter</span><span class="p">.</span><span class="n">ofPattern</span><span class="p">(</span><span class="s">"MM/dd/yyyy"</span><span class="p">)</span>
+</span><span id="line-36"><span class="linenos">36</span>
+</span><span id="line-37"><span class="linenos">37</span><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">df</span><span class="p">.</span><span class="n">stream</span><span class="p">().</span><span class="n">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=&gt;</span>
+</span><span id="line-38"><span class="linenos">38</span><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">rowStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"Status"</span><span class="p">)</span>
+</span><span id="line-39"><span class="linenos">39</span><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">rowDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">row</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"Creation Date"</span><span class="p">).</span><span class="n">toString</span><span class="p">,</span><span class="w"> </span><span class="n">formatter</span><span class="p">)</span>
+</span><span id="line-40"><span class="linenos">40</span><span class="w">      </span><span class="c1">//val rowDate = LocalDate.parse(row.get("Creation Date"), formatter)</span>
+</span><span id="line-41"><span class="linenos">41</span>
+</span><span id="line-42"><span class="linenos">42</span><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">statusOK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">status</span><span class="p">.</span><span class="n">forall</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rowStatus</span><span class="p">)</span>
+</span><span id="line-43"><span class="linenos">43</span><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">startOK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startDate</span><span class="p">.</span><span class="n">forall</span><span class="p">(</span><span class="n">date</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">rowDate</span><span class="p">.</span><span class="n">isBefore</span><span class="p">(</span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">date</span><span class="p">)))</span>
+</span><span id="line-44"><span class="linenos">44</span><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">endOK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">endDate</span><span class="p">.</span><span class="n">forall</span><span class="p">(</span><span class="n">date</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">rowDate</span><span class="p">.</span><span class="n">isAfter</span><span class="p">(</span><span class="nc">LocalDate</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">date</span><span class="p">)))</span>
+</span><span id="line-45"><span class="linenos">45</span>
+</span><span id="line-46"><span class="linenos">46</span><span class="w">      </span><span class="n">statusOK</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">startOK</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">endOK</span>
+</span><span id="line-47"><span class="linenos">47</span><span class="w">    </span><span class="p">}.</span><span class="n">toList</span><span class="p">.</span><span class="n">asScala</span>
+</span><span id="line-48"><span class="linenos">48</span>
+</span><span id="line-49"><span class="linenos">49</span><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">s"Filtered dataset has </span><span class="si">${</span><span class="n">filtered</span><span class="p">.</span><span class="n">size</span><span class="si">}</span><span class="s"> rows."</span><span class="p">)</span>
+</span><span id="line-50"><span class="linenos">50</span><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">s"First </span><span class="si">${</span><span class="nc">Math</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="n">limit</span><span class="p">,</span><span class="w"> </span><span class="n">filtered</span><span class="p">.</span><span class="n">size</span><span class="p">)</span><span class="si">}</span><span class="s"> matching rows:"</span><span class="p">)</span>
+</span><span id="line-51"><span class="linenos">51</span><span class="w">    </span><span class="n">filtered</span><span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="n">limit</span><span class="p">).</span><span class="n">foreach</span><span class="p">(</span><span class="n">println</span><span class="p">)</span>
+</span><span id="line-52"><span class="linenos">52</span>
+</span><span id="line-53"><span class="linenos">53</span><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span>
+</span><span id="line-54"><span class="linenos">54</span><span class="w">    </span><span class="nc">ParserForMethods</span><span class="p">(</span><span class="bp">this</span><span class="p">).</span><span class="n">runOrExit</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</section>
+<section id="aggregation">
+<h4>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Coming Soon</p>
+</div>
+</section>
+<section id="visualization">
+<h4>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Coming Soon</p>
+</div>
+</section>
+<section id="reproducibility">
+<h4>Reproducibility<a class="headerlink" href="#reproducibility" title="Link to this heading">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Coming Soon</p>
+</div>
+</section>
+</section>
+</section>
 </section>
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
 <li><a :data-current="activeSection === '#monte-carlo-simulation'" class="reference internal" href="#monte-carlo-simulation">Monte Carlo Simulation</a></li>
-<li><a :data-current="activeSection === '#graffiti-311-chicago-data-portal'" class="reference internal" href="#graffiti-311-chicago-data-portal">Graffiti/311 Chicago Data Portal</a></li>
+<li><a :data-current="activeSection === '#graffiti-311-chicago-data-portal'" class="reference internal" href="#graffiti-311-chicago-data-portal">Graffiti/311 Chicago Data Portal</a><ul>
+<li><a :data-current="activeSection === '#mostly-functional-requirements'" class="reference internal" href="#mostly-functional-requirements">(Mostly Functional) Requirements</a><ul>
+<li><a :data-current="activeSection === '#data-acquisition'" class="reference internal" href="#data-acquisition">Data Acquisition</a></li>
+<li><a :data-current="activeSection === '#data-inspection'" class="reference internal" href="#data-inspection">Data Inspection</a></li>
+<li><a :data-current="activeSection === '#data-filtering'" class="reference internal" href="#data-filtering">Data Filtering</a></li>
+<li><a :data-current="activeSection === '#data-aggregation'" class="reference internal" href="#data-aggregation">Data Aggregation</a></li>
+<li><a :data-current="activeSection === '#data-visualization'" class="reference internal" href="#data-visualization">Data Visualization</a></li>
+<li><a :data-current="activeSection === '#reproducibility-automation'" class="reference internal" href="#reproducibility-automation">Reproducibility &amp; Automation</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#implementation'" class="reference internal" href="#implementation">Implementation</a><ul>
+<li><a :data-current="activeSection === '#loader'" class="reference internal" href="#loader">Loader</a></li>
+<li><a :data-current="activeSection === '#filtering'" class="reference internal" href="#filtering">Filtering</a></li>
+<li><a :data-current="activeSection === '#aggregation'" class="reference internal" href="#aggregation">Aggregation</a></li>
+<li><a :data-current="activeSection === '#visualization'" class="reference internal" href="#visualization">Visualization</a></li>
+<li><a :data-current="activeSection === '#reproducibility'" class="reference internal" href="#reproducibility">Reproducibility</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </aside>
