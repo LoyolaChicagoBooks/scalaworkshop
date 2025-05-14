@@ -31,6 +31,15 @@ Source is Wikimedia Commons [LaScala]_
 Why Scala?
 ---------------
 
+In other words, why not Python, R, or Julia? 
+
+Unlike those dynamically typed language, Scala is statically typed, object-oriented, and functional. 
+As the language behind Apache Spark, a widely used data science framework, Scala has proven to be a suitable choice for data science.
+Scala is also an effective choice for learning computer science. 
+
+Scala also addresses the *P3* concerns of performance, portability, and
+productivity in high-performance computing. 
+
 Scala appeared on the programming language landscape in 2004 and has had a stable presence among the top 20 languages for over a decade.
 
 
