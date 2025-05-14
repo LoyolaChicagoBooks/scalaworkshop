@@ -46,7 +46,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Scala for Computer and Data Science'
-copyright = u'2012-Present, Konstantin Läufer, Mark C. Lewis, and George K. Thiruvathukal'
+copyright = u'2012-Present, Konstantin Läufer and George K. Thiruvathukal'
 
 def get_git_tag():
     try:
@@ -295,7 +295,7 @@ texinfo_documents = [
 epub_title = u'ScalaCSDS'
 epub_author = u'Konstantin Läufer and George K. Thiruvathukal'
 epub_publisher = u'Konstantin Läufer and George K. Thiruvathukal'
-epub_copyright = u'2012-Present, Konstantin Läufer, Mark C. Lewis, and George K. Thiruvathukal'
+epub_copyright = u'2012-Present, Konstantin Läufer and George K. Thiruvathukal'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.

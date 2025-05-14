@@ -1,4 +1,4 @@
-.. Sphinx project for SIGCSE Wowrkshop (Lewis, Läufer, and Thiruvathukal) 2013-2014
+.. This is a new Sphinx project for George's and Konstantin's Scala for Computer Science and Data Science
 
 .. image:: figures/scalalogo.png
 
@@ -6,19 +6,25 @@ Scala for Computer Science and Data Science Education
 =====================================================
 
 
-| **Konstantin Läufer**, co-Maintainer and co-Contributor
-| Professor of Computer Science
-| Loyola University Chicago
+Authors
+--------
+
+| **Konstantin Läufer**
+| Professor of Computer Science, Loyola University Chicago
+| https://laufer.cs.luc.edu
 |
-| **George K. Thiruvathukal**, co-Maintainer and co-Contributor
-| Professor of Computer Science and Chairperson
-| Loyola University Chicago
-| Visiting Computer Scientist
-| Argonne National Laboratory
-| 
-| **Mark Lewis**, past co-Contributor
-| Senior Software Engineer
-| Amazon
+| **George K. Thiruvathukal**
+| Professor of Computer Science and Chairperson, Loyola University Chicago
+| Visiting Computer Scientist, Argonne National Laboratory, Leadership Computing Facility
+| https://gkt.sh
+
+
+Acknowledgments
+----------------
+
+| **Mark Lewis**
+| Senior Software Engineer, Amazon
+| Professor, Trinity University, Texas
 
 .. toctree::
    :maxdepth: 4
