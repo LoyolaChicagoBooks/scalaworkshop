@@ -166,9 +166,6 @@ Aggregation
 Visualization
 ````````````````
 
-.. note:: This is not ready yet (may have errors for Scala 3)
-
-
 .. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/VisualizeGraffitiData.scala
    :language: scala
    :linenos:
@@ -177,8 +174,6 @@ Visualization
 
 Reproducibility
 ````````````````
-
-.. note:: This is not ready yet (may have errors for Scala 3)
 
 .. literalinclude:: ../../examples/introds-scala-examples/311-case-study-scala/SaveFilteredGraffitiData.scala
    :language: scala
