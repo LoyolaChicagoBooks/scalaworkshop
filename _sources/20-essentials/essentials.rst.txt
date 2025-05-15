@@ -468,15 +468,15 @@ We'll start by generating the first 25 values using a Scala range.
    scala> val n = 10
    val n: Int = 10
 
-   scala> val first_n = 1 to n
-   val first_n: scala.collection.immutable.Range.Inclusive = Range 1 to 10
+   scala> val firstN = 1 to n
+   val firstN: scala.collection.immutable.Range.Inclusive = Range 1 to 10
 
 
 This shows how to map the ``square()`` function to each value in the range of values.
 
 .. code-block:: scala
 
-   scala> first_n.map(square)
+   scala> firstN.map(square)
    val res15: IndexedSeq[Int] = 
      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
@@ -486,14 +486,14 @@ Even the parentheses are optional in this case, but they are needed when the met
 
 .. code-block:: scala
 
-   scala> first_n.map square
+   scala> firstN.map square
    val res16: IndexedSeq[Int] = 
      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 
 .. code-block:: scala
 
-   scala> first_n map (n => n * n)
+   scala> firstN map (n => n * n)
    val res17: scala.collection.immutable.IndexedSeq[Int] = 
      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
@@ -501,16 +501,24 @@ This shows how you can combine a function literal with a previously defined func
 
 .. code-block:: scala
 
-   scala> first_n map (n => square(n))
+   scala> firstN map (n => square(n))
    res18: scala.collection.immutable.IndexedSeq[Int] = 
       Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 
-You can avoid having to name arguments in function literals using the ``_`` parameter. This syntax is a 
+You can use the ``_`` parameter to avoid having to name arguments in function literals. This syntax is a 
 bit awkward to new programmers (and therefore should be introduced gently in CS and DS courses) but allows
 for concise (and sometimes clearer) expression, especially when used in a disciplined way.
 
 Consider this code that creates the first n even numbers:
+
+.. code-block:: scala
+
+   scala> 1 to 10 map (n => n * 2)
+   val res25: IndexedSeq[Int] = 
+      Vector(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
+
+The equivalent code using the underscore syntax is:
 
 .. code-block:: scala
 
@@ -530,7 +538,15 @@ You might be tempted to try this by doing the following:
 
 
 Alas, it doesn't work. Why? Because each occurrence of ``_`` corresponds to an expected parameter. In
-this case, there would have to be pairs of values. Unfortunately, in the range 1 to 10, each value is an Int.
+this case, there would have to be pairs of values. Unfortunately, in the range 1 to 10, each value is a single ``Int``.
+To get the result we want, we have to use a named parameter:
+
+.. code-block:: scala
+
+   scala> 1 to 10 map (n => n + n)
+   val res27: IndexedSeq[Int] = Vector(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
+
+
 
 Default parameters and named parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -591,7 +607,7 @@ these expressions.
 
 .. note::
 
-   Technically these are making calls to the apply methods of the Array and
+   Technically, these are making calls to the apply methods of the Array and
    List companion objects. The details of how that works don’t really matter
    in introductory CS and DS, but you can find them in the section on object-orientation under
    CS2. We cover this topic later in our discussion of classes and 
@@ -822,7 +838,7 @@ ways.
 
 .. code-block:: scala
 
-   scala> val lst = List(6,4,9,1,2,8,3,7)
+   scala> val lst = List(6, 4, 9, 1, 2, 8, 3, 7)
    val lst: List[Int] = List(6, 4, 9, 1, 2, 8, 3, 7)
 
    scala> lst.filter(_ < 6)
@@ -857,8 +873,11 @@ Strings to their length.
    scala> val words = "This is a sentence with words".split(" ")
    val words: Array[String] = Array(This, is, a, sentence, with, words)
 
-   scala> words.map(_.length)
+   scala> words.map(w => w.length)
    val res0: Array[Int] = Array(4, 2, 1, 8, 4, 5)
+
+   scala> words.map(_.length)
+   val res1: Array[Int] = Array(4, 2, 1, 8, 4, 5)
 
 The ``foreach`` method takes a function and simply executes the function on all
 the elements of the collection. While map and filter return new collections,
@@ -1023,12 +1042,11 @@ You read this as ``fac`` is a function that maps Int into Int and binds the name
    val fac: Int => Int = Lambda/0x00000003015799f8@64508788
 
 
-In many cases, you can write these functions without explcit recursion, simply by taking advantage of Scala's
-innate collections:
+In many cases, you can write these functions without explcit recursion, simply by taking advantage of Scala's innate collections:
 
 .. code-block:: scala
 
-   scala> def fac(n: Int): Int = (1 to n).foldLeft(1)((l, r) => l * r)
+   scala> def fac(n: Int) : Int = (1 to n).foldLeft(1)((l, r) => l * r)
    def fac(n: Int): Int
 
 Or even more concisely (and cryptically?)
@@ -1038,15 +1056,37 @@ Or even more concisely (and cryptically?)
    scala> def fac(n: Int): Int = (1 to n).foldLeft(1)(_ * _)
    def fac(n: Int): Int
 
-We'll look more at higher-order thinking shortly. Many who think of functional programming (especially the 1960's
-and 1970's style) tend to think Lisp, which very much required you to think *recursively* most of the time in
-practice. Today, the recursive element is still there, but you'll find that the need to use it explicitly is
-not required and can be replaced with higher-order abstractions. In the end, students still need to know about
-this technique, if only to understand that certain methods (e.g. folds) often have a recursive nature to them.
+Intuitively, we can think of ``foldLeft`` as a replacement for these common iteration patterns, where we process input elements from left to right, one at a time, and have one or more variables that we update based on each element. 
 
-In addition to rather outdated notions many tend to have about functional programming when it comes to recursion,
-the optimization of recursive calls is achieved through a version of tail-recursion elimination (a.k.a. tail call
-optimization). See [TailCalls]_ for more information.
+.. code-block:: java
+
+   final Iterator<String> words = ...;
+   var sum = 0;
+   var count = 0;
+   words.forEachRemaining(s -> {
+     sum += s.length();
+     count += 1;
+   });
+   final var result = (float) sum / count;
+
+The in this version based on ``foldLeft``, the first argument is a tuple representing the initial value(s) of the variable(s). The second argument, corresponding to the loop body above, is a function that takes two arguments: the current values of the variables and the next element in the input. The result of this function becomes the new values of the variables for the next iteration.
+
+.. code-block:: scala
+
+   val (sum, count) = words.foldLeft(0, 0):
+      case ((sum, count), next) =>
+         (sum + next.length, count + 1)
+   val result = sum.toFloat / count
+
+.. note::
+
+   We'll look more at higher-order thinking shortly. Many who think of functional programming (especially the 1960's
+   and 1970's style) tend to think Lisp, which very much required you to think *recursively* most of the time in
+   practice. Today, the recursive element is still there, but you'll find that the need to use it explicitly is
+   not required and can be replaced with existing higher-order abstractions. In the end, students still need to know about
+   this technique, if only to understand that certain methods (e.g. folds) often have a recursive nature to them.
+
+   Under the hood, these higher-order functions are often implemented using tail recursion, which can be eliminated in favor of a loop, or directly as a loop for efficiency. See [TailCalls]_ for more information.
 
 .. _montecarlopi:
 
@@ -1382,7 +1422,7 @@ interactive while loop. Basic idea:
    scala> val s1 = Iterator.continually(readLine("Prompt: "))
    val s1: Iterator[String] = <iterator>
 
-   scala> val s = s1.takeWhile(_ != "no")
+   scala> val s = s1.takeWhile(line => line != "no")
    val s: Iterator[String] = <iterator>
 
    scala> val l = s.toList
@@ -1449,8 +1489,8 @@ Let's look at something a bit more interesting: Getting the first ``n`` squares:
    scala> val n = 10
    val n: Int = 10
 
-   scala> val first_n_squares = for i <- 1 to n yield i * i
-   val first_n_squares: IndexedSeq[Int] = 
+   scala> val firstNSquares = for i <- 1 to n yield i * i
+   val firstNSquares: IndexedSeq[Int] = 
      Vector(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 
