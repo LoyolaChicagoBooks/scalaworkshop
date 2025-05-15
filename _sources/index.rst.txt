@@ -58,6 +58,7 @@ Acknowledgments
    70-parallel/parallel.rst
    80-actors/actors.rst
    90-pl/pl.rst
+   99-speakers/speakers.rst
 
 
 Distribution
