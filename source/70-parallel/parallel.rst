@@ -276,11 +276,5 @@ This is still being written up but will be demonstrated live.
 Previous Work
 -------------------
 
-This example was developed as part of High-Performance Java Platform Computing
-by Thomas W. Christopher and George K. Thiruvathukal.
+George K. Thiruvathukal and Thomas W. Christopher (2000). High-Performance Java Platform Computing: Threads and Networking. Prentice Hall PTR and Sun Microsystems Press Java Series. https://doi.org/10.6084/m9.figshare.962958.v2
 
-.. todo:: 
-  |pdf| PDF of Book
-  https://hpjpc.googlecode.com/files/HPJPC%20Christopher%20and%20Thiruvathukal.pdf
- 
-``git clone https://github.com/LoyolaChicagoCode/hpjpc-source-java``
