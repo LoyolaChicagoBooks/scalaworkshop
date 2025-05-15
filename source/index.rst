@@ -11,12 +11,12 @@ Authors
 
 | **Konstantin Läufer**
 | Professor of Computer Science, Loyola University Chicago
-| https://laufer.cs.luc.edu
+| `laufer.cs.luc.edu <https://laufer.cs.luc.edu>`_
 |
 | **George K. Thiruvathukal**
 | Professor of Computer Science and Chairperson, Loyola University Chicago
 | Visiting Computer Scientist, Argonne National Laboratory, Leadership Computing Facility
-| https://gkt.sh
+| `gkt.sh <https://gkt.sh>`_
 
 
 Abstract
