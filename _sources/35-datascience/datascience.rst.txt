@@ -173,6 +173,8 @@ Visualization
    :language: scala
    :linenos:
 
+.. image:: figures/xchart-graffiti-trend.png
+
 Reproducibility
 ````````````````
 
