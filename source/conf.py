@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Scala for Computer and Data Science'
+project = u'Type-Safe Functional Programming for Computer and Data Science'
 copyright = u'2012-Present, Konstantin Läufer and George K. Thiruvathukal'
 
 def get_git_tag():
