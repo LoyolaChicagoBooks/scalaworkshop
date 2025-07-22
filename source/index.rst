@@ -47,6 +47,7 @@ Acknowledgments
    :caption: Table of Contents
    :hidden:
 
+   02-fp-essentials/fp-essentials.rst
    05-intro/intro.rst
    10-install/install.rst
    20-essentials/essentials.rst
