@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Functional Programming Essentials | Scala for Computer and Data Science v0.9.1</title>
+<meta content="Functional Programming Essentials | Scala for Computer and Data Science v0.9.1" property="og:title"/>
+<meta content="Functional Programming Essentials | Scala for Computer and Data Science v0.9.1" name="twitter:title"/>
+<link href="../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../05-intro/intro.html" rel="next" title="About Scala"/>
+<link href="../index.html" rel="prev" title="Scala for Computer Science and Data Science Education"/>
+<script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
+</head>
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
+      Skip to content
+    </a>
+<header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+<div class="hidden mr-4 md:flex">
+<a class="flex items-center mr-6" href="../index.html"><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Scala for Computer and Data Science v0.9.1</span>
+</a></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
+<svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
+</svg>
+<span class="sr-only">Toggle navigation menu</span>
+</button>
+<div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../search.html" class="relative flex items-center group" id="searchbox" method="get">
+<input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
+<kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+<span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+</div>
+<nav class="flex items-center space-x-1">
+<button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Color theme switcher" class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button">
+<svg class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z"></path>
+</svg>
+<svg class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
+<a class="!justify-start text-sm md:!hidden bg-background" href="../index.html"><span class="font-bold text-clip whitespace-nowrap">Scala for Computer and Data Science v0.9.1</span>
+</a>
+<div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Functional Programming Essentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#early-history-of-programming-languages">Early History of Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#some-paradigmdefining-programming-languages">Some Paradigm‑Defining Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#modern-incarnations">Modern Incarnations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#languages-and-ai">Languages and AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#dominant-programming-paradigms">Dominant Programming Paradigms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#so-why-are-things-so-imperative">So Why Are Things So Imperative?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#turing-machine-1936">Turing Machine, 1936</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#von-neumann-edvac-report-1945">von Neumann, EDVAC Report, 1945</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#how-to-choose">How to Choose?!?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#zoom-out-fundamental-computational-models">Zoom Out: Fundamental Computational Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#lambda-calculus">Lambda Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#make-it-safe-type-systems-in-programming-languages">Make It Safe: Type Systems in Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#type-system-dimensions">Type System Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#static-type-safety">Static Type Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#timeline-of-the-language-type-system-pendulum">Timeline of the Language/Type System Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#thoughtworks-technology-radar-languages-section">ThoughtWorks Technology Radar: Languages Section</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#interesting-dynamically-typed-contenders">Interesting Dynamically Typed Contenders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#so-how-to-choose">So How to Choose?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#matts-extrinsic-criteria-consulting">Matt’s Extrinsic Criteria (Consulting):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#other-interesting-criteria">Other Interesting Criteria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#popularity-of-languages">Popularity of Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#performance-benchmarks">Performance (Benchmarks)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#assessment-of-main-contenders">Assessment of Main Contenders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-intro/intro.html">About Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-install/install.html">Installing Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20-essentials/essentials.html">Scala Essentials for Introductory CS and DS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../30-datastructures/datastructures.html">Scala and Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../35-datascience/datascience.html">Data Science with Scala and Smile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../40-buildtools/buildtools.html">Build Tools for Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../50-webservices/webservices.html">Web Application and Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../60-android/android.html">Mobile Application Development with Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../70-parallel/parallel.html">Basic Parallelism using Par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../80-actors/actors.html">Parallelism using Actors</a></li>
+<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../90-pl/pl.html">Programming Language Topics<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../90-pl/abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../90-pl/representation.html">Representation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../99-speakers/speakers.html">About the Speakers</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<button @click="showSidebar = false" class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100" type="button">
+<svg class="h-4 w-4" fill="currentColor" height="24" stroke="none" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z"></path>
+</svg>
+</button>
+</aside>
+<main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../index.html">
+<span class="hidden md:inline">Scala for Computer and Data Science v0.9.1</span>
+<svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
+</svg>
+</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Functional Programming Essentials</span>
+</nav>
+<div id="content" role="main">
+<img alt="../_images/scalalogo.png" src="../_images/scalalogo.png"/>
+<section id="functional-programming-essentials">
+<h1>Functional Programming Essentials<a class="headerlink" href="#functional-programming-essentials" title="Link to this heading">¶</a></h1>
+</section>
+<section id="early-history-of-programming-languages">
+<h1>Early History of Programming Languages<a class="headerlink" href="#early-history-of-programming-languages" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>1940s: machine languages → binary code</p></li>
+<li><p>1950s: assembly languages → mnemonics and symbols</p></li>
+<li><p>Late 1950s: 3GLs → abstraction and portability (FORTRAN, ALGOL, COBOL, LISP)</p></li>
+</ul>
+</section>
+<section id="some-paradigmdefining-programming-languages">
+<h1>Some Paradigm‑Defining Programming Languages<a class="headerlink" href="#some-paradigmdefining-programming-languages" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>1957: FORTRAN → imperative/scientific (Backus)</p></li>
+<li><p>1958: ALGOL → imperative with recursion (Backus et al)</p></li>
+<li><p>1964: APL → array programming (Iverson)</p></li>
+<li><p>1967: Simula → Algol-style OO (Dahl &amp; Nygaard)</p></li>
+<li><p>1972: C → imperative/system (Kernighan &amp; Ritchie)</p></li>
+<li><p>1972: Prolog → logic programming (Colmerauer)</p></li>
+<li><p>1972: Smalltalk → dynamic OO (Kay et al)</p></li>
+<li><p>1973: Actors → concurrency/task parallelism (Hewitt, Agha, Hoare et al)</p></li>
+<li><p>1978: ML → statically typed functional programming (Milner et al)</p></li>
+<li><p>1983: C++ → C-style OO (Stroustrup)</p></li>
+</ul>
+</section>
+<section id="modern-incarnations">
+<h1>Modern Incarnations<a class="headerlink" href="#modern-incarnations" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>1987: Perl → scripting/text processing (Wall)</p></li>
+<li><p>1987: Erlang → functional/concurrent/reliable systems (Armstrong)</p></li>
+<li><p>Haskell → lazy pure functional, type inference (Hudak, Peyton Jones et al)</p></li>
+<li><p>1991: Python → dynamic/multiparadigm/education/scientific (van Rossum)</p></li>
+<li><p>1995: Java → statically typed OO, portable (Gosling et al)</p></li>
+<li><p>1995: JavaScript → web scripting (Brendan Eich)</p></li>
+<li><p>2001: C# → modern OO on .NET (Hejlsberg)</p></li>
+<li><p>2003: Scala → functional + OO on JVM (Odersky)</p></li>
+<li><p>2005: F# → functional-first on .NET (Syme)</p></li>
+<li><p>2007: Clojure → functional Lisp on JVM (Hickey)</p></li>
+<li><p>2009: Go → compiled, concurrent, systems programming (Pike et al)</p></li>
+<li><p>2010: Rust → memory-safe systems programming (Mozilla/Graydon Hoare)</p></li>
+<li><p>2014: Swift → modern safe systems/app language (Apple/Lattner)</p></li>
+</ul>
+</section>
+<section id="languages-and-ai">
+<h1>Languages and AI<a class="headerlink" href="#languages-and-ai" title="Link to this heading">¶</a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Period</p></th>
+<th class="head"><p>Dominant AI Language(s)</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1960s–1980s</p></td>
+<td><p>Lisp, Prolog</p></td>
+<td><p>Symbolic AI, logic programming</p></td>
+</tr>
+<tr class="row-odd"><td><p>1980s–1990s</p></td>
+<td><p>Lisp, Prolog, C/C++, MATLAB</p></td>
+<td><p>Expert systems, early ML, robotics</p></td>
+</tr>
+<tr class="row-even"><td><p>1990s–2000s</p></td>
+<td><p>Java, C++, MATLAB, R</p></td>
+<td><p>Statistical AI, teaching, industrial</p></td>
+</tr>
+<tr class="row-odd"><td><p>2010–Present</p></td>
+<td><p>Python</p></td>
+<td><p>Deep learning, NLP, open-source boom</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dominant-programming-paradigms">
+<h1>Dominant Programming Paradigms<a class="headerlink" href="#dominant-programming-paradigms" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Imperative: explicit mutable state</p></li>
+<li><p>Functional: pure/recursive functions, immutable values</p></li>
+<li><p>Object-oriented: public behavior + private state</p></li>
+<li><p>Actors: concurrent behavior with local/transient state</p></li>
+<li><p>Logic: queries over facts and rules</p></li>
+</ul>
+</section>
+<section id="so-why-are-things-so-imperative">
+<h1>So Why Are Things So Imperative?<a class="headerlink" href="#so-why-are-things-so-imperative" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Computer architecture emphasizes stored-program model with shared memory</p></li>
+<li><p>Theoretical foundations (Turing, von Neumann) reinforce this view</p></li>
+</ul>
+<p>Each of these deserves a closer look.</p>
+</section>
+<section id="turing-machine-1936">
+<h1>Turing Machine, 1936<a class="headerlink" href="#turing-machine-1936" title="Link to this heading">¶</a></h1>
+<p>Alan Turing’s “abstract machine” that predates modern programmable computers.</p>
+<ul class="simple">
+<li><p>A tape which is divided into cells, one next to the other.</p></li>
+<li><p>A head that can read and write symbols on the tape and move the tape left and right one (and only one) cell at a time.</p></li>
+<li><p>A table of instructions: (si, symbol at current position, sj, replacement symbol, L or R)</p></li>
+<li><p>A state register that stores the state of the Turing table.</p></li>
+<li><p>All programming languages today are said to be Turing-equivalent, because they can all be reduced to the Turing machine as defined here.</p></li>
+<li><p>Compare these concepts to the ideas of von Neumann.</p></li>
+</ul>
+</section>
+<section id="von-neumann-edvac-report-1945">
+<h1>von Neumann, EDVAC Report, 1945<a class="headerlink" href="#von-neumann-edvac-report-1945" title="Link to this heading">¶</a></h1>
+<p>Von Neumann was influential in many endeavors (mathematics, physics, game theory, and computing) and was involved in the Manhattan project and the EDVAC computer (successor to the ENIAC of Eckhert and Mauchly).</p>
+<p>Three ideas that have shaped modern computer engineering:</p>
+<p>“First: since the device is a computor (sic), it will have to perform the elementary operations of arithmetics….”
+“Second: the logical control of the device is the proper sequencing of its operations (by…a control organ).”
+“Third: Any device which is to carry out long and complicated sequences of operations…must have a considerable memory.”</p>
+<p>These views of computing are identical and were independently conceived by Babbage in the design of the Analytical Engine, which Ada Lovelace knew how to program!.</p>
+</section>
+<section id="how-to-choose">
+<h1>How to Choose?!?<a class="headerlink" href="#how-to-choose" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Match paradigm to the problem</p></li>
+<li><p>Some solutions use multiple paradigms/languages</p></li>
+<li><p>Avoid the “hammer/nail” syndrome of the late 1990s</p></li>
+</ul>
+</section>
+<section id="zoom-out-fundamental-computational-models">
+<h1>Zoom Out: Fundamental Computational Models<a class="headerlink" href="#zoom-out-fundamental-computational-models" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Turing machine/von-Neumann architecture: model of the hardware; low-level, unnatural</p></li>
+<li><p>lambda calculus: model of the computational behavior; simple, mathematical, natural</p></li>
+<li><p>recursion: direct model of underlying mathematical theory</p></li>
+</ul>
+<p>These three models are equivalent in computational power (Turing complete).</p>
+<p>Church-Turing thesis: these three models express anything that is algorithmically computable.</p>
+</section>
+<section id="lambda-calculus">
+<h1>Lambda Calculus<a class="headerlink" href="#lambda-calculus" title="Link to this heading">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="o">&lt;</span><span class="n">Exp</span><span class="o">&gt;</span> <span class="p">:</span><span class="o">:=</span> <span class="o">&lt;</span><span class="n">ident</span><span class="o">&gt;</span>
+</span><span id="line-2">        <span class="o">|</span> <span class="k">lambda</span> <span class="o">&lt;</span><span class="n">ident</span><span class="o">&gt;</span> <span class="o">.</span> <span class="o">&lt;</span><span class="n">Exp</span><span class="o">&gt;</span>
+</span><span id="line-3">        <span class="o">|</span> <span class="o">&lt;</span><span class="n">Exp</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">Exp</span><span class="o">&gt;</span>
+</span><span id="line-4">        <span class="o">|</span> <span class="o">&lt;</span><span class="n">constant</span><span class="o">&gt;</span>
+</span><span id="line-5">
+</span><span id="line-6"><span class="p">(</span>\<span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">f</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span> <span class="n">y</span><span class="p">))</span> <span class="p">(</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<ul class="simple">
+<li><p>Powerful enough to express everything using recursion</p></li>
+</ul>
+</section>
+<section id="make-it-safe-type-systems-in-programming-languages">
+<h1>Make It Safe: Type Systems in Programming Languages<a class="headerlink" href="#make-it-safe-type-systems-in-programming-languages" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>A type system is a mechanism to classify program fragments according to the type of value they compute. Can be used to ensure values are used as intended.</p></li>
+<li><p>A type error is a type-related erroneous program behavior.</p></li>
+<li><p>Type safety is the use of a type system to prevent type errors.</p></li>
+<li><p>2 + 3 -&gt; 5</p></li>
+<li><p>2 + “3” -&gt; error (possible in C)</p></li>
+<li><p>3[4] -&gt; error (possible in C with cast)</p></li>
+</ul>
+</section>
+<section id="type-system-dimensions">
+<h1>Type System Dimensions<a class="headerlink" href="#type-system-dimensions" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Static vs. dynamic</p></li>
+<li><p>Strong vs. weak</p></li>
+<li><p>Implicit/inferred vs. explicit</p></li>
+</ul>
+</section>
+<section id="static-type-safety">
+<h1>Static Type Safety<a class="headerlink" href="#static-type-safety" title="Link to this heading">¶</a></h1>
+<p>The use of a static and strong type system to prevent type errors at run time.</p>
+<p>Benefits</p>
+<ul class="simple">
+<li><p>early detection of logical errors “when things don’t fit together”</p></li>
+<li><p>do not need to keep type information around at run time -&gt; performance!!</p></li>
+</ul>
+<p>Challenge</p>
+<ul class="simple">
+<li><p>keep it from feeling like a straightjacket to the programmer</p></li>
+</ul>
+</section>
+<section id="timeline-of-the-language-type-system-pendulum">
+<h1>Timeline of the Language/Type System Pendulum<a class="headerlink" href="#timeline-of-the-language-type-system-pendulum" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Since mid 1980s: statically typed OO languages: C++, Java, C#</p>
+<ul>
+<li><p>want type safety and performance</p></li>
+<li><p>language monoculture trap: started to focus on libraries and frameworks instead of languages</p></li>
+</ul>
+</li>
+<li><p>Since late 1990s: dynamic languages: Perl, Python, Ruby</p>
+<ul>
+<li><p>wanted productivity (expressiveness, flexibility, extensibility, etc.)</p></li>
+<li><p>build confidence in correctness through extensive testing (TDD)</p></li>
+<li><p>performance? avoid bottleneck by using as glue for C/C++ libraries</p></li>
+</ul>
+</li>
+<li><p>Back since late 2000s: statically typed functional languages: ML and its descendants F#, Haskell, and OCaml; Scala</p>
+<ul>
+<li><p>want type safety, performance, and agility</p></li>
+<li><p>want better support for multi-core hardware</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="thoughtworks-technology-radar-languages-section">
+<h1>ThoughtWorks Technology Radar: Languages Section<a class="headerlink" href="#thoughtworks-technology-radar-languages-section" title="Link to this heading">¶</a></h1>
+<p>Main Statically Typed Contenders</p>
+<ul class="simple">
+<li><p>Haskell: ML descendant, but lazy and without mutable state, no OO</p></li>
+<li><p>Scala: Java-based, mutable and immutable state, eager, functional on top of OO</p></li>
+<li><p>F#: OCaml descendant, mutable and immutable state, eager, OO on top of functional</p></li>
+<li><p>Swift: Apple language, mutable and immutable state, eager, functional on top of OO</p></li>
+<li><p>Rust: C/C++ “systems” successor, AoT compilation, mutable and immutable state, eager, functional on top of OO</p></li>
+</ul>
+<p>Note: Others omitted not because we don’t like them but they are not statically typed or lack full FP support (e.g. Python, Go, etc.)</p>
+</section>
+<section id="interesting-dynamically-typed-contenders">
+<h1>Interesting Dynamically Typed Contenders<a class="headerlink" href="#interesting-dynamically-typed-contenders" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Clojure: concurrency + performance</p></li>
+<li><p>Erlang: scalability, soft real-time</p></li>
+<li><p>JavaScript: front-end ubiquity, CoffeeScript, etc.</p></li>
+<li><p>Python: itertools, functools</p></li>
+</ul>
+</section>
+<section id="so-how-to-choose">
+<h1>So How to Choose?<a class="headerlink" href="#so-how-to-choose" title="Link to this heading">¶</a></h1>
+<p>Foundational soundness
+Adherence to design principles (Maclennan 1986)
+Readability
+Writability/Productivity
+Reliability
+Cost
+Portability
+Generality
+REPL for exploratory programming
+Support for internal and/or external domain-specific languages</p>
+</section>
+<section id="matts-extrinsic-criteria-consulting">
+<h1>Matt’s Extrinsic Criteria (Consulting):<a class="headerlink" href="#matts-extrinsic-criteria-consulting" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Developer expertise and workforce availability</p></li>
+<li><p>Hiring in local area</p></li>
+<li><p>Developer productivity cost</p></li>
+<li><p>Training &amp; migration cost</p></li>
+<li><p>Tooling cost</p></li>
+<li><p>Performance/scalability</p></li>
+<li><p>Offshoring</p></li>
+<li><p>Community (blogs, meetups, conventions)</p></li>
+<li><p>Visibility, support, ecosystem</p></li>
+</ul>
+</section>
+<section id="other-interesting-criteria">
+<h1>Other Interesting Criteria<a class="headerlink" href="#other-interesting-criteria" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Performance</p></li>
+<li><p>Concurrency/parallelism support</p></li>
+<li><p>Ecosystem (tools, standard libraries, interoperability)</p></li>
+<li><p>Major projects, community activity</p></li>
+</ul>
+</section>
+<section id="popularity-of-languages">
+<h1>Popularity of Languages<a class="headerlink" href="#popularity-of-languages" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>GitHub statistics: Haskell #16, Scala #17, F# #41</p></li>
+<li><p>Search engine queries: Haskell #37, F# #39, Scala #45</p></li>
+</ul>
+</section>
+<section id="performance-benchmarks">
+<h1>Performance (Benchmarks)<a class="headerlink" href="#performance-benchmarks" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Shootout: median times
+- C++ ~1.00
+- Java ~1.40
+- Scala ~1.39
+- Haskell ~1.53
+- F# ~2.97
+- Erlang ~5.17
+- Ruby ~4.67</p></li>
+<li><p>Process-tree benchmark: Scala ~5× C, Haskell ~20×</p></li>
+</ul>
+</section>
+<section id="assessment-of-main-contenders">
+<h1>Assessment of Main Contenders<a class="headerlink" href="#assessment-of-main-contenders" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Haskell:</strong> powerful type system, extensive library, DSL parsing, but tooling less mature</p></li>
+<li><p><strong>Scala:</strong> parser combinators, actors, Typesafe stack (Akka, Play, Spray), Java interop, good tooling, active community</p></li>
+<li><p><strong>F#:</strong> .NET numerical/financial strengths, DSL tools (FsLex/FsYacc), async, parallel</p></li>
+</ul>
+</section>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li></li>
+<li><a :data-current="activeSection === '#early-history-of-programming-languages'" class="reference internal" href="#early-history-of-programming-languages">Early History of Programming Languages</a></li>
+<li><a :data-current="activeSection === '#some-paradigmdefining-programming-languages'" class="reference internal" href="#some-paradigmdefining-programming-languages">Some Paradigm‑Defining Programming Languages</a></li>
+<li><a :data-current="activeSection === '#modern-incarnations'" class="reference internal" href="#modern-incarnations">Modern Incarnations</a></li>
+<li><a :data-current="activeSection === '#languages-and-ai'" class="reference internal" href="#languages-and-ai">Languages and AI</a></li>
+<li><a :data-current="activeSection === '#dominant-programming-paradigms'" class="reference internal" href="#dominant-programming-paradigms">Dominant Programming Paradigms</a></li>
+<li><a :data-current="activeSection === '#so-why-are-things-so-imperative'" class="reference internal" href="#so-why-are-things-so-imperative">So Why Are Things So Imperative?</a></li>
+<li><a :data-current="activeSection === '#turing-machine-1936'" class="reference internal" href="#turing-machine-1936">Turing Machine, 1936</a></li>
+<li><a :data-current="activeSection === '#von-neumann-edvac-report-1945'" class="reference internal" href="#von-neumann-edvac-report-1945">von Neumann, EDVAC Report, 1945</a></li>
+<li><a :data-current="activeSection === '#how-to-choose'" class="reference internal" href="#how-to-choose">How to Choose?!?</a></li>
+<li><a :data-current="activeSection === '#zoom-out-fundamental-computational-models'" class="reference internal" href="#zoom-out-fundamental-computational-models">Zoom Out: Fundamental Computational Models</a></li>
+<li><a :data-current="activeSection === '#lambda-calculus'" class="reference internal" href="#lambda-calculus">Lambda Calculus</a></li>
+<li><a :data-current="activeSection === '#make-it-safe-type-systems-in-programming-languages'" class="reference internal" href="#make-it-safe-type-systems-in-programming-languages">Make It Safe: Type Systems in Programming Languages</a></li>
+<li><a :data-current="activeSection === '#type-system-dimensions'" class="reference internal" href="#type-system-dimensions">Type System Dimensions</a></li>
+<li><a :data-current="activeSection === '#static-type-safety'" class="reference internal" href="#static-type-safety">Static Type Safety</a></li>
+<li><a :data-current="activeSection === '#timeline-of-the-language-type-system-pendulum'" class="reference internal" href="#timeline-of-the-language-type-system-pendulum">Timeline of the Language/Type System Pendulum</a></li>
+<li><a :data-current="activeSection === '#thoughtworks-technology-radar-languages-section'" class="reference internal" href="#thoughtworks-technology-radar-languages-section">ThoughtWorks Technology Radar: Languages Section</a></li>
+<li><a :data-current="activeSection === '#interesting-dynamically-typed-contenders'" class="reference internal" href="#interesting-dynamically-typed-contenders">Interesting Dynamically Typed Contenders</a></li>
+<li><a :data-current="activeSection === '#so-how-to-choose'" class="reference internal" href="#so-how-to-choose">So How to Choose?</a></li>
+<li><a :data-current="activeSection === '#matts-extrinsic-criteria-consulting'" class="reference internal" href="#matts-extrinsic-criteria-consulting">Matt’s Extrinsic Criteria (Consulting):</a></li>
+<li><a :data-current="activeSection === '#other-interesting-criteria'" class="reference internal" href="#other-interesting-criteria">Other Interesting Criteria</a></li>
+<li><a :data-current="activeSection === '#popularity-of-languages'" class="reference internal" href="#popularity-of-languages">Popularity of Languages</a></li>
+<li><a :data-current="activeSection === '#performance-benchmarks'" class="reference internal" href="#performance-benchmarks">Performance (Benchmarks)</a></li>
+<li><a :data-current="activeSection === '#assessment-of-main-contenders'" class="reference internal" href="#assessment-of-main-contenders">Assessment of Main Contenders</a></li>
+</ul>
+</div>
+</aside>
+</main>
+</div>
+</div><footer class="py-6 border-t border-border md:py-0">
+<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2012-Present, Konstantin Läufer and George K. Thiruvathukal Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 8.2.3</a></p>
+</div>
+</div>
+</footer>
+</div>
+<script src="../_static/documentation_options.js?v=6677775b"></script>
+<script src="../_static/doctools.js?v=9bcbadda"></script>
+<script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script defer="defer" src="../_static/theme.js?v=073f68d9"></script>
+</body>
+</html>
