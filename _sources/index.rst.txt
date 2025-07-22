@@ -2,8 +2,12 @@
 
 .. image:: figures/scalalogo.png
 
-Scala for Computer Science and Data Science Education
-=====================================================
+Type-safe Functional Programming for Computer Science and Data Science
+======================================================================
+
+.. note::
+   A tutorial on type-safe functional programming for computer science and data science featuring the Scala programming langauge.
+   This tutorial is under active development and will soon be finalized for the IEEE eScience 2025 Conference being held in Chicago, IL, our hometown!
 
 
 Authors
