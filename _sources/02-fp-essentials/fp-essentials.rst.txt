@@ -24,7 +24,7 @@ Some Paradigm‑Defining Programming Languages
 - 1978: ML → statically typed functional programming (Milner et al)
 - 1983: C++ → C-style OO (Stroustrup)
 
-Modern Incarnations
+Connection to Artificial Intelligence
 ------------------------------------------------------
 
 +-----------------+-----------------------------+----------------------------------------+
@@ -226,28 +226,3 @@ Other Interesting Criteria
 - Ecosystem (tools, standard libraries, interoperability)
 - Major projects, community activity
 
-Popularity of Languages
-------------------------------------------------------
-
-- GitHub statistics: Haskell #16, Scala #17, F# #41
-- Search engine queries: Haskell #37, F# #39, Scala #45
-
-Performance (Benchmarks)
-------------------------------------------------------
-
-- Shootout: median times
-  - C++ ~1.00
-  - Java ~1.40
-  - Scala ~1.39
-  - Haskell ~1.53
-  - F# ~2.97
-  - Erlang ~5.17
-  - Ruby ~4.67
-- Process-tree benchmark: Scala ~5× C, Haskell ~20×
-
-Assessment of Main Contenders
-------------------------------------------------------
-
-- **Haskell:** powerful type system, extensive library, DSL parsing, but tooling less mature
-- **Scala:** parser combinators, actors, Typesafe stack (Akka, Play, Spray), Java interop, good tooling, active community
-- **F#:** .NET numerical/financial strengths, DSL tools (FsLex/FsYacc), async, parallel
