@@ -169,6 +169,55 @@ This Scala script shows how to filter the general-purpose languages, excluding t
    #13      #19       Rust
 
 
+The first version shown was aimed at clarity. As you write more Scala, you will come to learn that *type inferencing* allows for even greater conciseness.
+
+.. code-block:: scala
+
+   #!/usr/bin/env scala
+
+   //> using scala "3.4.2"
+   
+   case class Language(originalRank: Int, name: String, category: String)
+   
+   val data =
+     """1, JavaScript, Web
+       |2, Python, General
+       |3, Java, General
+       |4, PHP, Web
+       |5, C#, General
+       |6, TypeScript, Web
+       |7, CSS, Web
+       |7, C++, General
+       |9, Ruby, General
+       |10, C, General
+       |11, Swift, General
+       |12, Go, General
+       |12, R, General
+       |14, Shell, Shell Scripting
+       |14, Kotlin, General
+       |14, Scala, General
+       |17, Objective-C, General
+       |18, PowerShell, Shell Scripting
+       |19, Rust, General
+       |19, Dart, Mobile""".stripMargin
+   
+   val generalLanguages = data.linesIterator
+     .map { line =>
+       val parts = line.split(",").map(_.trim)
+       Language(parts(0).toInt, parts(1), parts(2))
+     }
+     .filter { language => language.category.equalsIgnoreCase("general") }
+     .zipWithIndex
+   
+   println("General-purpose languages:")
+   println(f"${"GeneralRank"}%-12s ${"OriginalRank"}%-13s ${"Language"}")
+   println("-" * 40)
+   
+   for ((language, index) <- generalLanguages) {
+     println(f"#${index + 1}%-11d #${language.originalRank}%-12d ${language.name}")
+   }
+
+
 Technology Radar
 ~~~~~~~~~~~~~~~~~~~
 
