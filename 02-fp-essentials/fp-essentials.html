@@ -75,18 +75,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../05-intro/intro.html">About Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-install/install.html">Installing Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20-essentials/essentials.html">Scala Essentials for Introductory CS and DS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../30-datastructures/datastructures.html">Scala and Data Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../35-datascience/datascience.html">Data Science with Scala and Smile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../40-buildtools/buildtools.html">Build Tools for Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../50-webservices/webservices.html">Web Application and Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../60-android/android.html">Mobile Application Development with Android</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../70-parallel/parallel.html">Basic Parallelism using Par</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../80-actors/actors.html">Parallelism using Actors</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../90-pl/pl.html">Programming Language Topics<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="../90-pl/abstraction.html">Abstraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../90-pl/representation.html">Representation</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../99-speakers/speakers.html">About the Speakers</a></li>
 </ul>
 </nav>
@@ -134,6 +124,23 @@
 <li><p>1973: Actors → concurrency/task parallelism (Hewitt, Agha, Hoare et al)</p></li>
 <li><p>1978: ML → statically typed functional programming (Milner et al)</p></li>
 <li><p>1983: C++ → C-style OO (Stroustrup)</p></li>
+</ul>
+</section>
+<section id="modern-incarnations-often-multi-paradigm">
+<h2>Modern Incarnations, Often Multi-Paradigm<a class="headerlink" href="#modern-incarnations-often-multi-paradigm" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#modern-incarnations-often-multi-paradigm'">¶</a></h2>
+<ul class="simple">
+<li><p>1987: Perl → scripting/text processing (Wall)</p></li>
+<li><p>1987: Erlang → functional/concurrent/reliable systems (Armstrong)</p></li>
+<li><p>1991: Python → dynamic/multiparadigm/education/scientific (van Rossum)</p></li>
+<li><p>1995: Java → statically typed OO, portable (Gosling et al)</p></li>
+<li><p>1995: JavaScript → web scripting (Brendan Eich)</p></li>
+<li><p>2001: C# → modern OO on .NET (Hejlsberg)</p></li>
+<li><p>2003: Scala → functional + OO on JVM (Odersky)</p></li>
+<li><p>2005: F# → functional-first on .NET (Syme)</p></li>
+<li><p>2007: Clojure → functional Lisp on JVM (Hickey)</p></li>
+<li><p>2009: Go → compiled, concurrent, systems programming (Pike et al)</p></li>
+<li><p>2010: Rust → memory-safe systems programming (Mozilla/Graydon Hoare)</p></li>
+<li><p>2014: Swift → modern safe systems/app language (Apple/Lattner)</p></li>
 </ul>
 </section>
 <section id="connection-to-artificial-intelligence">
@@ -270,7 +277,6 @@
 </section>
 <section id="timeline-of-the-language-type-system-pendulum">
 <h2>Timeline of the Language/Type System Pendulum<a class="headerlink" href="#timeline-of-the-language-type-system-pendulum" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#timeline-of-the-language-type-system-pendulum'">¶</a></h2>
-<hr class="docutils"/>
 <ul class="simple">
 <li><p>Since mid 1980s: statically typed OO languages: C++, Java, C#</p>
 <ul>
@@ -358,6 +364,7 @@
 <ul>
 <li><a :data-current="activeSection === '#early-history-of-programming-languages'" class="reference internal" href="#early-history-of-programming-languages">Early History of Programming Languages</a></li>
 <li><a :data-current="activeSection === '#some-paradigmdefining-programming-languages'" class="reference internal" href="#some-paradigmdefining-programming-languages">Some Paradigm‑Defining Programming Languages</a></li>
+<li><a :data-current="activeSection === '#modern-incarnations-often-multi-paradigm'" class="reference internal" href="#modern-incarnations-often-multi-paradigm">Modern Incarnations, Often Multi-Paradigm</a></li>
 <li><a :data-current="activeSection === '#connection-to-artificial-intelligence'" class="reference internal" href="#connection-to-artificial-intelligence">Connection to Artificial Intelligence</a></li>
 <li><a :data-current="activeSection === '#dominant-programming-paradigms'" class="reference internal" href="#dominant-programming-paradigms">Dominant Programming Paradigms</a></li>
 <li><a :data-current="activeSection === '#so-why-are-things-so-imperative'" class="reference internal" href="#so-why-are-things-so-imperative">So Why Are Things So Imperative?</a></li>

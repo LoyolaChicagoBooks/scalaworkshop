@@ -15,7 +15,7 @@
 <link href="../search.html" rel="search" title="Search"/>
 <link href="../genindex.html" rel="index" title="Index"/>
 <link href="../40-buildtools/buildtools.html" rel="next" title="Build Tools for Scala"/>
-<link href="../30-datastructures/datastructures.html" rel="prev" title="Scala and Data Structures"/>
+<link href="../20-essentials/essentials.html" rel="prev" title="Scala Essentials for Introductory CS and DS"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -75,18 +75,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../05-intro/intro.html">About Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-install/install.html">Installing Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20-essentials/essentials.html">Scala Essentials for Introductory CS and DS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../30-datastructures/datastructures.html">Scala and Data Structures</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Science with Scala and Smile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../40-buildtools/buildtools.html">Build Tools for Scala</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../50-webservices/webservices.html">Web Application and Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../60-android/android.html">Mobile Application Development with Android</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../70-parallel/parallel.html">Basic Parallelism using Par</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../80-actors/actors.html">Parallelism using Actors</a></li>
-<li class="toctree-l1" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../90-pl/pl.html">Programming Language Topics<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
-<li class="toctree-l2"><a class="reference internal" href="../90-pl/abstraction.html">Abstraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../90-pl/representation.html">Representation</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../99-speakers/speakers.html">About the Speakers</a></li>
 </ul>
 </nav>
@@ -114,7 +104,7 @@
 <h1>Data Science with Scala and Smile<a class="headerlink" href="#data-science-with-scala-and-smile" title="Link to this heading">¶</a></h1>
 <section id="monte-carlo-simulation">
 <h2>Monte Carlo Simulation<a class="headerlink" href="#monte-carlo-simulation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#monte-carlo-simulation'">¶</a></h2>
-<p>This example shows how to use the Monte Carlo method to estimate the area of a circle.</p>
+<p>This example shows how to use the Monte Carlo method to estimate the area of a circle, recast as data-driven instead of memory-driven to show how to do basic dataset generation and analysis.</p>
 <p>First, we’ll look at the code for generating a data file for the Monte Carlo simulation, given the desired number of darts.
 The resulting file consisting the x- and y-coordinates of each dart along with a boolean flag indicating whether or not the dart landed inside the circle.</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala 3.3.6</span>

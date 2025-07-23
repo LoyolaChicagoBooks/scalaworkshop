@@ -4,7 +4,7 @@ Data Science with Scala and Smile
 Monte Carlo Simulation
 ------------------------------------------------
 
-This example shows how to use the Monte Carlo method to estimate the area of a circle. 
+This example shows how to use the Monte Carlo method to estimate the area of a circle, recast as data-driven instead of memory-driven to show how to do basic dataset generation and analysis.
 
 First, we'll look at the code for generating a data file for the Monte Carlo simulation, given the desired number of darts. 
 The resulting file consisting the x- and y-coordinates of each dart along with a boolean flag indicating whether or not the dart landed inside the circle.
