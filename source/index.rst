@@ -1,7 +1,5 @@
 .. This is a new Sphinx project for George's and Konstantin's Scala for Computer Science and Data Science
 
-.. image:: figures/scalalogo.png
-
 Type-safe Functional Programming for Computer Science and Data Science
 ======================================================================
 
