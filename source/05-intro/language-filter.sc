@@ -41,7 +41,7 @@ val generalPurposeLanguages: Iterator[(Language, Int)] = allLanguages
   }
   .zipWithIndex
 
-println("🧠 General-purpose languages:")
+println("General-purpose languages:")
 println(f"${"GeneralRank"}%-12s ${"OriginalRank"}%-13s ${"Language"}")
 println("-" * 40)
 

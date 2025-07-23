@@ -134,7 +134,7 @@ This Scala script shows how to filter the general-purpose languages, excluding t
      }
      .zipWithIndex
    
-   println("🧠 General-purpose languages:")
+   println("General-purpose languages:")
    println(f"${"GeneralRank"}%-12s ${"OriginalRank"}%-13s ${"Language"}")
    println("-" * 40)
    
@@ -151,7 +151,7 @@ This Scala script shows how to filter the general-purpose languages, excluding t
    $ ./language-filter.sc
    Compiling project (Scala 3.4.2, JVM (21))
    Compiled project (Scala 3.4.2, JVM (21))
-   🧠 General-purpose languages:
+   General-purpose languages:
    GenRank  LangRank  Language
    --------------------------------
    #1       #2        Python
