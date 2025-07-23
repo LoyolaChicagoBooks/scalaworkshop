@@ -318,6 +318,52 @@ Because it has the conciseness of Python and a rich ecosystem from the Java and 
 </span><span id="line-19">#13      #19       Rust
 </span></code></pre></div>
 </div>
+<p>The first version shown was aimed at clarity. As you write more Scala, you will come to learn that <em>type inferencing</em> allows for even greater conciseness.</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="ch">#!/usr/bin/env scala</span>
+</span><span id="line-2">
+</span><span id="line-3"><span class="c1">//&gt; using scala "3.4.2"</span>
+</span><span id="line-4">
+</span><span id="line-5"><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Language</span><span class="p">(</span><span class="n">originalRank</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="n">category</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">)</span>
+</span><span id="line-6">
+</span><span id="line-7"><span class="kd">val</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span>
+</span><span id="line-8"><span class="w">  </span><span class="s">"""1, JavaScript, Web</span>
+</span><span id="line-9"><span class="s">    |2, Python, General</span>
+</span><span id="line-10"><span class="s">    |3, Java, General</span>
+</span><span id="line-11"><span class="s">    |4, PHP, Web</span>
+</span><span id="line-12"><span class="s">    |5, C#, General</span>
+</span><span id="line-13"><span class="s">    |6, TypeScript, Web</span>
+</span><span id="line-14"><span class="s">    |7, CSS, Web</span>
+</span><span id="line-15"><span class="s">    |7, C++, General</span>
+</span><span id="line-16"><span class="s">    |9, Ruby, General</span>
+</span><span id="line-17"><span class="s">    |10, C, General</span>
+</span><span id="line-18"><span class="s">    |11, Swift, General</span>
+</span><span id="line-19"><span class="s">    |12, Go, General</span>
+</span><span id="line-20"><span class="s">    |12, R, General</span>
+</span><span id="line-21"><span class="s">    |14, Shell, Shell Scripting</span>
+</span><span id="line-22"><span class="s">    |14, Kotlin, General</span>
+</span><span id="line-23"><span class="s">    |14, Scala, General</span>
+</span><span id="line-24"><span class="s">    |17, Objective-C, General</span>
+</span><span id="line-25"><span class="s">    |18, PowerShell, Shell Scripting</span>
+</span><span id="line-26"><span class="s">    |19, Rust, General</span>
+</span><span id="line-27"><span class="s">    |19, Dart, Mobile"""</span><span class="p">.</span><span class="n">stripMargin</span>
+</span><span id="line-28">
+</span><span id="line-29"><span class="kd">val</span><span class="w"> </span><span class="n">generalLanguages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">linesIterator</span>
+</span><span id="line-30"><span class="w">  </span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=&gt;</span>
+</span><span id="line-31"><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">).</span><span class="n">map</span><span class="p">(</span><span class="n">_</span><span class="p">.</span><span class="n">trim</span><span class="p">)</span>
+</span><span id="line-32"><span class="w">    </span><span class="nc">Language</span><span class="p">(</span><span class="n">parts</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">toInt</span><span class="p">,</span><span class="w"> </span><span class="n">parts</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">parts</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</span><span id="line-33"><span class="w">  </span><span class="p">}</span>
+</span><span id="line-34"><span class="w">  </span><span class="p">.</span><span class="n">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">language</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">language</span><span class="p">.</span><span class="n">category</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"general"</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="line-35"><span class="w">  </span><span class="p">.</span><span class="n">zipWithIndex</span>
+</span><span id="line-36">
+</span><span id="line-37"><span class="n">println</span><span class="p">(</span><span class="s">"General-purpose languages:"</span><span class="p">)</span>
+</span><span id="line-38"><span class="n">println</span><span class="p">(</span><span class="s">f"</span><span class="si">${</span><span class="s">"GeneralRank"</span><span class="si">}</span><span class="s">%-12s </span><span class="si">${</span><span class="s">"OriginalRank"</span><span class="si">}</span><span class="s">%-13s </span><span class="si">${</span><span class="s">"Language"</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</span><span id="line-39"><span class="n">println</span><span class="p">(</span><span class="s">"-"</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">40</span><span class="p">)</span>
+</span><span id="line-40">
+</span><span id="line-41"><span class="k">for</span><span class="w"> </span><span class="p">((</span><span class="n">language</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">generalLanguages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="line-42"><span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">f"#</span><span class="si">${</span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s">%-11d #</span><span class="si">${</span><span class="n">language</span><span class="p">.</span><span class="n">originalRank</span><span class="si">}</span><span class="s">%-12d </span><span class="si">${</span><span class="n">language</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</span><span id="line-43"><span class="p">}</span>
+</span></code></pre></div>
+</div>
 </section>
 <section id="technology-radar">
 <h3>Technology Radar<a class="headerlink" href="#technology-radar" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#technology-radar'">¶</a></h3>
