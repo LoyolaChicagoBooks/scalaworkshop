@@ -24,6 +24,22 @@ Some Paradigm‑Defining Programming Languages
 - 1978: ML → statically typed functional programming (Milner et al)
 - 1983: C++ → C-style OO (Stroustrup)
 
+Modern Incarnations, Often Multi-Paradigm
+-------------------------------------------
+
+- 1987: Perl → scripting/text processing (Wall)
+- 1987: Erlang → functional/concurrent/reliable systems (Armstrong)
+- 1991: Python → dynamic/multiparadigm/education/scientific (van Rossum)
+- 1995: Java → statically typed OO, portable (Gosling et al)
+- 1995: JavaScript → web scripting (Brendan Eich)
+- 2001: C# → modern OO on .NET (Hejlsberg)
+- 2003: Scala → functional + OO on JVM (Odersky)
+- 2005: F# → functional-first on .NET (Syme)
+- 2007: Clojure → functional Lisp on JVM (Hickey)
+- 2009: Go → compiled, concurrent, systems programming (Pike et al)
+- 2010: Rust → memory-safe systems programming (Mozilla/Graydon Hoare)
+- 2014: Swift → modern safe systems/app language (Apple/Lattner)
+
 Connection to Artificial Intelligence
 ------------------------------------------------------
 
@@ -151,7 +167,6 @@ Challenge
 
 Timeline of the Language/Type System Pendulum
 ------------------------------------------------------
-=============================================
 
 - Since mid 1980s: statically typed OO languages: C++, Java, C#
 

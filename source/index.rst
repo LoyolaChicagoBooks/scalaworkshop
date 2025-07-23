@@ -53,14 +53,8 @@ Acknowledgments
    05-intro/intro.rst
    10-install/install.rst
    20-essentials/essentials.rst
-   30-datastructures/datastructures.rst
    35-datascience/datascience.rst
    40-buildtools/buildtools.rst
-   50-webservices/webservices.rst
-   60-android/android.rst
-   70-parallel/parallel.rst
-   80-actors/actors.rst
-   90-pl/pl.rst
    99-speakers/speakers.rst
 
 
