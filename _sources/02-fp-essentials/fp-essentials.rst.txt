@@ -6,6 +6,11 @@ Functional Programming Essentials
 Early History of Programming Languages
 ------------------------------------------------------
 
+.. note::
+   Interested in computing history? 
+   See George's salon talk at https://ecommons.luc.edu/cs_facpubs/417/
+   and Mini-History of Computing at https://ecommons.luc.edu/cs_facpubs/103/.
+
 - 1940s: machine languages → binary code
 - 1950s: assembly languages → mnemonics and symbols
 - Late 1950s: 3GLs → abstraction and portability (FORTRAN, ALGOL, COBOL, LISP)
