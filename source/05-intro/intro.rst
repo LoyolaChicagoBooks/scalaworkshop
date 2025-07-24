@@ -89,6 +89,12 @@ Tease - Filtered by Aim of Language
 
 This Scala script shows how to filter the general-purpose languages, excluding those primarily focused on web, mobile, and shell programming.
 
+.. note::
+   The comment lines you see here are not GPT comments.
+   The first demonstrates that Scala can now be fully utilized for Unix scripting using the 
+   `shebang or hash bang syntax <https://en.wikipedia.org/wiki/Shebang_(Unix)>`_.
+   The second specifies the Scala compiler backend to use for executing the script.
+
 .. code-block:: scala
 
    #!/usr/bin/env scala
