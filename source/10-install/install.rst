@@ -68,7 +68,7 @@ Installing Java and Scala
 -------------------------
 
 Once SDKMAN! is installed, you can use it to install Java and Scala.
-We recommend using the latest stable long-term support (LTS) versions of Java (version 21) and the latest version of Scala (version 3.7.0).
+We recommend using the latest stable long-term support (LTS) versions of Java (version 25) and the latest LTS version of Scala (version 3.3.7).
 
 1. Open a terminal.
 2. Run the following commands to install Java and Scala:
