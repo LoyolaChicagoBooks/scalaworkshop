@@ -104,8 +104,10 @@
 <div id="content" role="main">
 <section id="data-science-with-scala-and-smile">
 <h1>Data Science with Scala and Smile<a class="headerlink" href="#data-science-with-scala-and-smile" title="Link to this heading">¶</a></h1>
+<p><span class="xref std std-doc">Activity for this section</span></p>
 <section id="monte-carlo-simulation">
 <h2>Monte Carlo Simulation<a class="headerlink" href="#monte-carlo-simulation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#monte-carlo-simulation'">¶</a></h2>
+<p><a class="reference external" href="https://github.com/LoyolaChicagoBooks/introds-scala-examples/tree/main/montecarlo-scala">Complete source code on GitHub</a></p>
 <p>This example shows how to use the Monte Carlo method to estimate the area of a circle, recast as data-driven instead of memory-driven to show how to do basic dataset generation and analysis.</p>
 <p>First, we’ll look at the code for generating a data file for the Monte Carlo simulation, given the desired number of darts.
 The resulting file consisting the x- and y-coordinates of each dart along with a boolean flag indicating whether or not the dart landed inside the circle.</p>
@@ -218,6 +220,7 @@ These conversions are not strictly needed unless we want to interact with these 
 </section>
 <section id="graffiti-311-chicago-data-portal">
 <h2>Graffiti/311 Chicago Data Portal<a class="headerlink" href="#graffiti-311-chicago-data-portal" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#graffiti-311-chicago-data-portal'">¶</a></h2>
+<p><a class="reference external" href="https://github.com/LoyolaChicagoBooks/introds-scala-examples/tree/main/311-case-study-scala">Complete source code on GitHub</a></p>
 <p>This example aims to introduce Scala + Smile with a compelling example from our hometown of Chicago. <em>Well, it could be any city!</em></p>
 <p>The Chicago Data Portal Graffiti/311 example  provides a lightweight, scriptable toolkit for analyzing graffiti-related 311 service requests in the City of Chicago. Using Scala and command-line tools, the system allows users to inspect, filter, aggregate, and visualize graffiti complaint data efficiently—even on large files.</p>
 <p>While graffiti is often–and wrongly–perceived as a cosmetic or quality-of-life issue, tracking and understanding patterns in graffiti reports can reveal deeper insights into urban infrastructure, neighborhood disinvestment, and resident engagement.</p>
@@ -288,8 +291,8 @@ from the City of Chicago’s open data portal.</p></li>
 <h3>Implementation<a class="headerlink" href="#implementation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#implementation'">¶</a></h3>
 <section id="downloader">
 <h4>Downloader<a class="headerlink" href="#downloader" title="Link to this heading">¶</a></h4>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
 </span><span id="line-3"><span class="linenos"> 3</span>
 </span><span id="line-4"><span class="linenos"> 4</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">io</span><span class="p">.{</span><span class="nc">BufferedInputStream</span><span class="p">,</span><span class="w"> </span><span class="nc">FileOutputStream</span><span class="p">}</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">net</span><span class="p">.</span><span class="nc">URI</span>
@@ -324,9 +327,9 @@ from the City of Chicago’s open data portal.</p></li>
 </section>
 <section id="loader">
 <h4>Loader<a class="headerlink" href="#loader" title="Link to this heading">¶</a></h4>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
-</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.1"</span>
 </span><span id="line-4"><span class="linenos"> 4</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.{</span><span class="nc">Files</span><span class="p">,</span><span class="w"> </span><span class="nc">Paths</span><span class="p">}</span>
 </span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">charset</span><span class="p">.</span><span class="nc">StandardCharsets</span>
@@ -364,9 +367,9 @@ from the City of Chicago’s open data portal.</p></li>
 <h4>Filtering<a class="headerlink" href="#filtering" title="Link to this heading">¶</a></h4>
 <p>This shows how to filter based on some criteria.
 In this case, we are filtering dates/status of a particular report.</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
-</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.1"</span>
 </span><span id="line-4"><span class="linenos"> 4</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.{</span><span class="nc">Files</span><span class="p">,</span><span class="w"> </span><span class="nc">Paths</span><span class="p">}</span>
 </span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">charset</span><span class="p">.</span><span class="nc">StandardCharsets</span>
@@ -381,8 +384,8 @@ In this case, we are filtering dates/status of a particular report.</p>
 </span><span id="line-15"><span class="linenos">15</span><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span>
 </span><span id="line-16"><span class="linenos">16</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"input"</span><span class="p">,</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'i'</span><span class="p">)</span><span class="w"> </span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span>
 </span><span id="line-17"><span class="linenos">17</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"status"</span><span class="p">,</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'s'</span><span class="p">)</span><span class="w"> </span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Completed"</span><span class="p">,</span>
-</span><span id="line-18"><span class="linenos">18</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"start-date"</span><span class="p">)</span><span class="w"> </span><span class="n">startDate</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"2025-01-01"</span><span class="p">,</span>
-</span><span id="line-19"><span class="linenos">19</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"end-date"</span><span class="p">)</span><span class="w"> </span><span class="n">endDate</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"2025-01-31"</span><span class="p">,</span>
+</span><span id="line-18"><span class="linenos">18</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"start-date"</span><span class="p">)</span><span class="w"> </span><span class="n">startDate</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"2000-01-01"</span><span class="p">,</span>
+</span><span id="line-19"><span class="linenos">19</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"end-date"</span><span class="p">)</span><span class="w"> </span><span class="n">endDate</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"2025-12-31"</span><span class="p">,</span>
 </span><span id="line-20"><span class="linenos">20</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"limit"</span><span class="p">,</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'l'</span><span class="p">)</span><span class="w"> </span><span class="n">limit</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
 </span><span id="line-21"><span class="linenos">21</span><span class="w">    </span><span class="nd">@arg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"count-only"</span><span class="p">,</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"If set, only print number of matching rows"</span><span class="p">)</span><span class="w"> </span><span class="n">countOnly</span><span class="p">:</span><span class="w"> </span><span class="nc">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 </span><span id="line-22"><span class="linenos">22</span><span class="w">  </span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span>
@@ -419,9 +422,9 @@ In this case, we are filtering dates/status of a particular report.</p>
 </section>
 <section id="aggregation">
 <h4>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading">¶</a></h4>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
-</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.1"</span>
 </span><span id="line-4"><span class="linenos"> 4</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.{</span><span class="nc">Files</span><span class="p">,</span><span class="w"> </span><span class="nc">Paths</span><span class="p">}</span>
 </span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">charset</span><span class="p">.</span><span class="nc">StandardCharsets</span>
@@ -458,9 +461,9 @@ In this case, we are filtering dates/status of a particular report.</p>
 </section>
 <section id="visualization">
 <h4>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">¶</a></h4>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
-</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.1"</span>
 </span><span id="line-4"><span class="linenos"> 4</span><span class="c1">//&gt; using dep "org.knowm.xchart:xchart:3.8.8"</span>
 </span><span id="line-5"><span class="linenos"> 5</span>
 </span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.{</span><span class="nc">Files</span><span class="p">,</span><span class="w"> </span><span class="nc">Paths</span><span class="p">}</span>
@@ -511,9 +514,9 @@ In this case, we are filtering dates/status of a particular report.</p>
 </section>
 <section id="reproducibility">
 <h4>Reproducibility<a class="headerlink" href="#reproducibility" title="Link to this heading">¶</a></h4>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
-</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.1"</span>
 </span><span id="line-4"><span class="linenos"> 4</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.{</span><span class="nc">Files</span><span class="p">,</span><span class="w"> </span><span class="nc">Paths</span><span class="p">}</span>
 </span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">charset</span><span class="p">.</span><span class="nc">StandardCharsets</span>
