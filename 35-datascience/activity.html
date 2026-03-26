@@ -21,9 +21,9 @@
 <meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="#030711" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Web Application and Services | Type-Safe Functional Programming for Computer and Data Science v1.0.3</title>
-<meta content="Web Application and Services | Type-Safe Functional Programming for Computer and Data Science v1.0.3" property="og:title"/>
-<meta content="Web Application and Services | Type-Safe Functional Programming for Computer and Data Science v1.0.3" name="twitter:title"/>
+<title>Activity for Data Science with Scala and Smile | Type-Safe Functional Programming for Computer and Data Science v1.0.3</title>
+<meta content="Activity for Data Science with Scala and Smile | Type-Safe Functional Programming for Computer and Data Science v1.0.3" property="og:title"/>
+<meta content="Activity for Data Science with Scala and Smile | Type-Safe Functional Programming for Computer and Data Science v1.0.3" name="twitter:title"/>
 <link href="../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
 <link href="../_static/theme.css?v=73505e79" rel="stylesheet" type="text/css"/>
 <link href="../search.html" rel="search" title="Search"/>
@@ -75,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../05-intro/intro.html">About Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-install/install.html">Installing Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20-essentials/essentials.html">Scala Essentials for Introductory CS and DS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../35-datascience/datascience.html">Data Science with Scala and Smile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datascience.html">Data Science with Scala and Smile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../40-buildtools/buildtools.html">Build Tools for Scala</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../99-speakers/speakers.html">About the Speakers</a></li>
 </ul>
@@ -97,190 +97,70 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Web Application and Services</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Activity for Data Science with Scala and Smile</span>
 </nav>
 <div id="content" role="main">
-<section id="web-application-and-services">
-<h1>Web Application and Services<a class="headerlink" href="#web-application-and-services" title="Link to this heading">¶</a></h1>
-<section id="professional-context">
-<h2>Professional Context<a class="headerlink" href="#professional-context" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#professional-context'">¶</a></h2>
-<p><em>Disclaimer: I am not affiliated in any form with Typesafe.</em></p>
-<p>In this section, we discuss how Scala can enhance the pedagogy in
-certain foundational and applied advanced courses. Given that the
-majority of students coming out of our undergraduate and graduate
-programs find jobs in local and global industry, we place considerable
-emphasis on professional practice.</p>
-<p>To this end, we draw on several (local and global) resources:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod">Uncle Bob</a></p></li>
-<li><p><a class="reference external" href="http://www.thoughtworks.com/radar">ThoughtWorks Technology Radar</a></p></li>
-<li><p><a class="reference external" href="http://www.se-radio.net">IEEE Software’s Software Engineering Radio</a></p></li>
-</ul>
-<p>We attempt to strike a balance among solid foundational knowledge,
-state-of-the-art technology, and job market demands. In particular, we
-have adopted the following rule for our advanced courses and research
-projects: <em>new code in Java (the language, as opposed to the
-platform)</em>.</p>
-<p>We also strive to choose technologies that scale properly. Here, the
-typical startup story goes like this: Implement in RoR, oops, it
-doesn’t scale, then redo in guess what language? There are an
-increasing number of good language and platform choices here, and in
-our experience, Scala is one of them.</p>
-<p>The job market is also increasingly interested in Scala. <a class="reference external" href="http://jobs.cs.luc.edu/post/41214148685/telecommuting-internships-and-full-time-positions-at">Here</a>
-is an interesting local internship ad.</p>
+<section id="activity-for-data-science-with-scala-and-smile">
+<h1>Activity for Data Science with Scala and Smile<a class="headerlink" href="#activity-for-data-science-with-scala-and-smile" title="Link to this heading">¶</a></h1>
+<section id="obtain-the-source-code-for-this-activity">
+<h2>Obtain the source code for this activity<a class="headerlink" href="#obtain-the-source-code-for-this-activity" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#obtain-the-source-code-for-this-activity'">¶</a></h2>
+<p>Check out the source code</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/LoyolaChicagoBooks/introds-scala-examples
+</span></code></pre></div>
+</div>
+<p>or download and unzip</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">$<span class="w"> </span>wget<span class="w"> </span>https://github.com/LoyolaChicagoBooks/introds-scala-examples/archive/refs/heads/main.zip
+</span><span id="line-2">$<span class="w"> </span>unzip<span class="w"> </span>main.zip
+</span></code></pre></div>
+</div>
+<p>Then navigate to the <code class="docutils literal notranslate"><span class="pre">montecarlo-scala</span></code> directory for the Monte Carlo simulation code, and the <code class="docutils literal notranslate"><span class="pre">311-case-study-scala</span></code> directory for the 311 case study code.</p>
 </section>
-<section id="curricular-context">
-<h2>Curricular Context<a class="headerlink" href="#curricular-context" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#curricular-context'">¶</a></h2>
-<p>Starting in 2010, we have been incorporating Scala into several of
-these courses, taught mostly by Konstantin and experienced
-professionals serving as adjuncts.</p>
+<section id="monte-carlo-challenge">
+<h2>Monte Carlo challenge<a class="headerlink" href="#monte-carlo-challenge" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#monte-carlo-challenge'">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/473">COMP 373/473: Advanced Object-Oriented Development</a>,
-using Scala since spring 2010, planning to add Android in spring 2014</p></li>
-<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/372">COMP 372/471: Theory (and Practice) of Programming Languages</a>,
-using Haskell (and some F#) since fall 2010</p></li>
-<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/442">COMP 338/442: Server-Side Software Development</a>
-(focusing on web applications), using Scala with the
-<a class="reference external" href="http://www.playframework.com/">Play! framework</a> since fall 2010</p></li>
-<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/433">COMP 388/433: Web Services Development</a>,
-using Scala with the <a class="reference external" href="http://spray.io">spray toolkit</a>
-since spring 2011</p></li>
-<li><p><a class="reference external" href="http://laufer.cs.luc.edu/teaching/313">COMP 313/413: Intermediate Object-Oriented Development</a>
-(focusing on software design and architecture), using Java with Android since fall 2012,
-considering the addition of Scala down the road</p></li>
+<li><p>Verify that you can run the Monte Carlo simulation code for estimating the area of a circle, and understand how it works. (Refer to the README file in the <code class="docutils literal notranslate"><span class="pre">montecarlo-scala</span></code> directory for instructions on how to run the code.)</p></li>
+<li><p>Determine how many darts (as a power of 10) you need to throw to get a good estimate of the area of the circle, defined as accurate when rounded to the first two decimal places, e.g.,</p>
+<ul>
+<li><p>3.12017 rounded to 3.12 (FAIL)</p></li>
+<li><p>3.14159 rounded to 3.14 (PASS)</p></li>
+<li><p>3.14859 rounded to 3.15 (FAIL)</p></li>
 </ul>
-</section>
-<section id="why-scala">
-<h2>Why Scala?<a class="headerlink" href="#why-scala" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#why-scala'">¶</a></h2>
-<p>In our experience, Scala can help with the pedagogy of advanced
-applied courses in multiple ways:</p>
-<ul class="simple">
-<li><p>less boilerplate</p></li>
-<li><p>focus on deep concepts</p></li>
-<li><p>focus on good practices</p></li>
-</ul>
-<p>In the remainder of this section, we will give an overview of web
-application and web service development in Scala and contrast the
-experience with the corresponding Java-based techniques.</p>
-</section>
-<section id="web-applications">
-<h2>Web Applications<a class="headerlink" href="#web-applications" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#web-applications'">¶</a></h2>
-<p>The predominant web application frameworks targeting Scala are <a class="reference external" href="http://liftweb.net">Lift</a> and <a class="reference external" href="http://playframework.com">Play!</a>.
-Typesafe has adopted the latter as part of its <a class="reference external" href="http://typesafe.com/stack">official stack</a>, and we had actually started to use
-Play! in our course before Typesafe’s decision was known.</p>
-<p>The primary concerns in the development of web application for human
-users—as opposed to a web service for programmatic consumption—are</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>views</dt><dd><ul>
-<li><p>presentation</p></li>
-<li><p>visual styles</p></li>
-<li><p>layout</p></li>
-<li><p>navigation</p></li>
-<li><p>i18n</p></li>
-</ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>controllers</dt><dd><ul>
-<li><p>validation</p></li>
-<li><p>authentication</p></li>
-<li><p>dynamic behavior/interaction/state</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>models</dt><dd><ul>
-<li><p>services</p></li>
-<li><p>domain model</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>persistence</dt><dd><ul>
-<li><p>database technologies</p></li>
-<li><p>mapping domain object to persistent storage</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>testing</dt><dd><ul>
-<li><p>unit testing</p></li>
-<li><p>integration testing</p></li>
-<li><p>functional testing</p></li>
-<li><p>acceptance testing</p></li>
-<li><p>performance/load testing</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>When using a Java-based stack, we typically address these concerns
-with a stack tied together by a dependency-injection framework such as
-Spring and an object-relational mapper (ORM) such as Hibernate, along
-with a MVC framework for the upper layers.</p>
-<p>When using a Scala-based stack, we an express an equivalent
-architecture much more concisely and using language mechanisms instead
-of requiring a DI framework.</p>
-<section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#examples'">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/webapps-cs-luc-edu/linreg-stripes-spring-maven">Linear regression in Java with Spring, Stripes, and maven</a></p></li>
-<li><p><a class="reference external" href="https://github.com/webapps-cs-luc-edu/todolist-play-scala">To-do list in Scala with Play!</a></p></li>
-<li><p><a class="reference external" href="http://laufer-todolist-play-scala.herokuapp.com">Live version of the to-do list deployed to the cloud</a></p></li>
+<li><p>Study the source code and understand how the data is generated and analyzed. In particular, understand what role the Smile library plays in each stage of the process.</p></li>
 </ul>
 </section>
-</section>
-<section id="web-services">
-<h2>Web Services<a class="headerlink" href="#web-services" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#web-services'">¶</a></h2>
-<p>As opposed to the Simple Object Access Protocol (SOAP), we will focus
-on representational state transfer (REST), which has emerged as the
-preferred approach of the broader agile community.</p>
-<p>The implementing-rest community has put together a helpful
-<a class="reference external" href="https://code.google.com/p/implementing-rest/wiki/ByLanguage">language matrix</a>
-of REST libraries, toolkits, and frameworks. Typesafe’s stack does not
-yet include strong support for RESTful web services in the sense of
-a high-level DSL for request routing, which is where some of the
-choices in the language matrix come into the picture.</p>
-<p>We have picked <a class="reference external" href="http://spray.io">spray</a> not only because the author is from
-Konstantin’s home town but also because it is:</p>
-<ul class="simple">
-<li><p>concise</p></li>
-<li><p>flexible</p></li>
-<li><p>type-safe</p></li>
-<li><p>focus on HTTP and request routing</p></li>
-<li><p>more and more widely used and supported</p></li>
+<section id="case-study-challenge">
+<h2>311 case study challenge<a class="headerlink" href="#case-study-challenge" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#case-study-challenge'">¶</a></h2>
+<ul>
+<li><p>Find out which options the <code class="docutils literal notranslate"><span class="pre">FilterGraffitiData.scala</span></code> program accepts by running it with the <code class="docutils literal notranslate"><span class="pre">--help</span></code> option, e.g.,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">scala-cli<span class="w"> </span>FilterGraffitiData.scala<span class="w"> </span>--<span class="w"> </span>--help
+</span></code></pre></div>
+</div>
+</li>
+<li><p>Filter the data based on various criteria, such as status, e.g.,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">scala-cli<span class="w"> </span>FilterGraffitiData.scala<span class="w"> </span>--<span class="w"> </span>-i<span class="w"> </span>dataset/311_graffiti.csv<span class="w"> </span>-s<span class="w"> </span><span class="s1">'Open'</span>
+</span></code></pre></div>
+</div>
+<p>This might show only a few matches, so try again with other status values (look at the dataset to see what other status values are available) and a higher number of records to show, e.g.,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">scala-cli<span class="w"> </span>FilterGraffitiData.scala<span class="w"> </span>--<span class="w"> </span>-i<span class="w"> </span>dataset/311_graffiti.csv<span class="w"> </span>-s<span class="w"> </span><span class="s1">'Open'</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1000</span>
+</span></code></pre></div>
+</div>
+</li>
+<li><p>Attempt to reproduce the visualization by running the <code class="docutils literal notranslate"><span class="pre">VisualizeGraffitiData.scala</span></code> program, e.g.,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code><span id="line-1">scala-cli<span class="w"> </span>VisualizeGraffitiData.scala<span class="w"> </span>--<span class="w"> </span>-i<span class="w"> </span>dataset/311_graffiti.csv
+</span></code></pre></div>
+</div>
+</li>
+<li><p>Study the source code and understand how the data is generated and analyzed. In particular, understand what role the Smile library plays in each stage of the process.</p></li>
 </ul>
-<p>Scala and Spray are supported by <a class="reference external" href="https://devcenter.heroku.com/articles/scala">Heroku</a>
-and several other newer APaaS cloud providers. Deploying a service to the cloud requires
-a simple Git commit; this makes it possible to achieve continuous delivery.</p>
-<section id="id1">
-<h3>Examples<a class="headerlink" href="#id1" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id1'">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/webservices-cs-luc-edu/bookmarks-restlet-spring-java">Social bookmarking example based on Java with the Restlet framework</a></p></li>
-<li><p><a class="reference external" href="https://github.com/webservices-cs-luc-edu/primenumbers-spray-scala">Prime number checker based on Scala with spray</a></p></li>
-</ul>
-</section>
 </section>
 </section>
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] h-full overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
-<li><a :data-current="activeSection === '#professional-context'" class="reference internal" href="#professional-context">Professional Context</a></li>
-<li><a :data-current="activeSection === '#curricular-context'" class="reference internal" href="#curricular-context">Curricular Context</a></li>
-<li><a :data-current="activeSection === '#why-scala'" class="reference internal" href="#why-scala">Why Scala?</a></li>
-<li><a :data-current="activeSection === '#web-applications'" class="reference internal" href="#web-applications">Web Applications</a><ul>
-<li><a :data-current="activeSection === '#examples'" class="reference internal" href="#examples">Examples</a></li>
-</ul>
-</li>
-<li><a :data-current="activeSection === '#web-services'" class="reference internal" href="#web-services">Web Services</a><ul>
-<li><a :data-current="activeSection === '#id1'" class="reference internal" href="#id1">Examples</a></li>
-</ul>
-</li>
+<li><a :data-current="activeSection === '#obtain-the-source-code-for-this-activity'" class="reference internal" href="#obtain-the-source-code-for-this-activity">Obtain the source code for this activity</a></li>
+<li><a :data-current="activeSection === '#monte-carlo-challenge'" class="reference internal" href="#monte-carlo-challenge">Monte Carlo challenge</a></li>
+<li><a :data-current="activeSection === '#case-study-challenge'" class="reference internal" href="#case-study-challenge">311 case study challenge</a></li>
 </ul>
 </div>
 </aside>
