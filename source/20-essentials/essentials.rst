@@ -6,7 +6,7 @@ Scala Essentials for Introductory CS and DS
 This is an elaboration of our Google presentation slides: http://goo.gl/Q68fA.
 
 
-:doc:`Activity for this section </20-essentials/activity>`
+:doc:`Activity for this section <activity>`
 
 
 Motivating Scala for Introductory CS and DS

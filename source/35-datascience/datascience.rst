@@ -1,8 +1,14 @@
 Data Science with Scala and Smile 
 ##################################
 
+
+:doc:`Activity for this section <activity>`
+
+
 Monte Carlo Simulation
 ------------------------------------------------
+
+`Complete source code on GitHub <https://github.com/LoyolaChicagoBooks/introds-scala-examples/tree/main/montecarlo-scala>`_
 
 This example shows how to use the Monte Carlo method to estimate the area of a circle, recast as data-driven instead of memory-driven to show how to do basic dataset generation and analysis.
 
@@ -50,6 +56,8 @@ These conversions are not strictly needed unless we want to interact with these 
 
 Graffiti/311 Chicago Data Portal
 -----------------------------------
+
+`Complete source code on GitHub <https://github.com/LoyolaChicagoBooks/introds-scala-examples/tree/main/311-case-study-scala>`_
 
 This example aims to introduce Scala + Smile with a compelling example from our hometown of Chicago. *Well, it could be any city!*
 
