@@ -53,7 +53,7 @@ Monte Carlo challenge
 
   .. code-block:: bash
 
-     scala-cli FilterGraffitiData.scala -- -i dataset/311_graffiti.csv -s 'Open' -l 1000
+     scala-cli FilterGraffitiData.scala -- -l 1000 -i dataset/311_graffiti.csv -s 'Open'
  
 - Attempt to reproduce the visualization by running the ``VisualizeGraffitiData.scala`` program, e.g.,
 
