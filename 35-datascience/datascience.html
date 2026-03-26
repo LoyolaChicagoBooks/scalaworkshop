@@ -288,8 +288,8 @@ from the City of Chicago’s open data portal.</p></li>
 <h3>Implementation<a class="headerlink" href="#implementation" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#implementation'">¶</a></h3>
 <section id="downloader">
 <h4>Downloader<a class="headerlink" href="#downloader" title="Link to this heading">¶</a></h4>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
 </span><span id="line-3"><span class="linenos"> 3</span>
 </span><span id="line-4"><span class="linenos"> 4</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">io</span><span class="p">.{</span><span class="nc">BufferedInputStream</span><span class="p">,</span><span class="w"> </span><span class="nc">FileOutputStream</span><span class="p">}</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">net</span><span class="p">.</span><span class="nc">URI</span>
@@ -324,9 +324,9 @@ from the City of Chicago’s open data portal.</p></li>
 </section>
 <section id="loader">
 <h4>Loader<a class="headerlink" href="#loader" title="Link to this heading">¶</a></h4>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
-</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.1"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
 </span><span id="line-4"><span class="linenos"> 4</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.{</span><span class="nc">Files</span><span class="p">,</span><span class="w"> </span><span class="nc">Paths</span><span class="p">}</span>
 </span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">charset</span><span class="p">.</span><span class="nc">StandardCharsets</span>
@@ -364,9 +364,9 @@ from the City of Chicago’s open data portal.</p></li>
 <h4>Filtering<a class="headerlink" href="#filtering" title="Link to this heading">¶</a></h4>
 <p>This shows how to filter based on some criteria.
 In this case, we are filtering dates/status of a particular report.</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
-</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.1"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
 </span><span id="line-4"><span class="linenos"> 4</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.{</span><span class="nc">Files</span><span class="p">,</span><span class="w"> </span><span class="nc">Paths</span><span class="p">}</span>
 </span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">charset</span><span class="p">.</span><span class="nc">StandardCharsets</span>
@@ -419,9 +419,9 @@ In this case, we are filtering dates/status of a particular report.</p>
 </section>
 <section id="aggregation">
 <h4>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading">¶</a></h4>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.7"</span>
-</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.8"</span>
-</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.1"</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="linenos"> 1</span><span class="c1">//&gt; using scala "3.3.5"</span>
+</span><span id="line-2"><span class="linenos"> 2</span><span class="c1">//&gt; using dep "com.lihaoyi::mainargs:0.7.6"</span>
+</span><span id="line-3"><span class="linenos"> 3</span><span class="c1">//&gt; using dep "org.apache.commons:commons-csv:1.14.0"</span>
 </span><span id="line-4"><span class="linenos"> 4</span>
 </span><span id="line-5"><span class="linenos"> 5</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">file</span><span class="p">.{</span><span class="nc">Files</span><span class="p">,</span><span class="w"> </span><span class="nc">Paths</span><span class="p">}</span>
 </span><span id="line-6"><span class="linenos"> 6</span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">nio</span><span class="p">.</span><span class="nn">charset</span><span class="p">.</span><span class="nc">StandardCharsets</span>
