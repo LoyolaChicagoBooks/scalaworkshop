@@ -1,6 +1,6 @@
 #!/usr/bin/env scala
 
-//> using scala "3.4.2"
+//> using scala "3.3.7"
 
 case class Language(originalRank: Int, name: String, category: String)
 
@@ -26,29 +26,26 @@ val languageData =
     |19, Rust, General
     |19, Dart, Mobile""".stripMargin
 
-val allLanguages: Iterator[Language] = languageData.linesIterator
-  .map { line =>
+val allLanguages: Iterator[Language] = languageData
+  .linesIterator
+  .map: line =>
     val parts = line.split(",").map(text => text.trim)
     val rank = parts(0).toInt
     val name = parts(1)
     val category = parts(2)
     Language(rank, name, category)
-  }
 
 val generalPurposeLanguages: Iterator[(Language, Int)] = allLanguages
-  .filter { language =>
+  .filter: language =>
     language.category.equalsIgnoreCase("general")
-  }
   .zipWithIndex
 
 println("General-purpose languages:")
 println(f"${"GeneralRank"}%-12s ${"OriginalRank"}%-13s ${"Language"}")
 println("-" * 40)
 
-for ((language, generalIndex) <- generalPurposeLanguages) {
+for ((language, generalIndex) <- generalPurposeLanguages) do
   val generalRank = generalIndex + 1
   val originalRank = language.originalRank
   val name = language.name
   println(f"#$generalRank%-11d #$originalRank%-12d $name")
-}
-
