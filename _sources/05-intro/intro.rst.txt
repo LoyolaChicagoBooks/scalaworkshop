@@ -27,6 +27,9 @@ solving. We hope you agree!
 
 Source is Wikimedia Commons [LaScala]_
 
+`JetBrains Scala Roadmap 2026 <https://roadmap.sh/scala>`_
+
+
 Why Scala?
 ---------------
 
@@ -36,9 +39,11 @@ Scala can also be an effective choice for learning computer science.
 
 *But what about Python, R, or Julia?*
 
-Unlike those dynamically typed languages --  which we use in our research, too -- Scala is statically typed, which means that type errors are caught at compile time rather than at runtime. 
-This typically helps with both reliability and performance.
-Because Scala's type system is mostly implicit, we can use Scala in a way that is similarly concise and expressive as Python, but with the above-mentioned benefits of static typing.
+Both Python and Scala have vast ecosystems and are widely used in data science, with Python being more popular for general-purpose programming and data science, while Scala is often favored for big data processing and functional programming. R is primarily used for statistical analysis and visualization, while Julia is designed for high-performance numerical computing. The choice between these languages often depends on the specific requirements of the project, the existing ecosystem, and the programmer's familiarity with the language.
+
+Unlike Python, R, and Julia, which are dynamically typed languages, Scala is statically typed, which means that type errors are caught at compile time rather than at runtime.
+This helps with both reliability and performance, as costly runtime type checking is no longer necessary. 
+In addition, because Scala's type system is mostly implicit, we can use Scala in a way that is similarly concise and expressive as Python, but with the above-mentioned benefits of static typing.
 
 Scala thereby addresses the *P3* concerns of performance, portability, and
 productivity in high-performance computing.
@@ -125,31 +130,29 @@ This Scala script shows how to filter the general-purpose languages, excluding t
        |19, Rust, General
        |19, Dart, Mobile""".stripMargin
    
-   val allLanguages: Iterator[Language] = languageData.linesIterator
-     .map { line =>
+   val allLanguages: Iterator[Language] = languageData
+     .linesIterator
+     .map: line =>
        val parts = line.split(",").map(text => text.trim)
        val rank = parts(0).toInt
        val name = parts(1)
        val category = parts(2)
        Language(rank, name, category)
-     }
    
    val generalPurposeLanguages: Iterator[(Language, Int)] = allLanguages
-     .filter { language =>
+     .filter: language =>
        language.category.equalsIgnoreCase("general")
-     }
      .zipWithIndex
    
    println("General-purpose languages:")
    println(f"${"GeneralRank"}%-12s ${"OriginalRank"}%-13s ${"Language"}")
    println("-" * 40)
    
-   for ((language, generalIndex) <- generalPurposeLanguages) {
+   for ((language, generalIndex) <- generalPurposeLanguages) do
      val generalRank = generalIndex + 1
      val originalRank = language.originalRank
      val name = language.name
      println(f"#$generalRank%-11d #$originalRank%-12d $name")
-   }
 
 
 .. code-block:: text
@@ -207,21 +210,22 @@ The first version shown was aimed at clarity. As you write more Scala, you will 
        |19, Rust, General
        |19, Dart, Mobile""".stripMargin
    
-   val generalLanguages = data.linesIterator
-     .map { line =>
+   val generalLanguages = data
+     .linesIterator
+     .map: line =>
        val parts = line.split(",").map(_.trim)
        Language(parts(0).toInt, parts(1), parts(2))
      }
-     .filter { language => language.category.equalsIgnoreCase("general") }
+     .filter: language => 
+       language.category.equalsIgnoreCase("general")
      .zipWithIndex
    
    println("General-purpose languages:")
    println(f"${"GeneralRank"}%-12s ${"OriginalRank"}%-13s ${"Language"}")
    println("-" * 40)
    
-   for ((language, index) <- generalLanguages) {
+   for ((language, index) <- generalLanguages) do
      println(f"#${index + 1}%-11d #${language.originalRank}%-12d ${language.name}")
-   }
 
 
 Technology Radar
