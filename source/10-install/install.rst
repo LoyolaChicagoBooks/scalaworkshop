@@ -55,7 +55,7 @@ macOS and Linux
 
       sdk version
 
-If you are on a newer version of MacOS without ``bash``, these instructions are unlikely to work for you, i.e., step 2 reports
+If you are on a newer version of MacOS without ``bash``, these instructions are unlikely to work for you, i.e., step 2 might instruct you to install bash via Homebrew or report
 
 .. code-block:: bash
 
