@@ -38,22 +38,36 @@ macOS and Linux
 1. Open a terminal.
 2. Run the following command to install SDKMAN!:
 
-  .. code-block:: bash
+   .. code-block:: bash
 
-    curl -s "https://get.sdkman.io" | bash
+      curl -s "https://get.sdkman.io" | bash
 
 3. Follow the on-screen instructions to complete the installation.
 4. Restart your terminal or run:
 
-  .. code-block:: bash
+   .. code-block:: bash
 
-    source "$HOME/.sdkman/bin/sdkman-init.sh"
+      source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 5. Verify the installation by running:
 
-  .. code-block:: bash
+   .. code-block:: bash
 
-    sdk version
+      sdk version
+
+If you are on a newer version of MacOS without ``bash``, these instructions are unlikely to work for you, i.e., step 2 reports
+
+.. code-block:: bash
+
+   'exit 1': command failed with exit code 1.
+
+In this case, please replace step 2 with the following commands:
+
+.. code-block:: bash
+
+   rm -rf ~/.sdkman /tmp/sdkman-install.sh
+   curl -fsSL "https://get.sdkman.io" -o /tmp/sdkman-install.sh
+   zsh -f -o nonomatch /tmp/sdkman-install.sh
 
 
 Windows
